@@ -1,0 +1,149 @@
+:root {
+    --primaryColour: #6b29ef;
+    --secondaryColour: #b494f7;
+    --primaryBackgroundColour: #262626;
+    --secondaryBackgroundColour: #424242;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: var(--primaryBackgroundColour);
+    margin-bottom: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 16px);
+    padding: 10px;
+    background-color: var(--secondaryBackgroundColour);
+}
+
+a {
+    color: var(--secondaryColour);
+}
+
+.desktop {
+    display: unset;
+}
+
+.mobile {
+    display: none;
+}
+
+.left {
+    text-align: left!important;
+}
+
+.center {
+    text-align: center!important;
+}
+
+.right {
+    text-align: right!important;
+}
+
+.card {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.skipTo {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    margin: 5px;
+    padding: 20px;
+    text-decoration: none;
+    background-color: var(--primaryColour);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.skipTo:focus, .skipTo:active {
+    left: 0;
+}
+
+.headerRight {
+    float: right;
+    height: 100%;
+}
+
+.headerButton {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+.headerButton.selected {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.headerButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.headerButton.logo {
+    margin: unset;
+    padding: unset;
+}
+
+.headerButton.logo:hover {
+    background-color: unset;
+}
+
+#headerLogo {
+    height: 50px;
+}
+
+main {
+    margin: 20px;
+    margin-top: 100px;
+    min-height: calc(100vh - 100px);
+    color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+footer {
+    width: calc(100% - 4px);
+    margin: -8px;
+    margin-bottom: -16px;
+    padding: 10px;
+    background-color: var(--primaryColour);
+    color: white;
+}
+
+@media (max-width: 800px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: unset;
+    }
+
+    main {
+        width: calc(100vw - 54px)!important;
+        padding-left: unset;
+        padding-right: unset;
+    }
+}
+
+@media (max-width: 400px) {
+    .headerButton {
+        font-size: 16px;
+    }
+}
