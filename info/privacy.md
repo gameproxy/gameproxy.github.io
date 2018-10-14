@@ -5,7 +5,7 @@ If you choose to use GameProxy's products and services, then you agree to the co
 The terms used in this Privacy Policy have the same meanings as in GameProxy's Terms And Conditions, unless otherwise defined in this Privacy Policy.
 
 ## Information Collection And Use
-For a better experience while using GameProxy's products and services, GameProxy may require you to provide them with certain personally identifiable information, including but not limited to e-mails and website user viewing data. The information that GameProxy requests is stored on Google’s servers and sensitive data (for example, your password) is not accessible by GameProxy.
+For a better experience while using GameProxy's products and services, GameProxy may require you to provide them with certain personally identifiable information, including but not limited to emails and website user viewing data. The information that GameProxy requests is stored on Google’s servers and sensitive data (for example, your password) is not accessible by GameProxy.
 
 GameProxy's products and services use third party services that may collect information used to identify you. It is advised you read the respected privacy policies of these products. GameProxy can disclose any third parties that are affected by contacting them at [james@liveg.tech](mailto:james@liveg.tech).
 
