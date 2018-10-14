@@ -3,21 +3,21 @@ function change(user) {
         if (user && user.uid != currentUid) {
             // Sign in operation.
             document.getElementById("signIn").style.display = "none";
-            document.getElementById("signUp").style.display = "none";
+            document.getElementById("signUp").style.display = "none";console.log(user.uid);
 
-            $(".signedIn").show();
-            $(".notSignedIn").hide();
+            $(".signedIn").css("display", "block");
+            $(".notSignedIn").css("display", "none");
 
             firebase.database().ref("users/" + user.uid + "/_settings/name").on("value", function(snapshot) {
                 $(".accountName").text(snapshot.val());
             });
         } else {
             // Sign out operation.
-            document.getElementById("signIn").style.display = "unset";
+            document.getElementById("signIn").style.display = "block";
             document.getElementById("signUp").style.display = "none";
 
-            $(".signedIn").hide();
-            $(".notSignedIn").show();
+            $(".signedIn").css("display", "none");
+            $(".notSignedIn").css("display", "block");
         }
     } else {
         alert("Sorry! You will not be able to use your GameProxy account on this device as it does not support HTML5 web storage.");
@@ -68,7 +68,7 @@ function signOutBefore() {
     document.getElementById("error").innerHTML = "";
     if (checkFields()) {
         document.getElementById("signIn").style.display = "none";
-        document.getElementById("signUp").style.display = "unset";
+        document.getElementById("signUp").style.display = "block";
         document.getElementById("signUp").style.display = "none";
     }
 }
@@ -90,7 +90,7 @@ function signOut() {
 }
 
 function reset() {
-    document.getElementById("signIn").style.display = "unset";
+    document.getElementById("signIn").style.display = "block";
     document.getElementById("signUp").style.display = "none";
     document.getElementById("signUp").style.display = "none";
 }
