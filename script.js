@@ -18,10 +18,12 @@ $(function() {
 $(function() {
     $("*[markdown]").each(function() {
         if (!window.location.href.startsWith("file:///")) {
+            var thisPassOn = this;
+
             $.ajax({
                 url: $(this).attr("markdown"),
                 error: function() {
-                    $(this).html("Could not load associated information.");
+                    $(thisPassOn).html("Could not load associated information.");
                 }
             }).done(function(data) {
                 $(this).html(new showdown.Converter().makeHtml(data));

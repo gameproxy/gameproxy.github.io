@@ -2,7 +2,7 @@ This page is used to inform users of GameProxy's products and services regarding
 
 If you choose to use GameProxy's products and services, then you agree to the collection and use of information in relation with this policy. The personal information that GameProxy collects is used for providing and improving the products and services. GameProxy will not use or share your information with anyone except as described in this Privacy Policy.
 
-The terms used in this Privacy Policy have the same meanings as in GameProxy's Terms And Conditions, which is accessible at ans.pw/tc, unless otherwise defined in this Privacy Policy.
+The terms used in this Privacy Policy have the same meanings as in GameProxy's Terms And Conditions, unless otherwise defined in this Privacy Policy.
 
 ## Information Collection And Use
 For a better experience while using GameProxy's products and services, GameProxy may require you to provide them with certain personally identifiable information, including but not limited to e-mails and website user viewing data. The information that GameProxy requests is stored on Google’s servers and sensitive data (for example, your password) is not accessible by GameProxy.
