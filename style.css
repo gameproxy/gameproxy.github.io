@@ -1,6 +1,8 @@
 :root {
     --primaryColour: #6b29ef;
-    --secondaryColour: #b494f7;
+    --secondaryColour: #8449fc;
+    --secondaryLogoColour: #b494f7;
+    --badColour: rgba(255, 255, 255, 0.2);
     --primaryBackgroundColour: #262626;
     --secondaryBackgroundColour: #424242;
 }
@@ -23,12 +25,58 @@ header {
     background-color: var(--secondaryBackgroundColour);
 }
 
+main {
+    margin: 20px;
+    margin-top: 100px;
+    min-height: calc(100vh - 100px);
+    color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+footer {
+    width: calc(100% - 4px);
+    margin: -8px;
+    margin-bottom: -16px;
+    padding: 10px;
+    background-color: var(--primaryColour);
+    color: white;
+}
+
 a {
-    color: var(--secondaryColour);
+    color: var(--secondaryLogoColour);
 }
 
 a.footer {
     color: white;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: var(--primaryColour);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button.secondary {
+    background-color: var(--secondaryColour);
+}
+
+button.bad {
+    background-color: var(--badColour);
+}
+
+input {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
 }
 
 .desktop {
@@ -36,6 +84,14 @@ a.footer {
 }
 
 .mobile {
+    display: none;
+}
+
+.notSignedIn {
+    display: none;
+}
+
+.signedIn {
     display: none;
 }
 
@@ -109,26 +165,16 @@ a.footer {
     background-color: unset;
 }
 
+#signIn {
+    display: none;
+}
+
+#signUp {
+    display: none;
+}
+
 #headerLogo {
     height: 50px;
-}
-
-main {
-    margin: 20px;
-    margin-top: 100px;
-    min-height: calc(100vh - 100px);
-    color: white;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-footer {
-    width: calc(100% - 4px);
-    margin: -8px;
-    margin-bottom: -16px;
-    padding: 10px;
-    background-color: var(--primaryColour);
-    color: white;
 }
 
 @media (max-width: 800px) {
