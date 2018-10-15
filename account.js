@@ -1,6 +1,30 @@
+function dataURItoBlob(dataURI) {
+    // Convert base64 to raw binary data held in a string.
+    // Doesn't handle URLEncoded DataURIs.
+    var byteString = atob(dataURI.split(",")[1]);
+
+    // Separate out the mime component.
+    var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0]
+
+    // Write the bytes of the string to an ArrayBuffer.
+    var ab = new ArrayBuffer(byteString.length);
+
+    // Create a view into the buffer.
+    var ia = new Uint8Array(ab);
+
+    // Set the bytes of the buffer to the correct values.
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    // Write the ArrayBuffer to a blob, and you're done.
+    var blob = new Blob([ab], {type: mimeString});
+    return blob;
+}
+
 function change(user) {
     if (typeof(Storage) !== "undefined") {
-        if (user && user.uid != currentUid) {
+        if (user && user.uid != null) {
             // Sign in operation.
             document.getElementById("signIn").style.display = "none";
             document.getElementById("signUp").style.display = "none";
@@ -11,6 +35,8 @@ function change(user) {
             firebase.database().ref("users/" + user.uid + "/_settings/name").on("value", function(snapshot) {
                 $(".accountName").text(snapshot.val());
             });
+
+            refreshPpic();
         } else {
             // Sign out operation.
             document.getElementById("signIn").style.display = "block";
@@ -26,7 +52,10 @@ function change(user) {
 
 var currentUid = null;
 var signingUp = false;
+
 firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {currentUid = user.uid;} else {currentUid = null;}
+
     // Checks if user auth state has changed.
     if (!signingUp) {
         change(user);
@@ -36,6 +65,25 @@ firebase.auth().onAuthStateChanged(function(user) {
         });
     }
 });
+
+function refreshPpic() {
+    firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
+        $(".accountPicture").attr("src", data);
+    });
+}
+
+function setPpic(data) {
+    var file = dataURItoBlob(data);
+    firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
+        console.log("Uploaded profile picture successfully!");
+        
+        refreshPpic();
+    });
+}
+
+function setName(data) {
+    firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(document.getElementById("nameSet").value);
+}
 
 function checkFields() {
     if (document.getElementById("user").value != "" && document.getElementById("pass").value != "") {
@@ -101,4 +149,20 @@ input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
         signIn();
     }
+});
+
+$("#ppicFile").on("change", function(evt) {
+    function handleFile(file) {
+        console.log(file);
+        var fileData = new FileReader()
+        fileData.readAsDataURL(file);
+        fileData.onload = function(evt) {
+            console.log(evt.target.result);
+            setPpic(evt.target.result);
+        }
+    }
+
+    var files = evt.target.files;
+    console.log(files);
+    handleFile(files[0]);
 });

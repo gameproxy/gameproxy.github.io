@@ -80,6 +80,19 @@ input {
     border-radius: 5px;
 }
 
+input[type="file"] {
+    background-color: transparent;
+    width: calc(100% - 40px);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+hr {
+    width: calc(100% - 10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
 .desktop {
     display: unset;
 }
@@ -109,9 +122,14 @@ input {
 }
 
 .card {
+    margin-bottom: 10px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
+}
+
+.card.coloured {
+    background-color: var(--primaryColour);
 }
 
 .skipTo {

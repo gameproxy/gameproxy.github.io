@@ -14,7 +14,7 @@
                 authDomain: "gameproxy-web.firebaseapp.com",
                 databaseURL: "https://gameproxy-web.firebaseio.com",
                 projectId: "gameproxy-web",
-                storageBucket: "",
+                storageBucket: "gameproxy-web.appspot.com",
                 messagingSenderId: "1085599545540"
             };
             
@@ -60,9 +60,18 @@
                 </form><br>
                 <button class="bad" onclick="reset();">Cancel</button><button onclick="signUp();">Sign Up</button><br>
             </div>
-            <div class="card center signedIn">
+            <div class="card coloured center signedIn">
                 Hello, <span class="accountName">user</span>!<br>
-                <button onclick="signOut();">Sign Out</button>
+                <button onclick="signOut();" class="secondary">Sign Out</button>
+            </div>
+            <div class="card center signedIn">
+                <h2>Settings</h2>
+                Current Profile picture:<br><img src="media/anonuser.png" class="accountPicture" height="80" /><br>
+                Upload Profile picture:<br><input type="file" id="ppicFile" name="file" accept="image/png" /><br>
+                <small>Be patient! Account pictures can take time to update.</small>
+                <hr>
+                Current Username: <strong class="accountName">Loading...</strong><br>
+                New Username:<br><input id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
             </div>
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
