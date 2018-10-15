@@ -3,7 +3,7 @@ function change(user) {
         if (user && user.uid != currentUid) {
             // Sign in operation.
             document.getElementById("signIn").style.display = "none";
-            document.getElementById("signUp").style.display = "none";console.log(user.uid);
+            document.getElementById("signUp").style.display = "none";
 
             $(".signedIn").css("display", "block");
             $(".notSignedIn").css("display", "none");
@@ -69,7 +69,6 @@ function signOutBefore() {
     if (checkFields()) {
         document.getElementById("signIn").style.display = "none";
         document.getElementById("signUp").style.display = "block";
-        document.getElementById("signUp").style.display = "none";
     }
 }
 
