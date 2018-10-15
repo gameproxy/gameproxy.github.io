@@ -26,8 +26,8 @@ function change(user) {
     if (typeof(Storage) !== "undefined") {
         if (user && user.uid != null) {
             // Sign in operation.
-            document.getElementById("signIn").style.display = "none";
-            document.getElementById("signUp").style.display = "none";
+            $("#signIn").css("display", "none");
+            $("#signUp").css("display", "none");
 
             $(".signedIn").css("display", "block");
             $(".notSignedIn").css("display", "none");
@@ -39,8 +39,8 @@ function change(user) {
             refreshPpic();
         } else {
             // Sign out operation.
-            document.getElementById("signIn").style.display = "block";
-            document.getElementById("signUp").style.display = "none";
+            $("#signIn").css("display", "block");
+            $("#signUp").css("display", "none");
 
             $(".signedIn").css("display", "none");
             $(".notSignedIn").css("display", "block");
@@ -113,8 +113,8 @@ function signIn() {
 function signOutBefore() {
     document.getElementById("error").innerHTML = "";
     if (checkFields()) {
-        document.getElementById("signIn").style.display = "none";
-        document.getElementById("signUp").style.display = "block";
+        $("#signIn").css("display", "none");
+        $("#signUp").css("display", "block");
     }
 }
 
@@ -135,19 +135,20 @@ function signOut() {
 }
 
 function reset() {
-    document.getElementById("signIn").style.display = "block";
-    document.getElementById("signUp").style.display = "none";
-    document.getElementById("signUp").style.display = "none";
+    $("#signIn").css("display", "block");
+    $("#signUp").css("display", "none");
 }
 
 var input = document.getElementById("pass");
 
-input.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        signIn();
-    }
-});
+try {
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            signIn();
+        }
+    });
+} catch (e) {}
 
 $("#ppicFile").on("change", function(evt) {
     function handleFile(file) {

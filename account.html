@@ -65,23 +65,17 @@
                 <button onclick="signOut();" class="secondary">Sign Out</button>
             </div>
             <div class="card center signedIn">
-                <h2>Settings</h2>
-                Current Profile picture:<br><img src="media/anonuser.png" class="accountPicture" height="80" /><br>
-                Upload Profile picture:<br><input type="file" id="ppicFile" name="file" accept="image/png" /><br>
-                <small>Be patient! Account pictures can take time to update.</small>
-                <hr>
-                Current Username: <strong class="accountName">Loading...</strong><br>
-                New Username:<br><input id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
+                <button onclick="window.location.href = 'settings.html';">Go to account settings</button>
             </div>
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
         </main>
         <footer id="footer">
             <div>
-                <a href="index.html"class="footer">Home</a>
-                <a href="about.html"class="footer">About</a>
-                <a href="terms.html"class="footer">Terms</a>
-                <a href="privacy.html"class="footer">Privacy</a>
+                <a href="index.html" class="footer">Home</a>
+                <a href="about.html" class="footer">About</a>
+                <a href="terms.html" class="footer">Terms</a>
+                <a href="privacy.html" class="footer">Privacy</a>
             </div>
             <small>Copyright &copy; GameProxy. All Rights Reserved.</small>
         </footer>

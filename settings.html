@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Chat - GameProxy</title>
+        <title>GameProxy</title>
         <link rel="shortcut icon" href="media/Small.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <link rel="stylesheet" href="style.css">
@@ -39,18 +39,30 @@
             </span>
             <div class="headerRight">
                 <a href="index.html" class="headerButton">Games</a>
-                <a href="chat.html" class="headerButton selected">Chat</a>
-                <a href="account.html" class="headerButton">Account</a>
+                <a href="chat.html" class="headerButton">Chat</a>
+                <a href="account.html" class="headerButton selected">Account</a>
             </div>
         </header>
         <main id="content">
-            <h1 class="center">Chat</h1>
-            <div class="card">
-                <p>
-                    We'll be creating a vast library of games very soon! We
-                    hope to see you when we've finished our website. In the
-                    meantime, stick around to see what we're doing!
-                </p>
+            <h1 class="center">Settings</h1>
+            <div class="card center notSignedIn">
+                <h2>Sorry!</h2>
+                <p>To access settings for your account, please sign in.</p>
+                <button onclick="window.location.href='account.html'">Sign In</button>
+            </div>
+            <div class="card coloured signedIn">
+                Customise your account. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
+            </div>
+            <div class="card signedIn">
+                <h2>Profile Picture</h2>
+                <img src="media/anonuser.png" class="accountPicture" /><br>
+                Upload Profile picture:<br><input type="file" id="ppicFile" name="file" accept="image/png" /><br>
+                <small>Be patient! Account pictures can take time to update.</small>
+            </div>
+            <div class="card signedIn">
+                <h2>Username</h2>
+                Current Username: <strong class="accountName">Loading...</strong><br>
+                New Username:<br><input id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
             </div>
         </main>
         <footer id="footer">
