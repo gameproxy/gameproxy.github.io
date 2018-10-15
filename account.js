@@ -75,8 +75,6 @@ function refreshPpic() {
 function setPpic(data) {
     var file = dataURItoBlob(data);
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
-        console.log("Uploaded profile picture successfully!");
-        
         refreshPpic();
     });
 }
@@ -153,16 +151,13 @@ input.addEventListener("keyup", function(event) {
 
 $("#ppicFile").on("change", function(evt) {
     function handleFile(file) {
-        console.log(file);
         var fileData = new FileReader()
         fileData.readAsDataURL(file);
         fileData.onload = function(evt) {
-            console.log(evt.target.result);
             setPpic(evt.target.result);
         }
     }
 
     var files = evt.target.files;
-    console.log(files);
     handleFile(files[0]);
 });
