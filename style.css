@@ -144,6 +144,43 @@ hr {
     height: 80px;
 }
 
+.itemHolder {
+    margin-left: -5px;
+    margin-right: -6px;
+    overflow: auto;
+}
+
+.item {
+    width: calc(33.3% - 30px);
+    margin: 5px;
+    padding: 10px;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.item.coloured {
+    background-color: var(--primaryColour);
+}
+
+.itemThumbnailHolder {
+    height: 15vw;
+    overflow: hidden;
+    margin: -10px;
+    margin-bottom: 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.itemThumbnail {
+    width: calc(100% + 20px);
+    margin: -10px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.itemTitle {
+    margin: 5px;
+}
+
 .profileInfo {
     margin-left: 10px;
     width: calc(100% - 90px);
@@ -238,6 +275,12 @@ hr {
 }
 
 @media (max-width: 800px) {
+    main {
+        width: calc(100vw - 54px)!important;
+        padding-left: unset;
+        padding-right: unset;
+    }
+    
     .desktop {
         display: none;
     }
@@ -246,10 +289,24 @@ hr {
         display: unset;
     }
 
-    main {
-        width: calc(100vw - 54px)!important;
-        padding-left: unset;
-        padding-right: unset;
+    .itemThumbnailHolder {
+        height: 20vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .item {
+        width: calc(100% - 31px);
+        margin-bottom: 10px;
+        float: none;
+    }
+
+    .itemThumbnailHolder {
+        height: 50vw;
+    }
+
+    .itemThumbnail {
+        margin-top: -5%;
     }
 }
 
