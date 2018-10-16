@@ -80,7 +80,11 @@ function setPpic(data) {
 }
 
 function setName(data) {
-    firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#nameSet").val()));
+    if (profanity.clean(data) != "") {
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean(data));
+    } else {
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set("Anonymous");
+    }
 }
 
 function checkFields() {
