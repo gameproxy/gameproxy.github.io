@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (!signingUp) {
         change(user);
     } else {
-        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean(document.getElementById("name").value.substring(0, 20))).then(function() {
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20))).then(function() {
             window.location.href = "index.html";
         });
     }
@@ -80,11 +80,11 @@ function setPpic(data) {
 }
 
 function setName(data) {
-    firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(document.getElementById("nameSet").value);
+    firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#nameSet").val()));
 }
 
 function checkFields() {
-    if (document.getElementById("user").value != "" && document.getElementById("pass").value != "") {
+    if ($("#user").val() != "" && $("#pass").val() != "") {
         return true;
     } else {
         document.getElementById("error").innerHTML = "Oops! You have not filled out all of the required fields.";
@@ -93,7 +93,7 @@ function checkFields() {
 }
 
 function checkUsername() {
-    if (document.getElementById("name").value != "") {
+    if ($("#name").val() != "") {
         return true;
     } else {
         document.getElementById("error").innerHTML = "Oops! You have not filled out all of the required fields.";
@@ -104,7 +104,7 @@ function checkUsername() {
 function signIn() {
     document.getElementById("error").innerHTML = "";
     if (checkFields()) {
-        firebase.auth().signInWithEmailAndPassword(document.getElementById("user").value, document.getElementById("pass").value).catch(function(error) {
+        firebase.auth().signInWithEmailAndPassword($("#user").val(), $("#pass").val()).catch(function(error) {
             document.getElementById("error").innerHTML = "Oops! " + error.message;
         });
     }
@@ -121,7 +121,7 @@ function signOutBefore() {
 function signUp() {
     document.getElementById("error").innerHTML = "";
     if (checkUsername()) {
-        firebase.auth().createUserWithEmailAndPassword(document.getElementById("user").value, document.getElementById("pass").value).then(function() {signingUp = true;}).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword($("#user").val(), $("#pass").val()).then(function() {signingUp = true;}).catch(function(error) {
             document.getElementById("error").innerHTML = "Oops! " + error.message;
         });
     }
