@@ -60,9 +60,17 @@
                 </form><br>
                 <button class="bad" onclick="reset();">Cancel</button><button onclick="signUp();">Sign Up</button><br>
             </div>
-            <div class="card coloured center signedIn">
-                Hello, <span class="accountName">user</span>!<br>
-                <button onclick="signOut();" class="secondary">Sign Out</button>
+            <div class="card coloured signedIn profile">
+                <div>
+                    <img src="media/anonuser.png" class="accountPicture floatLeft" />
+                </div>
+                <div class="floatLeft profileInfo">
+                    <strong class="accountName">user</strong><br>
+                    Online
+                </div>
+                <div class="right profileOptions">
+                    <button onclick="signOut();" class="secondary">Sign Out</button>
+                </div>
             </div>
             <div class="card center signedIn">
                 <button onclick="window.location.href = 'settings.html';">Go to account settings</button>

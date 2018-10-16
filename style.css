@@ -121,6 +121,14 @@ hr {
     text-align: right!important;
 }
 
+.floatLeft {
+    float: left!important;
+}
+
+.floatRight {
+    float: right!important;
+}
+
 .card {
     margin-bottom: 10px;
     padding: 10px;
@@ -130,6 +138,19 @@ hr {
 
 .card.coloured {
     background-color: var(--primaryColour);
+}
+
+.card.profile {
+    height: 80px;
+}
+
+.profileInfo {
+    margin-left: 10px;
+    width: calc(100% - 90px);
+}
+
+.profileOptions {
+    margin-right: -8px;
 }
 
 .skipTo {
