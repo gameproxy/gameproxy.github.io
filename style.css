@@ -204,6 +204,7 @@ hr {
     margin: 20px;
     font-size: 64px!important;
     color: var(--secondaryBackgroundColour);
+    cursor: default;
     transition: 1.5s;
 }
 
