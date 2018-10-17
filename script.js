@@ -13,9 +13,7 @@ $(function() {
             $(this).html("<em>Content will go here at run-time: " + $(this).attr("import") + "</em>");
         }
     });
-});
 
-$(function() {
     $("*[markdown]").each(function() {
         if (!window.location.href.startsWith("file:///")) {
             var thisPassOn = this;
@@ -32,4 +30,18 @@ $(function() {
             $(this).html("<em>Content will go here at run-time: " + $(this).attr("markdown") + "</em>");
         }
     });
+
+    setInterval(function() {
+        $(".loader").css("color", "#262626");
+    }, 4000);
+
+    setTimeout(function() {
+        setInterval(function() {
+            $(".loader").css("color", "#424242");
+        }, 4000);
+
+        $(".loader").css("color", "#424242");
+    }, 2000);
+
+    $(".loader").css("color", "#262626");
 });

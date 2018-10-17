@@ -3,7 +3,7 @@
     <head>
         <title>GameProxy</title>
         <link rel="shortcut icon" href="media/Small.png">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons">
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
         <script src="lib/jquery.min.js"></script>
@@ -52,61 +52,8 @@
                     meantime, stick around to see what we're doing!
                 </p>
             </div>
-            <div class="itemHolder">
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
-                <div class="item">
-                    <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
-                    </div>
-                    <h2 class="itemTitle">Game</h2>
-                </div>
+            <div id="gameList" class="itemHolder">
+                <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
             </div>
         </main>
         <footer id="footer">
@@ -121,5 +68,6 @@
         </footer>
         <script src="profanityFilter.js"></script>
         <script src="account.js"></script>
+        <script src="gameList.js"></script>
     </body>
 </html>

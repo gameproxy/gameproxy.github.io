@@ -51,6 +51,11 @@ a.footer {
     color: white;
 }
 
+a.hidden {
+    color: inherit;
+    text-decoration: inherit;
+}
+
 button {
     margin: 5px;
     padding: 10px;
@@ -181,6 +186,10 @@ hr {
     margin: 5px;
 }
 
+.gameBy {
+    padding-left: 5px;
+}
+
 .profileInfo {
     margin-left: 10px;
     width: calc(100% - 90px);
@@ -189,6 +198,17 @@ hr {
 .options {
     float: right;
     margin-right: -8px;
+}
+
+.loader {
+    margin: 20px;
+    font-size: 64px!important;
+    color: var(--secondaryBackgroundColour);
+    transition: 1.5s;
+}
+
+.loaderHolder {
+    text-align: center;
 }
 
 .skipTo {
