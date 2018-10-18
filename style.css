@@ -280,6 +280,11 @@ hr {
     border-radius: 20px;
 }
 
+.aboutLogo {
+    height: 20px;
+    width: 20px;
+}
+
 #signIn {
     display: none;
 }
