@@ -25,4 +25,8 @@ $(function() {
             addGame("Game", "Me", "https://loremflickr.com/320/240/pcgame?random=" + Math.floor(Math.random() * 1000), "javascript:alert('We\\'ll be creating a vast library of games very soon! We hope to see you when we\\'ve finished our website. In the meantime, stick around to see what we\\'re doing!');")
         }
     }, 5000);
+
+    var games = firebase.database().ref("users/sm20Y8fTGoPfA45tqudOPakR3mr1/games").orderByChild("metrics/likes").on("value", function(snapshot) {
+        console.log(snapshot.val());
+    });
 });
