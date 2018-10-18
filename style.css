@@ -47,6 +47,10 @@ a {
     color: var(--secondaryLogoColour);
 }
 
+h2 {
+    font-size: 18pt 
+} 
+
 a.footer {
     color: white;
 }
