@@ -347,10 +347,12 @@ hr {
 }
 
 .sociallogo {
-    height: 20px;
-    width: 20px;
+    height: 50px;
+    width: 50px;
 }
 
 .social_text {
-    font-size: 20pt;
+    font-size: 30pt;
+    text-decoration: none;
+    text-align: center;
 }
