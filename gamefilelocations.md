@@ -22,6 +22,7 @@ An Escape Series 2.swf: swf_storage_1
 box-clever-2.swf: swf_storage_1
 busman-parking-3d.swf: swf_storage_1
 catmario.swf: swf_storage_1
+Classic NES - Super Mario Bros. # GBA.GBA: gba_storage_1
 gravity-boy.swf: swf_storage_1
 hardest-free-game.swf: swf_storage_1
 hardest-game.swf: swf_storage_1
@@ -32,7 +33,12 @@ penguin-bubble.swf: swf_storage_1
 pest-destroyer.swf: swf_storage_1
 Pokemon - Emerald Version (U).gba: gba_storage_1
 Pokemon - Fire Red Version (U) (V1.1).gba: gba_storage_1
+Pokemon - Leaf Green Version (U) (V1.1).gba: gba_storage_1
+Pokemon - Ruby Version (U) (V1.1).gba: gba_storage_1
+Pokemon - Sapphire Version (U) (V1.1).gba: gba_storage_1
 Super Mario 64 (U) [!].z64: z64_storage_1
+Super Mario Advance 2 - Super Mario World (U) [!].gba: gba_storage_1
+Super Mario Advance 4 - Super Mario Bros. 3 (U) (V1.1).gba: gba_storage_1
 tangerine-tycoon.swf: swf_storage_1
 uniwords-750x600.swf: swf_storage_1
 
