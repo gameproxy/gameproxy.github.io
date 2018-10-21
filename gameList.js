@@ -1,4 +1,4 @@
-function addGame(name, by, thumbnail, link) {
+function addGame(name, by, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');") {
     $("#gameLoader").hide();
 
     $("#gameList").append(`
@@ -20,13 +20,24 @@ function addGame(name, by, thumbnail, link) {
 }
 
 $(function() {
-    setTimeout(function() {
-        for (var i = 0; i < 27; i++) {
-            addGame("Game", "Me", "https://loremflickr.com/320/240/pcgame?random=" + Math.floor(Math.random() * 1000), "javascript:alert('We\\'ll be creating a vast library of games very soon! We hope to see you when we\\'ve finished our website. In the meantime, stick around to see what we\\'re doing!');")
-        }
-    }, 5000);
+    var gameList = [];
 
-    var games = firebase.database().ref("users/sm20Y8fTGoPfA45tqudOPakR3mr1/games").orderByChild("metrics/likes").on("value", function(snapshot) {
-        console.log(snapshot.val());
+    firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(24).on("value", function(snapshot) {
+        gameList = [];
+
+        snapshot.forEach(function(childSnapshot) {
+            gameList.unshift(childSnapshot.val());
+            gameList[0]["key"] = childSnapshot.key;
+        });
+
+        $("#gameList").html("");
+
+        for (var i = 0; i < gameList.length; i++) {
+            if (gameList[i]["by"] == undefined) {
+                addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"]);
+            } else {
+                addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"]);
+            }
+        }
     });
 });

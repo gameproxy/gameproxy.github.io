@@ -69,11 +69,17 @@
                     Online
                 </div>
                 <div class="options">
-                    <button onclick="signOut();" class="secondary">Sign Out</button>
+                    <button onclick="window.location.href = 'settings.html';" class="secondary">Settings</button><button onclick="signOut();" class="secondary">Sign Out</button>
                 </div>
             </div>
-            <div class="card center signedIn">
-                <button onclick="window.location.href = 'settings.html';">Go to account settings</button>
+            <div class="card signedIn">
+                <h2>New Game</h2>
+                <p>Get likes and appreciation for uploading a new game.</p>
+                <input placeholder="Title" id="gameTitle"></input><br>
+                <input placeholder="Game File Link" id="gameLink"></input><input placeholder="Thumbnail" id="gameThumbnail"></input><br>
+                <textarea type="multiline" placeholder="Description" id="gameDescription"></textarea><br>
+                <small>You can use markdown: <strong>*bold*</strong>, <em>_italic_</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!</small><br>
+                <button onclick="gameUpload();">Upload Game</button>
             </div>
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
@@ -90,5 +96,6 @@
         </footer>
         <script src="profanityFilter.js"></script>
         <script src="account.js"></script>
+        <script src="gameUpload.js"></script>
     </body>
 </html>
