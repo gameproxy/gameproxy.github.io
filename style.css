@@ -369,3 +369,14 @@ code {
         font-size: 16px;
     }
 }
+
+.sociallogo {
+    height: 30px;
+    width: 30px;
+}
+
+.social_text {
+    font-size: 20pt;
+    text-decoration: none;
+    text-align: center;
+}
