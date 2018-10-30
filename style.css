@@ -395,3 +395,7 @@ i.button {
     text-decoration: none;
     text-align: center;
 }
+
+.footerEmbed {
+    width: 100%;
+}
