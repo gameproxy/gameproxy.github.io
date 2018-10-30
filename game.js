@@ -10,6 +10,10 @@ function refreshCreatorPpic() {
     });
 }
 
+function like() {
+    alert("Coming soon!");
+};
+
 $(function() {
     firebase.database().ref("games/" + getURLParameter("play")).once("value", function(snapshot) {
         gameData = snapshot.val();
