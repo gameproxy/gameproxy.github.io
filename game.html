@@ -44,13 +44,23 @@
             </div>
         </header>
         <main id="content">
-            <h1 class="center">Game</h1>
+            <h1 class="gameName">Loading...</h1>
             <div class="card">
                 <p>
-                    We'll be creating a vast library of games very soon! We
-                    hope to see you when we've finished our website. In the
-                    meantime, stick around to see what we're doing!
+                    A game will eventually go here when we get time to implement it.
                 </p>
+            </div>
+            <div class="card coloured profile">
+                <div>
+                    <img src="media/AnonUser.png" class="creatorAccountPicture floatLeft" />
+                </div>
+                <div class="floatLeft profileInfo">
+                    <strong class="creatorAccountName">Loading...</strong><br>
+                    Online
+                </div>
+                <div class="options">
+                    <button onclick="window.location.href = 'profile.html';" class="secondary">See Profile</button><button onclick="like();" class="secondary"><i class="material-icons button">thumb_up</i> <span class="likes">0</span></button>
+                </div>
             </div>
         </main>
         <footer id="footer">
@@ -65,5 +75,6 @@
         </footer>
         <script src="profanityFilter.js"></script>
         <script src="account.js"></script>
+        <script src="game.js"></script>
     </body>
 </html>
