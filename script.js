@@ -48,7 +48,7 @@ $(function() {
                 $(this).html("<em>Content will go here at run-time: " + $(this).attr("markdownrf") + "</em>");
             }
         });
-    }, 100);
+    }, 1000);
 
     setInterval(function() {
         $(".loader").css("color", "#262626");
