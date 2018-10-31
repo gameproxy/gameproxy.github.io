@@ -1,2 +1,2 @@
 ## List Of Help Articles
-* [GameProxy Supported File Types](/help/index.html?article=supportedFileTypes) by Sebastian Doe
+* 0001: [GameProxy Supported File Types](/help/index.html?article=0001-supportedFileTypes) by Sebastian Doe
