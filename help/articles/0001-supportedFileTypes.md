@@ -10,6 +10,3 @@ GameProxy (we're always working on more):
 * Flash Files (*.swf)
 * GameBoy Advanced Files (*.gba)
 * Nintendo 64 Files (*.z64)
-
-#### Ammendments
-* Made it a Markdown file. _-James Livesey._
