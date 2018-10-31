@@ -401,16 +401,18 @@ i.button {
 }
 
 .last-updated {
-    font-size: 12px;
+    font-size: 15px;
     text-align: left;
+    padding-left: 2%;
 }
 
 .first-published {
-    font-size: 12px;
+    font-size: 15px;
     text-align: left;
+    padding-left: 2%;
 }
 
 .author {
-    font-size: 12px;
+    font-size: 15px;
     text-align: left;
 }
