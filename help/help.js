@@ -6,6 +6,6 @@ $(function() {
     if (getURLParameter("article") != null) {
         $("#article").attr("markdownrf", "articles/" + getURLParameter("article") + ".md");
     } else {
-        $("#article").attr("markdownrf", "list.md");
+        $("#article").attr("markdownrf", "articles/list.md");
     }
 });
