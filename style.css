@@ -399,3 +399,18 @@ i.button {
 .footerEmbed {
     width: 100%;
 }
+
+.last-updated {
+    font-size: 12px;
+    text-align: left;
+}
+
+.first-published {
+    font-size: 12px;
+    text-align: left;
+}
+
+.author {
+    font-size: 12px;
+    text-align: left;
+}
