@@ -13,15 +13,15 @@ Ones we currently support:
 
 Ones we are working on:
 
+* Atari 2600 Files (*.a26)
 * Flash Files (*.swf)
 * GameBoy Advanced Files (*.gba)
-* Nintendo 64 Files (*.z64)
 * GameBoy Color Files (*.gbc)
 * GameBoy Files (*.gb)
-* Atari 2600 Files (*.a26)
-* General ROM Files (*.rom)
-* SEGA Mega Drive & Genesis Classics ROM File (*.68k)
 * GameSalad Exported Game File (*.game)
-* SEGA Genesis ROM (*.gen)
+* General ROM Files (*.rom)
 * Nadeo Game File (*.gbx)
+* Nintendo 64 Files (*.z64)
+* SEGA Genesis ROM (*.gen)
+* SEGA Mega Drive & Genesis Classics ROM File (*.68k)
 * Unity Export Files
