@@ -9,12 +9,11 @@ GameProxy (we're always working on more):
 
 Ones we currently support:
 
-
+* Flash Files (*.swf)
 
 Ones we are working on:
 
 * Atari 2600 Files (*.a26)
-* Flash Files (*.swf)
 * GameBoy Advanced Files (*.gba)
 * GameBoy Color Files (*.gbc)
 * GameBoy Files (*.gb)
