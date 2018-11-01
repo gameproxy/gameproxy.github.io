@@ -34,7 +34,7 @@ $(function() {
             `);
         } else {
             $("#gameFrame").html(`
-                <h3>The game creator has used a file format that we don't accept.</h3>
+                <h3>The game creator has used a file type that we don't accept.</h3>
                 <p>You may want to leave a comment for the creator below.</p>
                 <button onclick="window.open('help/index.html?article=0001-supportedFileTypes');">Learn More...</button>
             `);
