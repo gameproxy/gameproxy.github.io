@@ -21,7 +21,12 @@ Ones we are working on:
 * GameSalad Exported Game File (*.game)
 * General ROM Files (*.rom)
 * Nadeo Game File (*.gbx)
-* Nintendo 64 Files (*.z64)
+* Nintendo 64 Files (*.z64), (*.v64), (*.n64)
 * SEGA Genesis ROM (*.gen)
 * SEGA Mega Drive & Genesis Classics ROM File (*.68k)
 * Unity Export Files
+* NeoGeo Pocket ROM (*.ngp)
+* Super Nintendo ROM (*.sfc)
+* Super Game Boy ROM File (*.sgb)
+
+[Want another type? Click here to request one.](https://gameproxy.github.io/report.html)
