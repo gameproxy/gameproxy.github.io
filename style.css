@@ -130,6 +130,10 @@ i.button {
     font-size: 14px!important;
 }
 
+embed {
+    height: 60vh;
+}
+
 .desktop {
     display: unset;
 }
@@ -341,6 +345,10 @@ i.button {
     height: 930px;
     border: none;
     border-radius: 5px;
+}
+
+#gameFrame {
+    display: none;
 }
 
 @media (max-width: 800px) {
