@@ -15,6 +15,8 @@ function like() {
 };
 
 $(function() {
+    $(".gameVerified").hide();
+
     firebase.database().ref("games/" + getURLParameter("play")).once("value", function(snapshot) {
         gameData = snapshot.val();
 
@@ -38,6 +40,10 @@ $(function() {
                 <p>You may want to leave a comment for the creator below.</p>
                 <button onclick="window.open('help/index.html?article=0001-supportedFileTypes');">Learn More...</button>
             `);
+        }
+
+        if (gameData.verified) {
+            $(".gameVerified").show();
         }
 
         setInterval(function() {
