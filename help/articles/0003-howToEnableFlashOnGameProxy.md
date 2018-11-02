@@ -12,10 +12,8 @@
 
 3. Change Flash from 'Ask (Default)' to 'Allow'.
 
-    ![Site Settings](/media/Help%20Centre/Article%200003/SiteSettings.PNG)
+    ![Click 'Load unsafe scripts'.](/media/Help%20Centre/Article%200003/Allowances.PNG)
 
 4. If the game still doesn't load, you may see an icon like below to the right of your URL. Click it and then click on 'Load Unsafe Scripts'. We are working to fix this problem and make all sources HTTPS.
-
-    ![Click 'Load unsafe scripts'.](/media/Help%20Centre/Article%200003/Allowances.PNG)
 
 This should have fixed your problem. If not, feel free to send us an email or fill out the Report Form [here](https://gameproxy.github.io/report.html).
