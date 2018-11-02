@@ -23,6 +23,10 @@ $(function() {
         $(".gameName").text(gameData.title);
         $(".creatorAccountName").text(gameData.by);
 
+        if (gameData.byStaff) {
+            $(".creatorAccountName").css("color", "#27ef70");
+        }
+
         refreshCreatorPpic();
 
         if (gameData.src != undefined && gameData.src.endsWith(".swf")) {

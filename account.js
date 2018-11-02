@@ -36,6 +36,12 @@ function change(user) {
                 $(".accountName").text(snapshot.val());
             });
 
+            firebase.database().ref("users/" + user.uid + "/_settings/staff").on("value", function(snapshot) {
+                if (snapshot.val()) {
+                    $(".accountName").css("color", "#27ef70");
+                }
+            });
+
             refreshPpic();
         } else {
             // Sign out operation.

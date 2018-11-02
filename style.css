@@ -5,6 +5,7 @@
     --badColour: rgba(255, 255, 255, 0.2);
     --primaryBackgroundColour: #262626;
     --secondaryBackgroundColour: #424242;
+    --highlightColour: #27ef70;
 }
 
 * {
@@ -232,7 +233,7 @@ embed {
     height: calc(15vw + 80px);
 }
 
-.gameBy {
+.gameByPrefix {
     padding-left: 5px;
 }
 
