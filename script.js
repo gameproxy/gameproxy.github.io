@@ -1,13 +1,15 @@
 $(function() {
     $("*[import]").each(function() {
         if (!window.location.href.startsWith("file:///")) {
+            var thisPassOn = this;
+
             $.ajax({
                 url: $(this).attr("import"),
                 error: function() {
                     $(this).html("Could not load associated information.");
                 }
             }).done(function(data) {
-                $(this).html(data);
+                $(thisPassOn).html(data);
             });
         } else {
             $(this).html("<em>Content will go here at run-time: " + $(this).attr("import") + "</em>");
