@@ -12,7 +12,6 @@ If you go to the homepage of GameProxy and click on Account [here](https://gamep
 Firstly you need to get the game file link. If you do not already have the game file link online but only have it locally stored, you can choose from one of the following upload options:
 
 * GitHub Repository
-* Google Drive
 
 Once you have chose your option, you can scroll down the page until you find it.
 
@@ -25,3 +24,18 @@ If you would like, you can upload a game from a repository on your GitHub.
 Firstly, if you sign into GitHub, click on the Plus icon and then New Repository. 
 
 You should now see a page with the heading 'Create a new repository. If you are not familiar with GitHub, a repository is a place where you can store files for your project or, in this case, your GameProxy uploads. If you enter GameProxy-gameFiles or something similar as your Repository name, leave the description box empty and make sure the repository is set to Public as this is needed later, you can click 'Create repository'.
+
+
+    ![Create a new repository](/media/Help%20Centre/Article%200004/CreateNewRepository.PNG)
+
+After this, you should see a screen like below.
+
+
+    ![Quick Setup](/media/Help%20Centre/Article%200004/QuickSetup.PNG)
+
+Underneath the text saying Quick Setup, you can click 'uploading an existing file'. If you upload your files, leave the text boxes blank and click 'Commit'.
+
+
+    ![Upload Files](/media/Help%20Centre/Article%200004/UploadFiles.PNG)
+
+James, if you are reading this I will complete it tomorrow morning.
