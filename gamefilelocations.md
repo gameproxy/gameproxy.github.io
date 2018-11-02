@@ -1,6 +1,5 @@
 *Key:* File Name: Location
 
-Not Yet Added to GameProxy library:
 * 100_m_race.swf: swf_storage_1
 * 1on1soccer.swf: swf_storage_1
 * 3-slices-2.swf: swf_storage_1
@@ -18,6 +17,7 @@ Not Yet Added to GameProxy library:
 * An Escape Series 1.swf: swf_storage_1
 * An Escape Series 2.5.swf: swf_storage_1
 * An Escape Series 2.swf: swf_storage_1
+* Bad Piggies.swf: swf_storage_1
 * box-clever-2.swf: swf_storage_1
 * busman-parking-3d.swf: swf_storage_1
 * catmario.swf: swf_storage_1
@@ -40,5 +40,3 @@ Not Yet Added to GameProxy library:
 * Super Mario Advance 4 - Super Mario Bros. 3 (U) (V1.1).gba: gba_storage_1
 * tangerine-tycoon.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
-
-Added to GameProxy library:

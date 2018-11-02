@@ -1,6 +1,6 @@
 #### Assigned Letters to people
 
-* A: Caspar
+* A and numerals: Caspar
 * B: Seb
 * C: Arlo
 * D: Caspar
