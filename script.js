@@ -6,7 +6,7 @@ $(function() {
             $.ajax({
                 url: $(this).attr("import"),
                 error: function() {
-                    $(this).html("Could not load associated information.");
+                    $(thisPassOn).html("Could not load associated information.");
                 }
             }).done(function(data) {
                 $(thisPassOn).html(data);
