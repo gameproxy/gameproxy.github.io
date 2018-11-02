@@ -1,17 +1,31 @@
-function addGame(name, by, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');") {
+function addGame(name, by, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false) {
     $("#gameLoader").hide();
 
-    $("#gameList").append(`
-        <a class="hidden">
-            <div class="item">
-                <div class="itemThumbnailHolder">
-                    <img src="media/NoThumbnail.png" class="itemThumbnail" />
+    if (verified) {
+        $("#gameList").append(`
+            <a class="hidden">
+                <div class="item gameItem">
+                    <div class="itemThumbnailHolder">
+                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
+                    </div>
+                    <h2 class="cutOff"><span class="itemTitle">Loading...</span> <i class="material-icons">verified_user</i></h2>
+                    <span class="gameBy">Loading...</span>
                 </div>
-                <h2 class="itemTitle">Loading...</h2>
-                <span class="gameBy">Loading...</span>
-            </div>
-        </a>
-    `);
+            </a>
+        `);
+    } else {
+        $("#gameList").append(`
+            <a class="hidden">
+                <div class="item gameItem">
+                    <div class="itemThumbnailHolder">
+                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
+                    </div>
+                    <h2 class="cutOff"><span class="itemTitle">Loading...</span></h2>
+                    <span class="gameBy">Loading...</span>
+                </div>
+            </a>
+        `);
+    }
 
     $("#gameList").children().last().find(".itemTitle").text(name);
     $("#gameList").children().last().find(".gameBy").text("By " + by);
@@ -34,9 +48,9 @@ $(function() {
 
         for (var i = 0; i < gameList.length; i++) {
             if (gameList[i]["by"] == undefined) {
-                addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"]);
+                addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
             } else {
-                addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"]);
+                addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
             }
         }
     });

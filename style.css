@@ -170,6 +170,12 @@ embed {
     float: right!important;
 }
 
+.cutOff {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .card {
     margin-bottom: 10px;
     padding: 10px;
@@ -220,6 +226,10 @@ embed {
 
 .itemTitle {
     margin: 5px;
+}
+
+.gameItem {
+    height: calc(15vw + 80px);
 }
 
 .gameBy {
@@ -369,6 +379,10 @@ embed {
     .itemThumbnailHolder {
         height: 20vw;
     }
+
+    .gameItem {
+        height: calc(20vw + 80px);
+    }
 }
 
 @media (max-width: 600px) {
@@ -384,6 +398,10 @@ embed {
 
     .itemThumbnail {
         margin-top: -5%;
+    }
+
+    .gameItem {
+        height: calc(50vw + 80px);
     }
 }
 
