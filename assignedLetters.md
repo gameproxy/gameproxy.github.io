@@ -1,4 +1,4 @@
-#### Assigned Letters to people
+# Assigned Letters to people
 
 * A and numerals: Caspar
 * B: Seb
