@@ -17,7 +17,14 @@
 * An Escape Series 1.swf: swf_storage_1
 * An Escape Series 2.5.swf: swf_storage_1
 * An Escape Series 2.swf: swf_storage_1
+* Angry Birds HD.swf: swf_storage_1
+* Angry Birds HD Halloween.swf: swf_storage_1
+* Ant Buster.swf: swf_storage_1
+* Ant War.swf: swf_storage_1
+* Asteroids.swf: swf_storage_1
+* Atari Breakout.swf: swf_storage_1
 * Bad Piggies.swf: swf_storage_1
+* Basketball Legends.swf: swf_storage_1
 * box-clever-2.swf: swf_storage_1
 * busman-parking-3d.swf: swf_storage_1
 * catmario.swf: swf_storage_1
