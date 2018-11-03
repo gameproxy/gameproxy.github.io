@@ -17,11 +17,21 @@
 * An Escape Series 1.swf: swf_storage_1
 * An Escape Series 2.5.swf: swf_storage_1
 * An Escape Series 2.swf: swf_storage_1
+* Angry Birds HD.swf: swf_storage_1
+* Angry Birds HD Halloween.swf: swf_storage_1
+* Ant Buster.swf: swf_storage_1
+* Ant War.swf: swf_storage_1
+* Asteroids.swf: swf_storage_1
+* Atari Breakout.swf: swf_storage_1
 * Bad Piggies.swf: swf_storage_1
+* Basketball Legends.swf: swf_storage_1
 * box-clever-2.swf: swf_storage_1
 * busman-parking-3d.swf: swf_storage_1
 * catmario.swf: swf_storage_1
 * Classic NES - Super Mario Bros. # GBA.GBA: gba_storage_1
+* Fireboy and Watergirl.swf: swf_storage_1
+* Fireboy and Watergirl 2.swf: swf_storage_1
+* Fireboy and Watergirl 3.swf: swf_storage_1
 * gravity-boy.swf: swf_storage_1
 * hardest-free-game.swf: swf_storage_1
 * hardest-game.swf: swf_storage_1
@@ -35,8 +45,13 @@
 * Pokemon - Leaf Green Version (U) (V1.1).gba: gba_storage_1
 * Pokemon - Ruby Version (U) (V1.1).gba: gba_storage_1
 * Pokemon - Sapphire Version (U) (V1.1).gba: gba_storage_1
+* Raze.swf: swf_storage_1
+* Run.swf: swf_storage_1
+* Run 2.swf: swf_storage_1
+* Run 3.swf: swf_storage_1
 * Super Mario 64 (U) [!].z64: z64_storage_1
 * Super Mario Advance 2 - Super Mario World (U) [!].gba: gba_storage_1
 * Super Mario Advance 4 - Super Mario Bros. 3 (U) (V1.1).gba: gba_storage_1
 * tangerine-tycoon.swf: swf_storage_1
+* Tank Trouble 2.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
