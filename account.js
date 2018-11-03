@@ -162,7 +162,7 @@ try {
 
 $("#ppicFile").on("change", function(evt) {
     function handleFile(file) {
-        var fileData = new FileReader()
+        var fileData = new FileReader();
         fileData.readAsDataURL(file);
         fileData.onload = function(evt) {
             setPpic(evt.target.result);
