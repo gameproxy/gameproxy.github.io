@@ -28,32 +28,32 @@ Firstly, if you sign into GitHub, click on the Plus icon and then New Repository
 You should now see a page with the heading 'Create a new repository. If you are not familiar with GitHub, a repository is a place where you can store files for your project or, in this case, your GameProxy uploads. If you enter GameProxy-gameFiles or something similar as your Repository name, leave the description box empty and make sure the repository is set to Public as this is needed later, you can click 'Create repository'.
 
 
-    ![Create a new repository](/media/Help%20Centre/Article%200004/CreateNewRepository.PNG)
+![Create a new repository](/media/Help%20Centre/Article%200004/CreateNewRepository.PNG)
 
 After this, you should see a screen like below.
 
 
-    ![Quick Setup](/media/Help%20Centre/Article%200004/QuickSetup.PNG)
+![Quick Setup](/media/Help%20Centre/Article%200004/QuickSetup.PNG)
 
 Underneath the text saying Quick Setup, you can click 'uploading an existing file'. If you upload your files, leave the text boxes blank and click 'Commit'.
 
 
-    ![Upload Files](/media/Help%20Centre/Article%200004/UploadFiles.PNG)
+![Upload Files](/media/Help%20Centre/Article%200004/UploadFiles.PNG)
 
 You should now see a screen with your game file on it. If you click on Settings and scroll down to GitHub pages, you can choose master branch from the drop down menu and click Save.
 
 
-    ![GitHub Pages](/media/Help%20Centre/Article%200004/GitHubPages.PNG)
+![GitHub Pages](/media/Help%20Centre/Article%200004/GitHubPages.PNG)
 
 If you wait 10 seconds or so, refresh the page a couple of times and scroll down to GitHub pages again. It should say 'Your site is published at https://yourusername.github.io/... .
 
 
-    ![Site Published](/media/Help%20Centre/Article%200004/SitePublished.PNG)
+![Site Published](/media/Help%20Centre/Article%200004/SitePublished.PNG)
 
 If you open that link in a new tab (It should say 404 Error) and then go back to your files list (Titled 'Code'), copy the file name and paste it in the URL bar. For me it would look something like below:
 
 
-    ![Game File URL](/media/Help%20Centre/Article%200004/URL.PNG)
+![Game File URL](/media/Help%20Centre/Article%200004/URL.PNG)
 
 If you copy that link (this is important for later) and then go to it, it should ask you where you would like to save it. This means that you have the correct game file link. If it doesn't work, check that the URL is correct. As you should have copied that link (if you didn't, you can go back to the previous step), if you go back to the upload page and paste the link in the textbox titled 'Game File URL', you are ready to move onto the next step. I know this can feel like it takes a while, but if you want to upload multiple games you can do it in less than 30 seconds. Good Job!
 

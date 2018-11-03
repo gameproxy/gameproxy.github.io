@@ -17,7 +17,7 @@
 * O: Arlo
 * P: Caspar
 * Q: Seb
-* R: Arlo
+* R: Seb
 * S: Caspar
 * T: Seb
 * U: Arlo
