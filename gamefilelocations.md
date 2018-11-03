@@ -35,6 +35,10 @@
 * Pokemon - Leaf Green Version (U) (V1.1).gba: gba_storage_1
 * Pokemon - Ruby Version (U) (V1.1).gba: gba_storage_1
 * Pokemon - Sapphire Version (U) (V1.1).gba: gba_storage_1
+* Raze.swf: swf_storage_1
+* Run.swf: swf_storage_1
+* Run 2.swf: swf_storage_1
+* Run 3.swf: swf_storage_1
 * Super Mario 64 (U) [!].z64: z64_storage_1
 * Super Mario Advance 2 - Super Mario World (U) [!].gba: gba_storage_1
 * Super Mario Advance 4 - Super Mario Bros. 3 (U) (V1.1).gba: gba_storage_1
