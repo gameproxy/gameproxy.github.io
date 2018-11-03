@@ -22,6 +22,9 @@
 * busman-parking-3d.swf: swf_storage_1
 * catmario.swf: swf_storage_1
 * Classic NES - Super Mario Bros. # GBA.GBA: gba_storage_1
+* Fireboy and Watergirl.swf: swf_storage_1
+* Fireboy and Watergirl 2.swf: swf_storage_1
+* Fireboy and Watergirl 3.swf: swf_storage_1
 * gravity-boy.swf: swf_storage_1
 * hardest-free-game.swf: swf_storage_1
 * hardest-game.swf: swf_storage_1
