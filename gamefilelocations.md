@@ -43,4 +43,5 @@
 * Super Mario Advance 2 - Super Mario World (U) [!].gba: gba_storage_1
 * Super Mario Advance 4 - Super Mario Bros. 3 (U) (V1.1).gba: gba_storage_1
 * tangerine-tycoon.swf: swf_storage_1
+* Tank Trouble 2.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
