@@ -68,9 +68,11 @@
                     meantime, stick around to see what we're doing!
                 </p>
             </div>
-            <div id="gameList" class="itemHolder">
-                <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
+            <div class="card search">
+                <input placeholder="Search for a game..." id="searchBar" class="search"></input><button onclick="performSearch($('#searchBar').val());" class="search">Search</button>
             </div>
+            <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
+            <div id="gameList" class="itemHolder"></div>
         </main>
         <footer import="/footer.html" id="footer"></footer>
         <script src="profanityFilter.js"></script>

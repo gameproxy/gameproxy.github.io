@@ -1,3 +1,5 @@
+var gameList = [];
+
 function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false) {
     $("#gameLoader").hide();
 
@@ -39,8 +41,10 @@ function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png",
     $("#gameList").find("a").last().attr("href", link);
 }
 
-$(function() {
-    var gameList = [];
+function showAll() {
+    $("#gameList").html("");
+
+    $("#gameLoader").show();
 
     firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(24).on("value", function(snapshot) {
         gameList = [];
@@ -60,4 +64,45 @@ $(function() {
             }
         }
     });
+}
+
+function search(query) {
+    $("#gameList").html("");
+
+    $("#gameLoader").show();
+
+    firebase.database().ref("games").orderByChild("title").startAt(query).endAt("b\uf8ff").limitToLast(24).on("value", function(snapshot) {
+        gameList = [];
+
+        snapshot.forEach(function(childSnapshot) {
+            gameList.unshift(childSnapshot.val());
+            gameList[0]["key"] = childSnapshot.key;
+        });
+
+        $("#gameList").html("");
+
+        if (gameList.length == 0) {
+            $("#gameList").html("<h3 class='center'>Oops! Couldn't find that game.</h3>");
+        } else {
+            for (var i = gameList.length - 1; i >= 0; i--) {
+                if (gameList[i]["by"] == undefined) {
+                    addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                } else {
+                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                }
+            }
+        }
+    });
+}
+
+function performSearch(query = "") {
+    if (query == "") {
+        showAll();
+    } else {
+        search(query[0].toUpperCase() + query.substring(1).toLowerCase());
+    }
+}
+
+$(function() {
+    showAll();
 });

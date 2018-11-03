@@ -85,6 +85,11 @@ button.bad {
     background-color: var(--badColour);
 }
 
+button.search {
+    font-size: 20px;
+    width: 100px;
+}
+
 input {
     margin: 5px;
     padding: 10px;
@@ -93,6 +98,13 @@ input {
     color: black;
     border: none;
     border-radius: 5px;
+}
+
+input.search {
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: calc(100% - 140px);
 }
 
 input[type="file"] {
@@ -190,6 +202,13 @@ embed {
 
 .card.profile {
     height: 80px;
+}
+
+.card.search {
+    background-color: transparent;
+    margin: -5px;
+    margin-bottom: 5px;
+    padding: 0;
 }
 
 .itemHolder {
