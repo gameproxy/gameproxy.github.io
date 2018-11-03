@@ -64,11 +64,9 @@ If you search for an image on Google Images, you can right click on it and click
 
 This one's a bit more complicated than finding an image on Google, though if you follow my steps carefully this should work.
 
-1: Upload the image to Google Drive, find it and double click on it.
-
-2: Click on the 3 dots in the top right and then click 'Open in new window'.
-
-3: If you right-click on the image and click 'Copy Image URL',
+1. Upload the image to Google Drive, find it and double click on it.
+2. Click on the 3 dots in the top right and then click 'Open in new window'.
+3. If you right-click on the image and click 'Copy Image URL',
 you can now paste it in the textbox titled 'Thumbnail'.
 
 If you can't copy the image URL for some reason, you could try:
