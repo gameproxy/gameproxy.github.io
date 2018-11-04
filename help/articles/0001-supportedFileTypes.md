@@ -1,4 +1,4 @@
-## GameProxy Supported File Types
+## GameProxy supported file types
 #### Sebastian Doe
 * First Published: 31st October 2018
 * Last Updated: 1st November 2018
