@@ -82,6 +82,7 @@ function search(query) {
         $("#gameList").html("");
 
         if (gameList.length == 0) {
+            $("#gameLoader").hide();
             $("#gameList").html("<h3 class='center'>Oops! Couldn't find that game.</h3>");
         } else {
             for (var i = gameList.length - 1; i >= 0; i--) {
@@ -105,4 +106,10 @@ function performSearch(query = "") {
 
 $(function() {
     showAll();
+});
+
+$("#searchBar").keypress(function(e) {
+    if ((event.keyCode ? event.keyCode : event.which) == 13) {
+        performSearch($(this).val());
+    }
 });

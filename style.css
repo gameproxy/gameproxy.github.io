@@ -90,6 +90,12 @@ button.search {
     width: 100px;
 }
 
+button.motd {
+    position: relative;
+    top: -60px;
+    left: 5px;
+}
+
 input {
     margin: 5px;
     padding: 10px;
@@ -208,6 +214,13 @@ embed {
     background-color: transparent;
     margin: -5px;
     margin-bottom: 5px;
+    padding: 0;
+}
+
+.card.motd {
+    background-color: transparent;
+    margin: -5px;
+    margin-bottom: -50px;
     padding: 0;
 }
 
@@ -370,6 +383,13 @@ embed {
     height: 50px;
 }
 
+#motdMessage {
+    width: calc(100% - 10px);
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 #form {
     width: 100%;
     height: 930px;
@@ -387,6 +407,10 @@ embed {
         padding-left: unset;
         padding-right: unset;
     }
+
+    button.motd {
+        display: none;
+    }
     
     .desktop {
         display: none;
@@ -394,6 +418,10 @@ embed {
 
     .mobile {
         display: unset;
+    }
+
+    .card.motd {
+        margin-bottom: 5px;
     }
 
     .itemThumbnailHolder {
