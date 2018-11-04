@@ -22,7 +22,7 @@ $(function() {
 
         $(".gameName").text(gameData.title);
         $(".creatorAccountName").text(gameData.by);
-        $(".gameDate").text("Created " + gameData.dateAdded);
+        $(".gameDate").text("Uploaded " + gameData.dateAdded);
 
         if (gameData.byStaff) {
             $(".creatorAccountName").css("color", "#27ef70");
