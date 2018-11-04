@@ -31,5 +31,5 @@ $(function() {
         currentMotd++;
         
         loadMotd();
-    }, 5000);
+    }, 7000);
 });
