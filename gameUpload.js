@@ -12,6 +12,21 @@ function toDataUrl(url, callback) {
   xhr.send();
 }
 
+function formatDate(date) {
+    var monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + " " + monthNames[monthIndex] + " " + year;
+}
+
 function gameUpload() {
     firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
         var name = snapshot.val();
@@ -23,6 +38,7 @@ function gameUpload() {
                 src: $("#gameLink").val(),
                 description: $("#gameDescription").val(),
                 metrics: {likes: 0},
+                dateAdded: formatDate(new Date()),
                 uid: currentUid,
                 by: name,
                 byStaff: (currentUid === 'Of1POOmyy1V89Rmv8tC7ft0oT1C2' || currentUid === 'WY63UtyjHLaDqjYGubdL2ETc8123' || currentUid === 'cyyClPPVuUfqtv2NzflhMpvjln03' || currentUid === 'jttQ41OFw6MAVNY8mlTL83irRoc2' || currentUid === 'qD54KuQzwOXMd07bMhriJmPYR163' || currentUid === 'sm20Y8fTGoPfA45tqudOPakR3mr1'),
