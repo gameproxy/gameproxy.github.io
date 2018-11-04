@@ -23,6 +23,7 @@ header {
     left: 0;
     width: calc(100% - 16px);
     padding: 10px;
+    z-index: 1;
     background-color: var(--secondaryBackgroundColour);
 }
 
@@ -94,6 +95,7 @@ button.motd {
     position: relative;
     top: -60px;
     left: 5px;
+    z-index: 0;
 }
 
 input {
