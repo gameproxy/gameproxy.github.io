@@ -5,3 +5,4 @@
 * 0004: [How to upload a game to GameProxy](/help/index.html?article=0004-howToUploadAGameToGameProxy) by Sebastian Doe
 * 0005: [How to search on GameProxy](/help/index.html?article=0005-howToSearchOnGameProxy) by Sebastian Doe
 * 0006: [What requirements do you need to meet for your game to be verified?](/help/index.html?article=0006-verificationRequirements) by Sebastian Doe
+* 0007: [About ads on our site](/help/index.html?article=0007-aboutAds) by James Livesey
