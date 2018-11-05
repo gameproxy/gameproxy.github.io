@@ -24,6 +24,10 @@ $(function() {
         $(".creatorAccountName").text(gameData.by);
         $(".gameDate").text("Uploaded " + gameData.dateAdded);
 
+        var converter = new showdown.Converter();
+
+        $(".gameDescription").html(converter.makeHtml(gameData.description));
+
         if (gameData.byStaff) {
             $(".creatorAccountName").css("color", "#27ef70");
         }
