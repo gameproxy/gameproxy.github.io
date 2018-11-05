@@ -21,6 +21,7 @@ function showMoreDescription() {
 
 $(function() {
     $(".gameVerified").hide();
+    $(".gameSeeMore").hide();
 
     $(".gameDescription").css({
         "max-height": "100px",
@@ -37,6 +38,7 @@ $(function() {
         var converter = new showdown.Converter();
 
         $(".gameDescription").html(converter.makeHtml(gameData.description));
+        $(".gameSeeMore").show();
 
         if (gameData.byStaff) {
             $(".creatorAccountName").css("color", "#27ef70");
