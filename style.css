@@ -250,17 +250,29 @@ embed {
     overflow: hidden;
     margin: -10px;
     margin-bottom: 0px;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
 }
 
 .itemThumbnail {
     width: calc(100% + 20px);
     margin: -10px;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
 }
 
 .itemTitle {
     margin: 5px;
+}
+
+.adIcon {
+    width: fit-content;
+    margin-right: -10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    border-radius: 5px 0 5px 0; 
+    background-color: var(--highlightColour);
+    color: black;
 }
 
 .gameItem {
