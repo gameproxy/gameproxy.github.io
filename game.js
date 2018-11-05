@@ -14,8 +14,18 @@ function like() {
     alert("Coming soon!");
 };
 
+function showMoreDescription() {
+    $(".gameDescription").css("max-height", "unset");
+    $(".gameSeeMore").hide();
+}
+
 $(function() {
     $(".gameVerified").hide();
+
+    $(".gameDescription").css({
+        "max-height": "100px",
+        "overflow": "hidden"
+    });
 
     firebase.database().ref("games/" + getURLParameter("play")).once("value", function(snapshot) {
         gameData = snapshot.val();
