@@ -55,3 +55,4 @@
 * tangerine-tycoon.swf: swf_storage_1
 * Tank Trouble 2.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
+* supermario63.swf: swf_storage_1
