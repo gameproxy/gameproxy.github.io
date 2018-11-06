@@ -33,10 +33,10 @@ function gameUpload() {
 
         toDataUrl("https://cors-anywhere.herokuapp.com/" + $("#gameThumbnail").val(), function(base64Img) {
             firebase.database().ref("games").push().set({
-                title: $("#gameTitle").val(),
+                title: profanity.clean($("#gameTitle").val()),
                 thumbnail: base64Img,
                 src: $("#gameLink").val(),
-                description: $("#gameDescription").val(),
+                description: profanity.clean($("#gameDescription").val()),
                 metrics: {likes: 0},
                 dateAdded: formatDate(new Date()),
                 uid: currentUid,
