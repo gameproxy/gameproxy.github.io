@@ -38,7 +38,10 @@ $(function() {
         var converter = new showdown.Converter();
 
         $(".gameDescription").html(converter.makeHtml(gameData.description));
-        $(".gameSeeMore").show();
+
+        if ($(".gameDescription").prop("scrollHeight") > $(".gameDescription").height()) {
+            $(".gameSeeMore").show();
+        }
 
         if (gameData.byStaff) {
             $(".creatorAccountName").css("color", "#27ef70");
