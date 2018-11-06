@@ -19,6 +19,14 @@ function showMoreDescription() {
     $(".gameSeeMore").hide();
 }
 
+function switchTo(flash) {
+    if (flash) {
+        window.location.href = window.location.href.substring(0, window.location.href.length - 15);
+    } else {
+        window.location.href = window.location.href + "&sulfurous=true"
+    }
+}
+
 $(function() {
     $(".gameVerified").hide();
     $(".gameSeeMore").hide();
@@ -59,9 +67,21 @@ $(function() {
                 </object>
             `);
         } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
-            $("#gameFrame").html(`
-                <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIFrame"></iframe>
-            `);
+            if (getURLParameter("sulfurous") == "true") {
+                $("#gameFrame").html(`
+                    <iframe src="https://sulfurous.aau.at/html/app.html?id=` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIFrame"></iframe>
+                    <div class="left">
+                        <button onclick="switchTo(true);" class="secondary"><i class="material-icons button">flash_on</i> Switch to Flash</button>
+                    </div>
+                `);
+            } else {
+                $("#gameFrame").html(`
+                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIFrame"></iframe>
+                    <div class="left">
+                        <button onclick="switchTo(false);"><i class="material-icons button">offline_bolt</i> Switch to non-Flash</button>
+                    </div>
+                `);
+            }
         } else {
             $("#gameFrame").html(`
                 <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIFrame"></iframe>
