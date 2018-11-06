@@ -58,6 +58,10 @@ $(function() {
                     <embed src="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" quality="high" type="application/x-shockwave-flash" width="100%" height="100%" scale="default" pluginspage="http://www.macromedia.com/go/getflashplayer" />
                 </object>
             `);
+        } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
+            $("#gameFrame").html(`
+                <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIFrame"></iframe>
+            `);
         } else {
             $("#gameFrame").html(`
                 <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIFrame"></iframe>
