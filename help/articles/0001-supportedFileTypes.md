@@ -10,6 +10,8 @@ GameProxy (we're always working on more):
 Ones we currently support:
 
 * Flash Files (*.swf)
+* HTML5 Links
+* Scratch Project Links
 
 Ones we are working on:
 
