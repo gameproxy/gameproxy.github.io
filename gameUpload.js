@@ -1,15 +1,19 @@
 function toDataUrl(url, callback) {
-  var xhr = new XMLHttpRequest();
-  xhr.onload = function() {
-    var reader = new FileReader();
-    reader.onloadend = function() {
-      callback(reader.result);
+    if (url == null) {
+        callback(null);
+    } else {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+            callback(reader.result);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+        xhr.open("GET", url);
+        xhr.responseType = "blob";
+        xhr.send();
     }
-    reader.readAsDataURL(xhr.response);
-  };
-  xhr.open('GET', url);
-  xhr.responseType = 'blob';
-  xhr.send();
 }
 
 function formatDate(date) {
@@ -31,7 +35,7 @@ function gameUpload() {
     firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
         var name = snapshot.val();
 
-        toDataUrl("https://cors-anywhere.herokuapp.com/" + $("#gameThumbnail").val(), function(base64Img) {
+        toDataUrl($("#gameThumbnail").val() ? "https://cors-anywhere.herokuapp.com/" + $("#gameThumbnail").val() : null, function(base64Img) {
             firebase.database().ref("games").push().set({
                 title: profanity.clean($("#gameTitle").val()),
                 thumbnail: base64Img,

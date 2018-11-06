@@ -415,6 +415,12 @@ embed {
     display: none;
 }
 
+#gameIFrame {
+    width: calc(100% - 10px);
+    height: 35vw;
+    border: none;
+}
+
 @media (max-width: 800px) {
     main {
         width: calc(100vw - 54px)!important;
