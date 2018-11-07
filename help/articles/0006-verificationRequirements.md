@@ -8,6 +8,6 @@ If you would like to have your game verified on GameProxy which means more likes
 * No Inappropriate material
 * No extremely violent material
 * No rude words
-* No offencive material
+* No offensive material
 
 If your game passes all of these requirements, your game should be verified very soon. If not, it will be promptly removed from GameProxy.
