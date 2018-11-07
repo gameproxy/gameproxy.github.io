@@ -7,3 +7,4 @@
 * 0006: [What requirements do you need to meet for your game to be verified?](/help/index.html?article=0006-verificationRequirements) by Sebastian Doe
 * 0007: [About ads on our site](/help/index.html?article=0007-aboutAds) by James Livesey
 * 0008: [How to upload a Scratch game to GameProxy](/help/index.html?article=0008-howToUploadAGameFromScratchToGameProxy) by Sebastian Doe
+* 0009: [How to play Scratch games and troubleshoot](/help/index.html?article=0009-howToPlayScratchGamesOnGameProxyAndTroubleshooting) by Sebastian Doe
