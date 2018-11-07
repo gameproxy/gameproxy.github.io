@@ -28,8 +28,6 @@ function like() {
             firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof").set(likesData.likesProof.concat([currentUid]));
         }
     });
-
-    // alert("Coming soon!");
 };
 
 function showMoreDescription() {
