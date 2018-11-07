@@ -123,7 +123,7 @@ input[type="file"] {
 }
 
 textarea {
-    width: calc(100% - 40px);
+    width: calc(100% - 30px);
     margin: 5px;
     padding: 10px;
     font-size: 16px;
