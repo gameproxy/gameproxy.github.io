@@ -421,10 +421,18 @@ embed {
     display: none;
 }
 
-#gameIFrame {
+#gameIframe {
     width: calc(100% - 10px);
     height: 35vw;
     border: none;
+}
+
+#gameExitFullscreen {
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
 }
 
 @media (max-width: 800px) {

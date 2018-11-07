@@ -1,8 +1,8 @@
+var gameData = {};
+
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
 }
-
-var gameData = {};
 
 function refreshCreatorPpic() {
     firebase.storage().ref("users/" + gameData.uid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
@@ -35,7 +35,71 @@ function showMoreDescription() {
     $(".gameSeeMore").hide();
 }
 
-function switchTo(flash) {
+function fullscreen(goFullscreen = true) {
+    if (goFullscreen) {
+        $("object, #gameIframe").css({
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            zIndex: 1
+        });
+
+        $("embed").css("height", "100vh");
+        $("body").css("overflow", "hidden");
+        $("#gameExitFullscreen").show();
+        $("#gameIframe").focus();
+
+        try {
+            document.body.requestFullscreen();
+        } catch (e) {}
+
+        try {
+            document.body.webkitRequestFullScreen();
+        } catch (e) {}
+
+        try {
+            document.body.mozRequestFullScreen();
+        } catch (e) {}
+
+        try {
+            document.body.msRequestFullScreen();
+        } catch (e) {}
+    } else {
+        $("object, #gameIframe").css({
+            position: "unset",
+            top: "unset",
+            left: "unset",
+            width: "calc(100% - 10px)",
+            height: "35vw",
+            zIndex: "unset"
+        });
+
+        $("embed").css("height", "60vh");
+        $("body").css("overflow", "unset");
+        $("#gameExitFullscreen").hide();
+        $("#gameIframe").focus();
+
+        try {
+            document.exitFullscreen();
+        } catch (e) {}
+
+        try {
+            document.webkitCancelFullScreen();
+        } catch (e) {}
+
+        try {
+            document.mozCancelFullScreen();
+        } catch (e) {}
+
+        try {
+            document.msExitFullScreen();
+        } catch (e) {}
+    }
+}
+
+function switchToFlash(flash = true) {
     if (flash) {
         window.location.href = window.location.href.substring(0, window.location.href.length - 15);
     } else {
@@ -81,26 +145,34 @@ $(function() {
                     <param name="scale" value="default" />
                     <embed src="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" quality="high" type="application/x-shockwave-flash" width="100%" height="100%" scale="default" pluginspage="http://www.macromedia.com/go/getflashplayer" />
                 </object>
+                <div class="right">
+                    <button aria-label="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                </div>
             `);
         } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
             if (getURLParameter("sulfurous") == "true") {
                 $("#gameFrame").html(`
-                    <iframe src="https://sulfurous.aau.at/html/app.html?id=` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIFrame"></iframe>
+                    <iframe src="https://sulfurous.aau.at/html/app.html?id=` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe"></iframe>
                     <div class="left">
-                        <button onclick="switchTo(true);" class="secondary"><i class="material-icons button">flash_on</i> Switch to Flash</button>
+                        <button onclick="switchToFlash(true);" class="secondary"><i class="material-icons button">flash_on</i> Switch to Flash</button>
+                        <button onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
                     </div>
                 `);
             } else {
                 $("#gameFrame").html(`
-                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIFrame"></iframe>
+                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIframe"></iframe>
                     <div class="left">
-                        <button onclick="switchTo(false);"><i class="material-icons button">offline_bolt</i> Switch to non-Flash</button>
+                        <button onclick="switchToFlash(false);"><i class="material-icons button">offline_bolt</i> Switch to non-Flash</button>
+                        <button aria-label="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
                     </div>
                 `);
             }
         } else {
             $("#gameFrame").html(`
-                <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIFrame"></iframe>
+                <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
+                <div class="right">
+                    <button aria-label="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                </div>
             `);
         }
 
