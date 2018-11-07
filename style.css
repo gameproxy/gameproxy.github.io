@@ -76,6 +76,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 button.secondary {
@@ -84,6 +85,11 @@ button.secondary {
 
 button.bad {
     background-color: var(--badColour);
+}
+
+button.highlight {
+    background-color: var(--highlightColour);
+    color: black;
 }
 
 button.search {

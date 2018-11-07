@@ -11,7 +11,25 @@ function refreshCreatorPpic() {
 }
 
 function like() {
-    alert("Coming soon!");
+    firebase.database().ref("games/" + getURLParameter("play") + "/metrics").once("value", function(snapshot) {
+        var likesData = snapshot.val();
+
+        if (likesData.likesProof === undefined) {
+            likesData.likesProof = [];
+        }
+
+        if (likesData.likesProof.indexOf(currentUid) > -1) {
+            firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likes").set(likesData.likes - 1);
+            firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof").set(likesData.likesProof.filter(function(element) {
+                return element != currentUid;
+            }));
+        } else {
+            firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likes").set(likesData.likes + 1);
+            firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof").set(likesData.likesProof.concat([currentUid]));
+        }
+    });
+
+    // alert("Coming soon!");
 };
 
 function showMoreDescription() {
@@ -96,5 +114,24 @@ $(function() {
             $("#gameLoader").hide();
             $("#gameFrame").show();
         }, 2000);
+    });
+
+    firebase.database().ref("games/" + getURLParameter("play") + "/metrics").on("value", function(snapshot) {
+        var likesData = snapshot.val();
+
+        if (likesData.likesProof === undefined) {
+            likesData.likesProof = [];
+        }
+
+        $(".gameLikes").text(likesData.likes);
+
+        if (likesData.likesProof.indexOf(currentUid) > -1) {
+            $("#likeGameButton").removeClass("secondary").addClass("highlight");
+        } else {
+            $("#likeGameButton").removeClass("highlight").addClass("secondary");
+        }
+
+        // Like verification to see if no-one's hacking!
+        firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likes").set(likesData.likesProof.length);
     });
 });
