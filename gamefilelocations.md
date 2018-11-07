@@ -58,3 +58,4 @@
 * supermario63.swf: swf_storage_1
 Super Mario CrossOver.swf: swf_storage_1
 mario_flash2.swf: swf_storage_1
+Dig to China - Unblocked Adventures.swf: swf_storage_1
