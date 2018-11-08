@@ -4,6 +4,16 @@ function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
 }
 
+function formatDate(date) {
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + " " + monthNames[monthIndex] + " " + year + " at " + date.toLocaleTimeString(navigator.language, {hour: "2-digit", minute: "2-digit"});
+}
+
 function refreshCreatorPpic() {
     firebase.storage().ref("users/" + gameData.uid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
         $(".creatorAccountPicture").attr("src", data);
@@ -31,9 +41,25 @@ function like() {
 };
 
 function postComment() {
-    $("#commentBox").val("");
+    if (currentUid != null) {
+        var commentData = $("#commentBox").val();
 
-    alert("Coming soon!");
+        $("#commentBox").val("");
+
+        if (commentData.trim() != "") {
+            firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
+                var name = snapshot.val();
+
+                firebase.database().ref("games/" + getURLParameter("play") + "/comments").push().set({
+                    dateAdded: formatDate(new Date()),
+                    uid: currentUid,
+                    by: name,
+                    byStaff: isStaff(currentUid),
+                    content: profanity.clean(commentData)
+                });
+            });
+        }
+    }
 }
 
 function showMoreDescription() {
@@ -120,6 +146,17 @@ $(function() {
     $(".gameDescription").css({
         "max-height": "100px",
         "overflow": "hidden"
+    });
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (currentUid == null) {
+            $(".postComment").text("Sign in to comment");
+            $(".postComment").css({
+                backgroundColor: "#7e7e7e",
+                color: "black",
+                cursor: "default"
+            });
+        }
     });
 
     firebase.database().ref("games/" + getURLParameter("play")).once("value", function(snapshot) {
@@ -210,10 +247,36 @@ $(function() {
         // Like verification to see if no-one's hacking!
         firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likes").set(likesData.likesProof.length);
     });
+
+    firebase.database().ref("games/" + getURLParameter("play") + "/comments").on("value", function(snapshot) {
+        $("#commentsList").html("");
+        
+        snapshot.forEach(function(childSnapshot) {
+            if (childSnapshot.val().byStaff) {
+                $("#commentsList").html(`
+                    <div class="comment">
+                        <a href="profile.html" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <p class="commentContent"></p>
+                    </div>
+                ` + $("#commentsList").html());
+            } else {
+                $("#commentsList").html(`
+                    <div class="comment">
+                        <a href="profile.html" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <p class="commentContent"></p>
+                    </div>
+                ` + $("#commentsList").html());
+            }
+
+            $(".commentContent").first().text(childSnapshot.val().content);
+        });
+    });
 });
 
 $("#commentBox").keypress(function(e) {
     if ((event.keyCode ? event.keyCode : event.which) == 13) {
+        e.preventDefault();
+
         postComment();
     }
 });

@@ -20,12 +20,7 @@ function toDataUrl(url, callback) {
 }
 
 function formatDate(date) {
-    var monthNames = [
-        "January", "February", "March",
-        "April", "May", "June", "July",
-        "August", "September", "October",
-        "November", "December"
-    ];
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     var day = date.getDate();
     var monthIndex = date.getMonth();
@@ -57,8 +52,8 @@ function gameUpload() {
                 dateAdded: formatDate(new Date()),
                 uid: currentUid,
                 by: name,
-                byStaff: (currentUid === 'Of1POOmyy1V89Rmv8tC7ft0oT1C2' || currentUid === 'WY63UtyjHLaDqjYGubdL2ETc8123' || currentUid === 'cyyClPPVuUfqtv2NzflhMpvjln03' || currentUid === 'jttQ41OFw6MAVNY8mlTL83irRoc2' || currentUid === 'qD54KuQzwOXMd07bMhriJmPYR163' || currentUid === 'sm20Y8fTGoPfA45tqudOPakR3mr1'),
-                verified: (currentUid === 'Of1POOmyy1V89Rmv8tC7ft0oT1C2' || currentUid === 'WY63UtyjHLaDqjYGubdL2ETc8123' || currentUid === 'cyyClPPVuUfqtv2NzflhMpvjln03' || currentUid === 'jttQ41OFw6MAVNY8mlTL83irRoc2' || currentUid === 'qD54KuQzwOXMd07bMhriJmPYR163' || currentUid === 'sm20Y8fTGoPfA45tqudOPakR3mr1')
+                byStaff: isStaff(currentUid),
+                verified: isStaff(currentUid)
             }).then(function() {
                 window.location.href = "index.html";
             });

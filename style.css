@@ -391,6 +391,24 @@ embed {
     width: 20px;
 }
 
+.comment {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 5px;
+}
+
+.comment:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.commentDate {
+    color: #aeaeae;
+}
+
+.commentContent {
+    margin-top: 0;
+}
+
 #signIn {
     display: none;
 }
