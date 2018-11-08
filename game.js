@@ -30,6 +30,12 @@ function like() {
     });
 };
 
+function postComment() {
+    $("#commentBox").val("");
+
+    alert("Coming soon!");
+}
+
 function showMoreDescription() {
     $(".gameDescription").css("max-height", "unset");
     $(".gameSeeMore").hide();
@@ -204,4 +210,10 @@ $(function() {
         // Like verification to see if no-one's hacking!
         firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likes").set(likesData.likesProof.length);
     });
+});
+
+$("#commentBox").keypress(function(e) {
+    if ((event.keyCode ? event.keyCode : event.which) == 13) {
+        postComment();
+    }
 });
