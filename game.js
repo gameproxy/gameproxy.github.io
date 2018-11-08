@@ -168,7 +168,11 @@ $(function() {
 
         var converter = new showdown.Converter();
 
-        $(".gameDescription").html(converter.makeHtml(gameData.description));
+        if (gameData.description.trim() != "") {
+            $(".gameDescription").html(converter.makeHtml(gameData.description));
+        } else {
+            $(".gameDescription").html("<p class='center'><em>Nothing to see here...</em></p>");
+        }
 
         if ($(".gameDescription").prop("scrollHeight") > $(".gameDescription").height()) {
             $(".gameSeeMore").show();
