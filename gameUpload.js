@@ -1,3 +1,5 @@
+var uploadingGame = false;
+
 function toDataUrl(url, callback) {
     if (url == null) {
         callback(null);
@@ -30,33 +32,44 @@ function formatDate(date) {
 }
 
 function gameUpload() {
-    firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
-        var name = snapshot.val();
+    if (!uploadingGame) {
+        uploadingGame = true;
+        
+        $(".uploadGame").text("Uploading...");
+        $(".uploadGame").css({
+            backgroundColor: "#7e7e7e",
+            color: "black",
+            cursor: "default"
+        });
 
-        toDataUrl(
-            $("#gameLink").val().startsWith("https://scratch.mit.edu/projects/")?
-                "https://cors-anywhere.herokuapp.com/" + "https://cdn2.scratch.mit.edu/get_image/project/" + $("#gameLink").val().split("/")[4] + "_288x216.png"
-            :   (
-                    $("#gameThumbnail").val() != ""?
-                        "https://cors-anywhere.herokuapp.com/" + $("#gameThumbnail").val()
-                    :   null
-                )
-            ,
-            function(base64Img) {
-            firebase.database().ref("games").push().set({
-                title: profanity.clean($("#gameTitle").val()),
-                thumbnail: base64Img,
-                src: $("#gameLink").val(),
-                description: profanity.clean($("#gameDescription").val()),
-                metrics: {likes: 0},
-                dateAdded: formatDate(new Date()),
-                uid: currentUid,
-                by: name,
-                byStaff: isStaff(currentUid),
-                verified: isStaff(currentUid)
-            }).then(function() {
-                window.location.href = "index.html";
+        firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
+            var name = snapshot.val();
+
+            toDataUrl(
+                $("#gameLink").val().startsWith("https://scratch.mit.edu/projects/")?
+                    "https://cors-anywhere.herokuapp.com/" + "https://cdn2.scratch.mit.edu/get_image/project/" + $("#gameLink").val().split("/")[4] + "_288x216.png"
+                :   (
+                        $("#gameThumbnail").val() != "" ?
+                            "https://cors-anywhere.herokuapp.com/" + $("#gameThumbnail").val()
+                        :   null
+                    )
+                ,
+                function(base64Img) {
+                firebase.database().ref("games").push().set({
+                    title: profanity.clean($("#gameTitle").val()),
+                    thumbnail: base64Img,
+                    src: $("#gameLink").val(),
+                    description: profanity.clean($("#gameDescription").val()),
+                    metrics: {likes: 0},
+                    dateAdded: formatDate(new Date()),
+                    uid: currentUid,
+                    by: name,
+                    byStaff: isStaff(currentUid),
+                    verified: isStaff(currentUid)
+                }).then(function() {
+                    window.location.href = "index.html";
+                });
             });
         });
-    });
+    }
 }
