@@ -8,3 +8,4 @@
 * 0007: [About ads on our site](/help/index.html?article=0007-aboutAds) by James Livesey
 * 0008: [How to upload a Scratch game to GameProxy](/help/index.html?article=0008-howToUploadAGameFromScratchToGameProxy) by Sebastian Doe
 * 0009: [How to play Scratch games and troubleshooting](/help/index.html?article=0009-howToPlayScratchGamesOnGameProxyAndTroubleshooting) by Sebastian Doe
+* 0010: [List of how to upload all uploadable file types](/help/index.html?article=0010-uploadAllGameTypesList.md)
