@@ -34,7 +34,7 @@ function formatDate(date) {
 function gameUpload() {
     if (!uploadingGame) {
         uploadingGame = true;
-        
+
         $(".uploadGame").text("Uploading...");
         $(".uploadGame").css({
             backgroundColor: "#7e7e7e",
@@ -58,7 +58,7 @@ function gameUpload() {
                 firebase.database().ref("games").push().set({
                     title: profanity.clean($("#gameTitle").val()),
                     thumbnail: base64Img,
-                    src: $("#gameLink").val(),
+                    src: $("#gameLink").val().replace(/http:\/\//g, "https://"),
                     description: profanity.clean($("#gameDescription").val()),
                     metrics: {likes: 0},
                     dateAdded: formatDate(new Date()),
