@@ -53,36 +53,21 @@
             </div>
         </header>
         <main id="content">
-            <h1 class="center">Account</h1>
-            <div class="card center" id="signIn">
-                <h2>Sign into GameProxy</h2>
-                <form>
-                    <input type="email" placeholder="Email" id="user"></input><br>
-                    <input type="password" placeholder="Password" id="pass"></input>
-                </form><br>
-                <button onclick="window.location.href = 'index.html';" class="bad">Cancel</button><button class="secondary" onclick="signOutBefore();">Sign Up</button><button onclick="signIn();">Sign In</button><br>
+            <h1 class="center">Upload Game</h1>
+            <div class="card center notSignedIn">
+                <h2>Sorry!</h2>
+                <p>To access game uploading for your account, please sign in.</p>
+                <button onclick="window.location.href='account.html'">Sign In</button>
             </div>
-            <div class="card center" id="signUp">
-                <h2>Sign up for GameProxy</h2>
-                <form autocomplete="off">
-                    <input placeholder="Username" id="name" autocomplete="off"></input>
-                </form><br>
-                <button class="bad" onclick="reset();">Cancel</button><button onclick="signUp();">Sign Up</button><br>
+            <div class="card coloured signedIn">
+                Get likes and appreciation for uploading a new game. <a href="/help/index.html?article=0006-verificationRequirements" class="footer">Learn more about upload requirements.</a> <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
             </div>
-            <div class="card coloured signedIn profile">
-                <div>
-                    <img src="media/AnonUser.png" class="accountPicture floatLeft" />
-                </div>
-                <div class="floatLeft profileInfo">
-                    <strong class="accountName">Loading...</strong><br>
-                    Online
-                </div>
-                <div class="options">
-                    <button onclick="window.location.href = 'settings.html';" class="secondary">Settings</button><button onclick="signOut();" class="secondary">Sign Out</button>
-                </div>
-            </div>
-            <div class="card center signedIn">
-                <button onclick="window.location.href = 'gameUpload.html';">Create New Game</button>
+            <div class="card signedIn">
+                <input placeholder="Title" id="gameTitle"></input><br>
+                <input placeholder="Game File Link" id="gameLink"></input><input placeholder="Thumbnail" id="gameThumbnail"></input><br>
+                <textarea type="multiline" placeholder="Description" id="gameDescription"></textarea><br>
+                <small>You can use markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!</small><br>
+                <button onclick="gameUpload();" class="uploadGame">Upload Game</button>
             </div>
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
@@ -91,5 +76,6 @@
         <script src="profanityFilter.js"></script>
         <script src="staffList.js"></script>
         <script src="account.js"></script>
+        <script src="gameUpload.js"></script>
     </body>
 </html>
