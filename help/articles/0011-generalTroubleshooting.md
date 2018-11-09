@@ -16,3 +16,5 @@ On Internet Explorer: Follow [this](https://kb.wisc.edu/page.php?id=12314) artic
 On Mozilla Firefox: Follow [this](https://support.mozilla.org/en-US/kb/how-clear-firefox-cache) article. Beware that this website is not owned by anyone relating to GameProxy.
 
 On Safari: Follow [this](https://kb.wisc.edu/page.php?id=45060) article. Beware that this website is not owned by anyone relating to GameProxy.
+
+On Opera: Follow [this](https://pureinfotech.com/clear-cache-cookies-opera/) article. Beware that this website is not owned by anyone relating to GameProxy.
