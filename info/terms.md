@@ -1,3 +1,5 @@
+The following Terms have been updated on 10 November 2018 and are in immediate effect.
+
 ## 1. User Agreement
 **1.1.** These Terms And Conditions constitute an agreement between you (the 'user') and the GameProxy admins ('GameProxy') that governs the use of GameProxy's products and services. By using the services you agree that you have read, understood, and accepted the Terms and conditions in the Terms. If you do not agree with any of these Terms, please do not use GameProxy's products and services.
 
