@@ -1,0 +1,46 @@
+html, body {
+    margin-top: 5vh;
+    height: 80vh;
+    overflow: hidden;
+}
+
+main.countdown {
+    text-align: center;
+    margin-top: 0;
+    height: calc(100% - 100px);
+}
+
+img.countdown {
+    width: 10vw;
+}
+
+h2, h3 {
+    margin: 0;
+}
+
+.countdownContainer {
+    font-size: 12vw;
+    color: #7e7e7e;
+}
+
+.measurement {
+    font-size: 20px;
+}
+
+.millis {
+    font-size: 30px;
+}
+
+.time {
+    color: var(--secondaryColour);
+}
+
+@media (max-width: 800px) {
+    img.countdown {
+        width: 20vw;
+    }
+
+    .countdownContainer {
+        font-size: 10vw;
+    }
+}

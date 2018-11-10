@@ -97,6 +97,13 @@ button.search {
     width: 100px;
 }
 
+button.corner {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+}
+
 button.motd {
     position: relative;
     top: -60px;
@@ -449,10 +456,6 @@ embed {
 
 #gameExitFullscreen {
     display: none;
-    position: fixed;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1;
 }
 
 @media (max-width: 800px) {

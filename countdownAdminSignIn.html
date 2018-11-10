@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>GameProxy</title>
+        <link rel="shortcut icon" href="media/Small.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="countdown.css">
+        <script src="lib/showdown.min.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <main class="countdown">
+            <img src="media/small.png" class="countdown" />
+            <h1>Sign into GameProxy as admin</h1>
+            <div class="card center" id="signIn">
+                <form>
+                    <input type="email" placeholder="Email" id="user"></input><br>
+                    <input type="password" placeholder="Password" id="pass"></input>
+                </form><br>
+                <button onclick="window.location.href = 'countdown.html';" class="bad">Cancel</button><button onclick="signIn();">Sign In</button><br>
+            </div>
+            <div class="card center signedIn">
+                <h2>Sorry!</h2>
+                <p>You aren't an admin.</p>
+                <button onclick="signOut();">Sign Out</button>
+            </div>
+            <p class="center" id="error"></p>
+        </main>
+        <button onclick="window.location.href = 'countdown.html';" class="corner"><i class="material-icons button">supervised_user_circle</i> Back To Countdown</button>
+        <script src="profanityFilter.js"></script>
+        <script src="staffList.js"></script>
+        <script src="account.js"></script>
+        <script src="countdown.js"></script>
+        <script src="countdownAdminSignIn.js"></script>
+    </body>
+</html>
