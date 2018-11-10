@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged(function() {
     var distance = countdownDate - now;
 
     if (distance > 0) {
-        if (!isStaff(currentUid)) {
+        if (!isStaff(currentUid) && getURLParameter("bypassCountdown") != "true") {
             window.location.href = "countdown.html";
         }
 }});
