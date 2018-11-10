@@ -21,8 +21,8 @@ The following Terms have been updated on 10 November 2018 and are in immediate e
 ## 3. Content
 **3.1.** GameProxy supports freedom of speech, however, GameProxy's products and services are intended for a wide audience, and so some content could be inappropriate for other GameProxy users. You may not use the services in a way that:
 
-* Promotes discrimination, hatred or violence against any GameProxy user, whether logged in or not.
-* Threatens, harasses, stalks, defames or intimidates any GameProxy user, whether logged in or not.
+* Promotes discrimination, hatred or violence against any GameProxy user, whether signed in or not.
+* Threatens, harasses, stalks, defames or intimidates any GameProxy user, whether signed in or not.
 * Content contains rude, bad or foul language or personal attacks.
 * Content contains sexually explicit or graphically violent material.
 * Content contains instructions for illegal activity.
