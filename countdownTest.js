@@ -9,7 +9,7 @@ setInterval(function() {
 
     if (distance > 0) {
         // Debug purposes only
-        if (!isAdmin(currentUid) && getURLParameter("doCountdown") == "true") {
+        if (!isStaff(currentUid) && getURLParameter("doCountdown") == "true") {
             window.location.href = "countdown.html";
         }
     }
