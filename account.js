@@ -34,6 +34,10 @@ function change(user) {
 
             firebase.database().ref("users/" + user.uid + "/_settings/name").on("value", function(snapshot) {
                 $(".accountName").text(snapshot.val());
+
+                if (isStaff(user.uid)) {
+                    $(".profileName").css("color", "#27ef70");
+                }
             });
 
             firebase.database().ref("users/" + user.uid + "/_settings/staff").on("value", function(snapshot) {
@@ -80,6 +84,7 @@ function refreshPpic() {
 
 function setPpic(data) {
     var file = dataURItoBlob(data);
+
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").put(file).then(function(snapshot) {
         refreshPpic();
     });

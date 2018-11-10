@@ -164,6 +164,7 @@ $(function() {
 
         $(".gameName").text(gameData.title);
         $(".creatorAccountName").text(gameData.by);
+        $(".creatorProfileLink").attr("href", "profile.html?user=" + gameData.uid);
         $(".gameDate").text("Uploaded " + gameData.dateAdded);
 
         var converter = new showdown.Converter();
@@ -259,14 +260,14 @@ $(function() {
             if (childSnapshot.val().byStaff) {
                 $("#commentsList").html(`
                     <div class="comment">
-                        <a href="profile.html" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
                         <p class="commentContent"></p>
                     </div>
                 ` + $("#commentsList").html());
             } else {
                 $("#commentsList").html(`
                     <div class="comment">
-                        <a href="profile.html" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
                         <p class="commentContent"></p>
                     </div>
                 ` + $("#commentsList").html());
