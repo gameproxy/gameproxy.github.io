@@ -165,6 +165,7 @@ $(function() {
         $(".gameName").text(gameData.title);
         $(".creatorAccountName").text(gameData.by);
         $(".creatorProfileLink").attr("href", "profile.html?user=" + gameData.uid);
+        $(".creatorProfileButton").attr("onclick", "window.location.href = 'profile.html?user=" + gameData.uid + "';");
         $(".gameDate").text("Uploaded " + gameData.dateAdded);
 
         var converter = new showdown.Converter();
