@@ -2,6 +2,12 @@ function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
 }
 
+firebase.auth().onAuthStateChanged(function() {
+    if (getURLParameter("user") == currentUid) {
+        window.location.href = "account.html";
+    }
+});
+
 $(function() {
     firebase.database().ref("users/" + getURLParameter("user") + "/_settings/name").on("value", function(snapshot) {
         $(".profileName").text(snapshot.val());

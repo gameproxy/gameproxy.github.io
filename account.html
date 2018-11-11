@@ -84,6 +84,11 @@
             <div class="card center signedIn">
                 <button onclick="window.location.href = 'gameUpload.html';">Create New Game</button>
             </div>
+            <div class="signedIn">
+                <h2 class="center">Uploaded Games</h2>
+                <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
+                <div id="gameList" class="itemHolder"></div>
+            </div>
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
         </main>
@@ -91,5 +96,6 @@
         <script src="profanityFilter.js"></script>
         <script src="staffList.js"></script>
         <script src="account.js"></script>
+        <script src="accountGameList.js"></script>
     </body>
 </html>
