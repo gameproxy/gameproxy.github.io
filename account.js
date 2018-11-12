@@ -35,13 +35,7 @@ function change(user) {
             firebase.database().ref("users/" + user.uid + "/_settings/name").on("value", function(snapshot) {
                 $(".accountName").text(snapshot.val());
 
-                if (isStaff(user.uid)) {
-                    $(".profileName").css("color", "#27ef70");
-                }
-            });
-
-            firebase.database().ref("users/" + user.uid + "/_settings/staff").on("value", function(snapshot) {
-                if (snapshot.val()) {
+                if (isStaff(currentUid)) {
                     $(".accountName").css("color", "#27ef70");
                 }
             });
