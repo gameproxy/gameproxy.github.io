@@ -55,6 +55,16 @@ $(function() {
     }, 1000);
 
     setInterval(function() {
+        if (isStaff(currentUid)) {
+            $(".admin").css("display", "block");
+            $(".notAdmin").css("display", "none");
+        } else {
+            $(".admin").css("display", "none");
+            $(".notAdmin").css("display", "block");
+        }
+    }, 10);
+
+    setInterval(function() {
         $(".loader").css("color", "#262626");
     }, 4000);
 

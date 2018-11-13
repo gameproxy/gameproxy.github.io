@@ -184,6 +184,14 @@ embed {
     display: none;
 }
 
+.notAdmin {
+    display: block;
+}
+
+.admin {
+    display: none;
+}
+
 .left {
     text-align: left!important;
 }

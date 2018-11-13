@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>GameProxy</title>
+        <link rel="shortcut icon" href="media/Small.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons">
+        <link rel="stylesheet" href="style.css">
+        <script src="lib/showdown.min.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <a class="skipTo" href="#content">Skip to content</a>
+        <a class="skipTo" href="#footer">Skip to footer</a>
+        <header>
+            <span class="desktop">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="media/Large.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <span class="mobile">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="media/Small.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <div class="headerRight">
+                <a href="index.html" class="headerButton">Games</a>
+                <a href="chat.html" class="headerButton">Chat</a>
+                <a href="account.html" class="headerButton selected">Account</a>
+            </div>
+        </header>
+        <main id="content">
+            <h1 class="center">Admin Console</h1>
+            <div class="card center notAdmin">
+                <h2>Sorry!</h2>
+                <p>To access the admin console, you must be an admin.</p>
+                <button onclick="window.location.href='account.html'">Account</button>
+            </div>
+            <div class="card coloured admin">
+                Make sure that games are up-to-standard. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
+            </div>
+            <div class="card signedIn admin">
+                This bit is coming soon! You'll be able to verify games but there aren't any accounts that don't have auto-verification at the moment.
+            </div>
+            <h2 class="center">Pending Games</h2>
+            <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
+            <div id="gameList" class="itemHolder"></div>
+            <p class="center" id="error"></p>
+            <div class="center" id="pend"></div>
+        </main>
+        <footer import="/footer.html" id="footer"></footer>
+        <script src="profanityFilter.js"></script>
+        <script src="staffList.js"></script>
+        <script src="account.js"></script>
+        <script src="adminGameList.js"></script>
+    </body>
+</html>
