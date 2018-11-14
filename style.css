@@ -185,11 +185,11 @@ embed {
 }
 
 .notAdmin {
-    display: block;
+    display: none;
 }
 
 .notAdminSpan {
-    display: inline-block;
+    display: none;
 }
 
 .admin {

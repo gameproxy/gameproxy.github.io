@@ -54,7 +54,7 @@ $(function() {
         });
     }, 1000);
 
-    setInterval(function() {
+    firebase.auth().onAuthStateChanged(function() {
         if (isStaff(currentUid)) {
             $(".admin").css("display", "block");
             $(".adminSpan").css("display", "inline-block");
@@ -66,7 +66,7 @@ $(function() {
             $(".notAdmin").css("display", "block");
             $(".notAdminSpan").css("display", "inline-block");
         }
-    }, 10);
+    });
 
     setInterval(function() {
         $(".loader").css("color", "#262626");
