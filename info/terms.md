@@ -41,4 +41,4 @@ The following Terms have been updated on 10 November 2018 and are in immediate e
 
 **3.4.** You are responsible for visiting other websites linking or referred from GameProxy's websites, and GameProxy is not responsible for — and cannot guarantee the safety of — the content and material on the websites that you have visited, to the extent as described in the warranty.
 
-**3.5.** You are responsible for clicking on a non-verified game. Some of our games that are not verified may have inappropriate, rude, offensive or extremely violent. We will try to delete these games as soon as possible though.
+**3.5.** You are responsible for visiting a non-verified game. Some of our games that are not verified may be inappropriate, rude, offensive or extremely violent. We will try to delete these games as soon as possible.
