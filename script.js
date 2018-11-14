@@ -57,10 +57,14 @@ $(function() {
     setInterval(function() {
         if (isStaff(currentUid)) {
             $(".admin").css("display", "block");
+            $(".adminSpan").css("display", "inline-block");
             $(".notAdmin").css("display", "none");
+            $(".notAdminSpan").css("display", "none");
         } else {
             $(".admin").css("display", "none");
+            $(".adminSpan").css("display", "none");
             $(".notAdmin").css("display", "block");
+            $(".notAdminSpan").css("display", "inline-block");
         }
     }, 10);
 
