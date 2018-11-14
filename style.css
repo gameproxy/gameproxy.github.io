@@ -188,7 +188,15 @@ embed {
     display: block;
 }
 
+.notAdminSpan {
+    display: inline-block;
+}
+
 .admin {
+    display: none;
+}
+
+.adminSpan {
     display: none;
 }
 
