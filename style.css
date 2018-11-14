@@ -3,6 +3,7 @@
     --secondaryColour: #8449fc;
     --secondaryLogoColour: #b494f7;
     --badColour: rgba(255, 255, 255, 0.2);
+    --reallyBadColour: #ef2727;
     --primaryBackgroundColour: #262626;
     --secondaryBackgroundColour: #424242;
     --highlightColour: #27ef70;
@@ -63,10 +64,6 @@ a.hidden {
     outline: unset!important;
 }
 
-a.hidden:focus {
-    background-color: red;
-}
-
 button {
     margin: 5px;
     padding: 10px;
@@ -85,6 +82,10 @@ button.secondary {
 
 button.bad {
     background-color: var(--badColour);
+}
+
+button.reallyBad {
+    background-color: var(--reallyBadColour);
 }
 
 button.highlight {
