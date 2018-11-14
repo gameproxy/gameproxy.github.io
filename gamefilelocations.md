@@ -25,6 +25,7 @@
 * Atari Breakout.swf: swf_storage_1
 * Bad Piggies.swf: swf_storage_1
 * Basketball Legends.swf: swf_storage_1
+* BottleCapper.swf: swf_storage_1
 * box-clever-2.swf: swf_storage_1
 * busman-parking-3d.swf: swf_storage_1
 * catmario.swf: swf_storage_1
@@ -36,6 +37,9 @@
 * Fireboy and Watergirl.swf: swf_storage_1
 * Fireboy and Watergirl 2.swf: swf_storage_1
 * Fireboy and Watergirl 3.swf: swf_storage_1
+* FreeRider.swf: swf_storage_1
+* FreeRider2.swf: swf_storage_1
+* GlobalWarming.swf: swf_storage_1
 * gravity-boy.swf: swf_storage_1
 * hardest-free-game.swf: swf_storage_1
 * hardest-game.swf: swf_storage_1
@@ -44,6 +48,7 @@
 * meteors-640x480.swf: swf_storage_1
 * penguin-bubble.swf: swf_storage_1
 * pest-destroyer.swf: swf_storage_1
+* Pickies.swf: swf_storage_1
 * Pokemon - Emerald Version (U).gba: gba_storage_1
 * Pokemon - Fire Red Version (U) (V1.1).gba: gba_storage_1
 * Pokemon - Leaf Green Version (U) (V1.1).gba: gba_storage_1
@@ -58,6 +63,7 @@
 * Super Mario Advance 4 - Super Mario Bros. 3 (U) (V1.1).gba: gba_storage_1
 * tangerine-tycoon.swf: swf_storage_1
 * Tank Trouble 2.swf: swf_storage_1
+* TrapTheTiger.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
 * supermario63.swf: swf_storage_1
 Super Mario CrossOver.swf: swf_storage_1
