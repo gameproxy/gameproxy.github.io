@@ -229,12 +229,25 @@ $(function() {
 
         if (gameData.verified) {
             $(".gameVerified").show();
+
+            $(".verifyButton").removeClass("secondary").addClass("highlight");
+            $(".verifyButton").html("<i class='material-icons button'>verified_user</i> Verified");
         }
 
         setInterval(function() {
             $("#gameLoader").hide();
             $("#gameFrame").show();
         }, 2000);
+    });
+
+    firebase.database().ref("games/" + getURLParameter("play") + "/verified").once("value", function(snapshot) {
+        if (!!snapshot.val()) {
+            $(".verifyButton").removeClass("secondary").addClass("highlight");
+            $(".verifyButton").html("<i class='material-icons button'>verified_user</i> Verified");
+        } else {
+            $(".verifyButton").removeClass("highlight").addClass("secondary");
+            $(".verifyButton").html("<i class='material-icons button'>verified_user</i> Verify");
+        }
     });
 
     firebase.database().ref("games/" + getURLParameter("play") + "/metrics").on("value", function(snapshot) {
