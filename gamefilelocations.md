@@ -82,4 +82,18 @@
 * CoasterRacer3.swf: swf_storage_1
 * HeatRushUSA.swf: swf_storage_1
 * HeatRushFuture.swf: swf_storage_1
+* SoccerBalls2.swf: swf_storage_2
+* ArkandianExplorer.swf: swf_storage_2
+* AmericanRacing.swf: swf_storage_2
+* TruckLoader4.swf: swf_storage_2
+* ArkandianExplorer.swf: swf_storage_2
+* CookieHamster.swf: swf_storage_2
+* DriftRunners3D.swf: swf_storage_2
+* TurboGolf.swf: swf_storage_2
+* SuperFishing.swf: swf_storage_2
+* StickFigureBadminton2.swf: swf_storage_2
+* FormulaRacer2012.swf: swf_storage_2
+* NanoKingdoms.swf: swf_storage_2
+* EffingFruits.swf: swf_storage_2
+* RodHotsHotRodRacing.swf: swf_storage_2
 *Key:* File Name: Location
