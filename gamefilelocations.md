@@ -69,4 +69,17 @@
 * supermario63.swf: swf_storage_1
 * tangerine-tycoon.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
+* DuskDrive.swf: swf_storage_1
+* RollerRider.swf: swf_storage_1
+* IcyGifts2.swf: swf_storage_1
+* HiredHeroes.swf: swf_storage_1
+* FlyingCookieQuest.swf: swf_storage_1
+* TrickyRick.swf: swf_storage_1
+* MonsterLegions.swf: swf_storage_1
+* Divide.swf: swf_storage_1
+* GiantsAndDwarvesTD.swf: swf_storage_1
+* N.swf: swf_storage_1
+* CoasterRacer3.swf: swf_storage_1
+* HeatRushUSA.swf: swf_storage_1
+* HeatRushFuture.swf: swf_storage_1
 *Key:* File Name: Location
