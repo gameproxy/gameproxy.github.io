@@ -139,6 +139,26 @@ function switchToFlash(flash = true) {
     }
 }
 
+function verifyGame() {
+    if (isStaff(currentUid)) {
+        firebase.database().ref("games/" + getURLParameter("play") + "/verified").set(!gameData.verified);
+    } else {
+        alert("Nice try, hacker!");
+    }
+}
+
+function deleteGame() {
+    if (isStaff(currentUid)) {
+        if (confirm("Is it okay to delete this game? This action can't be undone.")) {
+            firebase.database().ref("games/" + getURLParameter("play")).set(null);
+
+            window.location.href = "admin.html";
+        }
+    } else {
+        alert("Nice try, hacker!");
+    }
+}
+
 $(function() {
     $(".gameVerified").hide();
     $(".gameSeeMore").hide();
@@ -240,14 +260,20 @@ $(function() {
         }, 2000);
     });
 
-    firebase.database().ref("games/" + getURLParameter("play") + "/verified").once("value", function(snapshot) {
+    firebase.database().ref("games/" + getURLParameter("play") + "/verified").on("value", function(snapshot) {
         if (!!snapshot.val()) {
+            $(".gameVerified").show();
+
             $(".verifyButton").removeClass("secondary").addClass("highlight");
             $(".verifyButton").html("<i class='material-icons button'>verified_user</i> Verified");
         } else {
+            $(".gameVerified").hide();
+
             $(".verifyButton").removeClass("highlight").addClass("secondary");
             $(".verifyButton").html("<i class='material-icons button'>verified_user</i> Verify");
         }
+
+        gameData.verified = !!snapshot.val();
     });
 
     firebase.database().ref("games/" + getURLParameter("play") + "/metrics").on("value", function(snapshot) {

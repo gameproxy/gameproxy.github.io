@@ -55,21 +55,25 @@ function gameUpload() {
                     )
                 ,
                 function(base64Img) {
-                firebase.database().ref("games").push().set({
-                    title: profanity.clean($("#gameTitle").val()),
-                    thumbnail: base64Img,
-                    src: $("#gameLink").val().replace(/http:\/\//g, "https://"),
-                    description: profanity.clean($("#gameDescription").val()),
-                    metrics: {likes: 0},
-                    dateAdded: formatDate(new Date()),
-                    uid: currentUid,
-                    by: name,
-                    byStaff: isStaff(currentUid),
-                    verified: isStaff(currentUid)
-                }).then(function() {
-                    window.location.href = "index.html";
-                });
-            });
+                    var newGame = firebase.database().ref("games").push()
+                    
+                    newGame.set({
+                        title: profanity.clean($("#gameTitle").val()),
+                        thumbnail: base64Img,
+                        src: $("#gameLink").val().replace(/http:\/\//g, "https://"),
+                        description: profanity.clean($("#gameDescription").val()),
+                        metrics: {likes: 0},
+                        dateAdded: formatDate(new Date()),
+                        uid: currentUid,
+                        by: name,
+                        byStaff: isStaff(currentUid),
+                        verified: isStaff(currentUid)
+                    }).then(function() {
+                        console.log(newGame);
+                        window.location.href = "game.html?play=" + newGame.key;
+                    });
+                }
+            );
         });
     }
 }
