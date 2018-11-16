@@ -86,7 +86,6 @@
 * ArkandianExplorer.swf: swf_storage_2
 * AmericanRacing.swf: swf_storage_2
 * TruckLoader4.swf: swf_storage_2
-* ArkandianExplorer.swf: swf_storage_2
 * CookieHamster.swf: swf_storage_2
 * DriftRunners3D.swf: swf_storage_2
 * TurboGolf.swf: swf_storage_2
