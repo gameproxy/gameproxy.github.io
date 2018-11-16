@@ -9,14 +9,15 @@ firebase.auth().onAuthStateChanged(function() {
 
     if (distance > 0) {
         if (getURLParameter("unlockCountdown") == "true") {
-            localStorage.setItem("unlockCountdown", true);
+            localStorage.setItem("unlockCountdown", "true");
         }
 
         if (getURLParameter("unlockCountdown") == "false") {
-            localStorage.setItem("unlockCountdown", false);
+            localStorage.setItem("unlockCountdown", "false");
         }
 
-        if (!isStaff(currentUid) && getURLParameter("bypassCountdown") != "true" && localStorage.getItem("unlockCountdown") != true) {
+        if (!isStaff(currentUid) && getURLParameter("bypassCountdown") != "true" && localStorage.getItem("unlockCountdown") != "true") {
             window.location.href = "countdown.html";
         }
-}});
+    }
+});
