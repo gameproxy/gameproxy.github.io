@@ -8,7 +8,16 @@ firebase.auth().onAuthStateChanged(function() {
     var distance = countdownDate - now;
 
     if (distance > 0) {
-        if (!isStaff(currentUid) && getURLParameter("bypassCountdown") != "true") {
+        if (getURLParameter("unlockCountdown") == "true") {
+            localStorage.setItem("unlockCountdown", "true");
+        }
+
+        if (getURLParameter("unlockCountdown") == "false") {
+            localStorage.setItem("unlockCountdown", "false");
+        }
+
+        if (!isStaff(currentUid) && getURLParameter("bypassCountdown") != "true" && localStorage.getItem("unlockCountdown") != "true") {
             window.location.href = "countdown.html";
         }
-}});
+    }
+});
