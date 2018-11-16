@@ -1,7 +1,7 @@
 var uploadingGame = false;
 
 function toDataUrl(url, callback) {
-    if (url == null) {
+    if (url == null || url.startsWith("data:")) {
         callback(null);
     } else {
         var xhr = new XMLHttpRequest();
