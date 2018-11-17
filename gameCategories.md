@@ -1,4 +1,4 @@
-* Racing
+* Driving
 * Adventure
 * Action
 * Puzzle
