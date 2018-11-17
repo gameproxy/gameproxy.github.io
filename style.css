@@ -570,3 +570,7 @@ embed {
     font-weight: bold;
     color: red;
 }
+
+.categoryText {
+    font-weight: bold;
+}

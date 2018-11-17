@@ -187,6 +187,7 @@ $(function() {
         $(".creatorProfileLink").attr("href", "profile.html?user=" + gameData.uid);
         $(".creatorProfileButton").attr("onclick", "window.location.href = 'profile.html?user=" + gameData.uid + "';");
         $(".gameDate").text("Uploaded " + gameData.dateAdded);
+        $(".gameCategory").text(gameData.category);
 
         var converter = new showdown.Converter();
 
