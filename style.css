@@ -574,3 +574,43 @@ embed {
 .categoryText {
     font-weight: bold;
 }
+
+.dropbtn {
+    background-color: white;
+    color: gray;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: gray;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.show {display:block;}
