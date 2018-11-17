@@ -1,13 +1,17 @@
-* Driving
-* Adventure
 * Action
-* Puzzle
+* Adventure
+* Animals
 * Arcade
-* Animal
 * Board Game
-* Online Multiplayer Game
+* Driving
+* Idle
+* Mystery
+* Multiplayer
+* Platformer
+* Puzzle
+* Role-playing
 * Simulation
 * Sports
-* Mystery
+* Survival
 
 ### On Firebase write: value = category: "e.g. Racing"
