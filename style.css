@@ -51,8 +51,8 @@ a {
 }
 
 h2 {
-    font-size: 18pt 
-}    
+    font-size: 18pt
+}
 
 a.footer {
     color: white;
@@ -112,7 +112,7 @@ button.motd {
     z-index: 0;
 }
 
-input {
+input, select {
     margin: 5px;
     padding: 10px;
     font-size: 16px;
@@ -120,6 +120,10 @@ input {
     color: black;
     border: none;
     border-radius: 5px;
+}
+
+select {
+    width: 238px;
 }
 
 input.search {
@@ -300,7 +304,7 @@ embed {
     padding-left: 10px;
     padding-right: 10px;
     float: right;
-    border-radius: 5px 0 5px 0; 
+    border-radius: 5px 0 5px 0;
     background-color: var(--highlightColour);
     color: black;
 }
@@ -416,6 +420,14 @@ embed {
     width: 20px;
 }
 
+.gameUploadField {
+    width: calc(25% - 33px);
+}
+
+select.gameUploadField {
+    width: calc(25% - 13px);
+}
+
 .comment {
     padding-left: 16px;
     padding-right: 16px;
@@ -526,6 +538,14 @@ embed {
     .gameItem {
         height: calc(50vw + 80px);
     }
+    
+    .gameUploadField {
+        width: calc(100% - 30px);
+    }
+    
+    select.gameUploadField {
+        width: calc(100% - 10px);
+    }
 }
 
 @media (max-width: 400px) {
@@ -570,47 +590,3 @@ embed {
     font-weight: bold;
     color: red;
 }
-
-.categoryText {
-    font-weight: bold;
-}
-
-.dropbtn {
-    background-color: white;
-    color: gray;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    border-radius: 5px;
-    width: 200px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: gray;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd}
-
-.show {display:block;}

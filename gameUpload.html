@@ -66,33 +66,30 @@
                 Struggling on how to upload your game? <a href="/help/index.html?article=0010-uploadAllGameTypesList" class="footer">Click here.</a>
             </div>
             <div class="card signedIn">
-                <input placeholder="Title" id="gameTitle"></input><br>
-                <input placeholder="Game File Link" id="gameLink"></input><input placeholder="Thumbnail" id="gameThumbnail"></input><br>
-                <div class="dropdown">
-                    <button onclick="category()" class="dropbtn">Category</button>
-                    <div id="myDropdown" class="dropdown-content">
-                      <a href="">Action</a>
-                      <a href="">Adventure</a>
-                      <a href="">Animals</a>
-                      <a href="">Arcade</a>
-                      <a href="">Board Game</a>
-                      <a href="">Driving</a>
-                      <a href="">Idle</a>
-                      <a href="">Multiplayer</a>
-                      <a href="">Mystery</a>
-                      <a href="">Platformer</a>
-                      <a href="">Puzzle</a>
-                      <a href="">Role-playing</a>
-                      <a href="">Simulation</a>
-                      <a href="">Sports</a>
-                      <a href="">Survival</a>
-                    </div>
-                  </div>
-                  <br>
-                <textarea type="multiline" placeholder="Description" id="gameDescription"></textarea><br>
-                  <br>
+                <input placeholder="Title" class="gameUploadField" id="gameTitle"></input>
+                <input placeholder="Game File Link" class="gameUploadField" id="gameLink"></input>
+                <input placeholder="Thumbnail" class="gameUploadField" id="gameThumbnail"></input>
+                <select class="gameUploadField">
+                    <option value="none">Don't Tag</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="animals">Animals</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="board">Board Game</option>
+                    <option value="driving">Driving</option>
+                    <option value="idle">Idle</option>
+                    <option value="multiplayer">Multiplayer</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="platformer">Platformer</option>
+                    <option value="puzzle">Puzzle</option>
+                    <option value="rp">Role-Playing</option>
+                    <option value="simulation">Simulation</option>
+                    <option value="sports">Sports</option>
+                    <option value="survival">Survival</option>
+                </select>
+                <textarea type="multiline" rows="5" placeholder="Description" id="gameDescription"></textarea><br>
                 <small>You can use markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!</small><br>
-                <button onclick="gameUpload();" class="uploadGame">Upload Game</button>
+                <div class="right"><button onclick="gameUpload();" class="uploadGame">Upload Game</button></div>
             </div>
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
