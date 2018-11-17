@@ -121,4 +121,24 @@
 * supermario63.swf: swf_storage_1
 * tangerine-tycoon.swf: swf_storage_1
 * uniwords-750x600.swf: swf_storage_1
+* GrandPrixGo.swf: swf_storage_2
+* Brutal.swf: swf_storage_2
+* ElementsOfArkandia.swf: swf_storage_2
+* PrincessSaver.swf: swf_storage_2
+* DuckLife3Evolution.swf: swf_storage_2
+* DoodleGod2.swf: swf_storage_2
+* HobbitLaunch.swf: swf_storage_2
+* RunDoggyRun.swf: swf_storage_2
+* VampirePhysics.swf: swf_storage_2
+* ToadTrouble.swf: swf_storage_2
+* BattleScribes.swf: swf_storage_2
+* FormulaRacer.swf: swf_storage_2
+* WoodenPath2.swf: swf_storage_2
+* CoastRunners.swf: swf_storage_2
+* ArkandianCrusade.swf: swf_storage_2
+* ClobeThePortalAdventure.swf: swf_storage_2
+* DungeonDeveloper.swf: swf_storage_2
+* NeonRace.swf: swf_storage_2
+* EverRisingWater.swf: swf_storage_2
+* EmmaADayAtTheZoo.swf: swf_storage_2
 *Key:* File Name: Location
