@@ -143,7 +143,7 @@ function verifyGame() {
     if (isStaff(currentUid)) {
         firebase.database().ref("games/" + getURLParameter("play") + "/verified").set(!gameData.verified);
     } else {
-        alert("Nice try, hacker!");
+        alert("Nice try, hacker! You'll never break our security.");
     }
 }
 
@@ -155,7 +155,7 @@ function deleteGame() {
             window.location.href = "admin.html";
         }
     } else {
-        alert("Nice try, hacker!");
+        alert("Nice try, hacker! You'll never break our security.");
     }
 }
 
