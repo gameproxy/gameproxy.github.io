@@ -66,6 +66,7 @@ function gameUpload() {
                         description: profanity.clean($("#gameDescription").val()),
                         metrics: {likes: 0},
                         dateAdded: formatDate(new Date()),
+                        tag: $("#gameTag").val(),
                         uid: currentUid,
                         by: name,
                         byStaff: isStaff(currentUid),
