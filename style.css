@@ -599,3 +599,9 @@ select.gameUploadField {
     font-weight: bold;
     color: red;
 }
+
+.warningwhitebkgd {
+    font-weight: bold;
+    color: red;
+    background-color: white;
+}
