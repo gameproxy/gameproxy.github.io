@@ -12,6 +12,7 @@
 * Role-playing
 * Simulation
 * Sports
+* Strategy
 * Survival
 
 ### On Firebase write: value = category: "e.g. Racing"
