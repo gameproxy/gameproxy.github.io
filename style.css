@@ -238,6 +238,15 @@ embed {
     border-radius: 5px;
 }
 
+.centre-card {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    align-content: center;
+    text-align: center;
+}
+
 .card.coloured {
     background-color: var(--primaryColour);
 }
