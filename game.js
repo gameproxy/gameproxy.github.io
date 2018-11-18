@@ -187,7 +187,40 @@ $(function() {
         $(".creatorProfileLink").attr("href", "profile.html?user=" + gameData.uid);
         $(".creatorProfileButton").attr("onclick", "window.location.href = 'profile.html?user=" + gameData.uid + "';");
         $(".gameDate").text("Uploaded " + gameData.dateAdded);
-        $(".gameCategory").text(gameData.category);
+
+        if (gameData.category == "action") {
+            $(".gameCategory").text("Action")
+        } else if (gameData.category == "adventure") {
+            $(".gameCategory").text("Adventure")
+        } else if (gameData.category == "animals") {
+            $(".gameCategory").text("Animals")
+        } else if (gameData.category == "arcade") {
+            $(".gameCategory").text("Arcade")
+        } else if (gameData.category == "board") {
+            $(".gameCategory").text("Board Game")
+        } else if (gameData.category == "driving") {
+            $(".gameCategory").text("Driving")
+        } else if (gameData.category == "idle") {
+            $(".gameCategory").text("Idle")
+        } else if (gameData.category == "multiplayer") {
+            $(".gameCategory").text("Multiplayer")
+        } else if (gameData.category == "mystery") {
+            $(".gameCategory").text("Mystery")
+        } else if (gameData.category == "platformer") {
+            $(".gameCategory").text("Platformer")
+        } else if (gameData.category == "puzzle") {
+            $(".gameCategory").text("Puzzle")
+        } else if (gameData.category == "rp") {
+            $(".gameCategory").text("Role-Playing")
+        } else if (gameData.category == "simulation") {
+            $(".gameCategory").text("Simulation")
+        } else if (gameData.category == "sports") {
+            $(".gameCategory").text("Sports")
+        } else if (gameData.category == "strategy") {
+            $(".gameCategory").text("Strategy")
+        } else if (gameData.category == "survival") {
+            $(".gameCategory").text("Survival")
+        };
 
         var converter = new showdown.Converter();
 
