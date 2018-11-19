@@ -234,7 +234,7 @@ $(function() {
 
         if (gameData.src != undefined && gameData.src.endsWith(".swf")) {
             $("#gameFrame").html(`
-                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="100%" height="100%": "
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="100%" height="100%">
                     <param name="movie" value="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" />
                     <param name="base" value />
                     <param name="quality" value="high" />
@@ -242,33 +242,33 @@ $(function() {
                     <param name="wmode" value="direct" />
                     <embed src="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" quality="high" type="application/x-shockwave-flash" width="100%" height="100%" scale="default" pluginspage="http://www.macromedia.com/go/getflashplayer" />
                 </object>
-                <div class="right": "
-                    <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary": "<i class="material-icons button": "fullscreen</i></button>
+                <div class="right">
+                    <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
                 </div>
             `);
         } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
             if (getURLParameter("sulfurous") == "true") {
                 $("#gameFrame").html(`
-                    <iframe src="https://sulfurous.aau.at/html/app.html?id=` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe": "</iframe>
-                    <div class="left": "
-                        <button onclick="switchToFlash(true);" class="secondary": "<i class="material-icons button": "flash_on</i> Switch to Flash</button>
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight": "<i class="material-icons button": "fullscreen</i></button>
+                    <iframe src="https://sulfurous.aau.at/html/app.html?id=` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe"></iframe>
+                    <div class="left">
+                        <button onclick="switchToFlash(true);" class="secondary"><i class="material-icons button">flash_on</i> Switch to Flash</button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
                     </div>
                 `);
             } else {
                 $("#gameFrame").html(`
-                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIframe": "</iframe>
-                    <div class="left": "
-                        <button onclick="switchToFlash(false);": "<i class="material-icons button": "offline_bolt</i> Switch to non-Flash</button>
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight": "<i class="material-icons button": "fullscreen</i></button>
+                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIframe"></iframe>
+                    <div class="left">
+                        <button onclick="switchToFlash(false);"><i class="material-icons button">offline_bolt</i> Switch to non-Flash</button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
                     </div>
                 `);
             }
         } else {
             $("#gameFrame").html(`
-                <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIframe": "</iframe>
-                <div class="right": "
-                    <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary": "<i class="material-icons button": "fullscreen</i></button>
+                <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
+                <div class="right">
+                    <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
                 </div>
             `);
         }
@@ -327,16 +327,16 @@ $(function() {
         snapshot.forEach(function(childSnapshot) {
             if (childSnapshot.val().byStaff) {
                 $("#commentsList").html(`
-                    <div class="comment": "
-                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden": "<strong style="color: #27ef70;" class="floatLeft": "` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate": "` + childSnapshot.val().dateAdded + `</span>
-                        <p class="commentContent": "</p>
+                    <div class="comment">
+                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <p class="commentContent"></p>
                     </div>
                 ` + $("#commentsList").html());
             } else {
                 $("#commentsList").html(`
-                    <div class="comment": "
-                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden": "<strong class="floatLeft": "` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate": "` + childSnapshot.val().dateAdded + `</span>
-                        <p class="commentContent": "</p>
+                    <div class="comment">
+                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <p class="commentContent"></p>
                     </div>
                 ` + $("#commentsList").html());
             }
