@@ -18,7 +18,13 @@ var motdList = [
     },
 
     {
-        "src": "motd/staff.png",
+        "src": "motd/staff1.png",
+        "alt": "If the creator has a coloured name, it means it was officially uploaded by a staff member of GameProxy.",
+        "onclick": "window.location.href = 'about.html';"
+    },
+
+    {
+        "src": "motd/staff2.png",
         "alt": "If the creator has a coloured name, it means it was officially uploaded by a staff member of GameProxy.",
         "onclick": "window.location.href = 'about.html';"
     }
