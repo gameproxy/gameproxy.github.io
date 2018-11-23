@@ -1,5 +1,11 @@
 var gameList = [];
 
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+
 function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false) {
     $("#gameLoader").hide();
 
@@ -71,7 +77,7 @@ function search(query) {
 
     $("#gameLoader").show();
 
-    firebase.database().ref("games").orderByChild("title").startAt(query).endAt("b\uf8ff").limitToLast(24).on("value", function(snapshot) {
+    firebase.database().ref("games").orderByChild("title").startAt(query).endAt(query + "\uf8ff").limitToLast(24).on("value", function(snapshot) {
         gameList = [];
 
         snapshot.forEach(function(childSnapshot) {
@@ -100,7 +106,7 @@ function performSearch(query = "") {
     if (query == "") {
         showAll();
     } else {
-        search(query[0].toUpperCase() + query.substring(1).toLowerCase());
+        search(toTitleCase(query));
     }
 }
 
