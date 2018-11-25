@@ -49,6 +49,7 @@ function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png",
 
 function filter(type) {
     $(".pill").removeClass("selected");
+    $("select.pill").val("none");
     $(".pill[filter=" + type + "]").addClass("selected");
 
     $(".search").val("");
@@ -151,8 +152,47 @@ function filter(type) {
     }
 }
 
+function categorise(topic) {
+    if (topic == "none") {
+        filter("featured");
+    } else {
+        $(".pill").removeClass("selected");
+        $("select.pill").addClass("selected");
+
+        $(".search").val("");
+        $("#gameList").html("");
+
+        $("#gameLoader").show();
+
+        firebase.database().ref("games").orderByChild("category").equalTo(topic).limitToLast(12).on("value", function(snapshot) {
+            gameList = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                gameList.unshift(childSnapshot.val());
+                gameList[0]["key"] = childSnapshot.key;
+            });
+
+            $("#gameList").html("");
+
+            if (gameList.length == 0) {
+                $("#gameLoader").hide();
+                $("#gameList").html("<h3 class='center'>Oops! Couldn't find that game.</h3>");
+            } else {
+                for (var i = 0; i < gameList.length; i++) {
+                    if (gameList[i]["by"] == undefined) {
+                        addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    } else {
+                        addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    }
+                }
+            }
+        });
+}
+}
+
 function search(query) {
     $(".pill").removeClass("selected");
+    $("select.pill").val("none");
 
     $("#gameList").html("");
 
@@ -193,6 +233,10 @@ function performSearch(query = "") {
 
 $(function() {
     filter("featured");
+});
+
+$("select.pill").on("change", function() {
+    categorise($(this).children("option:selected").val());
 });
 
 $("#searchBar").keypress(function(e) {

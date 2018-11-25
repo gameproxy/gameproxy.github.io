@@ -81,6 +81,25 @@ a.pill.selected {
     background-color: var(--primaryColour);
 }
 
+select.pill {
+    width: fit-content;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--secondaryBackgroundColour);
+    text-decoration: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+select.pill.selected {
+    background-color: var(--primaryColour);
+}
+
 .filterBy {
     line-height: 40px;
 }
