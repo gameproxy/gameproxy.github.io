@@ -47,32 +47,113 @@ function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png",
     $("#gameList").find("a").last().attr("href", link);
 }
 
-function showAll() {
+function filter(type) {
+    $(".pill").removeClass("selected");
+    $(".pill[filter=" + type + "]").addClass("selected");
+
+    $(".search").val("");
     $("#gameList").html("");
 
     $("#gameLoader").show();
 
-    firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(24).on("value", function(snapshot) {
-        gameList = [];
-
-        snapshot.forEach(function(childSnapshot) {
-            gameList.unshift(childSnapshot.val());
-            gameList[0]["key"] = childSnapshot.key;
-        });
-
+    if (type == "featured") {
         $("#gameList").html("");
 
-        for (var i = 0; i < gameList.length; i++) {
-            if (gameList[i]["by"] == undefined) {
-                addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
-            } else {
-                addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+        firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(12).on("value", function(snapshot) {
+            gameList = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                gameList.unshift(childSnapshot.val());
+                gameList[0]["key"] = childSnapshot.key;
+            });
+
+            for (var i = 0; i < gameList.length; i++) {
+                if (gameList[i]["by"] == undefined) {
+                    addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                } else {
+                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                }
             }
+        });
+
+        firebase.database().ref("games").limitToLast(12).on("value", function(snapshot) {
+            gameList = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                gameList.unshift(childSnapshot.val());
+                gameList[0]["key"] = childSnapshot.key;
+            });
+
+            for (var i = 0; i < gameList.length; i++) {
+                if (gameList[i]["by"] == undefined) {
+                    addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                } else {
+                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                }
+            }
+        });
+    } else if (type == "random") {
+        firebase.database().ref("games").orderByChild("metrics/likes").equalTo(Math.floor(Math.random() * 5)).limitToLast(12).on("value", function(snapshot) {
+            gameList = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                gameList.unshift(childSnapshot.val());
+                gameList[0]["key"] = childSnapshot.key;
+            });
+
+            $("#gameList").html("");
+
+            for (var i = 0; i < gameList.length; i++) {
+                if (gameList[i]["by"] == undefined) {
+                    (function(i) {
+                        setTimeout(function() {
+                            addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                        }, Math.floor(Math.random() * 15));
+                    })(i);
+                } else {
+                    (function(i) {
+                        setTimeout(function() {
+                            addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                        }, Math.floor(Math.random() * 15));
+                    })(i);
+                }
+            }
+        });
+    } else {
+        var lister = null;
+
+        if (type == "likes") {
+            lister = firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(24);
+        } else if (type == "new") {
+            lister = firebase.database().ref("games").limitToLast(24);
+        } else if (type == "verified") {
+            lister = firebase.database().ref("games").orderByChild("verified").equalTo(true).limitToLast(24);
         }
-    });
+
+        lister.on("value", function(snapshot) {
+            gameList = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                gameList.unshift(childSnapshot.val());
+                gameList[0]["key"] = childSnapshot.key;
+            });
+
+            $("#gameList").html("");
+
+            for (var i = 0; i < gameList.length; i++) {
+                if (gameList[i]["by"] == undefined) {
+                    addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                } else {
+                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                }
+            }
+        });
+    }
 }
 
 function search(query) {
+    $(".pill").removeClass("selected");
+
     $("#gameList").html("");
 
     $("#gameLoader").show();
@@ -104,14 +185,14 @@ function search(query) {
 
 function performSearch(query = "") {
     if (query == "") {
-        showAll();
+        filter("featured");
     } else {
         search(toTitleCase(query));
     }
 }
 
 $(function() {
-    showAll();
+    filter("featured");
 });
 
 $("#searchBar").keypress(function(e) {

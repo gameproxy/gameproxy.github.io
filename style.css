@@ -64,6 +64,28 @@ a.hidden {
     outline: unset!important;
 }
 
+a.pill {
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: var(--secondaryBackgroundColour);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a.pill.selected {
+    background-color: var(--primaryColour);
+}
+
+.filterBy {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 button {
     margin: 5px;
     padding: 10px;

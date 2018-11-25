@@ -79,6 +79,14 @@
             <div class="card search">
                 <input placeholder="Search for a game..." id="searchBar" class="search"></input><button onclick="performSearch($('#searchBar').val());" class="search">Search</button>
             </div>
+            <div class="filterBy">
+                FILTER BY:
+                <a href="javascript:filter('featured');" filter="featured" class="pill">FEATURED</a>
+                <a href="javascript:filter('likes');" filter="likes" class="pill">LIKES</a>
+                <a href="javascript:filter('new');" filter="new" class="pill">NEW</a>
+                <a href="javascript:filter('verified');" filter="verified" class="pill">VERIFIED</a>
+                <a href="javascript:filter('random');" filter="random" class="pill">RANDOM</a>
+            </div>
             <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
             <div id="gameList" class="itemHolder"></div>
         </main>
