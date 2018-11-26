@@ -347,6 +347,8 @@ embed {
 }
 
 .adIcon {
+    position: relative;
+    top: -19px;
     width: fit-content;
     margin-right: -10px;
     padding: 5px;
