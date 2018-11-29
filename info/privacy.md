@@ -35,6 +35,9 @@ These products and services may contain links to other sites. If you open a thir
 ## Children’s Privacy
 GameProxy's products and services do not address anyone under the age of 13. GameProxy do not knowingly collect personal identifiable information from children under 13. In the case that GameProxy discovers that a child under 13 has provided them with personal information, they will immediately delete the appropriate data from Google's servers. If you are a parent or guardian and you are aware that your child has provided GameProxy with personal information, please contact GameProxy at [james@liveg.tech](mailto:james@liveg.tech) so that they will be able to perform necessary actions.
 
+## Advertisments
+GameProxy does not control ads shown on the site and are instead shown by Adsterra, a third-party service. For more information, please visit the Adsterra privacy policy: [https://adsterra.com/privacy-policy/](https://adsterra.com/privacy-policy/).
+
 ## Changes to This Privacy Policy
 GameProxy may update its Privacy Policy from time to time. Thus, you are advised to review the Privacy Policy periodically for any changes. GameProxy will notify you of any changes by providing the new Privacy Policy at the same anchor/page it originates in. These changes are effective immediately after they are provided.
 
