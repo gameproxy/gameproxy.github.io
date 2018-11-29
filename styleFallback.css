@@ -1,0 +1,72 @@
+body {
+    background-color: #262626;
+}
+
+header {
+    background-color: #424242;
+}
+
+footer {
+    background-color: #6b29ef;
+}
+
+a {
+    color: #b494f7;
+}
+
+a.pill {
+    background-color: #424242;
+}
+
+a.pill.selected {
+    background-color: #6b29ef;
+}
+
+select.pill {
+    background-color: #424242;
+}
+
+select.pill.selected {
+    background-color: #6b29ef;
+}
+
+button {
+    background-color: #6b29ef;
+}
+
+button.secondary {
+    background-color: #8449fc;
+}
+
+button.bad {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+button.reallyBad {
+    background-color: #ef2727;
+}
+
+button.highlight {
+    background-color: #27ef70;
+    color: black;
+}
+
+.card.coloured {
+    background-color: #6b29ef;
+}
+
+.item.coloured {
+    background-color: #6b29ef;
+}
+
+.adIcon {
+    background-color: #27ef70;
+}
+
+.loader {
+    color: #424242;
+}
+
+.skipTo {
+    background-color: #6b29ef;
+}
