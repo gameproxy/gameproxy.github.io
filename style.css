@@ -7,6 +7,7 @@
     --primaryBackgroundColour: #262626;
     --secondaryBackgroundColour: #424242;
     --highlightColour: #27ef70;
+    --secondaryHighlightColour: rgba(39, 239, 112, 0.2);
 }
 
 * {
@@ -347,7 +348,15 @@ embed {
 }
 
 .adContainer {
+    margin: -10px;
+    padding: 8px;
     min-height: 50px;
+    transition: 1s;
+    border-radius: 5px;
+}
+
+.adContainer:hover {
+    background-color: var(--secondaryHighlightColour);
 }
 
 .adIcon {
