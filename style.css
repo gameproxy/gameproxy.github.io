@@ -346,6 +346,10 @@ embed {
     margin: 5px;
 }
 
+.adContainer {
+    min-height: 50px;
+}
+
 .adIcon {
     position: relative;
     top: -19px;
