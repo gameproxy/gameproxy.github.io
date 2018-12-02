@@ -148,6 +148,30 @@ function reset() {
     $("#signUp").css("display", "none");
 }
 
+function copyShareProfileLink() {
+    $(".shareProfileLink").removeAttr("disabled");
+
+    document.getElementsByClassName("shareProfileLink")[0].select();
+    document.execCommand("copy");
+
+    $(".shareProfileLink").attr("disabled", "");
+}
+
+function shareProfile() {
+    dialog(
+        "Share Profile",
+        `
+            <div class="center">
+                <p>Copy the link below to share your profile!</p>
+                <input class="shareProfileLink fullWidth" disabled>
+                <a href="javascript:copyShareProfileLink();">Just do it for me</a>
+            </div>
+        `
+    );
+
+    $(".shareProfileLink").val("https://gameproxy.host/profile.html?user=" + currentUid);
+}
+
 var input = document.getElementById("pass");
 
 try {

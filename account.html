@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="card center signedIn">
-                <button onclick="window.location.href = 'gameUpload.html';">Upload New Game</button><span class="adminSpan"> <button onclick="window.location.href = 'admin.html';">Admin Console</button></span>
+                <button onclick="window.location.href = 'gameUpload.html';">Upload New Game</button> <button onclick="shareProfile();">Share Profile</button> <span class="adminSpan"><button onclick="window.location.href = 'admin.html';">Admin Console</button></span>
             </div>
             <div class="signedIn">
                 <h2 class="center">Uploaded Games</h2>
@@ -92,6 +92,10 @@
             <p class="center" id="error"></p>
             <div class="center" id="pend"></div>
         </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
         <footer import="/footer.html" id="footer"></footer>
         <script src="profanityFilter.js"></script>
         <script src="staffList.js"></script>
