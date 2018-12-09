@@ -18,6 +18,21 @@ var profanity = {
         }
 
         return returns.substring(0, returns.length - 1);
+    },
+
+    isRude: function(string) {
+        while (profanity.badWords == []) {}
+
+        var input = string.split(" ");
+        var returns = false;
+
+        for (var i = 0; i < input.length; i++) {
+            if ($.inArray(input[i].toLowerCase().replace(/[.,\/\\|¦¬@#!£$€%\^&\*;:{}+=\-_'"`~()\[\]\<\>]/g,""), profanity.badWords) > -1) {
+                returns = true;
+            }
+        }
+
+        return returns;
     }
 }
 

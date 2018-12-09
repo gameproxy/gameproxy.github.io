@@ -372,6 +372,13 @@ $(function() {
                 ` + $("#commentsList").html());
             }
 
+            // Consensus to make sure that no rude words are used in comments
+            if (childSnapshot.val().uid == currentUid) {
+                if (profanity.isRude(childSnapshot.val().content)) {
+                    firebase.database().ref("games/" + getURLParameter("play") + "/comments/" + childSnapshot.key + "/content").set(profanity.clean(childSnapshot.val().content));
+                }
+            }
+
             $(".commentContent").first().text(childSnapshot.val().content.length < 500 ? childSnapshot.val().content : childSnapshot.val().content.substring(0, 500) + "...");
         });
     });
