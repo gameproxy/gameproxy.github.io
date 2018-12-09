@@ -284,6 +284,37 @@ $(function() {
             $("#gameLoader").hide();
             $("#gameFrame").show();
         }, 2000);
+
+        var consensusPart = Math.floor(Math.random() * 2);
+
+        if (consensusPart == 0) {
+            if (gameData.metrics.likes > 0) {
+                // Check if likesProof has been altered (use real user accounts)!
+                for (var i = 0; i < gameData.metrics.likesProof.length; i++) {
+                    (function(currentInspection, likesProofIteration) {
+                        firebase.database().ref("users/" + currentInspection + "/_settings/name").once("value", function(snapshot) {
+                            if (!snapshot.exists()) {
+                                firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof/" + likesProofIteration).remove();
+                            }
+                        });
+                    })(gameData.metrics.likesProof[i], i);
+                }
+            }
+        } else {        
+            firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof").once("value", function(snapshot) {
+                var likesProofList = snapshot.val();
+                var likesProofFinal = [];
+
+                // Reorder the likes proof list
+                for (var key in likesProofList) {
+                    if ($.inArray(likesProofList[key], likesProofFinal) == -1) {
+                        likesProofFinal.push(likesProofList[key]);
+                    }
+                }
+
+                firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof").set(likesProofFinal);
+            });
+        }
     });
 
     firebase.database().ref("games/" + getURLParameter("play") + "/verified").on("value", function(snapshot) {
@@ -328,14 +359,14 @@ $(function() {
             if (childSnapshot.val().byStaff) {
                 $("#commentsList").html(`
                     <div class="comment">
-                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
                         <p class="commentContent"></p>
                     </div>
                 ` + $("#commentsList").html());
             } else {
                 $("#commentsList").html(`
                     <div class="comment">
-                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded + `</span>
+                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
                         <p class="commentContent"></p>
                     </div>
                 ` + $("#commentsList").html());
