@@ -72,7 +72,7 @@ function filter(type) {
                 if (gameList[i]["by"] == undefined) {
                     addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 } else {
-                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 }
             }
         });
@@ -89,7 +89,7 @@ function filter(type) {
                 if (gameList[i]["by"] == undefined) {
                     addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 } else {
-                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 }
             }
         });
@@ -114,7 +114,7 @@ function filter(type) {
                 } else {
                     (function(i) {
                         setTimeout(function() {
-                            addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                            addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                         }, Math.floor(Math.random() * 15));
                     })(i);
                 }
@@ -145,7 +145,7 @@ function filter(type) {
                 if (gameList[i]["by"] == undefined) {
                     addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 } else {
-                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 }
             }
         });
@@ -182,7 +182,7 @@ function categorise(topic) {
                     if (gameList[i]["by"] == undefined) {
                         addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                     } else {
-                        addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                        addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                     }
                 }
             }
@@ -216,7 +216,7 @@ function search(query) {
                 if (gameList[i]["by"] == undefined) {
                     addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 } else {
-                    addGame(gameList[i]["title"], gameList[i]["by"], gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 }
             }
         }

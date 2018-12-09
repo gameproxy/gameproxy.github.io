@@ -217,7 +217,7 @@ $(function() {
         var converter = new showdown.Converter();
 
         if (gameData.description.trim() != "") {
-            $(".gameDescription").html(converter.makeHtml(gameData.description));
+            $(".gameDescription").html(converter.makeHtml(gameData.description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
         } else {
             $(".gameDescription").html("<p class='center'><em>Nothing to see here...</em></p>");
         }
