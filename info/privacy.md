@@ -24,7 +24,8 @@ GameProxy may employ third-party companies and individuals due to the following 
 * To provide a product or service on GameProxy's behalf.
 * To perform service-related services.
 * To assist GameProxy in analysing how GameProxy's products and services is used.
-* GameProxy wishes to inform users of its products and services that these third parties have access to their personal information. The reason is to perform the tasks assigned to them on GameProxy's behalf. However, they are obligated not to disclose or use the information for any other purpose.
+
+GameProxy wishes to inform users of its products and services that these third parties have access to their personal information. The reason is to perform the tasks assigned to them on GameProxy's behalf. However, they are obligated not to disclose or use the information for any other purpose.
 
 ## Security
 GameProxy values your trust in providing them with your personal information, thus GameProxy are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and GameProxy cannot guarantee its absolute security.
