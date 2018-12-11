@@ -292,7 +292,7 @@ $(function() {
                 // Check if likesProof has been altered (use real user accounts)!
                 for (var i = 0; i < gameData.metrics.likesProof.length; i++) {
                     (function(currentInspection, likesProofIteration) {
-                        firebase.database().ref("users/" + currentInspection + "/_settings/name").once("value", function(snapshot) {
+                        firebase.database().ref("users/" + currentInspection.replace(/[.#$\[\]]/g, "") + "/_settings/name").once("value", function(snapshot) {
                             if (!snapshot.exists()) {
                                 firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof/" + likesProofIteration).remove();
                             }
