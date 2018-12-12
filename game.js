@@ -292,7 +292,7 @@ $(function() {
                 // Check if likesProof has been altered (use real user accounts)!
                 for (var i = 0; i < gameData.metrics.likesProof.length; i++) {
                     (function(currentInspection, likesProofIteration) {
-                        firebase.database().ref("users/" + currentInspection.replace(/[.#$\[\]]/g, "") + "/_settings/name").once("value", function(snapshot) {
+                        firebase.database().ref("users/" + currentInspection.replace(/[.#$\[\]/]/g, "") + "/_settings/name").once("value", function(snapshot) {
                             if (!snapshot.exists()) {
                                 firebase.database().ref("games/" + getURLParameter("play") + "/metrics/likesProof/" + likesProofIteration).remove();
                             }
@@ -356,30 +356,32 @@ $(function() {
         $("#commentsList").html("");
         
         snapshot.forEach(function(childSnapshot) {
-            if (childSnapshot.val().byStaff) {
-                $("#commentsList").html(`
-                    <div class="comment">
-                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
-                        <p class="commentContent"></p>
-                    </div>
-                ` + $("#commentsList").html());
-            } else {
-                $("#commentsList").html(`
-                    <div class="comment">
-                        <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
-                        <p class="commentContent"></p>
-                    </div>
-                ` + $("#commentsList").html());
-            }
-
-            // Consensus to make sure that no rude words are used in comments
-            if (childSnapshot.val().uid == currentUid) {
-                if (profanity.isRude(childSnapshot.val().content)) {
-                    firebase.database().ref("games/" + getURLParameter("play") + "/comments/" + childSnapshot.key + "/content").set(profanity.clean(childSnapshot.val().content));
+            try {
+                if (childSnapshot.val().byStaff) {
+                    $("#commentsList").html(`
+                        <div class="comment">
+                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
+                            <p class="commentContent"></p>
+                        </div>
+                    ` + $("#commentsList").html());
+                } else {
+                    $("#commentsList").html(`
+                        <div class="comment">
+                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
+                            <p class="commentContent"></p>
+                        </div>
+                    ` + $("#commentsList").html());
                 }
-            }
 
-            $(".commentContent").first().text(childSnapshot.val().content.length < 500 ? childSnapshot.val().content : childSnapshot.val().content.substring(0, 500) + "...");
+                // Consensus to make sure that no rude words are used in comments
+                if (childSnapshot.val().uid == currentUid) {
+                    if (profanity.isRude(childSnapshot.val().content)) {
+                            firebase.database().ref("games/" + getURLParameter("play") + "/comments/" + childSnapshot.key + "/content").set(profanity.clean(childSnapshot.val().content));
+                    }
+                }
+
+                $(".commentContent").first().text(childSnapshot.val().content.length < 500 ? childSnapshot.val().content : childSnapshot.val().content.substring(0, 500) + "...");
+            } catch (e) {}
         });
     });
 });
