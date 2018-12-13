@@ -1,0 +1,16 @@
+<Module>
+<ModulePrefs title="Flash Wrapper" title_url="http://sites.google.com/site/mori79/html-gadgets/media-players/flash-wrapper"description="A gadget to embed/include flash/SWF in your page. More info: http://sites.google.com/site/mori79/html-gadgets/media-players/flash-wrapper"screenshot="http://lh5.ggpht.com/_qkZzGyIkXmo/TDsuLQkEGUI/AAAAAAAADV8/YmUlPvlA8lE/s800/flash-wrapper-screenshot.png"thumbnail="http://lh3.ggpht.com/_qkZzGyIkXmo/TDsvbz_0BfI/AAAAAAAADWE/NXFuYTyYLpU/s800/flash-wrapper-thumbnail.png" width="400"height="300" author="Mori"author_email="mori79+gadgets@gmail.com"author_location="Esfahan, Iran"author_affiliation="Google"author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"author_aboutme="An English teacher, a Google Sites Guru"author_link="http://sites.google.com/site/mori79/"author_quote="Follow your heart wherever it takes you." />
+<UserPref name="url" display_name="Flash / SWF URL" required="true"/>
+<UserPref name="flashvars"display_name="FlashVars"/>
+<UserPref name="base"display_name="Base"/>
+<UserPref name="bg"display_name="Background color (e.g. #000000)"/>
+<UserPref name="mode"display_name="Transparency"default_value="window" datatype="enum">
+<EnumValue value="window"display_value="No"/>
+<EnumValue value="transparent"display_value="Yes"/>
+</UserPref>
+<Content type="html">
+<![CDATA[
+<style type="text/css"> body {background:transparent;} </style> <div id="container"></div> <script type="text/javascript"> var prefs = new gadgets.Prefs(); var Furl = prefs.getString("url"); var Fflashvars = prefs.getString("flashvars"); var Fbase = prefs.getString("base"); var Fbg = prefs.getString("bg"); var Fmode = prefs.getString("mode"); var content = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=11,0,0,0" width="100%" height="100%"><param name="movie" value="' + Furl + '"><param name="flashvars" value="' + Fflashvars + '"><param name="base" value="' + Fbase + '"><param name="quality" value="high"><param name="allowscriptaccess" value="always"><param name="allowfullscreen" value="true"><param name="bgcolor" value="' + Fbg + '"><param name="wmode" value="' + Fmode + '"><embed src="' + Furl + '" flashvars="' + Fflashvars + '" base="' + Fbase + '" quality="high" allowscriptaccess="always" allowfullscreen="true" bgcolor="' + Fbg + '" wmode="' + Fmode + '" width="100%" height="100%" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"><\/embed><\/object>'; document.getElementById("container").innerHTML = content; </script>
+]]>
+</Content>
+</Module>
