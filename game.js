@@ -95,7 +95,8 @@ function fullscreen(goFullscreen = true) {
             left: 0,
             width: "100vw",
             height: "100vh",
-            zIndex: 1
+            zIndex: 1,
+            backgroundColor: "black"
         });
 
         $("embed").css("height", "100vh");
@@ -125,7 +126,8 @@ function fullscreen(goFullscreen = true) {
             left: "unset",
             width: "calc(100% - 10px)",
             height: "35vw",
-            zIndex: "unset"
+            zIndex: "unset",
+            backgroundColor: "unset"
         });
 
         $("embed").css("height", "60vh");
