@@ -135,6 +135,8 @@ function fullscreen(goFullscreen = true) {
         $("#gameExitFullscreen").hide();
         $("#gameIframe").focus();
 
+        // Fullscreen for different platforms
+        
         try {
             document.exitFullscreen();
         } catch (e) {}
