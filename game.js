@@ -103,6 +103,8 @@ function fullscreen(goFullscreen = true) {
         $("body").css("overflow", "hidden");
         $("#gameExitFullscreen").show();
         $("#gameIframe").focus();
+        
+        // Fullscreen for different platforms
 
         try {
             document.body.requestFullscreen();
