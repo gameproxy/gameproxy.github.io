@@ -10,5 +10,5 @@
 * 0009: [How to play Scratch games and troubleshooting](/help/index.html?article=0009-howToPlayScratchGamesOnGameProxyAndTroubleshooting) by Sebastian Doe
 * 0010: [List of how to upload all uploadable file types](/help/index.html?article=0010-uploadAllGameTypesList) by Sebastian Doe
 * 0011: [General Troubleshooting for GameProxy](/help/index.html?article=0011-generalTroubleshooting) by Sebastian Doe
-* 0013: [FAQs](/help/index.html?article=0013-FAQs.md) by Sebastian Doe
-* 0014: [About GameProxy admins](/help/index.html?article=0014-aboutAdmins.md) by James Livesey
+* 0013: [FAQs](/help/index.html?article=0013-FAQs) by Sebastian Doe
+* 0014: [About GameProxy admins](/help/index.html?article=0014-aboutAdmins) by James Livesey
