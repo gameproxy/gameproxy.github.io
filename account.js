@@ -40,7 +40,12 @@ function change(user) {
 
                     if (window.location.pathname.split("/").pop() == "account.html") {
                         $(".adminBanner").show();
+                    } else {
+                        $(".adminBanner").hide();
                     }
+                } else {
+                    $(".accountName").css("color", "white");
+                    $(".adminBanner").hide();
                 }
             });
 
@@ -125,6 +130,7 @@ function signIn() {
 
 function signOutBefore() {
     document.getElementById("error").innerHTML = "";
+
     if (checkFields()) {
         $("#signIn").css("display", "none");
         $("#signUp").css("display", "block");
@@ -141,7 +147,11 @@ function signUp() {
 }
 
 function signOut() {
+    $(".accountName").css("color", "white");
+    $(".adminBanner").hide();
+
     document.getElementById("error").innerHTML = "";
+
     firebase.auth().signOut().catch(function(error) {
         document.getElementById("error").innerHTML = "Oops! Something went wrong on our side. Try again soon!";
     });
