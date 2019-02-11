@@ -40,12 +40,13 @@ function change(user) {
 
                     if (window.location.pathname.split("/").pop() == "account.html") {
                         $(".adminBanner").show();
-                    } else {
-                        $(".adminBanner").hide();
                     }
                 } else {
                     $(".accountName").css("color", "white");
-                    $(".adminBanner").hide();
+                    
+                    if (window.location.pathname.split("/").pop() == "account.html") {
+                        $(".adminBanner").hide();
+                    }
                 }
             });
 
