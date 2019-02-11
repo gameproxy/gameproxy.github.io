@@ -64,16 +64,16 @@
             <div class="card coloured signedIn">
                 Customise your account. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
             </div>
-            <div class="card signedIn">
+            <div class="card signedIn center">
                 <h2>Profile Picture</h2>
                 <img src="media/AnonUser.png" class="accountPicture" /><br>
-                Upload Profile picture:<br><input type="file" id="ppicFile" name="file" accept="image/png" /><br>
+                <input type="file" id="ppicFile" name="file" accept="image/png" /><br>
                 <small>Be patient! Account pictures can take time to update.</small>
             </div>
-            <div class="card signedIn">
+            <div class="card signedIn center">
                 <h2>Username</h2>
                 Current Username: <strong class="accountName">Loading...</strong><br>
-                New Username:<br><input id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
+                <input placeholder="Set a new name..." id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
             </div>
         </main>
         <div class="dialogBackground"></div>
