@@ -10,10 +10,15 @@ firebase.auth().onAuthStateChanged(function() {
 
 $(function() {
     firebase.database().ref("users/" + getURLParameter("user") + "/_settings/name").on("value", function(snapshot) {
+        if (snapshot.val() == null) {
+            window.location.href = "profileNotFound.html";
+        }
+
         $(".profileName").text(snapshot.val());
 
         if (isStaff(getURLParameter("user"))) {
             $(".profileName").css("color", "#27ef70");
+            $(".adminBanner").show();
         }
     });
 

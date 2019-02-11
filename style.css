@@ -59,6 +59,10 @@ a.footer {
     color: white;
 }
 
+a.adminBannerLink {
+    color: black;
+}
+
 a.hidden {
     color: inherit;
     text-decoration: inherit;
@@ -356,6 +360,12 @@ embed {
 
 .card.profile {
     height: 80px;
+}
+
+.card.adminBanner {
+    display: none;
+    background-color: var(--highlightColour);
+    color: black;
 }
 
 .card.search {

@@ -10,14 +10,14 @@
           
           gtag('config', 'UA-128441061-1');
         </script>
-        <title>Profile - GameProxy</title>
+        <title>GameProxy</title>
         <link rel="shortcut icon" href="media/Small.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons">
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
+        <script src="lib/jquery.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
         <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
-        <script src="lib/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
             var config = {
@@ -55,32 +55,21 @@
             </div>
         </header>
         <main id="content">
-            <h1 class="center">Profile</h1>
-            <div class="card coloured profile">
-                <div>
-                    <img src="media/AnonUser.png" class="profilePicture floatLeft" />
-                </div>
-                <div class="floatLeft profileInfo">
-                    <strong class="profileName">Loading...</strong><br>
-                    Online
-                </div>
-            </div>
-            <div class="card adminBanner">
-                <strong>This user is a certified admin!</strong> Certified admins make GameProxy better. <a href="/help/index.html?article=0014-aboutAdmins.md" target="_blank" class="adminBannerLink">Learn more...</a>
-            </div>
-            <h2 class="center">Uploaded Games</h2>
-            <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
-            <div id="gameList" class="itemHolder"></div>
+            <h1 class="center">Profile Not Found</h1>
+            <div class="card center">
+                <p>
+                    Oops, this person has gone out of existence, or never
+                    existed in the first place. Sorry about that!
+                </p>
+                <button onclick="window.location.href = 'index.html';">Go home</button>
+            </div>                    
         </main>
         <div class="dialogBackground"></div>
         <div class="dialog">
             Hi!
         </div>
-        <footer import="/footer.html" id="footer"></footer>
+        <footer import="footer.html" id="footer"></footer>
         <script src="profanityFilter.js"></script>
-        <script src="staffList.js"></script>
         <script src="account.js"></script>
-        <script src="profile.js"></script>
-        <script src="profileGameList.js"></script>
     </body>
 </html>

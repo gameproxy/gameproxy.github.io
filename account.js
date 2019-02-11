@@ -37,6 +37,7 @@ function change(user) {
 
                 if (isStaff(currentUid)) {
                     $(".accountName").css("color", "#27ef70");
+                    $(".adminBanner").show();
                 }
             });
 
