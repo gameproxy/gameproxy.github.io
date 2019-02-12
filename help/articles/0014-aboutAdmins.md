@@ -1,6 +1,7 @@
 ## About GameProxy admins
 #### James Livesey
-* First published: 11th Febfebruary 2019
+* First published: 11th February 2019
+* Last updated: 12th February 2019
 
 GameProxy admins are special people on the site who make sure that all is
 working and that people are behaving in accordance to the [Terms](/terms.html).
