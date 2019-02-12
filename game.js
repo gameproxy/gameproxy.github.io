@@ -121,6 +121,8 @@ function fullscreen(goFullscreen = true) {
         try {
             document.body.msRequestFullScreen();
         } catch (e) {}
+
+        $(".fullscreenWatermark").show();
     } else {
         $("object, #gameIframe").css({
             position: "unset",
@@ -154,6 +156,8 @@ function fullscreen(goFullscreen = true) {
         try {
             document.msExitFullScreen();
         } catch (e) {}
+
+        $(".fullscreenWatermark").hide();
     }
 }
 
