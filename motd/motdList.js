@@ -1,6 +1,6 @@
 var motdList = [
     {
-        "src": "motd/welcome.png",
+        "src": "motd/Welcome.png",
         "alt": "Welcome to GameProxy.",
         "onclick": "window.location.href = 'about.html';"
     },
@@ -18,19 +18,19 @@ var motdList = [
     },
 
     {
-        "src": "motd/verified.png",
+        "src": "motd/Verified.png",
         "alt": "If a game doesn't have a verified symbol, it may contain extreme violence, offensive material or inappropriate material.",
         "onclick": "window.location.href = 'report.html';"
     },
 
     {
-        "src": "motd/staff1.png",
+        "src": "motd/Staff1.png",
         "alt": "If the creator has a coloured name, it means it was officially uploaded by a staff member of GameProxy.",
         "onclick": "window.location.href = 'about.html';"
     },
 
     {
-        "src": "motd/staff2.png",
+        "src": "motd/Staff2.png",
         "alt": "If the creator has a coloured name, it means it was officially uploaded by a staff member of GameProxy.",
         "onclick": "window.location.href = 'about.html';"
     }
