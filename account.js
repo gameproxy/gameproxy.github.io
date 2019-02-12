@@ -210,3 +210,11 @@ $("#ppicFile").on("change", function(evt) {
     var files = evt.target.files;
     handleFile(files[0]);
 });
+
+$(function() {
+    setInterval(function() {
+        if (currentUid != null) {
+        firebase.database().ref("users/" + currentUid + "/_settings/lastSeen").set(firebase.database.ServerValue.TIMESTAMP);
+        }
+    }, 5000); 
+});
