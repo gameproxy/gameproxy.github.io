@@ -52,6 +52,10 @@ function closeDialog() {
     $(".dialog").fadeOut();
 }
 
+window.alert = function(text) {
+    dialog("Information", text, [{text: "OK", onclick: "closeDialog();", type: "primary"}]);
+};
+
 $(function() {
     $("*[import]").each(function() {
         if (!window.location.href.startsWith("file:///")) {

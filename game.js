@@ -177,13 +177,22 @@ function verifyGame() {
     }
 }
 
-function deleteGame() {
-    if (isStaff(currentUid)) {
-        if (confirm("Is it okay to delete this game? This action can't be undone.")) {
-            firebase.database().ref("games/" + getURLParameter("play")).set(null);
+function deleteGameAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        firebase.database().ref("games/" + getURLParameter("play")).set(null);
 
-            window.location.href = "admin.html";
-        }
+        window.location.href = isStaff(currentUid) ? "admin.html" : "account.html";
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function deleteGame() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Delete Game?", "Is it okay to delete this game? This action can't be undone.", [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Delete", onclick: "deleteGameAction();", type: "reallyBad"}
+        ]);
     } else {
         alert("Nice try, hacker! You'll never break our security.");
     }
