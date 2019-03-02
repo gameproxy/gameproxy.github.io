@@ -212,7 +212,7 @@ function deleteGameAction() {
 
 function deleteGame() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
-        dialog("Delete Game?", "Is it okay to delete this game? This action can't be undone.", [
+        dialog("Delete Game", "Is it okay to delete this game? This action can't be undone.", [
             {text: "Cancel", onclick: "closeDialog();", type: "bad"},
             {text: "Delete", onclick: "deleteGameAction();", type: "reallyBad"}
         ]);
@@ -319,7 +319,7 @@ function editGameThumbnailAction() {
 
 function editGameThumbnail() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
-        dialog("Edit Game Title", `
+        dialog("Edit Game Thumbnail", `
             <div class="center">
                 <p>Paste an image URL here! Don't forget the http:// or https:// at the start.</p>
                 <input class="editGameThumbnailInput fullWidth"></input>
@@ -345,7 +345,7 @@ function editGameDescriptionAction() {
 
 function editGameDescription() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
-        dialog("Edit Game Title", `
+        dialog("Edit Game Description", `
             <div class="center">
                 <p>Your new description awaits...</p>
                 <textarea class="editGameDescriptionInput fullWidth">` + gameData.description.replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</textarea>
