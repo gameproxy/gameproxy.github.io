@@ -34,6 +34,29 @@ function formatDate(date) {
     return day + " " + monthNames[monthIndex] + " " + year + " at " + date.toLocaleTimeString(navigator.language, {hour: "2-digit", minute: "2-digit"});
 }
 
+function toDataUrl(url, callback) {
+    if (url == null) {
+        callback(null);
+    } else if (url.startsWith("data:")) {
+        callback(url);
+    } else {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onload = function() {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+            callback(reader.result);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+
+        xhr.open("GET", url);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.responseType = "blob";
+        xhr.send();
+    }
+}
+
 function refreshCreatorPpic() {
     firebase.storage().ref("users/" + gameData.uid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
         $(".creatorAccountPicture").attr("src", data);
@@ -198,6 +221,137 @@ function deleteGame() {
     }
 }
 
+function editGameTitleAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        firebase.database().ref("games/" + getURLParameter("play") + "/title").set(profanity.clean($(".editGameTitleInput").val()));
+
+        window.location.reload();
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameTitle() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game Title", `
+            <div class="center">
+                <p>Your new title awaits...</p>
+                <input value="` + gameData.title.replace(/</g, "&lt;").replace(/>/g, "&gt;") + `" class="editGameTitleInput fullWidth"></input>
+            </div>
+        `, [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Edit", onclick: "editGameTitleAction();", type: "normal"}
+        ]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameThumbnailAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        var thumbnailInput = $(".editGameThumbnailInput").val();
+
+        dialog("Please Wait...", "Changing your thumbnail, it may take a few seconds of your life.", []);
+
+        toDataUrl(
+            gameData.src.startsWith("https://scratch.mit.edu/projects/")?
+                "https://cors-anywhere.herokuapp.com/" + "https://cdn2.scratch.mit.edu/get_image/project/" + gamedata.src.split("/")[4] + "_288x216.png"
+            :   (
+                    thumbnailInput != "" ?
+                        "https://cors-anywhere.herokuapp.com/" + thumbnailInput
+                    :   null
+                )
+            ,
+            function(base64Img) {
+                firebase.database().ref("games/" + getURLParameter("play") + "/thumbnail").set(base64Img).then(function() {
+                    window.location.reload();
+                });
+            }
+        );
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameThumbnail() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game Title", `
+            <div class="center">
+                <p>Paste an image URL here! Don't forget the http:// or https:// at the start.</p>
+                <input class="editGameThumbnailInput fullWidth"></input>
+            </div>
+        `, [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Edit", onclick: "editGameThumbnailAction();", type: "normal"}
+        ]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameDescriptionAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        firebase.database().ref("games/" + getURLParameter("play") + "/description").set(profanity.clean($(".editGameDescriptionInput").val()));
+
+        window.location.reload();
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameDescription() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game Title", `
+            <div class="center">
+                <p>Your new description awaits...</p>
+                <textarea class="editGameDescriptionInput fullWidth">` + gameData.description.replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</textarea>
+            </div>
+        `, [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Edit", onclick: "editGameDescriptionAction();", type: "normal"}
+        ]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function showEditGameInfo() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game Info", `
+                <div>
+                    <h2 class="noMargin">Edit title</h2>
+                    <p class="noMargin">Edit the title of the game, also changing the game's searchable name.</p>
+                    <div class="right">
+                        <button onclick="editGameTitle();">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="noMargin">Edit description</h2>
+                    <p class="noMargin">Update the description of the game, possibly to fix layouts or links.</p>
+                    <div class="right">
+                        <button onclick="editGameDescription();">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="noMargin">Edit thumbnail</h2>
+                    <p class="noMargin">Edit the thumbnail link of the game. Make it look good!</p>
+                    <div class="right">
+                        <button onclick="editGameThumbnail();">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="noMargin">Delete game</h2>
+                    <p class="noMargin">Remove the game from GameProxy. Realise the potential mistake that lays upon you for doing so.</p>
+                    <div class="right">
+                        <button class="reallyBad" onclick="deleteGame();">Delete</button>
+                    </div>
+                </div>
+        `, [{text: "Cancel", onclick: "closeDialog();", type: "bad"}]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
 $(function() {
     $(".gameVerified").hide();
     $(".gameSeeMore").hide();
@@ -297,6 +451,10 @@ $(function() {
 
             $(".verifyButton").removeClass("secondary").addClass("highlight");
             $(".verifyButton").html("<i class='material-icons button'>verified_user</i> Verified");
+        }
+
+        if (gameData.uid == currentUid) {
+            $(".editGameInfo").show();
         }
 
         setInterval(function() {

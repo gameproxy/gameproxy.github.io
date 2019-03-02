@@ -260,6 +260,10 @@ embed {
     display: none;
 }
 
+.tempHidden {
+    display: none;
+}
+
 .left {
     text-align: left!important;
 }
@@ -278,6 +282,10 @@ embed {
 
 .floatRight {
     float: right!important;
+}
+
+.noMargin {
+    margin: 0;
 }
 
 .cutOff {
@@ -593,6 +601,10 @@ select.gameUploadField {
     z-index: 1;
     opacity: 0.5;
     pointer-events: none;
+}
+
+.editGameDescriptionInput {
+    height: calc(40vh - 220px);
 }
 
 #signIn {
