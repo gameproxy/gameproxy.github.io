@@ -247,6 +247,50 @@ function editGameTitle() {
     }
 }
 
+function editGameCategoryAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        firebase.database().ref("games/" + getURLParameter("play") + "/category").set(profanity.clean($(".editGameCategoryInput").val()));
+
+        window.location.reload();
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameCategory() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game Category", `
+            <div class="center">
+                <p>Your new category awaits...</p>
+                <select class="editGameCategoryInput">
+                    <option value="none">Don't Categorise</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="animals">Animals</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="board">Board Game</option>
+                    <option value="driving">Driving</option>
+                    <option value="idle">Idle</option>
+                    <option value="multiplayer">Multiplayer</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="platformer">Platformer</option>
+                    <option value="puzzle">Puzzle</option>
+                    <option value="rp">Role-Playing</option>
+                    <option value="simulation">Simulation</option>
+                    <option value="sports">Sports</option>
+                    <option value="strategy">Strategy</option>
+                    <option value="survival">Survival</option>
+                </select>
+            </div>
+        `, [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Edit", onclick: "editGameCategoryAction();", type: "normal"}
+        ]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
 function editGameThumbnailAction() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
         var thumbnailInput = $(".editGameThumbnailInput").val();
@@ -337,6 +381,13 @@ function showEditGameInfo() {
                     <p class="noMargin">Edit the thumbnail link of the game. Make it look good!</p>
                     <div class="right">
                         <button onclick="editGameThumbnail();">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="noMargin">Edit category</h2>
+                    <p class="noMargin">Edit the category of the game. Make it easier to find!</p>
+                    <div class="right">
+                        <button onclick="editGameCategory();">Edit</button>
                     </div>
                 </div>
                 <div>
