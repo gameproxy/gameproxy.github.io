@@ -291,6 +291,32 @@ function editGameCategory() {
     }
 }
 
+function editGameURLAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        firebase.database().ref("games/" + getURLParameter("play") + "/src").set(profanity.clean($(".editGameURLInput").val()));
+
+        window.location.reload();
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameURL() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game URL", `
+            <div class="center">
+                <p>Change the URL below:</p>
+                <input value="` + gameData.src.replace(/</g, "&lt;").replace(/>/g, "&gt;") + `" class="editGameURLInput fullWidth"></input>
+            </div>
+        `, [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Edit", onclick: "editGameURLAction();", type: "normal"}
+        ]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
 function editGameThumbnailAction() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
         var thumbnailInput = $(".editGameThumbnailInput").val();
@@ -374,6 +400,13 @@ function showEditGameInfo() {
                     <p class="noMargin">Update the description of the game, possibly to fix layouts or links.</p>
                     <div class="right">
                         <button onclick="editGameDescription();">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="noMargin">Edit game URL</h2>
+                    <p class="noMargin">Edit the URL of the game to fix errors if the source stops working.</p>
+                    <div class="right">
+                        <button onclick="editGameURL();">Edit</button>
                     </div>
                 </div>
                 <div>
