@@ -293,7 +293,8 @@ function editGameCategory() {
 
 function editGameURLAction() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
-        firebase.database().ref("games/" + getURLParameter("play") + "/src").set(profanity.clean($(".editGameURLInput").val()));
+        firebase.database().ref("games/" + getURLParameter("play") + "/src").set($(".editGameURLInput").val());
+        firebase.database().ref("games/" + getURLParameter("play") + "/verified").set(false);
 
         window.location.reload();
     } else {
