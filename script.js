@@ -1,6 +1,6 @@
 function dialog(title, content, buttons = [{text: "Close", onclick: "closeDialog();", type: "primary"}], allowEscape = true) {
     $(".dialog").html(`
-        <div class="dialogTitle"></div>
+        <div class="dialogTitle cutOff"></div>
         <div class="dialogContent"></div>
         <div class="dialogActions"></div>
     `);
