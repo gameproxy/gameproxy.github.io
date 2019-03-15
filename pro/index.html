@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>GameProxy Pro</title>
+        <link rel="shortcut icon" href="../media/ProSmall.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="../lib/showdown.min.js"></script>
+        <meta name="theme-color" content="#6b29ef">
+        <link rel="apple-touch-icon" href="../media/Apple Touch Icon.png">
+        <script src="../lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="../script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <a class="skipTo" href="#content">Skip to content</a>
+        <a class="skipTo" href="#footer">Skip to footer</a>
+        <header>
+            <span class="desktop">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../media/ProLarge.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <span class="mobile">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../media/ProSmall.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <div class="headerRight">
+                <a href="../index.html" class="headerButton desktop">GameProxy</a>
+                <a href="#benefits" class="headerButton">Benefits</a>
+                <a href="../account.html?go=pro/getNow.html" class="headerButton getNow">Get Now</a>
+            </div>
+        </header>
+        <div class="cover proBack">
+            <div class="proLayer">
+                <h1 class="tagline">Benefit from the best features of GameProxy Pro</h1>
+                <ul class="tagline">
+                    <li>No ads throughout the site</li>
+                    <li>Custom themes to match your setup</li>
+                    <li>Advanced options for streaming live video</li>
+                    <li>Get access to exciting beta features</li>
+                </ul>
+                And much more...
+            </div>
+        </div>
+        <div id="benefits"></div>
+        <main id="content">
+            <h1 class="center">See what we've got in stock for you...</h1>
+            <div class="itemHolder">
+                <div class="item featureItem">
+                    <div class="center">
+                        <i class="material-icons featureLogo">feedback</i>
+                        <h2 class="noMargin">Get a shiny username</h2>
+                    </div>
+                    <br>
+                    <p class="center noMargin">
+                        With GameProxy Pro, we'll give you a gold-plated
+                        username colour to show the world. Just like the
+                        GameProxy admins!
+                    </p>
+                </div>
+                <div class="item featureItem">
+                    <div class="center">
+                        <i class="material-icons featureLogo">money_off</i>
+                        <h2 class="noMargin">Be free of ads</h2>
+                    </div>
+                    <br>
+                    <p class="center noMargin">
+                        Just because you're paying for GameProxy Pro,
+                        we'll remove ads from your gaming
+                        experience<sup>1</sup>. Thank goodness for that!
+                    </p>
+                </div>
+                <div class="item featureItem">
+                    <div class="center">
+                        <i class="material-icons featureLogo">view_quilt</i>
+                        <h2 class="noMargin">Get custom themes</h2>
+                    </div>
+                    <br>
+                    <p class="center noMargin">
+                        Enjoy a host of themes that skins GameProxy to match
+                        your style or setup. You can even make your own theme!
+                    </p>
+                </div>
+                <div class="item featureItem">
+                    <div class="center">
+                        <i class="material-icons featureLogo">center_focus_strong</i>
+                        <h2 class="noMargin">Advanced streaming options</h2>
+                    </div>
+                    <br>
+                    <p class="center noMargin">
+                        Use our array of features that help with streaming or
+                        recording ─ use tools like subscriber counts, branding
+                        and more!
+                    </p>
+                </div>
+                <div class="item featureItem">
+                    <div class="center">
+                        <i class="material-icons featureLogo">new_releases</i>
+                        <h2 class="noMargin">Have access to beta features</h2>
+                    </div>
+                    <br>
+                    <p class="center noMargin">
+                        With GameProxy Pro you get to play with the new
+                        features that we develop before the rest of GameProxy
+                        gets their hands on it!
+                    </p>
+                </div>
+                <div class="item featureItem">
+                    <div class="center">
+                        <i class="material-icons featureLogo">contact_support</i>
+                        <h2 class="noMargin">Get support from GameProxy</h2>
+                    </div>
+                    <br>
+                    <p class="center noMargin">
+                        Our admins are happy to help with problems you're
+                        facing. With GameProxy Pro, you can get prioritised
+                        support!
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div>
+                <h1 class="center">Get GameProxy Pro today!</h1>
+                <div class="card center">
+                    <p>What are you waiting for?! Get your hands on GameProxy Pro today!</p>
+                    <button onclick="window.location.href = '../account.html?go=pro/getNow.html';">Get Now</button>
+                </div>
+            </div>
+            <br>
+            <div>
+                <small>
+                    <sup>1</sup>Except for in-game ads, there isn't a way for us
+                    to block them (yet)!
+                </small><br>
+                <small>
+                    Cover image adapted from scenes of Super Smash Flash 2,
+                    &copy; 2007-2017 McLeodGaming Inc. Characters &copy;
+                    Nintendo / HAL Laboratory / Pokemon / Cretures Inc. / GAME
+                    FREAK Inc. / SEGA / Square / Capcom / Konami / Namco /
+                    Shonen Jump. All characters and concepts belog to their
+                    respective owners. GameProxy is not sponsored, endorsed or
+                    otherwise affiliated with McLeodGaming Inc. Terms apply.
+                    Prices subject to change without notice.
+                </small>
+            </div>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
+        <footer import="/footer.html" id="footer"></footer>
+        <script src="../profanityFilter.js"></script>
+        <script src="../staffList.js"></script>
+        <script src="../account.js"></script>
+    </body>
+</html>
