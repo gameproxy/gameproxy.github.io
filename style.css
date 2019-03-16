@@ -769,3 +769,27 @@ select.gameUploadField {
     color: red;
     background-color: white;
 }
+
+.chooseImage {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: var(--primaryColour);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.ppicFile {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: var(--primaryColour);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
