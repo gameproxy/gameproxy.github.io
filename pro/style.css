@@ -14,6 +14,10 @@ button, .dialogTitle {
     color: black;
 }
 
+button.bad, button.reallyBad {
+    color: white;
+}
+
 h1.tagline {
     width: 40%;
 }

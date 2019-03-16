@@ -294,6 +294,10 @@ embed {
     overflow: hidden;
 }
 
+.monospace {
+    font-family: "Roboto Mono", monospace;
+}
+
 .dialogBackground {
     display: none;
     position: fixed;
