@@ -70,7 +70,7 @@ function usePayPalNext() {
     ]);
 }
 function useCodeAction() {
-    alert("Coming soon!");
+    window.location.href = "paymentRequest.html?token=" + encodeURIComponent(enteredCode);
 }
 
 function useCode() {

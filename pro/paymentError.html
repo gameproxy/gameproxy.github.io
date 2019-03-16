@@ -55,9 +55,11 @@
             </div>
         </header>
         <main id="content">
-            <h1 class="center">GameProxy Pro Terms</h1>
-            <div class="card">
-                <div markdown="../info/proTerms.md"></div>
+            <h1 class="center">Payment Error <span class="errorCode"></span></h1>
+            <div class="card center">
+                <p>Sorry! The payment action could not be completed. All prior payment transactions have been made.</p>
+                <p>Please email the GameProxy admins to fix the problem.</p>
+                <button onclick="window.location.href = 'getNow.html';" class="bad">Back</button><button onclick="window.location.href = 'mailto:james@liveg.tech';" class="primary">Send Email</button>
             </div>
         </main>
         <div class="dialogBackground"></div>
@@ -68,5 +70,6 @@
         <script src="../profanityFilter.js"></script>
         <script src="../staffList.js"></script>
         <script src="../account.js"></script>
+        <script src="paymentError.js"></script>
     </body>
 </html>
