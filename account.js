@@ -1,3 +1,7 @@
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
+}
+
 function dataURItoBlob(dataURI) {
     // Convert base64 to raw binary data held in a string.
     // Doesn't handle URLEncoded DataURIs.
@@ -77,6 +81,10 @@ firebase.auth().onAuthStateChanged(function(user) {
         firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20))).then(function() {
             window.location.href = "index.html";
         });
+    }
+
+    if (getURLParameter("go") != null && window.location.pathname.split("/").pop() == "account.html" && user) {
+        window.location.href = getURLParameter("go");
     }
 });
 

@@ -1,0 +1,86 @@
+:root {
+    --primaryColour: #b3c20f;
+    --secondaryColour: #d3e226;
+    --secondaryLogoColour: #D9E187;
+    --badColour: rgba(255, 255, 255, 0.2);
+    --reallyBadColour: #ef2727;
+    --primaryBackgroundColour: #262626;
+    --secondaryBackgroundColour: #424242;
+    --highlightColour: #27ef70;
+    --secondaryHighlightColour: rgba(39, 239, 112, 0.2);
+}
+
+button, .dialogTitle {
+    color: black;
+}
+
+h1.tagline {
+    width: 40%;
+}
+
+ul.tagline {
+    font-size: 20px;
+}
+
+footer {
+    color: black;
+}
+
+a.footer {
+    color: black;
+}
+
+.getNow {
+    background-color: var(--primaryColour);
+    color: black;
+}
+
+.getNow:hover {
+    background-color: var(--secondaryColour);
+}
+
+.proBack {
+    position: relative;
+    background-image: url("../media/ProBack.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.proLayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: calc(100% - 200px);
+    padding: 10%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+}
+
+.featureItem {
+    min-height: 165px;
+}
+
+.featureLogo {
+    font-size: 50px;
+    color: #999999;
+}
+
+.dialogBackground {
+    background-color: rgba(179, 194, 14, 0.5);
+}
+
+#benefits {
+    position: relative;
+    top: -50px;
+}
+
+@media (max-width: 800px) {
+    h1.tagline {
+        width: unset;
+        font-size: 30px;
+    }
+}

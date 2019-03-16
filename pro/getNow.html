@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>GameProxy Pro</title>
+        <link rel="shortcut icon" href="../media/ProSmall.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="../lib/showdown.min.js"></script>
+        <meta name="theme-color" content="#6b29ef">
+        <link rel="apple-touch-icon" href="../media/Apple Touch Icon.png">
+        <script src="../lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="../script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <a class="skipTo" href="#content">Skip to content</a>
+        <a class="skipTo" href="#footer">Skip to footer</a>
+        <header>
+            <span class="desktop">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../media/ProLarge.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <span class="mobile">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../media/ProSmall.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <div class="headerRight">
+                <a href="../index.html" class="headerButton desktop">GameProxy</a>
+                <a href="index.html" class="headerButton">Learn More</a>
+            </div>
+        </header>
+        <main id="content">
+            <h1 class="center">Purchase GameProxy Pro Now</h1>
+            <div class="signedIn">
+                <p class="center">Hi <span class="accountName">fellow user</span>! When you're ready, just choose a payment method.</p>
+                <div class="itemHolder">
+                    <div class="item featureItem">
+                        <div class="center">
+                            <i class="material-icons featureLogo">attach_money</i>
+                            <h2 class="noMargin">Pay via PayPal</h2>
+                        </div>
+                        <br>
+                        <p class="center noMargin">
+                            We accept credit cards, debit cards and more!
+                        </p>
+                        <div class="center">
+                            <button onclick="alert('Coming soon!');">Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="item featureItem">
+                        <div class="center">
+                            <i class="material-icons featureLogo">confirmation_number</i>
+                            <h2 class="noMargin">Use voucher or code</h2>
+                        </div>
+                        <br>
+                        <p class="center noMargin">
+                            Got a special code or voucher? Enter it here to get
+                            GameProxy Pro!
+                        </p>
+                        <div class="center">
+                            <button onclick="alert('Coming soon!');">Redeem Code</button>
+                        </div>
+                    </div>
+                    <div class="item featureItem">
+                        <div class="center">
+                            <i class="material-icons featureLogo">call_missed</i>
+                            <h2 class="noMargin">Resolve a problem</h2>
+                        </div>
+                        <br>
+                        <p class="center noMargin">
+                            Email us so we can fix a problem preventing you from
+                            getting GameProxy Pro!
+                        </p>
+                        <div class="center">
+                            <button onclick="alert('Coming soon!');">Email Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="notSignedIn">
+                <div class="card center">
+                        <p>
+                            Oops, please sign in! We can't complete payment
+                            without your account.
+                        </p>
+                        <button onclick="window.location.href = '../account.html?go=pro/getNow.html';">Sign In</button>
+                </div>
+            </div>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
+        <footer import="/footer.html" id="footer"></footer>
+        <script src="../profanityFilter.js"></script>
+        <script src="../staffList.js"></script>
+        <script src="../account.js"></script>
+    </body>
+</html>
