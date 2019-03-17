@@ -31,7 +31,7 @@ function formatDate(date) {
     var monthIndex = date.getMonth();
     var year = date.getFullYear();
 
-    return day + " " + monthNames[monthIndex] + " " + year + " at " + date.toLocaleTimeString(navigator.language, {hour: "2-digit", minute: "2-digit"});
+    return day + " " + monthNames[monthIndex] + " " + year + " at " + date.toLocaleTimeString("en-GB", {hour: "2-digit", minute: "2-digit"});
 }
 
 function toDataUrl(url, callback) {
