@@ -70,7 +70,7 @@ function usePayPalNext() {
     ]);
 }
 function useCodeAction() {
-    window.location.href = "paymentRequest.html?token=" + encodeURIComponent(enteredCode);
+    window.location.href = "paymentRequest.html?token=" + encodeURIComponent(btoa(enteredCode));
 }
 
 function useCode() {
@@ -79,7 +79,7 @@ function useCode() {
             <h2>Enter the code you wish to redeem</h2>
             <p>Get GameProxy Pro by using a voucher or special code!</p>
             <div>
-                <input id="enteredCode" class="center monospace"></input>
+                <input autocomplete="off" spellcheck="off" class="center monospace" id="enteredCode"></input>
             </div>
         </div>
     `, [
