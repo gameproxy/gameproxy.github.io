@@ -70,6 +70,9 @@
                 <button onclick="motdPrev();" class="motd left">Previous</button>
                 <button onclick="motdNext();" class="motd right">Next</button>
             </div>
+            <div class="unreadNotificationsAlert card highlight displayNone">
+                You have <span class="unreadNotificationsCount">a few</span> unread notification<span class="unreadNotificationsPlural">s</span>! <a href="notifications.html" class="highlightChild">View notifications...</a>
+            </div>
             <h1 class="center">Games</h1>
             <div class="card search">
                 <input placeholder="Search for a game..." id="searchBar" class="search"></input><button onclick="performSearch($('#searchBar').val());" class="search">Search</button>
@@ -113,5 +116,6 @@
         <script src="gameList.js"></script>
         <script src="motd/motdList.js"></script>
         <script src="motd.js"></script>
+        <script src="unreadNotifications.js"></script>
     </body>
 </html>

@@ -59,7 +59,7 @@ a.footer {
     color: white;
 }
 
-a.adminBannerLink {
+a.highlightChild, a.adminBannerLink {
     color: black;
 }
 
@@ -284,6 +284,10 @@ embed {
     float: right!important;
 }
 
+.displayNone {
+    display: none;
+}
+
 .noMargin {
     margin: 0;
 }
@@ -382,6 +386,11 @@ embed {
 
 .card.profile {
     height: 80px;
+}
+
+.card.highlight {
+    background-color: var(--highlightColour);
+    color: black;
 }
 
 .card.adminBanner {
@@ -483,6 +492,10 @@ embed {
 .options {
     float: right;
     margin-right: -8px;
+}
+
+.options.top {
+    margin-top: -8px;
 }
 
 .loader {

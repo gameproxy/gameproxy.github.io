@@ -100,6 +100,18 @@ function postComment() {
                     byStaff: isStaff(currentUid),
                     content: profanity.clean(commentData)
                 });
+                
+                if (gameData.uid != currentUid) {
+                    firebase.database().ref("users/" + gameData.uid + "/notifications/unread").push().set({
+                        type: "comment",
+                        date: new Date().getTime(),
+                        uid: currentUid,
+                        username: name,
+                        target: getURLParameter("play"),
+                        targetName: gameData.title,
+                        content: profanity.clean(commentData)
+                    });
+                }
             });
         }
     }
