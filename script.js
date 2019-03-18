@@ -147,6 +147,7 @@ $(function() {
         var isOpera = typeof window.opr !== "undefined";
         var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
         var isIOSChrome = winNav.userAgent.match("CriOS");
+        var isFirefox = navigator.userAgent.search("Firefox") > -1;
 
         if (!(
             isChromium !== null &&
@@ -154,6 +155,8 @@ $(function() {
             vendorName === "Google Inc." &&
             isOpera === false &&
             isIEedge === false
+        ) && (
+            !isFirefox
         )) {
             window.location.href = "/notSupported.html";
         }
