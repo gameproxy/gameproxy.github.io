@@ -8,7 +8,8 @@ var staffList = [
     "XfxcZLhrAoblIFvnMKBbe7AbUzr1",
     "8OA266vibXdd59qMCSYZEBEZq5T2",
     "PZscZpHT4hhltnHn4cl3sTRR3cz1",
-    "vCbb0VGn3fVXYBs0pBhDIwWkPgC3"
+    "vCbb0VGn3fVXYBs0pBhDIwWkPgC3",
+    "aKPCmT6pWXZOZ9UXnDoqnywNEaM2"
 ];
 
 function isStaff(uid) {
