@@ -37,7 +37,7 @@ The following Terms have been updated on 12 February 2019 and are in immediate e
 * Deliberately publishing the same material repeatedly, or spamming.
 * Using alternative accounts to manipulate GameProxy's statistics.
 
-**3.3.** BY POSTING CONTENT ON GAMEPROXY'S PRODUCTS AND SERVICES You AGREE TO BE RESPONSIBLE FOR ANY LIABILITIES INCLUDING FOR COPYRIGHT, TRADEMARKS AND PATENTS AS DESCRIBED IN THE WARRANTY.
+**3.3.** BY POSTING CONTENT ON GAMEPROXY'S PRODUCTS AND SERVICES YOU AGREE TO BE RESPONSIBLE FOR ANY LIABILITIES INCLUDING FOR COPYRIGHT, TRADEMARKS AND PATENTS AS DESCRIBED IN THE WARRANTY.
 
 **3.4.** You are responsible for visiting other websites linking or referred from GameProxy's websites, and GameProxy is not responsible for — and cannot guarantee the safety of — the content and material on the websites that You have visited, to the extent as described in the warranty.
 
