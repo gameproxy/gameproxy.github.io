@@ -60,7 +60,7 @@ function newNotification(key, value, unread = true) {
         .find("a")
         .text(value.username)
         .attr("href", "https://gameproxy.host/profile.html?user=" + value.uid)
-        .css("color", isStaff(value.uid) ? "#27ef70" : "inherit")
+        .css("color", isStaff(value.uid) ? "#27ef70" : (isGameProxyPro(value.uid) ? "#b3c20f" : "inherit"))
         .parent()
         .appendTo((unread ? ".notificationUnread " : ".notificationArchive ") + ".notification:first")
     ;

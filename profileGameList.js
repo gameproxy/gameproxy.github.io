@@ -4,7 +4,7 @@ function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
 }
 
-function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false) {
+function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false, byGPPro = false) {
     $("#gameLoader").hide();
 
     if (verified) {
@@ -39,6 +39,8 @@ function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png",
     
     if (byStaff) {
         $("#gameList").children().last().find(".gameBy").css("color", "#27ef70");
+    } else if (byGPPro) {
+        $("#gameList").children().last().find(".gameBy").css("color", "#b3c20f");
     }
 
     $("#gameList").children().last().find("img").attr("src", thumbnail);
@@ -68,7 +70,7 @@ function showAll() {
                 if (gameList[i]["by"] == undefined) {
                     addGame(gameList[i]["title"], "Anonymous", gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
                 } else {
-                    addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"]);
+                    addGame(gameList[i]["title"], gameList[i]["by"].substring(0, 30), gameList[i]["byStaff"], gameList[i]["thumbnail"], "game.html?play=" + gameList[i]["key"], gameList[i]["verified"], isGameProxyPro(gameList[i]["uid"]));
                 }
             }
         }

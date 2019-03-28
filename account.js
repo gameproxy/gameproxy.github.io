@@ -45,6 +45,8 @@ function change(user) {
                     if (window.location.pathname.split("/").pop() == "account.html") {
                         $(".adminBanner").show();
                     }
+                } else if (isGameProxyPro(currentUid)) {
+                    $(".accountName").css("color", "#b3c20f");
                 } else {
                     $(".accountName").css("color", "white");
                     

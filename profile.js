@@ -23,6 +23,8 @@ $(function() {
         if (isStaff(getURLParameter("user"))) {
             $(".profileName").css("color", "#27ef70");
             $(".adminBanner").show();
+        } else if (isGameProxyPro(getURLParameter("user"))) {
+            $(".profileName").css("color", "#b3c20f");
         }
     });
 

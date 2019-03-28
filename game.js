@@ -338,7 +338,7 @@ function editGameThumbnailAction() {
 
         toDataUrl(
             gameData.src.startsWith("https://scratch.mit.edu/projects/")?
-                "https://cors-anywhere.herokuapp.com/" + "https://cdn2.scratch.mit.edu/get_image/project/" + gamedata.src.split("/")[4] + "_288x216.png"
+                "https://cors-anywhere.herokuapp.com/" + "https://cdn2.scratch.mit.edu/get_image/project/" + gameData.src.split("/")[4] + "_288x216.png"
             :   (
                     thumbnailInput != "" ?
                         "https://cors-anywhere.herokuapp.com/" + thumbnailInput
@@ -498,6 +498,8 @@ $(function() {
 
         if (gameData.byStaff) {
             $(".creatorAccountName").css("color", "#27ef70");
+        } else if (isGameProxyPro(gameData.uid)) {
+            $(".creatorAccountName").css("color", "#b3c20f");
         }
 
         refreshCreatorPpic();
@@ -635,6 +637,13 @@ $(function() {
                     $("#commentsList").html(`
                         <div class="comment">
                             <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
+                            <p class="commentContent"></p>
+                        </div>
+                    ` + $("#commentsList").html());
+                } else if (isGameProxyPro(childSnapshot.val().uid)) {
+                    $("#commentsList").html(`
+                        <div class="comment">
+                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #b3c20f;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
                             <p class="commentContent"></p>
                         </div>
                     ` + $("#commentsList").html());
