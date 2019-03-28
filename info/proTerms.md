@@ -1,4 +1,4 @@
-The following Terms have been updated on 16 March 2019 and are in immediate effect.
+The following Terms have been updated on 28 March 2019 and are in immediate effect.
 
 ## 1. User Agreement
 **1.1.** These Terms And Conditions constitute an agreement between You (the 'user') and the GameProxy admins ('GameProxy') that governs the payment and use of GameProxy's GameProxy Pro products and services. By using the services You agree that You have read, understood, and accepted the terms and conditions in the Terms. If You do not agree with any of these Terms, please do not purchase or use GameProxy's GameProxy Pro products and services.
@@ -12,7 +12,7 @@ The following Terms have been updated on 16 March 2019 and are in immediate effe
 
 **2.2.** By redeeming a special code or voucher to get a GameProxy Pro membership, the special code or voucher used will no longer be valid, even after refunding. If You use a speical code or voucher, You cannot receive money for refunding, instead Your GameProxy Pro membership will be terminated with no money transferral to You.
 
-**2.3.** Purchasing GameProxy Pro requires a GameProxy account, which can be created by You at no price. You will need a valid email address that You own and a password that You will remember to use your account. A username may also be required when signing up for a GameProxy account, which must not contain any profanity. If You are already signed into a GameProxy account, that account will be used for GameProxy Pro.
+**2.3.** Purchasing GameProxy Pro requires a GameProxy account, which can be created by You at no price. You will need a valid email address that You own and a password that You will remember to use Your account. A username may also be required when signing up for a GameProxy account, which must not contain any profanity. If You are already signed into a GameProxy account, that account will be used for GameProxy Pro.
 
 **2.4.** GameProxy Pro membership is not transerrable between GameProxy accounts.
 
