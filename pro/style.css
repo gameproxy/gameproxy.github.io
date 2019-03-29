@@ -10,6 +10,10 @@
     --secondaryHighlightColour: rgba(39, 239, 112, 0.2);
 }
 
+html, body {
+    width: calc(100% - 8px);
+}
+
 button, .dialogTitle {
     color: black;
 }
