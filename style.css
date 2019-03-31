@@ -59,6 +59,10 @@ a.footer {
     color: white;
 }
 
+a.highlight {
+    color: var(--highlightColour)!important;
+}
+
 a.highlightChild, a.adminBannerLink {
     color: black;
 }
