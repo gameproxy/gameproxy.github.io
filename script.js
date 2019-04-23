@@ -52,8 +52,8 @@ function closeDialog() {
     $(".dialog").fadeOut();
 }
 
-window.alert = function(text) {
-    dialog("Information", text, [{text: "OK", onclick: "closeDialog();", type: "primary"}]);
+window.alert = function(text, title = "Information") {
+    dialog(title, text, [{text: "OK", onclick: "closeDialog();", type: "primary"}]);
 };
 
 $(function() {

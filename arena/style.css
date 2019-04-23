@@ -1,0 +1,96 @@
+:root {
+    --borderRadiusValue: 0.75vw;
+}
+
+head, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-size: 3vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+header {
+    text-align: left;
+}
+
+header img {
+    height: 50px;
+}
+header img.aTadSmaller {
+    height: 40px;
+    margin: 5px;
+}
+
+main {
+    display: none;
+    margin-top: 200px;
+    margin-bottom: 10vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    height: 50vh;
+    color: white;
+}
+
+button, input, select {
+    font-size: 3vh;
+}
+
+.small {
+    font-size: 1.5vh;
+}
+
+.smallMargin {
+    margin: 10px;
+}
+
+.largeTopMargin {
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: var(--borderRadiusValue);
+}
+
+.card.full {
+    height: inherit;
+}
+
+.dialog, .dialog * {
+    font-size: 16px;
+}
+
+.dialogTitle, .dialogContent {
+    text-align: left;
+}
+
+.bigInput {
+    width: calc(100% - 50px);
+    font-size: 5vh;
+    text-align: center;
+}
+
+.side {
+    position: absolute;
+    display: none;
+    top: 75px;
+    width: calc(50vw - 20px);
+    height: calc(100vh - 75px);
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+    overflow: auto;
+}
+
+.side.leftSide {
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.side.rightSide {
+    left: 50vw;
+    background-color: rgba(255, 255, 255, 0.1);
+}
