@@ -12,7 +12,7 @@ function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png",
             <a class="hidden">
                 <div class="item gameItem">
                     <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
+                        <img src="media/NoThumbnail.png" onerror="this.onerror = null; this.src='media/NoThumbnail.png';" class="itemThumbnail" />
                     </div>
                     <h2 class="cutOff"><span class="itemTitle">Loading...</span> <i class="material-icons">verified_user</i></h2>
                     <span class="gameByPrefix"></span><span class="gameBy">Loading...</span>
@@ -24,7 +24,7 @@ function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png",
             <a class="hidden">
                 <div class="item gameItem">
                     <div class="itemThumbnailHolder">
-                        <img src="media/NoThumbnail.png" class="itemThumbnail" />
+                        <img src="media/NoThumbnail.png" onerror="this.onerror = null; this.src='media/NoThumbnail.png';" class="itemThumbnail" />
                     </div>
                     <h2 class="cutOff"><span class="itemTitle">Loading...</span></h2>
                     <span class="gameByPrefix"></span><span class="gameBy">Loading...</span>
