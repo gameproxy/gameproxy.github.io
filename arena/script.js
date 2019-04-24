@@ -1,6 +1,11 @@
 var computerNumber = 0;
 var currentUid = null;
 
+const sides = {
+    LEFT: 0,
+    RIGHT: 1
+};
+
 function setComputerNumber() {
     if ($("#computerNumber").val() != "") {
         computerNumber = $("#computerNumber").val();
@@ -19,6 +24,16 @@ function continueAfterSetup() {
     $(".game").fadeOut();
     $("#continueAfterSetup").fadeOut();
     $(".signInSides").fadeIn();
+}
+
+function enterCompetition(side) {
+    var sideName = (side == sides.LEFT ? "leftSide" : "rightSide");
+
+    if (($(".signInEmail." + sideName).val().trim() != "" && $(".signInPassword." + sideName).val().trim() != "") || $(".signInName." + sideName).val().trim() != "") {
+        $(".enteringCompetitionSides." + sideName).fadeIn();
+    } else {
+        $(".signInError." + sideName).text("Oops! You didn't fill out all of the fields.");
+    }
 }
 
 $(function() {

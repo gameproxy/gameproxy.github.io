@@ -59,24 +59,25 @@
         <div class="game">
             <iframe src="https://supersmashflash2beta.com/iframe/super-smash-flash-2"></iframe>
         </div>
-        <button onclick="continueAfterSetup();" id="continueAfterSetup">Finished Setup</button>
+        <button onclick="continueAfterSetup();" id="continueAfterSetup">Finish Setup</button>
         <div class="signInSides side leftSide">
             <h1>Let's get started!</h1>
             <p>You ready to get going in Smash Flash Knockout? Register below!</p>
             <div class="card">
                 <p class="smallMargin">Use your existing GameProxy account...</p>
                 <p class="smallMargin">
-                    <input type="email" placeholder="Email"><br>
-                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email" class="signInEmail leftSide"><br>
+                    <input type="password" placeholder="Password" class="signInPassword leftSide">
                 </p>
             </div>
             <div class="card inside">
                 <p class="smallMargin">...Or just use your full name to enter!</p>
                 <p class="smallMargin">
-                    <input placeholder="Full Name">
+                    <input placeholder="Full Name" class="signInName leftSide">
                 </p>
             </div>
-            <button>Enter Competition</button>
+            <p class="signInError leftSide"></p>
+            <button onclick="enterCompetition(sides.LEFT);">Enter Competition</button>
             <div class="small largeTopMargin">
                 GameProxy is not sponsored, endorsed or otherwise affiliated
                 with McLeodGaming Inc., Norwich School, Cadbury or any of the
@@ -90,17 +91,18 @@
             <div class="card inside">
                 <p class="smallMargin">Use your existing GameProxy account...</p>
                 <p class="smallMargin">
-                    <input type="email" placeholder="Email"><br>
-                    <input type="password" placeholder="Password">
+                    <input type="email" placeholder="Email" class="signInEmail rightSide"><br>
+                    <input type="password" placeholder="Password" class="signInPassword rightSide">
                 </p>
             </div>
             <div class="card">
                 <p class="smallMargin">...Or just use your full name to enter!</p>
                 <p class="smallMargin">
-                    <input placeholder="Full Name">
+                    <input placeholder="Full Name" class="signInName rightSide">
                 </p>
             </div>
-            <button>Enter Competition</button>
+            <p class="signInError rightSide"></p>
+            <button onclick="enterCompetition(sides.RIGHT);">Enter Competition</button>
             <div class="small largeTopMargin">
                 Don't worry, GameProxy users! Your email and password won't be
                 tracked; this information is needed to validate your account
@@ -108,6 +110,16 @@
                 details ─ like your user ID, username and your GameProxy Pro
                 membership status.
             </div>
+        </div>
+        <div class="enteringCompetitionSides side leftSide">
+            <h1>Registration completed!</h1>
+            <h2>You'll be entered into the competition soon.</h2>
+            <button>Cancel</button>
+        </div>
+        <div class="enteringCompetitionSides side rightSide">
+            <h1>Registration completed!</h1>
+            <h2>You'll be entered into the competition soon.</h2>
+            <button>Cancel</button>
         </div>
         <div id="computerNumberReadoutContainer">
             <div id="computerNumberReadout">

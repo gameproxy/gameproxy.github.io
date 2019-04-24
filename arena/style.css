@@ -95,6 +95,15 @@ button, input, select {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+.signInError {
+    font-size: 2vh;
+}
+
+.enteringCompetitionSides {
+    padding-top: 20vh;
+    background-color: rgba(107, 41, 239, 0.8)!important;
+}
+
 .game {
     position: absolute;
     display: none;
