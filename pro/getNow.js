@@ -71,7 +71,7 @@ function usePayPalNext() {
 }
 
 function useCodeAction() {
-    window.location.href = "paymentRequest.html?token=" + encodeURIComponent(btoa(enteredCode.replace(/\//g, "-").replace(/ /g, "")));
+    window.location.replace("paymentRequest.html?token=" + encodeURIComponent(btoa(enteredCode.replace(/\//g, "-").replace(/ /g, ""))));
 }
 
 function useCode() {

@@ -3,11 +3,11 @@ function getURLParameter(name) {
 }
 
 function paymentError(code) {
-    window.location.href = "paymentError.html?code=" + code;
+    window.location.replace("paymentError.html?code=" + code);
 }
 
 function paymentComplete() {
-    window.location.href = "paymentComplete.html";
+    window.location.replace("paymentComplete.html");
 }
 
 function clearVoucher(snapshotVal, token, callback = function() {}) {
