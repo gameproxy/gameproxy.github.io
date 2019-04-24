@@ -69,6 +69,7 @@ function usePayPalNext() {
         {text: "Pay", onclick: "usePayPalAction();", type: "primary"}
     ]);
 }
+
 function useCodeAction() {
     window.location.href = "paymentRequest.html?token=" + encodeURIComponent(btoa(enteredCode));
 }
