@@ -19,6 +19,7 @@ header {
 header img {
     height: 50px;
 }
+
 header img.aTadSmaller {
     height: 40px;
     margin: 5px;
