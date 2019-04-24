@@ -6,10 +6,17 @@ function setComputerNumber() {
         computerNumber = $("#computerNumber").val();
 
         $("#setComputerNumber").fadeOut();
-        $(".signInSides").fadeIn();
+        $(".game").fadeIn();
+        $("#continueAfterSetup").fadeIn();
     } else {
         alert("Please specify a computer number.", "Cannot set computer number");
     }
+}
+
+function continueAfterSetup() {
+    $(".game").fadeOut();
+    $("#continueAfterSetup").fadeOut();
+    $(".signInSides").fadeIn();
 }
 
 $(function() {

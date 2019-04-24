@@ -94,3 +94,26 @@ button, input, select {
     left: 50vw;
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+.game {
+    position: absolute;
+    display: none;
+    top: 75px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 75px);
+    background-color: black;
+}
+
+.game embed {
+    width: 100%;
+    height: 100%;
+}
+
+#continueAfterSetup {
+    position: absolute;
+    display: none;
+    bottom: 10px;
+    left: 33.3vw;
+    width: 33.3vw;
+}
