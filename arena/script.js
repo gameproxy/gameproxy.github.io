@@ -86,9 +86,7 @@ function enterCompetition(side) {
                                 sideUserInfo[sideNameBare]["method"] = "account";
                                 sideUserInfo[sideNameBare]["uid"] = currentUid;
                                 sideUserInfo[sideNameBare]["name"] = snapshot.val();
-            
-                                console.log(currentUid, snapshot.val());
-            
+                                
                                 firebase.auth().signOut().then(function() {
                                     $(".enteringCompetitionSides." + sideName).fadeIn();
                                 });
