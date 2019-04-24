@@ -26,7 +26,6 @@ firebase.auth().onAuthStateChanged(function(user) {
             var token = atob(getURLParameter("token"));
 
             firebase.database().ref("vouchers/" + token).once("value", function(snapshot) {
-                
                 if (snapshot.val() != null) {
                     firebase.database().ref("users/" + currentUid + "/_settings/gpPro/previouslyUsed").once("value", function(puSnapshot) {
                         if (puSnapshot.val() == null || !(sha256(token) in puSnapshot.val())) {
