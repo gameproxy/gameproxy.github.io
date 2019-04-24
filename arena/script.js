@@ -31,4 +31,8 @@ $(function() {
             setComputerNumber();
         }
     });
+
+    window.onbeforeunload = function() {
+        return "Careful! Reloading this page may cause you to be removed from the competition. Do you really want to continue?";
+    };
 });
