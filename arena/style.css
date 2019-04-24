@@ -117,3 +117,22 @@ button, input, select {
     left: 33.3vw;
     width: 33.3vw;
 }
+
+#computerNumberReadoutContainer {
+    position: absolute;
+    /* display: none; */
+    top: 0;
+    left: 33.3vw;
+    width: 33.3vw;
+    text-align: center;
+    z-index: 1;
+}
+
+#computerNumberReadout {
+    display: none;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}

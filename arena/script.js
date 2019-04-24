@@ -5,6 +5,8 @@ function setComputerNumber() {
     if ($("#computerNumber").val() != "") {
         computerNumber = $("#computerNumber").val();
 
+        $("#computerNumberReadout").text(computerNumber).css("display", "inline");
+
         $("#setComputerNumber").fadeOut();
         $(".game").fadeIn();
         $("#continueAfterSetup").fadeIn();
@@ -20,5 +22,13 @@ function continueAfterSetup() {
 }
 
 $(function() {
+    firebase.auth().signOut();
+
     $("#setComputerNumber").fadeIn();
+
+    $("#computerNumber").keydown(function(e) {
+        if (e.keyCode == 13) {
+            setComputerNumber();
+        }
+    });
 });
