@@ -75,7 +75,7 @@ function enterCompetition(side) {
                 $(".enterCompetitionButton." + sideName).css({
                     backgroundColor: "",
                     color: "",
-                    cursor: "unset"
+                    cursor: ""
                 });
 
                 var currentUidCache = null;
@@ -86,7 +86,7 @@ function enterCompetition(side) {
                                 sideUserInfo[sideNameBare]["method"] = "account";
                                 sideUserInfo[sideNameBare]["uid"] = currentUid;
                                 sideUserInfo[sideNameBare]["name"] = snapshot.val();
-                                
+
                                 firebase.auth().signOut().then(function() {
                                     $(".enteringCompetitionSides." + sideName).fadeIn();
                                 });
@@ -112,6 +112,15 @@ function enterCompetition(side) {
     } else {
         $(".signInError." + sideName).text("Oops! You didn't fill out the needed fields.");
     }
+}
+
+function cancelEntry(side) {
+    var sideName = (side == sides.LEFT ? "leftSide" : "rightSide");
+    var sideNameBare = (side == sides.LEFT ? "left" : "right");
+
+    sideUserInfo[sideNameBare] = {};
+
+    $(".enteringCompetitionSides." + sideName).fadeOut();
 }
 
 $(function() {
