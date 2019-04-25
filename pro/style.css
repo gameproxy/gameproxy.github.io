@@ -14,6 +14,10 @@ html, body {
     width: calc(100% - 8px);
 }
 
+body {
+    overflow-x: hidden;
+}
+
 button, .dialogTitle {
     color: black;
 }
