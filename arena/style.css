@@ -120,6 +120,27 @@ button, input, select {
     height: 100%;
 }
 
+.holdingScreen {
+    position: absolute;
+    display: none;
+    top: 75px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 75px);
+    padding-top: 20vh;
+    background-color: #3e3e3e;
+    background-image: url("../media/sfk/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: multiply;
+    text-align: center;
+}
+
+.holdingScreen img {
+    height: 40vh;
+}
+
 #continueAfterSetup {
     position: absolute;
     display: none;

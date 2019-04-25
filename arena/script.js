@@ -11,6 +11,22 @@ var sideUserInfo = {
     right: {}
 };
 
+function configureCommunication() {
+    firebase.database().ref("arena/computers/" + computerNumber).set({
+        holdingScreen: false
+    }).then(function() {
+        firebase.database().ref("arena/computers/" + computerNumber).on("value", function(snapshot) {
+            var data = snapshot.val();
+
+            if (data.holdingScreen == true) {
+                $(".holdingScreen").fadeIn();
+            } else {
+                $(".holdingScreen").fadeOut();
+            }
+        });
+    });
+}
+
 function setComputerNumber() {
     if ($("#computerNumber").val() != "") {
         computerNumber = $("#computerNumber").val();
@@ -20,6 +36,8 @@ function setComputerNumber() {
         $("#setComputerNumber").fadeOut();
         $(".game").fadeIn();
         $("#continueAfterSetup").fadeIn();
+
+        configureCommunication();
     } else {
         alert("Please specify a computer number.", "Cannot set computer number");
     }

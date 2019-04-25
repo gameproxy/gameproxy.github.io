@@ -11,13 +11,13 @@
           gtag('config', 'UA-128441061-1');
         </script>
         <title>GameProxy</title>
-        <link rel="shortcut icon" href="media/Small.png">
+        <link rel="shortcut icon" href="../../media/Small.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
-        <link rel="stylesheet" href="style.css">
-        <script src="lib/showdown.min.js"></script>
+        <link rel="stylesheet" href="../../style.css">
+        <script src="../../lib/showdown.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
-        <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
-        <script src="lib/jquery.min.js"></script>
+        <link rel="apple-touch-icon" href="../../media/Apple Touch Icon.png">
+        <script src="../../lib/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
             var config = {
@@ -31,6 +31,7 @@
             
             firebase.initializeApp(config);
         </script>
+        <script src="../../script.js"></script>
         <script src="script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     </head>
@@ -39,41 +40,36 @@
         <a class="skipTo" href="#footer">Skip to footer</a>
         <header>
             <span class="desktop">
-                <a href="index.html" title="Go to main page" class="headerButton logo">
-                    <img src="media/Large.png" alt="GameProxy logo" id="headerLogo" />
+                <a href="../../index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../../media/Large.png" alt="GameProxy logo" id="headerLogo" />
                 </a>
             </span>
             <span class="mobile">
-                <a href="index.html" title="Go to main page" class="headerButton logo">
-                    <img src="media/Small.png" alt="GameProxy logo" id="headerLogo" />
+                <a href="../../index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../../media/Small.png" alt="GameProxy logo" id="headerLogo" />
                 </a>
             </span>
             <div class="headerRight">
-                <a href="index.html" class="headerButton">Games</a>
-                <a href="chat.html" class="headerButton">Chat</a>
-                <a href="account.html" class="headerButton selected">Account</a>
+                <a href="../../index.html" class="headerButton">Games</a>
+                <a href="../../chat.html" class="headerButton">Chat</a>
+                <a href="../../account.html" class="headerButton selected">Account</a>
             </div>
         </header>
         <main id="content">
-            <h1 class="center">Settings</h1>
+            <h1 class="center">SFK Arena Control Panel</h1>
             <div class="card center notSignedIn">
                 <h2>Sorry!</h2>
-                <p>To access settings for your account, please sign in.</p>
-                <button onclick="window.location.href = 'account.html'">Sign In</button>
+                <p>To access the GameProxy SFK arena, please sign in as an organiser.</p>
+                <button onclick="window.location.href = '../../account.html?go=arena/org/index.html'">Sign In</button>
             </div>
-            <div class="card coloured signedIn">
-                Customise your account. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
+            <div class="card coloured signedInOrg">
+                Manage computers connected to GameProxy SFK arena. <button onclick="window.location.href = '../../index.html';" class="secondary">Back</button>
             </div>
-            <div class="card signedIn center">
-                <h2>Profile Picture</h2>
-                <img src="media/AnonUser.png" class="accountPicture" /><br>
-                <input type="file" id="ppicFile" name="file" accept="image/png" class="chooseImage" /><br>
-                <small>Be patient! Account pictures can take time to update.</small>
-            </div>
-            <div class="card signedIn center">
-                <h2>Username</h2>
-                Current Username: <strong class="accountName">Loading...</strong><br>
-                <input placeholder="Set a new name..." id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
+            <div class="card signedInOrg">
+                <h2 class="center">Options</h2>
+                <ul>
+                    <li><a href="holdingScreen.html">Show/hide holding screen</a></li>
+                </ul>
             </div>
         </main>
         <div class="dialogBackground"></div>
@@ -81,9 +77,9 @@
             Hi!
         </div>
         <footer import="/footer.html" id="footer"></footer>
-        <script src="profanityFilter.js"></script>
-        <script src="staffList.js"></script>
-        <script src="gpProList.js"></script>
-        <script src="account.js"></script>
+        <script src="../../profanityFilter.js"></script>
+        <script src="../../staffList.js"></script>
+        <script src="../../gpProList.js"></script>
+        <script src="../../account.js"></script>
     </body>
 </html>

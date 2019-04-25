@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>GameProxy</title>
+        <link rel="shortcut icon" href="../../media/Small.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
+        <link rel="stylesheet" href="../../style.css">
+        <script src="../../lib/showdown.min.js"></script>
+        <meta name="theme-color" content="#6b29ef">
+        <link rel="apple-touch-icon" href="../../media/Apple Touch Icon.png">
+        <script src="../../lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="../../script.js"></script>
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <a class="skipTo" href="#content">Skip to content</a>
+        <a class="skipTo" href="#footer">Skip to footer</a>
+        <header>
+            <span class="desktop">
+                <a href="../../index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../../media/Large.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <span class="mobile">
+                <a href="../../index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../../media/Small.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <div class="headerRight">
+                <a href="../../index.html" class="headerButton">Games</a>
+                <a href="../../chat.html" class="headerButton">Chat</a>
+                <a href="../../account.html" class="headerButton selected">Account</a>
+            </div>
+        </header>
+        <main id="content">
+            <h1 class="center">SFK Arena Control Panel</h1>
+            <div class="card center notSignedIn">
+                <h2>Sorry!</h2>
+                <p>To access the GameProxy SFK arena, please sign in as an organiser.</p>
+                <button onclick="window.location.href = '../../account.html?go=arena/org/holdingScreen.html'">Sign In</button>
+            </div>
+            <div class="card coloured signedInOrg">
+                Display the holding screen on all or certain computers. <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
+            </div>
+            <div class="card signedInOrg center">
+                <h2>Holding Screen</h2>
+                <div>
+                    <button onclick="shHSAll(true);" class="reallyBad">Show holding screen for all users</button>
+                    <button onclick="shHSAll(false);" class="bad">Hide holding screen for all users</button>
+                </div>
+                <div>
+                    <h3>Or use specific computers...</h3>
+                    <textarea placeholder="Enter computer numbers comma-separated here..." id="shHoldingScreens"></textarea>
+                    <button onclick="shHSFromTextarea(true);">Show holding screen</button>
+                    <button onclick="shHSFromTextarea(false);" class="bad">Hide holding screen</button>
+                </div>
+            </div>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
+        <footer import="/footer.html" id="footer"></footer>
+        <script src="../../profanityFilter.js"></script>
+        <script src="../../staffList.js"></script>
+        <script src="../../gpProList.js"></script>
+        <script src="../../account.js"></script>
+    </body>
+</html>
