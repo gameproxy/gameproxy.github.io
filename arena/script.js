@@ -49,6 +49,17 @@ function continueAfterSetup() {
     $(".signInSides").fadeIn();
 }
 
+function storeUser(data, computer, side) {
+    data.computer = computer;
+    data.side = side;
+
+    firebase.database().ref("arena/users/" + computerNumber + (side == sides.LEFT ? "l" : "r")).set(data);
+}
+
+function deleteUser(key) {
+    firebase.database().ref("arena/users/" + key).set(null);
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         currentUid = user.uid;
@@ -75,6 +86,8 @@ function enterCompetition(side) {
             if ($(".signInName." + sideName).val().trim().split(" ").length >= 2) {
                 sideUserInfo[sideNameBare]["method"] = "name";
                 sideUserInfo[sideNameBare]["name"] = $(".signInName." + sideName).val();
+
+                storeUser(sideUserInfo[sideNameBare], computerNumber, side);
 
                 $(".enteringCompetitionSides." + sideName).fadeIn();
             } else {
@@ -104,6 +117,8 @@ function enterCompetition(side) {
                                 sideUserInfo[sideNameBare]["method"] = "account";
                                 sideUserInfo[sideNameBare]["uid"] = currentUid;
                                 sideUserInfo[sideNameBare]["name"] = snapshot.val();
+
+                                storeUser(sideUserInfo[sideNameBare], computerNumber, side);
 
                                 firebase.auth().signOut().then(function() {
                                     $(".enteringCompetitionSides." + sideName).fadeIn();
@@ -137,6 +152,10 @@ function cancelEntry(side) {
     var sideNameBare = (side == sides.LEFT ? "left" : "right");
 
     sideUserInfo[sideNameBare] = {};
+
+    var key = computerNumber + (side == sides.LEFT ? "l" : "r");
+
+    deleteUser(key);
 
     $(".enteringCompetitionSides." + sideName).fadeOut();
 }

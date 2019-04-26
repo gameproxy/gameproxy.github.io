@@ -74,6 +74,8 @@ function delAll() {
             delComputers(Object.keys(computerList)[i]);
         }
     });
+
+    firebase.database().ref("arena/users").set(null);
 }
 
 function delFromTextarea() {
