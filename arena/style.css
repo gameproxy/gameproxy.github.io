@@ -31,7 +31,7 @@ main {
     margin-bottom: 10vh;
     margin-left: 15vw;
     margin-right: 15vw;
-    height: 50vh;
+    min-height: 50vh;
     color: white;
 }
 
@@ -166,4 +166,50 @@ button, input, select {
     color: white;
     text-align: center;
     border-radius: 5px;
+}
+
+#scoreboard {
+    display: block!important;
+    max-height: 80vh;
+    margin-top: 100px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    overflow: scroll;
+}
+
+.scoreboardEntry {
+    height: 5vh;
+    text-align: left;
+}
+
+.scoreboardEntry:nth-child(1) {
+    background-color: #f2c202;
+    color: black;
+}
+
+.scoreboardEntry:nth-child(2) {
+    background-color: #c4c4c4;
+    color: black;
+}
+
+.scoreboardEntry:nth-child(3) {
+    background-color: #ce7f00;
+    color: black;
+}
+
+.scoreboardPosition, .scoreboardName, .scoreboardScore {
+    font-size: 4vh;
+}
+
+.scoreboardPosition, .scoreboardName {
+    display: inline-block;
+}
+
+.scoreboardPosition {
+    width: 75px;
+    font-weight: 700;
+}
+
+.scoreboardScore {
+    float: right;
 }
