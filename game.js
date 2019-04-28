@@ -673,18 +673,51 @@ $(function() {
             url: "https://ipapi.co/json/",
             success: function(data) {
                 if (data.ip == "194.74.169.202") {
+                    // dialog("Smash Flash Knockout Tournament", `
+                    //     <div class="center">
+                    //         <img src="media/SFK.png" height="100" />
+                    //         <h1>Are YOU from Norwich School?</h1>
+                    //         <p>
+                    //             We're hoping to organise a <strong>Smash Flash Knockout</strong> tournament at Norwich School.<br>
+                    //             While it is totally not official, we're just seeing if you're interested, which we're sure you are.
+                    //         </p>
+                    //         <div>
+                    //             So if you're a Norwich School pupil and wish to show us your interest, visit:<br>
+                    //             <a href="https://gameproxy.host/sfk/interest/" target="_blank">gameproxy.host/sfk/interest</a>
+                    //         </div><br>
+                    //         <div>
+                    //             <small>
+                    //                 GameProxy is not sponsored, endorsed or otherwise affiliated with McLeodGaming Inc., Norwich School,
+                    //                 Cadbury or any of the charities that GameProxy is donating to. Competition Rules apply.
+                    //             </small>
+                    //         </div>
+                    //     </div>
+                    // `, [
+                    //     {text: "Later", onclick: "closeDialog();", type: "bad"},
+                    //     {text: "Register Interest!", onclick: "window.open(&quot;https://gameproxy.host/sfk/interest/&quot;); closeDialog();", type: "primary"}
+                    // ]);
+
                     dialog("Smash Flash Knockout Tournament", `
                         <div class="center">
-                            <img src="media/SFK.png" height="100" />
-                            <h1>Are YOU from Norwich School?</h1>
+                            <h1 class="noMargin">SMASH FLASH KNOCKOUT</h1>
+                            <h4 class="noMargin">FRIDAY 10TH MAY | FIT | 1:10 PM | £3 TO ENTER</h4>
+                            <img src="media/SFK.png" height="75" />
                             <p>
-                                We're hoping to organise a <strong>Smash Flash Knockout</strong> tournament at Norwich School.<br>
-                                While it is totally not official, we're just seeing if you're interested, which we're sure you are.
+                                Are you a student at Norwich School and coming to the <strong>Smash Flash Knockout</strong>?!<br>
+                                Yes? Brilliant! No? Come along on the 10th of May at 1:10 PM in FIT to play a few competitive
+                                rounds of Super Smash Flash 2. <strong>Oh, and there's prizes!</strong>
                             </p>
-                            <div>
-                                So if you're a Norwich School pupil and wish to show us your interest, visit:<br>
-                                <a href="https://gameproxy.host/sfk/interest/" target="_blank">gameproxy.host/sfk/interest</a>
-                            </div><br>
+                            <p>
+                                Come along and get a chance to win plenty of Cadburys chocolate, cool 3D-printed objects and
+                                subscriptions to GameProxy Pro! Beginners as well as advanced players are welcome too ─ if
+                                you don't win you'll get a 1 month free GameProxy Pro voucher on us. There's no reason no
+                                to go!
+                            </p>
+                            <p>
+                                It's £3 to enter and £1 to spectate. 100% of the profits that we make go to charities with
+                                great causes. Don't forget that if you <em>do</em> win or even come 2nd or 3rd place, you'll
+                                certainly be getting your money back as the prizes are worth over £15!
+                            <p><br>
                             <div>
                                 <small>
                                     GameProxy is not sponsored, endorsed or otherwise affiliated with McLeodGaming Inc., Norwich School,
@@ -694,7 +727,7 @@ $(function() {
                         </div>
                     `, [
                         {text: "Later", onclick: "closeDialog();", type: "bad"},
-                        {text: "Register Interest!", onclick: "window.open(&quot;https://gameproxy.host/sfk/interest/&quot;); closeDialog();", type: "primary"}
+                        {text: "Learn More", onclick: "window.open(&quot;https://gameproxy.host/sfk&quot;); closeDialog();", type: "primary"}
                     ]);
                 }
             }
