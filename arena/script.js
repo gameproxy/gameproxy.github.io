@@ -11,6 +11,25 @@ var sideUserInfo = {
     right: {}
 };
 
+function startFirstRound() {
+    $(".signInSides").fadeOut();
+    $(".enteringCompetitionSides").fadeOut();
+    $(".game").fadeIn();
+}
+
+function startNextRound() {
+    $(".moveComputerSides").fadeOut();
+    $("#computerNumberFloaterContainer").fadeOut();
+    $(".game").fadeIn();
+}
+
+function finishRound() {
+    $(".finishRoundNames.leftSide").text(sideUserInfo.left.name);
+    $(".finishRoundNames.rightSide").text(sideUserInfo.right.name);
+
+    $(".finishRoundDisplay").fadeIn();
+}
+
 function configureCommunication() {
     firebase.database().ref("arena/computers/" + computerNumber).set({
         holdingScreen: false
@@ -22,6 +41,24 @@ function configureCommunication() {
                 $(".holdingScreen").fadeIn();
             } else {
                 $(".holdingScreen").fadeOut();
+            }
+
+            if (data.startFirstRound == true) {
+                startFirstRound();
+                
+                firebase.database().ref("arena/computers/" + computerNumber + "/startFirstRound").set(null);
+            }
+
+            if (data.startNextRound == true) {
+                startNextRound();
+                
+                firebase.database().ref("arena/computers/" + computerNumber + "/startNextRound").set(null);
+            }
+
+            if (data.finishRound == true) {
+                finishRound();
+                
+                firebase.database().ref("arena/computers/" + computerNumber + "/finishRound").set(null);
             }
         });
     });
@@ -164,6 +201,25 @@ function cancelEntry(side) {
     $(".enteringCompetitionSides." + sideName).fadeOut();
 }
 
+function showMoveComputers(data) {
+    var leftSide = data.leftSide;
+    var rightSide = data.rightSide;
+
+    $(".moveComputerName.leftSide").text(leftSide.name);
+    $(".moveComputerNumber.leftSide").text(leftSide.number);
+    $(".moveComputerNextName.leftSide").text(leftSide.nextName);
+
+    $(".moveComputerName.rightSide").text(rightSide.name);
+    $(".moveComputerNumber.rightSide").text(rightSide.number);
+    $(".moveComputerNextName.rightSide").text(rightSide.nextName);
+
+    $("#computerNumberFloater").text(computerNumber);
+
+    $(".game").fadeOut();
+    $(".moveComputerSides").fadeIn();
+    $("#computerNumberFloaterContainer").fadeIn();
+}
+
 $(function() {
     firebase.auth().signOut();
 
@@ -179,3 +235,7 @@ $(function() {
         return "Careful! Reloading this page may cause you to be removed from the competition. Do you really want to continue?";
     };
 });
+
+setInterval(function() {
+    $(".givenComputerNumber").text(computerNumber);
+}, 10);

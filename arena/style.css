@@ -39,6 +39,10 @@ button, input, select {
     font-size: 3vh;
 }
 
+h1.big {
+    font-size: 15vh;
+}
+
 .small {
     font-size: 1.5vh;
 }
@@ -141,6 +145,26 @@ button, input, select {
     height: 40vh;
 }
 
+.finishRoundDisplay.glass {
+    position: absolute;
+    display: none;
+    top: 75px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 75px);
+}
+
+.finishRoundDisplay.floater {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: calc(100vw - 40px);
+    padding: 20px;
+    background-color: var(--primaryColour);
+    color: white;
+}
+
 #continueAfterSetup {
     position: absolute;
     display: none;
@@ -151,7 +175,6 @@ button, input, select {
 
 #computerNumberReadoutContainer {
     position: absolute;
-    /* display: none; */
     top: 0;
     left: 33.3vw;
     width: 33.3vw;
@@ -166,6 +189,20 @@ button, input, select {
     color: white;
     text-align: center;
     border-radius: 5px;
+}
+
+#computerNumberFloaterContainer {
+    position: absolute;
+    display: none;
+    bottom: 20px;
+    left: calc(33.3vw - 10px);
+    width: calc(33.3vw - 10px);
+    padding: 20px;
+    background-color: var(--primaryColour);
+    color: white;
+    text-align: center;
+    border-radius: var(--borderRadiusValue);
+    z-index: 1;
 }
 
 #scoreboard {

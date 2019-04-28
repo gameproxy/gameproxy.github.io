@@ -60,21 +60,35 @@
             <div class="card center notSignedIn">
                 <h2>Sorry!</h2>
                 <p>To access the GameProxy SFK arena, please sign in as an organiser.</p>
-                <button onclick="window.location.href = '../../account.html?go=arena/org/deleteComputers.html'">Sign In</button>
+                <button onclick="window.location.href = '../../account.html?go=arena/org/rounds.html'">Sign In</button>
             </div>
             <div class="card coloured signedInOrg">
-                Delete all or certain systems from the arena. <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
+                Control rounds being played in SFK. <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
             </div>
             <div class="card signedInOrg center">
-                <h2>Delete Computers</h2>
+                <h2>Start First Round</h2>
                 <div>
-                    <button onclick="delAll();" class="reallyBad">Delete computers for all users</button><br>
-                    <small>Pressing this button will also cause all SFK user accounts to be deleted.</small>
+                    <button onclick="startFirstRound();">Start first round</button><br>
+                    <small>Only press this if no rounds have started yet!</small>
+                </div>
+            </div>
+            <div class="card signedInOrg center">
+                <h2>Start Next Round</h2>
+                <div>
+                    <button onclick="startNextRound();">Start next round</button><br>
+                    <small>Don't press this button if no rounds have started yet!</small>
+                </div>
+            </div>
+            <div class="card signedInOrg center">
+                <h2>Finish Round</h2>
+                <div>
+                    <button onclick="finishRoundAll();" class="reallyBad">Finish current round</button><br>
+                    <small>Scores will then need to be inputted by organisers.</small>
                 </div>
                 <div>
-                    <h3>Or delete specific computers...</h3>
+                    <h3>Or choose specific computers...</h3>
                     <textarea placeholder="Enter computer numbers comma-separated here..." id="fromTextarea"></textarea>
-                    <button onclick="delFromTextarea();">Delete computers</button>
+                    <button onclick="finishRoundFromTextarea();">Finish round</button>
                 </div>
             </div>
         </main>

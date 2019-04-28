@@ -125,7 +125,43 @@
             <h2>You'll be entered into the competition once everyone else has registered.</h2>
             <button onclick="cancelEntry(sides.RIGHT);">Cancel</button>
         </div>
-        <div class="holdingScreen">
+        <div class="finishRoundDisplay glass"></div>
+        <div class="finishRoundDisplay floater">
+            <p>Please wait while we record your score. Your input has been disabled while we do this.</p>
+            <small>
+                P1: <span class="finishRoundNames leftSide">Unknown</span> (<span class="givenComputerNumber">XX</span>L),
+                P2: <span class="finishRoundNames rightSide">Unknown</span> (<span class="givenComputerNumber">XX</span>R)
+            </small>
+        </div>
+        <div class="moveComputerSides side leftSide">
+            <h2><span class="moveComputerName leftSide">Hello</span>,</h2>
+            <h1 class="noMargin">Go to computer <span class="moveComputerNumber leftSide">XX</span></h1><br>
+            <div class="card">
+                <h2>Welcoming <span class="moveComputerNextName leftSide">another person</span> next!</h2>
+                <p>
+                    Please wait until everyone is ready. When everyone's moved
+                    to their respective computers, we can continue with the
+                    next round.
+                </p>
+            </div>
+        </div>
+        <div class="moveComputerSides side rightSide">
+            <h2><span class="moveComputerName rightSide">Hello</span>,</h2>
+            <h1 class="noMargin">Go to computer <span class="moveComputerNumber rightSide">XX</span></h1><br>
+            <div class="card">
+                <h2>Welcoming <span class="moveComputerNextName rightSide">another person</span> next!</h2>
+                <p>
+                    Please wait until everyone is ready. When everyone's moved
+                    to their respective computers, we can continue with the
+                    next round.
+                </p>
+            </div>
+        </div>
+        <div id="computerNumberFloaterContainer">
+            <h2>This is computer number</h2>
+            <h1 class="big noMargin" id="computerNumberFloater">XX</h1>
+        </div>
+            <div class="holdingScreen">
             <img src="../media/sfk/branding.png" />
         </div>
         <div id="computerNumberReadoutContainer">
