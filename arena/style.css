@@ -211,7 +211,7 @@ h1.big {
     margin-top: 100px;
     margin-left: 10vw;
     margin-right: 10vw;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .scoreboardEntry {
