@@ -33,6 +33,8 @@
         </script>
         <script src="script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <!-- Fixing the pound sign -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
     </head>
     <body>
         <a class="skipTo" href="#content">Skip to content</a>
@@ -94,7 +96,7 @@
                 <p>Select an option for game verification or <a href="javascript:$('.admin').fadeOut(500);" class="footer">temporarially hide admin functionality</a>.</p>
                 <button onclick="window.location.href = 'admin.html';" class="secondary"><i class="material-icons button">supervised_user_circle</i> Admin Console</button><button onclick="verifyGame();" class="secondary verifyButton"><i class="material-icons button">verified_user</i> Verify</button><button onclick="deleteGame();" class="reallyBad"><i class="material-icons button">delete</i> Delete Game</button>
             </div>
-            <div class="card">
+            <div class="card adBox">
                 <div class="adContainer center">
                     <!-- <div class="desktop">
                         <script type="text/javascript">

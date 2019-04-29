@@ -466,6 +466,12 @@ $(function() {
                 color: "black",
                 cursor: "default"
             });
+        } else {
+            setInterval(function() {
+                if (isGameProxyPro(currentUid)) {
+                    $(".adBox").remove();
+                }
+            }, 10);
         }
     });
 
