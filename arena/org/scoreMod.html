@@ -61,21 +61,17 @@
             <div class="card center notSignedIn">
                 <h2>Sorry!</h2>
                 <p>To access the GameProxy SFK arena, please sign in as an organiser.</p>
-                <button onclick="window.location.href = '../../account.html?go=arena/org/deleteComputers.html'">Sign In</button>
+                <button onclick="window.location.href = '../../account.html?go=arena/org/scoreMod.html'">Sign In</button>
             </div>
             <div class="card coloured signedInOrg">
-                Delete all or certain systems from the arena. <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
+                Increase or decrease score for players. <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
             </div>
             <div class="card signedInOrg center">
-                <h2>Delete Computers</h2>
+                <h2>Modify Scores</h2>
                 <div>
-                    <button onclick="delAll();" class="reallyBad">Delete computers for all users</button><br>
-                    <small>Pressing this button will also cause all SFK user accounts to be deleted.</small>
-                </div>
-                <div>
-                    <h3>Or delete specific computers...</h3>
-                    <textarea placeholder="Enter computer numbers comma-separated here..." id="fromTextarea"></textarea>
-                    <button onclick="delFromTextarea();">Delete computers</button>
+                    <div id="scorePlayerList">Loading player list...</div>
+                    <button onclick="modifyScores();">Modify scores</button><br>
+                    <small>Scores will be incremented or decremented by the values you give ─ the values you give are added (or subtracted if negative) to the final score that the player has.</small>
                 </div>
             </div>
         </main>

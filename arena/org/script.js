@@ -1,3 +1,5 @@
+var scoreboardData = [];
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         if (isStaff(user.uid)) {
@@ -133,3 +135,89 @@ function finishRoundAll() {
 function finishRoundFromTextarea() {
     finishRound($("#fromTextarea").val().split(","));
 }
+
+function rewriteScores(data) {
+    $("#scorePlayerList").html("");
+
+    for (var i = 0; i < data.length; i++) {
+        var name = data[i].name;
+        var score = data[i].score;
+        var id = data[i].id;
+
+        $("<div class='card scorePlayerListEntry'>")
+            .append($("<div class='scorePlayerListID'>")
+                .text(id.toUpperCase())
+            )
+            .append($("<div class='scorePlayerListName'>")
+                .text(name)
+            )
+            .append($("<div class='scorePlayerListScore'>")
+                .text(score)
+            )
+            .append($("<div class='scorePlayerListActions'>")
+                .html(`
+                    &pm;<input type="number" value="0" data-player-id="` + id + `">
+                `)
+            )
+            .appendTo($("#scorePlayerList"))
+        ;
+    }
+}
+
+function getScoresAgain() {
+    firebase.database().ref("arena/users").once("value", function(snapshot) {
+        var tempScoreboardData = [];
+    
+        snapshot.forEach(function(childSnapshot) {
+            tempScoreboardData.push({
+                name: childSnapshot.val().name,
+                score: childSnapshot.val().score,
+                id: childSnapshot.key
+            });
+        });
+
+        scoreboardData = tempScoreboardData;
+
+        rewriteScores(scoreboardData);
+    });
+}
+
+function modifyScores() {
+    var IDList = [];
+
+    for (var i = 0; i < $("[data-player-id]").length; i++) {
+        IDList.push($($("[data-player-id]")[i]).attr("data-player-id"));
+    }
+
+    for (var i = 0; i < IDList.length; i++) {
+        var element = $("[data-player-id]")[i];
+
+        if (!($(element).val() == "0" || $(element).val() == "" || $(element).val() == "-0")) {
+            var IDPassOn = IDList[i];
+            var indexPassOn = i;
+            var elementPassOn = element;
+
+            firebase.database().ref("arena/users/" + IDList[i]).once("value", function(snapshot) {
+                var score = snapshot.val().score;
+                var ID = snapshot.key;
+
+                console.log(ID);
+
+                firebase.database().ref("arena/users/" + ID + "/score").set(score + Number($("[data-player-id='" + ID + "'").val()));
+            });
+        }
+    }
+
+    dialog("Submitting...", "Please wait...", []);
+
+    setTimeout(function() {
+        getScoresAgain();
+        closeDialog();
+    }, 3000);
+}
+
+$(function() {
+    if (window.location.pathname.split("/").pop() == "scoreMod.html") {
+        getScoresAgain();
+    }
+});

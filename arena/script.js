@@ -124,7 +124,6 @@ function enterCompetition(side) {
                 sideUserInfo[sideNameBare]["method"] = "name";
                 sideUserInfo[sideNameBare]["name"] = $(".signInName." + sideName).val();
                 sideUserInfo[sideNameBare]["score"] = 0;
-                sideUserInfo[sideNameBare]["history"] = "";
 
                 storeUser(sideUserInfo[sideNameBare], computerNumber, side);
 
@@ -157,7 +156,6 @@ function enterCompetition(side) {
                                 sideUserInfo[sideNameBare]["uid"] = currentUid;
                                 sideUserInfo[sideNameBare]["name"] = snapshot.val();
                                 sideUserInfo[sideNameBare]["score"] = 0;
-                                sideUserInfo[sideNameBare]["history"] = "";
 
                                 storeUser(sideUserInfo[sideNameBare], computerNumber, side);
 

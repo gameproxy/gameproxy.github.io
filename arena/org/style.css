@@ -1,0 +1,26 @@
+.scorePlayerListID, .scorePlayerListName, .scorePlayerListScore, .scorePlayerListActions {
+    display: inline-block;
+    text-align: left;
+}
+
+.scorePlayerListID {
+    width: 50px;
+    font-weight: 700;
+}
+
+.scorePlayerListName {
+    /* width: 100px; */
+    width: calc(100% - 250px);
+    min-width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.scorePlayerListScore {
+    width: 50px;
+}
+
+.scorePlayerListActions input {
+    width: 75px;
+}
