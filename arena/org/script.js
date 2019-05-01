@@ -193,10 +193,6 @@ function modifyScores() {
         var element = $("[data-player-id]")[i];
 
         if (!($(element).val() == "0" || $(element).val() == "" || $(element).val() == "-0")) {
-            var IDPassOn = IDList[i];
-            var indexPassOn = i;
-            var elementPassOn = element;
-
             firebase.database().ref("arena/users/" + IDList[i]).once("value", function(snapshot) {
                 var score = snapshot.val().score;
                 var ID = snapshot.key;
