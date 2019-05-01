@@ -57,8 +57,24 @@ function configureCommunication() {
 
             if (data.finishRound == true) {
                 finishRound();
+
+                firebase.database().ref("arena/users/" + computerNumber + "l").once("value", function(snapshot) {
+                    sideUserInfo.left = snapshot.val();
+                });
+
+                firebase.database().ref("arena/users/" + computerNumber + "r").once("value", function(snapshot) {
+                    sideUserInfo.right = snapshot.val();
+                });
                 
                 firebase.database().ref("arena/computers/" + computerNumber + "/finishRound").set(null);
+            }
+
+            if (data.showMoveComputers == true) {
+                firebase.database().ref("arena/computers/" + computerNumber + "/moveData").once("value", function(snapshot) {
+                    showMoveComputers(snapshot.val());
+                });
+
+                firebase.database().ref("arena/computers/" + computerNumber + "/showMoveComputers").set(null);
             }
         });
     });
@@ -203,11 +219,13 @@ function showMoveComputers(data) {
     var leftSide = data.leftSide;
     var rightSide = data.rightSide;
 
-    $(".moveComputerName.leftSide").text(leftSide.name);
+    $(".finishRoundDisplay").fadeOut();
+
+    $(".moveComputerName.leftSide").text($(".finishRoundNames.leftSide").text());
     $(".moveComputerNumber.leftSide").text(leftSide.number);
     $(".moveComputerNextName.leftSide").text(leftSide.nextName);
 
-    $(".moveComputerName.rightSide").text(rightSide.name);
+    $(".moveComputerName.rightSide").text($(".finishRoundNames.rightSide").text());
     $(".moveComputerNumber.rightSide").text(rightSide.number);
     $(".moveComputerNextName.rightSide").text(rightSide.nextName);
 

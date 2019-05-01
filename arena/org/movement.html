@@ -61,20 +61,19 @@
             <div class="card center notSignedIn">
                 <h2>Sorry!</h2>
                 <p>To access the GameProxy SFK arena, please sign in as an organiser.</p>
-                <button onclick="window.location.href = '../../account.html?go=arena/org/index.html'">Sign In</button>
+                <button onclick="window.location.href = '../../account.html?go=arena/org/movement.html'">Sign In</button>
             </div>
             <div class="card coloured signedInOrg">
-                Manage computers connected to GameProxy SFK arena. <button onclick="window.location.href = '../../index.html';" class="secondary">Back</button>
+                Move people after rounds have finished. <button onclick="window.location.href = 'index.html';" class="secondary">Back</button>
             </div>
-            <div class="card signedInOrg">
-                <h2 class="center">Options</h2>
-                <ul>
-                    <li><a href="holdingScreen.html">Show/hide holding screen</a></li>
-                    <li><a href="deleteComputers.html">Delete computers</a></li>
-                    <li><a href="rounds.html">Control rounds</a></li>
-                    <li><a href="scoreMod.html">Modify scores</a></li>
-                    <li><a href="movement.html">Move people</a></li>
-                </ul>
+            <div class="card signedInOrg center">
+                <h2>Movement</h2>
+                <div>
+                    <div id="movementList"></div>
+                    <button onclick="shHSAll(true);">Store movements</button>
+                    <button onclick="shHSAll(false);" class="bad">Submit movements and show</button><br>
+                    <small>Make sure that you store the movements first, then sumbit them!</small>
+                </div>
             </div>
         </main>
         <div class="dialogBackground"></div>

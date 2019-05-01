@@ -18,6 +18,22 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(function(key) {
+        return object[key] === value;
+    });
+}
+
+function resortObject(object) {
+    var ordered = {};
+
+    Object.keys(object).sort().forEach(function(key) {
+        ordered[key] = object[key];
+    });
+
+    return ordered;
+}
+
 function shHoldingScreen(computers, show = true) {
     for (var i = 0; i < computers.length; i++) {
         var screenPassOn = computers[i];
@@ -210,6 +226,66 @@ function modifyScores() {
         getScoresAgain();
         closeDialog();
     }, 3000);
+}
+
+function movePeople(newPositions) {
+    var positionMap = {};
+
+    firebase.database().ref("arena/users").once("value", function(snapshot) {
+        dialog("Submitting...", "Please wait...", []);
+
+        var peopleList = Object.keys(snapshot.val());
+        var oldUserData = snapshot.val();
+        var newUserData = {};
+
+        for (var i = 0; i < peopleList.length; i++) {
+            positionMap[peopleList[i]] = newPositions[i];
+        }
+
+        for (var i = 0; i < peopleList.length; i++) {
+            newUserData[positionMap[Object.keys(positionMap)[i]]] = oldUserData[peopleList[i]];
+        }
+
+        firebase.database().ref("arena/users").set(newUserData);
+
+        firebase.database().ref("arena/computers").once("value", function(snapshot) {
+            var computerList = snapshot.val();
+    
+            for (var i = 0; i < Object.keys(computerList).length; i++) {
+                function doStoreMoveData(computer) {
+                    var newKey = computer;
+
+                    firebase.database().ref("arena/computers/" + computer + "/moveData").set({
+                        leftSide: {
+                            number: positionMap[newKey + "l"].slice(0, -1),
+                            nextName: newUserData[newKey + "l"].name
+                        },
+
+                        rightSide: {
+                            number: positionMap[newKey + "r"].slice(0, -1),
+                            nextName: newUserData[newKey + "r"].name
+                        }
+                    });
+                }
+
+                doStoreMoveData(Object.keys(computerList)[i]);
+            }
+        });
+
+        setTimeout(function() {
+            closeDialog();
+        }, 5000);
+    });
+}
+
+function submitMoving() {
+    firebase.database().ref("arena/computers").once("value", function(snapshot) {
+        var computerList = snapshot.val();
+
+        for (var i = 0; i < Object.keys(computerList).length; i++) {
+            firebase.database().ref("arena/computers/" + Object.keys(computerList)[i] + "/showMoveComputers").set(true);
+        }
+    });
 }
 
 $(function() {
