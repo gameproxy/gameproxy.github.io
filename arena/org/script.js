@@ -228,6 +228,20 @@ function modifyScores() {
     }, 3000);
 }
 
+function createMovementOrder(callback) {
+    firebase.database().ref("arena/users").orderByChild("score").once("value", function(snapshot) {
+        var tempMovementData = [];
+    
+        snapshot.forEach(function(childSnapshot) {
+            tempMovementData.push(childSnapshot.key);
+        });
+
+        tempMovementData.reverse();
+
+        callback(tempMovementData);
+    });
+}
+
 function movePeople(newPositions) {
     var positionMap = {};
 
@@ -275,6 +289,16 @@ function movePeople(newPositions) {
         setTimeout(function() {
             closeDialog();
         }, 5000);
+    });
+}
+
+function storeMoving() {
+    movementReadout
+
+    createMovementOrder(function(data) {
+        $("#movementReadout").text(data.join(", "));
+
+        movePeople(data);
     });
 }
 
