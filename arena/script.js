@@ -57,24 +57,24 @@ function configureCommunication() {
 
             if (data.finishRound == true) {
                 finishRound();
-
-                firebase.database().ref("arena/users/" + computerNumber + "l").once("value", function(snapshot) {
-                    sideUserInfo.left = snapshot.val();
-                });
-
-                firebase.database().ref("arena/users/" + computerNumber + "r").once("value", function(snapshot) {
-                    sideUserInfo.right = snapshot.val();
-                });
                 
                 firebase.database().ref("arena/computers/" + computerNumber + "/finishRound").set(null);
             }
 
             if (data.showMoveComputers == true) {
-                firebase.database().ref("arena/computers/" + computerNumber + "/moveData").once("value", function(snapshot) {
-                    showMoveComputers(snapshot.val());
-                });
+                firebase.database().ref("arena/users/" + computerNumber + "l").once("value", function(snapshot) {
+                    sideUserInfo.left = snapshot.val();
 
-                firebase.database().ref("arena/computers/" + computerNumber + "/showMoveComputers").set(null);
+                    firebase.database().ref("arena/users/" + computerNumber + "r").once("value", function(snapshot) {
+                        sideUserInfo.right = snapshot.val();
+
+                        firebase.database().ref("arena/computers/" + computerNumber + "/moveData").once("value", function(snapshot) {
+                            showMoveComputers(snapshot.val());
+                        });
+        
+                        firebase.database().ref("arena/computers/" + computerNumber + "/showMoveComputers").set(null);
+                    });
+                });
             }
         });
     });
