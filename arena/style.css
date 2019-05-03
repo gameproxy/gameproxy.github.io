@@ -139,6 +139,7 @@ h1.big {
     background-position: center center;
     background-blend-mode: multiply;
     text-align: center;
+    z-index: 2;
 }
 
 .holdingScreen img {
