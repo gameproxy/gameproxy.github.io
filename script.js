@@ -148,6 +148,7 @@ $(function() {
         var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
         var isIOSChrome = winNav.userAgent.match("CriOS");
         var isFirefox = navigator.userAgent.search("Firefox") > -1;
+        var isSamsungBrowser = navigator.userAgent.match(/samsungBrowser/i);
 
         if (!(
             isChromium !== null &&
@@ -156,7 +157,9 @@ $(function() {
             isOpera === false &&
             isIEedge === false
         ) && (
-            !isFirefox
+            !isFirefox &&
+            !isIOSChrome &&
+            !isSamsungBrowser
         )) {
             window.location.href = "/notSupported.html";
         }
