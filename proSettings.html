@@ -15,9 +15,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
-        <script src="lib/jquery.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
         <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
+        <script src="lib/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
             var config = {
@@ -55,51 +55,26 @@
             </div>
         </header>
         <main id="content">
-            <h1 class="center">Account</h1>
-            <div class="card center" id="signIn">
-                <h2>Sign into GameProxy</h2>
-                <form>
-                    <input type="email" placeholder="Email" id="user"></input><br>
-                    <input type="password" placeholder="Password" id="pass"></input>
-                </form><br>
-                <button onclick="window.location.href = 'index.html';" class="bad">Cancel</button><button class="secondary" onclick="signOutBefore();">Sign Up</button><button onclick="signIn();">Sign In</button><br>
+            <h1 class="center">GameProxy Pro Settings</h1>
+            <div class="card center notProOnly">
+                <h2>Sorry!</h2>
+                <p>To access GameProxy Pro settings for your account, please sign in as a GameProxy Pro user.</p>
+                <button onclick="window.location.href = 'account.html'">Sign In</button>
             </div>
-            <div class="card center" id="signUp">
-                <h2>Sign up for GameProxy</h2>
-                <form autocomplete="off">
-                    <input placeholder="Username" id="name" autocomplete="off"></input>
-                </form><br>
-                <button class="bad" onclick="reset();">Cancel</button><button onclick="signUp();">Sign Up</button><br>
+            <div class="card coloured proOnly">
+                Modify options for your GameProxy Pro subscription. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
             </div>
-            <div class="card coloured signedIn profile">
-                <div>
-                    <img src="media/AnonUser.png" class="accountPicture floatLeft" />
+            <div class="card proOnly">
+                Coming soon! We're still working on this.
+            </div>
+            <!-- <div class="card proOnly">
+                <h2 class="noMargin">Theme</h2>
+                <p class="noMargin">Choose from a lovely list of brilliant themes, curated for you!</p>
+                <div class="themeList">
+                    <a class="themeItem">Hi</a>
+                    <a class="themeItem selected">Hi</a>
                 </div>
-                <div class="floatLeft profileInfo">
-                    <strong class="accountName">Loading...</strong><br>
-                    This is you!
-                </div>
-                <div class="options">
-                    <button onclick="window.location.href = 'settings.html';" class="secondary">Settings</button><button onclick="signOut();" class="secondary">Sign Out</button>
-                </div>
-            </div>
-            <div class="card adminBanner">
-                <strong>You are a certified admin!</strong> Make GameProxy better! <a href="/help/index.html?article=0014-aboutAdmins" target="_blank" class="adminBannerLink">Learn more...</a>
-            </div>
-            <div class="card center signedIn">
-                <button onclick="window.location.href = 'gameUpload.html';">Upload New Game</button>
-                <button onclick="window.location.href = 'notifications.html';">Notifications</button>
-                <button onclick="shareProfile();">Share Profile</button>
-                <span class="adminSpan"><button onclick="window.location.href = 'admin.html';">Admin Console</button></span>
-                <span class="proOnly"><button onclick="window.location.href = 'proSettings.html';">GameProxy Pro Settings</button></span>
-            </div>
-            <div class="signedIn">
-                <h2 class="center">Uploaded Games</h2>
-                <div id="gameLoader" class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
-                <div id="gameList" class="itemHolder"></div>
-            </div>
-            <p class="center" id="error"></p>
-            <div class="center" id="pend"></div>
+            </div> -->
         </main>
         <div class="dialogBackground"></div>
         <div class="dialog">
@@ -110,7 +85,6 @@
         <script src="staffList.js"></script>
         <script src="gpProList.js"></script>
         <script src="account.js"></script>
-        <script src="accountGameList.js"></script>
         <script src="pro/pro.js"></script>
     </body>
 </html>

@@ -20,7 +20,7 @@ function implementGPPro() {
             }
 
             $("button, .dialogTitle, .pill.selected, footer, footer a.footer").css("color", "black");
-            $("button.reallyBad").css("color", "white");
+            $("button.bad, button.reallyBad").css("color", "white");
             $(".pill:not(.selected)").css("color", "unset");
             $(".dialogBackground").css("background-color", "rgba(179, 194, 14, 0.5)");
             $(".card.coloured").css("background-color", "rgba(255, 255, 255, 0.2)");
@@ -28,6 +28,9 @@ function implementGPPro() {
             $("header .mobile img").attr("src", "media/ProSmall.png");
             $(".fullscreenWatermark").hide();
         }, 100);
+
+        $(".proOnly").show();
+        $(".notProOnly").hide();
     }
 
     clearInterval(gpProInterval);
@@ -40,7 +43,7 @@ $(function() {
 
     firebase.auth().onAuthStateChanged(function(user) {
         gpProInterval = setInterval(function() {
-            if (user.uid != null) {
+            if (user) {
                 if (isGameProxyPro(user.uid) && localStorage.getItem("hasGPPro") != "true") {
                     localStorage.setItem("hasGPPro", "true");
                 } else if (!isGameProxyPro(user.uid) && localStorage.getItem("hasGPPro") == "true") {
