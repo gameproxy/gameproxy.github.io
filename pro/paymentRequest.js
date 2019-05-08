@@ -41,15 +41,21 @@ firebase.auth().onAuthStateChanged(function(user) {
                                     paymentError("02");
                                 } else {
                                     pushVoucherRef.child("origin").set(null, function() {
-                                        firebase.database().ref("users/" + currentUid + "/_settings/gpPro/previouslyUsed/" + sha256(token)).set(true, function() {
-                                            firebase.database().ref("users/" + currentUid + "/_settings/gpPro/purchaseTime").once("value", function(ptSnapshot) {
-                                                if (ptSnapshot.val() == null) {
-                                                    firebase.database().ref("users/" + currentUid + "/_settings/gpPro/purchaseTime").set(new Date().getTime(), function() {
-                                                        clearVoucher(snapshot.val(), token, paymentComplete);
+                                        firebase.database().ref("users/" + currentUid + "/_settings/gpPro/hasGPPro").set(true, function() {
+                                            firebase.database().ref("users/" + currentUid + "/_settings/gpPro/data").set({
+                                                theme: 0
+                                            }, function() {
+                                                firebase.database().ref("users/" + currentUid + "/_settings/gpPro/previouslyUsed/" + sha256(token)).set(true, function() {
+                                                    firebase.database().ref("users/" + currentUid + "/_settings/gpPro/purchaseTime").once("value", function(ptSnapshot) {
+                                                        if (ptSnapshot.val() == null) {
+                                                            firebase.database().ref("users/" + currentUid + "/_settings/gpPro/purchaseTime").set(new Date().getTime(), function() {
+                                                                clearVoucher(snapshot.val(), token, paymentComplete);
+                                                            });
+                                                        } else {
+                                                            clearVoucher(snapshot.val(), token, paymentComplete);
+                                                        }
                                                     });
-                                                } else {
-                                                    clearVoucher(snapshot.val(), token, paymentComplete);
-                                                }
+                                                });
                                             });
                                         });
                                     });

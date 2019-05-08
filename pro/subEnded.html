@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>GameProxy Pro</title>
+        <link rel="shortcut icon" href="../media/ProSmall.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="../lib/showdown.min.js"></script>
+        <meta name="theme-color" content="#6b29ef">
+        <link rel="apple-touch-icon" href="../media/Apple Touch Icon.png">
+        <script src="../lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="../script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <a class="skipTo" href="#content">Skip to content</a>
+        <a class="skipTo" href="#footer">Skip to footer</a>
+        <header>
+            <span class="desktop">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../media/ProLarge.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <span class="mobile">
+                <a href="index.html" title="Go to main page" class="headerButton logo">
+                    <img src="../media/ProSmall.png" alt="GameProxy logo" id="headerLogo" />
+                </a>
+            </span>
+            <div class="headerRight">
+                <a href="../index.html" class="headerButton desktop">GameProxy</a>
+                <a href="index.html" class="headerButton">Learn More</a>
+            </div>
+        </header>
+        <main id="content">
+            <h1 class="center">GameProxy Pro Membership Ended</h1>
+            <div class="card center">
+                <p>We've got some bad news, and some good news...</p>
+                <p>
+                    The bad news is that your GameProxy Pro membership has ran
+                    out and you'll need to upgrade to continue your membership.
+                    The good news is that your GameProxy Pro settings have been
+                    unaltered so when you <em>do</em> get membership, you can continue
+                    from where you left off!
+                </p>
+                <button onclick="window.location.href = 'getNow.html';">Upgrade!</button> <button onclick="window.location.href = '../index.html';" class="bad">Go to GameProxy homepage</button>
+            </div>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
+        <footer import="/footer.html" id="footer"></footer>
+        <script src="../profanityFilter.js"></script>
+        <script src="../staffList.js"></script>
+        <script src="../account.js"></script>
+    </body>
+</html>
