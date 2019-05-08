@@ -19,7 +19,7 @@ function implementGPPro() {
                 $("body")[0].style.setProperty(Object.keys(gpProCSS)[i], gpProCSS[Object.keys(gpProCSS)[i]]);
             }
 
-            $("button, .dialogTitle, .pill.selected, footer, footer a.footer").css("color", "black");
+            $("button, .dialogTitle, .pill.selected, footer, a.skipTo, footer a.footer").css("color", "black");
             $("button.bad, button.reallyBad").css("color", "white");
             $(".pill:not(.selected)").css("color", "unset");
             $(".dialogBackground").css("background-color", "rgba(179, 194, 14, 0.5)");

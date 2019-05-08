@@ -649,10 +649,15 @@ select.gameUploadField {
 
 .themeItem {
     display: inline-block;
-    width: 200px;
-    height: 100px;
+    width: 180px;
+    height: 80px;
+    padding: 10px;
     border-radius: 5px;
     border: 5px solid transparent;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 .themeItem.selected {
