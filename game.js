@@ -478,6 +478,10 @@ $(function() {
     firebase.database().ref("games/" + getURLParameter("play")).once("value", function(snapshot) {
         gameData = snapshot.val();
 
+        if (gameData == null) {
+            window.location.href = "404.html";
+        }
+
         $(".gameName").text(gameData.title);
         $(".creatorAccountName").text(gameData.by);
         $(".creatorProfileLink").attr("href", "profile.html?user=" + gameData.uid);
