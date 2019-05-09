@@ -30,7 +30,10 @@ function implementGPPro() {
                 $(".card.coloured").css("background-color", "rgba(255, 255, 255, 0.2)");
                 $("header .desktop img").attr("src", "media/ProLarge.png");
                 $("header .mobile img").attr("src", "media/ProSmall.png");
-                $(".fullscreenWatermark").hide();
+                
+                setInterval(function() {
+                    $(".fullscreenWatermark").hide();
+                }, 10);
             }
         });
 
