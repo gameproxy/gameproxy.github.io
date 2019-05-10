@@ -14,7 +14,7 @@ var gpProCSS = {
 var gpProTheme = 0;
 
 function implementGPPro() {
-    if (hasGameProxyPro) {    
+    if (hasGameProxyPro) {
         clearInterval(gpProInterval);
 
         firebase.database().ref("users/" + currentUid + "/_settings/gpPro/data/theme").on("value", function(snapshot) {
