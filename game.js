@@ -710,23 +710,14 @@ $(function() {
                     dialog("Smash Flash Knockout Tournament", `
                         <div class="center">
                             <h1 class="noMargin">SMASH FLASH KNOCKOUT</h1>
-                            <h4 class="noMargin">FRIDAY 10TH MAY | FIT | 1:10 PM | £3 TO ENTER</h4>
+                            <h4 class="noMargin">FRIDAY 17TH MAY | FIT | 1:10 PM | FREE IF PAID FOR ALREADY</h4>
                             <img src="media/SFK.png" height="75" />
                             <p>
-                                Are you a student at Norwich School and coming to the <strong>Smash Flash Knockout</strong>?!<br>
-                                Yes? Brilliant! No? Come along on the 10th of May at 1:10 PM in FIT to play a few competitive
-                                rounds of Super Smash Flash 2. <strong>Oh, and there's prizes!</strong>
-                            </p>
-                            <p>
-                                Come along and get a chance to win plenty of Cadburys chocolate, cool 3D-printed objects and
-                                subscriptions to GameProxy Pro! Beginners as well as advanced players are welcome too ─ if
-                                you don't win you'll get a 1 month free GameProxy Pro voucher on us. There's no reason no
-                                to go!
-                            </p>
-                            <p>
-                                It's £3 to enter and £1 to spectate. 100% of the profits that we make go to charities with
-                                great causes. Don't forget that if you <em>do</em> win or even come 2nd or 3rd place, you'll
-                                certainly be getting your money back as the prizes are worth over £15!
+                                Due to unforseeable problems with the Norwich School network on Friday 10th May, the Smash Flash Knockout
+                                competition has been moved to Friday 17th May. If you have paid to enter or spectate, you will be able to
+                                go again for free on the 17th. Please note that due to the large number of competitors who came on the
+                                10th, new competitors will not be able to enter. Prizes will be given out on the 17th, along with the
+                                participation prizes!
                             <p><br>
                             <div>
                                 <small>
