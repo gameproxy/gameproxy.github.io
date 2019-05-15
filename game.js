@@ -752,3 +752,19 @@ $("#commentBox").keypress(function(e) {
         postComment();
     }
 });
+
+function joinGameSessionAction() {
+    $("#gameIframe").src($(".joinGameSession").val());   
+}
+
+function joinGameSession() {
+    dialog(
+        "Join a Group Game",
+        `
+            <div class="center">
+                <p>Just enter the URL from the game below.</p>
+                <input class="joinGameSession fullWidth"><button onclick="joinGameSessionAction(); closeDialog();">Join</button>
+            </div>
+        `
+    );
+}
