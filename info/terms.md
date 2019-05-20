@@ -36,6 +36,7 @@ The following Terms have been updated on 28 March 2019 and are in immediate effe
 * Using admin account access or permissions if You are not an admin, or to pretend to be one.
 * Deliberately publishing the same material repeatedly, or spamming.
 * Using alternative accounts to manipulate GameProxy's statistics.
+* Uploading items to our database that are not games.
 
 **3.3.** BY POSTING CONTENT ON GAMEPROXY'S PRODUCTS AND SERVICES YOU AGREE TO BE RESPONSIBLE FOR ANY LIABILITIES INCLUDING FOR COPYRIGHT, TRADEMARKS AND PATENTS AS DESCRIBED IN THE WARRANTY.
 
