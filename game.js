@@ -678,62 +678,62 @@ $(function() {
         });
     });
 
-    if (getURLParameter("play") == "-LRvXQAh67wwS_OCOiE1") {
-        $.ajax({
-            url: "https://ipapi.co/json/",
-            success: function(data) {
-                if (data.ip == "194.74.169.202") {
-                    // dialog("Smash Flash Knockout Tournament", `
-                    //     <div class="center">
-                    //         <img src="media/SFK.png" height="100" />
-                    //         <h1>Are YOU from Norwich School?</h1>
-                    //         <p>
-                    //             We're hoping to organise a <strong>Smash Flash Knockout</strong> tournament at Norwich School.<br>
-                    //             While it is totally not official, we're just seeing if you're interested, which we're sure you are.
-                    //         </p>
-                    //         <div>
-                    //             So if you're a Norwich School pupil and wish to show us your interest, visit:<br>
-                    //             <a href="https://gameproxy.host/sfk/interest/" target="_blank">gameproxy.host/sfk/interest</a>
-                    //         </div><br>
-                    //         <div>
-                    //             <small>
-                    //                 GameProxy is not sponsored, endorsed or otherwise affiliated with McLeodGaming Inc., Norwich School,
-                    //                 Cadbury or any of the charities that GameProxy is donating to. Competition Rules apply.
-                    //             </small>
-                    //         </div>
-                    //     </div>
-                    // `, [
-                    //     {text: "Later", onclick: "closeDialog();", type: "bad"},
-                    //     {text: "Register Interest!", onclick: "window.open(&quot;https://gameproxy.host/sfk/interest/&quot;); closeDialog();", type: "primary"}
-                    // ]);
+    // if (getURLParameter("play") == "-LRvXQAh67wwS_OCOiE1") {
+    //     $.ajax({
+    //         url: "https://ipapi.co/json/",
+    //         success: function(data) {
+    //             if (data.ip == "194.74.169.202") {
+    //                 // dialog("Smash Flash Knockout Tournament", `
+    //                 //     <div class="center">
+    //                 //         <img src="media/SFK.png" height="100" />
+    //                 //         <h1>Are YOU from Norwich School?</h1>
+    //                 //         <p>
+    //                 //             We're hoping to organise a <strong>Smash Flash Knockout</strong> tournament at Norwich School.<br>
+    //                 //             While it is totally not official, we're just seeing if you're interested, which we're sure you are.
+    //                 //         </p>
+    //                 //         <div>
+    //                 //             So if you're a Norwich School pupil and wish to show us your interest, visit:<br>
+    //                 //             <a href="https://gameproxy.host/sfk/interest/" target="_blank">gameproxy.host/sfk/interest</a>
+    //                 //         </div><br>
+    //                 //         <div>
+    //                 //             <small>
+    //                 //                 GameProxy is not sponsored, endorsed or otherwise affiliated with McLeodGaming Inc., Norwich School,
+    //                 //                 Cadbury or any of the charities that GameProxy is donating to. Competition Rules apply.
+    //                 //             </small>
+    //                 //         </div>
+    //                 //     </div>
+    //                 // `, [
+    //                 //     {text: "Later", onclick: "closeDialog();", type: "bad"},
+    //                 //     {text: "Register Interest!", onclick: "window.open(&quot;https://gameproxy.host/sfk/interest/&quot;); closeDialog();", type: "primary"}
+    //                 // ]);
 
-                    dialog("Smash Flash Knockout Tournament", `
-                        <div class="center">
-                            <h1 class="noMargin">SMASH FLASH KNOCKOUT</h1>
-                            <h4 class="noMargin">FRIDAY 17TH MAY | FIT | 1:10 PM | FREE IF PAID FOR ALREADY</h4>
-                            <img src="media/SFK.png" height="75" />
-                            <p>
-                                Due to unforseeable problems with the Norwich School network on Friday 10th May, the Smash Flash Knockout
-                                competition has been moved to Friday 17th May. If you have paid to enter or spectate, you will be able to
-                                go again for free on the 17th. Please note that due to the large number of competitors who came on the
-                                10th, new competitors will not be able to enter. Prizes will be given out on the 17th, along with the
-                                participation prizes!
-                            <p><br>
-                            <div>
-                                <small>
-                                    GameProxy is not sponsored, endorsed or otherwise affiliated with McLeodGaming Inc., Norwich School,
-                                    Cadbury or any of the charities that GameProxy is donating to. Competition Rules apply.
-                                </small>
-                            </div>
-                        </div>
-                    `, [
-                        {text: "Later", onclick: "closeDialog();", type: "bad"},
-                        {text: "Learn More", onclick: "window.open(&quot;https://gameproxy.host/sfk&quot;); closeDialog();", type: "primary"}
-                    ]);
-                }
-            }
-        });
-    }
+    //                 dialog("Smash Flash Knockout Tournament", `
+    //                     <div class="center">
+    //                         <h1 class="noMargin">SMASH FLASH KNOCKOUT</h1>
+    //                         <h4 class="noMargin">FRIDAY 17TH MAY | FIT | 1:10 PM | FREE IF PAID FOR ALREADY</h4>
+    //                         <img src="media/SFK.png" height="75" />
+    //                         <p>
+    //                             Due to unforseeable problems with the Norwich School network on Friday 10th May, the Smash Flash Knockout
+    //                             competition has been moved to Friday 17th May. If you have paid to enter or spectate, you will be able to
+    //                             go again for free on the 17th. Please note that due to the large number of competitors who came on the
+    //                             10th, new competitors will not be able to enter. Prizes will be given out on the 17th, along with the
+    //                             participation prizes!
+    //                         <p><br>
+    //                         <div>
+    //                             <small>
+    //                                 GameProxy is not sponsored, endorsed or otherwise affiliated with McLeodGaming Inc., Norwich School,
+    //                                 Cadbury or any of the charities that GameProxy is donating to. Competition Rules apply.
+    //                             </small>
+    //                         </div>
+    //                     </div>
+    //                 `, [
+    //                     {text: "Later", onclick: "closeDialog();", type: "bad"},
+    //                     {text: "Learn More", onclick: "window.open(&quot;https://gameproxy.host/sfk&quot;); closeDialog();", type: "primary"}
+    //                 ]);
+    //             }
+    //         }
+    //     });
+    // }
 });
 
 $("#commentBox").keypress(function(e) {
