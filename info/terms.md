@@ -1,4 +1,4 @@
-The following Terms have been updated on 28 March 2019 and are in immediate effect.
+The following Terms have been updated on 20 May 2019 and are in immediate effect.
 
 ## 1. User Agreement
 **1.1.** These Terms And Conditions constitute an agreement between You (the 'user') and the GameProxy admins ('GameProxy') that governs the use of GameProxy's products and services. By using the services You agree that You have read, understood, and accepted the terms and conditions in the Terms. If You do not agree with any of these Terms, please do not use GameProxy's products and services.
@@ -36,6 +36,7 @@ The following Terms have been updated on 28 March 2019 and are in immediate effe
 * Using admin account access or permissions if You are not an admin, or to pretend to be one.
 * Deliberately publishing the same material repeatedly, or spamming.
 * Using alternative accounts to manipulate GameProxy's statistics.
+* Uploading items to our database that are not games.
 
 **3.3.** BY POSTING CONTENT ON GAMEPROXY'S PRODUCTS AND SERVICES YOU AGREE TO BE RESPONSIBLE FOR ANY LIABILITIES INCLUDING FOR COPYRIGHT, TRADEMARKS AND PATENTS AS DESCRIBED IN THE WARRANTY.
 
