@@ -32,6 +32,9 @@ function implementGPPro() {
                 $("header .mobile img").attr("src", "media/ProSmall.png");
                 
                 setInterval(function() {
+                    $(".pill.selected").css("color", "black");
+                    $(".pill:not(.selected)").css("color", "white");
+
                     $(".fullscreenWatermark").hide();
                 }, 10);
             }
