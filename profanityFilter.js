@@ -1,4 +1,4 @@
-// Thanks to Kano Computing for profanity list. https://raw.githubusercontent.com/KanoComputing/nodejs-profanity-util/
+// Thanks to Kano Computing for profanity list. https://github.com/KanoComputing/nodejs-profanity-util/
 
 var profanity = {
     badWords: [],
