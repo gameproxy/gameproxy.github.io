@@ -20,6 +20,8 @@ var gameCategories = {
     "survival": "Survival"
 };
 
+var xrunProxy = "https://crossrun.herokuapp.com/";
+
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
 }
@@ -196,11 +198,19 @@ function fullscreen(goFullscreen = true) {
     }
 }
 
-function switchToFlash(flash = true) {
-    if (flash) {
-        window.location.href = window.location.href.substring(0, window.location.href.length - 15);
+function hideCrossRunBalloon() {
+    $(".balloon.xrun").fadeOut();
+
+    localStorage.setItem("hideXrunBalloon", "true");
+}
+
+function switchToCrossRun(xrun = true) {
+    hideCrossRunBalloon();
+
+    if (xrun) {
+        window.location.href = window.location.href + "&xrun=true";
     } else {
-        window.location.href = window.location.href + "&sulfurous=true"
+        window.location.href = window.location.href.split("?")[0] + "?play=" + getURLParameter("play");
     }
 }
 
@@ -515,44 +525,116 @@ $(function() {
         refreshCreatorPpic();
 
         if (gameData.src != undefined && gameData.src.endsWith(".swf")) {
-            $("#gameFrame").html(`
-                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="100%" height="100%">
-                    <param name="movie" value="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" />
-                    <param name="base" value />
-                    <param name="quality" value="high" />
-                    <param name="scale" value="default" />
-                    <param name="wmode" value="direct" />
-                    <embed src="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" quality="high" type="application/x-shockwave-flash" width="100%" height="100%" scale="default" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-                </object>
-                <div class="right">
-                    <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
-                </div>
-            `);
-        } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
-            if (getURLParameter("sulfurous") == "true") {
+            if (getURLParameter("xrun") == "true") {
                 $("#gameFrame").html(`
-                    <iframe src="https://sulfurous.aau.at/html/app.html?id=` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe"></iframe>
-                    <div class="left">
-                        <button onclick="switchToFlash(true);" class="secondary"><i class="material-icons button">flash_on</i> Switch to Flash</button>
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="100%" height="100%">
+                        <param name="movie" value="` + xrunProxy + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" />
+                        <param name="base" value />
+                        <param name="quality" value="high" />
+                        <param name="scale" value="default" />
+                        <param name="wmode" value="direct" />
+                        <embed src="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" quality="high" type="application/x-shockwave-flash" width="100%" height="100%" scale="default" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                    </object>
+                    <div class="right">
+                        <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>
+                        <span class="balloonTarget">
+                            <div class="balloon xrun">
+                                <h2>Introducing CrossRun</h2>
+                                <p>We've made CrossRun, a new service that lets you effortlessly play any GameProxy game anywhere without blockages.</p>
+                                <div class="balloonButtons">
+                                    <button onclick="switchToCrossRun(true);" class="highlight">Try it!</button>
+                                    <button onclick="hideCrossRunBalloon();" class="secondary">Later</button>
+                                </div>
+                            </div>
+                        </span>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                    </div>
+                `);
+            } else {
+                $("#gameFrame").html(`
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="100%" height="100%">
+                        <param name="movie" value="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" />
+                        <param name="base" value />
+                        <param name="quality" value="high" />
+                        <param name="scale" value="default" />
+                        <param name="wmode" value="direct" />
+                        <embed src="` + gameData.src.replace(/http:\/\//g, "https://").replace(/"/g, "") + `" quality="high" type="application/x-shockwave-flash" width="100%" height="100%" scale="default" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                    </object>
+                    <div class="right">
+                        <button onclick="switchToCrossRun(true);" class="secondary"><i class="material-icons button">flash_on</i> Activate CrossRun</button>
+                        <span class="balloonTarget">
+                            <div class="balloon xrun">
+                                <h2>Introducing CrossRun</h2>
+                                <p>We've made CrossRun, a new service that lets you effortlessly play any GameProxy game anywhere without blockages.</p>
+                                <div class="balloonButtons">
+                                    <button onclick="switchToCrossRun(true);" class="highlight">Try it!</button>
+                                    <button onclick="hideCrossRunBalloon();" class="secondary">Later</button>
+                                </div>
+                            </div>
+                        </span>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                    </div>
+                `);
+            }
+        } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
+            if (getURLParameter("xrun") == "true") {
+                $("#gameFrame").html(`
+                    <iframe src="` + xrunProxy + `https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe"></iframe>
+                    <div class="right">
+                        <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>                        
                         <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
                     </div>
                 `);
             } else {
                 $("#gameFrame").html(`
                     <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIframe"></iframe>
-                    <div class="left">
-                        <button onclick="switchToFlash(false);"><i class="material-icons button">offline_bolt</i> Switch to non-Flash</button>
+                    <div class="right">
+                        <button onclick="switchToCrossRun(true);" class="secondary"><i class="material-icons button">flash_on</i> Activate CrossRun</button>
+                        <span class="balloonTarget">
+                            <div class="balloon xrun">
+                                <h2>Introducing CrossRun</h2>
+                                <p>We've made CrossRun, a new service that lets you effortlessly play any GameProxy game anywhere without blockages.</p>
+                                <div class="balloonButtons">
+                                    <button onclick="switchToCrossRun(true);" class="highlight">Try it!</button>
+                                    <button onclick="hideCrossRunBalloon();" class="secondary">Later</button>
+                                </div>
+                            </div>
+                        </span>
                         <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
                     </div>
                 `);
             }
         } else {
-            $("#gameFrame").html(`
-                <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
-                <div class="right">
-                    <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
-                </div>
-            `);
+            if (getURLParameter("xrun") == "true") {
+                $("#gameFrame").html(`
+                    <iframe src="` + xrunProxy + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
+                    <div class="right">
+                        <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>                        
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                    </div>
+                `);
+            } else {
+                $("#gameFrame").html(`
+                    <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
+                    <div class="right">
+                        <button onclick="switchToCrossRun(true);" class="secondary">
+                            <i class="material-icons button">flash_on</i>
+                            Activate CrossRun
+                        </button>
+                        <span class="balloonTarget">
+                            <div class="balloon xrun">
+                                <h2>Introducing CrossRun</h2>
+                                <p>We've made CrossRun, a new service that lets you effortlessly play any GameProxy game anywhere without blockages.</p>
+                                <div class="balloonButtons">
+                                    <button onclick="switchToCrossRun(true);" class="highlight">Try it!</button>
+                                    <button onclick="hideCrossRunBalloon();" class="secondary">Later</button>
+                                </div>
+                            </div>
+                        </span>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                    </div>
+                `);
+            }
         }
 
         if (gameData.verified) {
@@ -734,6 +816,12 @@ $(function() {
     //         }
     //     });
     // }
+
+    if (localStorage.getItem("hideXrunBalloon") == "true") {
+        setInterval(function() {
+            hideCrossRunBalloon();            
+        });
+    }    
 });
 
 $("#commentBox").keypress(function(e) {
