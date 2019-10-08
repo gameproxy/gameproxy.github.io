@@ -748,6 +748,7 @@ select.gameUploadField {
 
 .themeItem.themeNineties {
     background-image: url("media/Theme\ Thumbnails/Nineties.png");
+    color: black;
 }
 
 .proCustomTheme {
