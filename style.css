@@ -125,6 +125,11 @@ select.pill.selected {
     line-height: 40px;
 }
 
+label.property span {
+    display: inline-block;
+    width: 150px;
+}
+
 button {
     margin: 5px;
     padding: 10px;
@@ -709,6 +714,8 @@ select.gameUploadField {
     border-radius: 5px;
     border: 5px solid transparent;
     background-color: rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-position: 0 -5px;
     color: white;
     font-size: 20px;
     text-decoration: none;
@@ -716,6 +723,35 @@ select.gameUploadField {
 
 .themeItem.selected {
     border: 5px solid var(--highlightColour);
+}
+
+.themeItem.themeGameProxy {
+    background-image: url("media/Theme\ Thumbnails/GameProxy.png");
+}
+
+.themeItem.themeCustom {
+    background-image: url("media/Theme\ Thumbnails/Custom.png");
+}
+
+.themeItem.themeGameProxyPro {
+    background-image: url("media/Theme\ Thumbnails/GameProxy Pro.png");
+}
+
+.themeItem.themeElektro {
+    background-image: url("media/Theme\ Thumbnails/Elektro.png");
+    color: black;
+}
+
+.themeItem.themeEighties {
+    background-image: url("media/Theme\ Thumbnails/Eighties.png");
+}
+
+.themeItem.themeNineties {
+    background-image: url("media/Theme\ Thumbnails/Nineties.png");
+}
+
+.proCustomTheme {
+    display: none;
 }
 
 #signIn {

@@ -18,6 +18,7 @@
         <meta name="theme-color" content="#6b29ef">
         <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
         <script src="lib/jquery.min.js"></script>
+        <script src="lib/jscolor.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
             var config = {
@@ -74,23 +75,74 @@
             <div class="card proOnly">
                 <h2 class="noMargin">Theme</h2>
                 <p class="noMargin">Choose from a lovely list of brilliant themes, curated for you!</p>
+                <br>
                 <div class="themeList">
-                    <a href="javascript:setTheme(-1);" data-theme="-1" class="themeItem">GameProxy</a>
-                    <a href="javascript:setTheme(0);" data-theme="0" class="themeItem">GameProxy Pro</a>
+                    <a href="javascript:setTheme(-1);" data-theme="-1" class="themeItem themeGameProxy">GameProxy</a>
+                    <a href="javascript:setTheme(-2);" data-theme="-2" class="themeItem themeCustom">Custom</a>
+                    <a href="javascript:setTheme(0);" data-theme="0" class="themeItem themeGameProxyPro">GameProxy Pro</a>
+                    <a href="javascript:setTheme(1);" data-theme="1" class="themeItem themeElektro">Elektro</a>
+                    <a href="javascript:setTheme(2);" data-theme="2" class="themeItem themeEighties">Eighties</a>
+                    <a href="javascript:setTheme(3);" data-theme="3" class="themeItem themeNineties">Nineties</a>
                 </div>
             </div>
-            <!-- <div class="card proOnly">
-                <h2 class="noMargin">Choose your own colour</h2>
-                <p class="noMargin">If you don't like any of our themes, you can click on the below textbox and enter a HEX colour or
-                choose from the colour wheel when you click it.</p>
-                <h3>Main Colour</h3>
+            <div class="card proCustomTheme">
+                <h2 class="noMargin">Modify custom theme</h2>
+                <p class="noMargin">Feel free to make your own theme! Be creative.</p>
+                <br>
+                <div class="center">
+                    <label class="property left">
+                        <span>Primary colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="primaryColour" value="6b29ef"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Primary text colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="lightAccentText" value="27ef70"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Secondary colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="secondaryColour" value="8449fc"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Link colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="secondaryLogoColour" value="b494f7"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Cancel button colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="badColour" value="666666"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Cancel button text colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="badColourText" value="ffffff"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Dangerous colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="reallyBadColour" value="ef2727"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Main background colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="primaryBackgroundColour" value="262626"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Secondary background colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="secondaryBackgroundColour" value="424242"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Text colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="lightMainText" value="ffffff"><br>
+                    </label>
+                    <label class="property left">
+                        <span>Importance colour</span>
+                        <input class="jscolor proCustomThemeProperty" data-css-value="highlightColour" value="27ef70"><br>
+                    </label>
+                    <br>
+                    <button onclick="setCustomTheme();">Save</button>
+                </div>
+                <!-- <h3>Main Colour</h3>
                 <script src="jscolor.js"></script>
-                <input class="jscolor" value="6b29ef"><br>
-                <h3>Background Colour</h3>
-                <script src="jscolor.js"></script>
-                <input class="jscolor" value="262626"><br>
-                <button>Apply</button><button>Set as theme</button>
-            </div> -->
+                <h3>Background Colour</h3> -->
+                <!-- <input class="jscolor" value="262626"><br> -->
+                <!-- <button>Apply</button><button>Set as theme</button> -->
+            </div>
         </main>
         <div class="dialogBackground"></div>
         <div class="dialog">
