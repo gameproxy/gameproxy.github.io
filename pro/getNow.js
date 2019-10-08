@@ -59,8 +59,8 @@ function usePayPalNext() {
             <p>
                 Please note that GameProxy Pro is only refundable by contacting the
                 GameProxy admins. You can purchase more than one GameProxy Pro
-                membership; if you do the expiry date will be increased to match
-                your new payment.
+                membership; if you do the expiry date will be appended to match your
+                new payment.
             </p>
         </div>
     `, [
@@ -130,8 +130,8 @@ function useCodeNext() {
                             <p>
                                 Please note that GameProxy Pro cannot be refunded when paid for with
                                 vouchers or special codes. You can get more than one GameProxy Pro
-                                membership; if you do the expiry date will be increased to match
-                                your new payment.
+                                membership; if you do the expiry date will be appended to match your
+                                new payment.
                             </p>
                         </div>
                     `, [{text: "Cancel", onclick: "closeDialog();", type: "bad"}, {text: "Back", onclick: "useCode();", type: "bad"}, {text: "Redeem", onclick: "useCodeAction();", type: "primary"}]);
