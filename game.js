@@ -562,7 +562,7 @@ $(function() {
                                 </div>
                             </div>
                         </span>
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
                     </div>
                 `);
             } else {
@@ -587,7 +587,7 @@ $(function() {
                                 </div>
                             </div>
                         </span>
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
                     </div>
                 `);
             }
@@ -597,7 +597,7 @@ $(function() {
                     <iframe src="` + xrunProxy + `https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe"></iframe>
                     <div class="right">
                         <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>                        
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
                     </div>
                 `);
             } else {
@@ -615,7 +615,7 @@ $(function() {
                                 </div>
                             </div>
                         </span>
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i></button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
                     </div>
                 `);
             }
@@ -625,7 +625,7 @@ $(function() {
                     <iframe src="` + xrunProxy + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
                     <div class="right">
                         <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>                        
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
                     </div>
                 `);
             } else {
@@ -646,7 +646,7 @@ $(function() {
                                 </div>
                             </div>
                         </span>
-                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i></button>
+                        <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
                     </div>
                 `);
             }

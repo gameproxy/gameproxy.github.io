@@ -220,6 +220,55 @@ input[type="file"] {
     color: white;
 }
 
+input[type="checkbox"], input[type="radio"] {
+    position: relative;
+    display: inline-block;
+    top: 8px;
+    width: unset;
+    -webkit-appearance: none;
+    padding: 10px;
+    background-color: var(--badColour);
+    border-radius: 5px;
+    outline: none;
+    cursor: default;
+    transition: 0.5s;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked, input[type="checkbox"]:not([role="switch"]):not([role="pill"]):indeterminate {
+    background-color: var(--primaryColour);
+}
+
+input[type="checkbox"]:checked::after {
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    color: var(--lightAccentText);
+    font-size: 16px;
+    content: "\1F5F8";
+}
+
+input[type="checkbox"]:not([role="switch"]):not([role="pill"]):indeterminate::after {
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    color: var(--lightAccentText);
+    font-size: 16px;
+    content: "-";
+}
+
+input[type="radio"] {
+    border-radius: 10px;
+}
+
+input[type="radio"]:checked::after {
+    position: absolute;
+    top: -18px;
+    left: 2px;
+    color: var(--lightAccentText);
+    font-size: 50px;
+    content: "\2022";
+}
+
 input[type="checkbox"][role="switch"] {
     top: 12px;
     padding: 15px;
@@ -229,19 +278,19 @@ input[type="checkbox"][role="switch"] {
 
 input[type="checkbox"][role="switch"]::after {
     position: absolute;
-    top: -6px;
+    top: -5px;
     left: 1px;
     font-size: 16px;
     content: "\2022";
-    color: var(--badColour);
-    -moz-transform: scale(2.5);
-    zoom: 2.5;
+    color: var(--secondaryBackgroundColour);
+    -moz-transform: scale(4);
+    zoom: 4;
     transition: 0.5s;
 }
 
 input[type="checkbox"][role="switch"]:checked::after {
-    left: 15px;
-    color: var(--primaryColour);
+    left: 10px;
+    color: var(--secondaryColour);
 }
 
 textarea {
@@ -879,8 +928,13 @@ select.gameUploadField {
     margin-top: 10px;
     padding: 10px;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 45px);
     overflow-y: auto;
+}
+
+.streamingSwitchStatus {
+    margin-left: 10px;
+    font-size: 25px;
 }
 
 @media (max-width: 800px) {

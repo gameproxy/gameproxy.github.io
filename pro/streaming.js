@@ -1,4 +1,5 @@
 var showingStreamingOptions = false;
+var showingStreamingDisplay = false;
 
 function streamingOptions(showStreamingOptions = true) {
     if (showStreamingOptions) {
@@ -18,6 +19,28 @@ function streamingOptions(showStreamingOptions = true) {
 
 function toggleStreamingOptions() {
     streamingOptions(!showingStreamingOptions);
+}
+
+function streamingDisplay(showStreamingDisplay = true) {
+    if (showStreamingDisplay) {
+        if (hasGameProxyPro) {
+            $("[streamingDisplayEffect]").attr("streamingDisplayEffect", "true");
+            $(".streamingSwitch").val(false);
+            $(".streamingSwitchStatus").text("Streaming display is on");
+        } else {
+            alert("Hmm, something went a bit wrong! (Or you tried to hack our site...) Streaming displays aren't meant to turn on without GameProxy Pro.");
+        }
+    } else {
+        $("[streamingDisplayEffect]").attr("streamingDisplayEffect", "false");
+        $(".streamingSwitch").val(true);
+        $(".streamingSwitchStatus").text("Streaming display is off");
+    }
+
+    showingStreamingDisplay = showStreamingDisplay;
+}
+
+function toggleStreamingDisplay() {
+    streamingDisplay(!showingStreamingDisplay);
 }
 
 $(function() {
