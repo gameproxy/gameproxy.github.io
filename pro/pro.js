@@ -56,12 +56,30 @@ var gpProThemes = [
         "--lightAccentText": "white",
         "--lightMainText": "#606060",
         "--badColourText": "white"
+    },
+    {
+        "--primaryColour": "#a515c5",
+        "--secondaryColour": "#e068e2",
+        "--secondaryLogoColour": "#e1bfdf",
+        "--badColour": "#f032d4",
+        "--reallyBadColour": "#ef037e",
+        "--primaryBackgroundColour": "#ce19e7",
+        "--secondaryBackgroundColour": "#f828fc",
+        "--highlightColour": "#b300ef",
+        "--secondaryHighlightColour": "rgba(39, 239, 112, 0.2)",
+        "--lightAccentText": "white",
+        "--lightMainText": "white",
+        "--badColourText": "white"
     }
 ];
 var gpProThemeMetas = [
     {
         "largeLogo": "media/ProLarge.png",
         "smallLogo": "media/ProSmall.png"
+    },
+    {
+        "largeLogo": "media/WhiteLarge.png",
+        "smallLogo": "media/WhiteSmall.png"
     },
     {
         "largeLogo": "media/WhiteLarge.png",

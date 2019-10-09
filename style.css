@@ -751,6 +751,10 @@ select.gameUploadField {
     color: black;
 }
 
+.themeItem.themeHotPink {
+    background-image: url("media/Theme\ Thumbnails/Hot Pink.png");
+}
+
 .proCustomTheme {
     display: none;
 }
