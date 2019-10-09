@@ -755,6 +755,10 @@ select.gameUploadField {
     background-image: url("media/Theme\ Thumbnails/Hot Pink.png");
 }
 
+.themeItem.themeCommander {
+    background-image: url("media/Theme\ Thumbnails/Commander.png");
+}
+
 .proCustomTheme {
     display: none;
 }
