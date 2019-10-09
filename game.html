@@ -13,9 +13,11 @@
         <title>GameProxy</title>
         <link rel="shortcut icon" href="media/Small.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
+        <link rel="stylesheet" href="lib/jquery-ui.css">        
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
         <script src="lib/jquery.min.js"></script>
+        <script src="lib/jquery-ui.js"></script>
         <meta name="theme-color" content="#6b29ef">
         <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
@@ -128,7 +130,19 @@
             </div>
             <div id="commentsList"></div>
         </main>
-        <button onclick="fullscreen(false);" class="corner" id="gameExitFullscreen"><i class="material-icons button">fullscreen_exit</i> Exit fullscreen</button>
+        <div class="corner" id="gameFullscreenOptions">
+            <button onclick="toggleFullscreenControls();" id="gameFullscreenOptionsHandle"><i class="material-icons button">chevron_right</i></button>
+            <span id="gameFullscreenOptionsButtons">
+                <button onclick="toggleStreamingOptions();" class="proOnly" id="gameStreamingOptionsButton"><i class="material-icons button">center_focus_strong</i> Streaming Options</button>
+                <button onclick="fullscreen(false);"><i class="material-icons button">fullscreen_exit</i> Exit Fullscreen</button>
+            </span>
+        </div>
+        <div class="streaming" id="streamingWindow">
+            <div id="streamingWindowTitle">Streaming Options</div>
+            <div id="streamingWindowContent">
+                Coming soon!
+            </div>
+        </div>
         <img class="fullscreenWatermark" src="media/Large.png" alt="GameProxy logo watermark" />
         <div class="dialogBackground"></div>
         <div class="dialog">
@@ -141,5 +155,6 @@
         <script src="account.js"></script>
         <script src="game.js"></script>
         <script src="pro/pro.js"></script>
+        <script src="pro/streaming.js"></script>
     </body>
 </html>

@@ -21,6 +21,7 @@ var gameCategories = {
 };
 
 var xrunProxy = "https://crossrun.herokuapp.com/";
+var showingFullscreenControls = true;
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
@@ -138,7 +139,7 @@ function fullscreen(goFullscreen = true) {
 
         $("embed").css("height", "100vh");
         $("body").css("overflow", "hidden");
-        $("#gameExitFullscreen").show();
+        $("#gameFullscreenOptions").show();
         $("#gameIframe").focus();
         
         // Fullscreen for different platforms
@@ -161,6 +162,8 @@ function fullscreen(goFullscreen = true) {
 
         $(".fullscreenWatermark").show();
     } else {
+        streamingOptions(false);
+
         $("object, #gameIframe").css({
             position: "unset",
             top: "unset",
@@ -173,7 +176,7 @@ function fullscreen(goFullscreen = true) {
 
         $("embed").css("height", "60vh");
         $("body").css("overflow", "unset");
-        $("#gameExitFullscreen").hide();
+        $("#gameFullscreenOptions").hide();
         $("#gameIframe").focus();
 
         // Fullscreen for different platforms
@@ -196,6 +199,18 @@ function fullscreen(goFullscreen = true) {
 
         $(".fullscreenWatermark").hide();
     }
+}
+
+function toggleFullscreenControls() {
+    if (showingFullscreenControls) {
+        $("#gameFullscreenOptionsButtons").hide();
+        $("#gameFullscreenOptionsHandle > i").text("chevron_left");
+    } else {
+        $("#gameFullscreenOptionsButtons").show();
+        $("#gameFullscreenOptionsHandle > i").text("chevron_right");
+    }
+
+    showingFullscreenControls = !showingFullscreenControls;
 }
 
 function hideCrossRunBalloon() {
