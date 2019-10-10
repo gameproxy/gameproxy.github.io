@@ -155,7 +155,7 @@ function implementGPPro() {
                                 });
 
                                 $(".pill:not(.selected)").each(function() {
-                                    $(this)[0].style.setProperty("color", "var(--lightMainText)");                                    
+                                    $(this)[0].style.setProperty("color", "var(--lightMainText)");
                                 });
                             } catch {}
         
