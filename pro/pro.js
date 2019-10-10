@@ -150,8 +150,13 @@ function implementGPPro() {
                         
                         setInterval(function() {
                             try {
-                                $(".pill.selected")[0].style.setProperty("color", "var(--lightAccentText)");
-                                $(".pill:not(.selected)")[0].style.setProperty("color", "var(--lightMainText)");
+                                $(".pill.selected").each(function() {
+                                    $(this)[0].style.setProperty("color", "var(--lightAccentText)");                                    
+                                });
+
+                                $(".pill:not(.selected)").each(function() {
+                                    $(this)[0].style.setProperty("color", "var(--lightMainText)");                                    
+                                });
                             } catch {}
         
                             $("button.bad, button.reallyBad").css("color", "var(--badColourText)");
