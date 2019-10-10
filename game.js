@@ -22,6 +22,7 @@ var gameCategories = {
 
 var xrunProxy = "https://crossrun.herokuapp.com/";
 var showingFullscreenControls = true;
+var isFullscreen = false;
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
@@ -127,6 +128,8 @@ function showMoreDescription() {
 
 function fullscreen(goFullscreen = true) {
     if (goFullscreen) {
+        isFullscreen = true;
+
         $("object, #gameIframe").css({
             position: "fixed",
             top: 0,
@@ -162,7 +165,10 @@ function fullscreen(goFullscreen = true) {
 
         $(".fullscreenWatermark").show();
     } else {
+        isFullscreen = false;
+
         streamingOptions(false);
+        streamingDisplay(false);
 
         $("object, #gameIframe").css({
             position: "unset",

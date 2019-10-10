@@ -172,7 +172,7 @@ button.search {
     position: fixed;
     bottom: 5px;
     right: 5px;
-    z-index: 2;
+    z-index: 3;
 }
 
 button.motd {
@@ -396,13 +396,6 @@ embed {
     overflow: hidden;
 }
 
-.corner {
-    position: fixed;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1;
-}
-
 .monospace {
     font-family: "Roboto Mono", monospace;
 }
@@ -414,7 +407,7 @@ embed {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 2;
+    z-index: 3;
     background-color: rgba(107, 41, 239, 0.5);
 }
 
@@ -425,7 +418,7 @@ embed {
     left: 30vw;
     width: calc(40vw - 20px);
     height: calc(40vh - 20px);
-    z-index: 3;
+    z-index: 4;
     padding: 10px;
     background-color: var(--primaryBackgroundColour);
     color: var(--lightMainText);
@@ -667,7 +660,7 @@ embed {
     background-color: var(--primaryColour);
     color: var(--lightAccentText);
     border-radius: 5px;
-    z-index: 2;
+    z-index: 4;
     outline: none;
     transition: 0.2s;
 }
@@ -881,7 +874,7 @@ select.gameUploadField {
 
 #gameFullscreenOptions {
     display: none;
-    z-index: 2;
+    z-index: 3;
     margin-right: -5px;
     padding: 0;
     background-color: var(--primaryBackgroundColour);
@@ -906,7 +899,7 @@ select.gameUploadField {
     left: 30vw;
     width: 500px;
     height: 400px;
-    z-index: 1;
+    z-index: 3;
     padding: 10px;
     background-color: var(--primaryBackgroundColour);
     color: var(--lightMainText);
@@ -935,6 +928,31 @@ select.gameUploadField {
 .streamingSwitchStatus {
     margin-left: 10px;
     font-size: 25px;
+}
+
+.streamingDisplayPanel {
+    position: fixed;
+    left: 0;
+    width: calc(100vw - 16px);
+    height: 100px;
+    padding: 8px;
+    background-color: var(--primaryColour);
+    color: var(--lightAccentText);
+    z-index: 2;
+    transition: 1s;
+    transition-property: top, bottom;
+}
+
+.streamingDisplayPanel.streamingDisplayT {
+    top: -100vh;
+}
+
+.streamingDisplayPanel.streamingDisplayT[data-streaming-display-effect="true"] {
+    top: 0;
+}
+
+.streamingDisplayPanel .ui-resizable-n, .streamingDisplayPanel .ui-resizable-s {
+    height: 15px;
 }
 
 @media (max-width: 800px) {
