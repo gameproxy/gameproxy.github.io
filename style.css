@@ -909,7 +909,7 @@ select.gameUploadField {
     z-index: 1;
     padding: 10px;
     background-color: var(--primaryBackgroundColour);
-    color: white;
+    color: var(--lightMainText);
     border-radius: 5px;
 }
 
