@@ -85,7 +85,7 @@ function streamingDisplay(showStreamingDisplay = true) {
             setTimeout(resizeGameFrame, 1000);
 
             if ($(".streamingDisplayPanel.streamingDisplayT").attr("data-streaming-display-effect") != "true" && $(".streamingDisplayPanel.streamingDisplayB").attr("data-streaming-display-effect") != "true") {
-                dialog("Display elements not set", "It looks like you haven't set your display elements in the Streaming Options window. You'll need to set them in order for the streaming displays to appear!");
+                alert("It looks like you haven't set your display elements in the Streaming Options window. You'll need to set them in order for the streaming displays to appear!", "Display elements not set");
             }
         } else {
             alert("Hmm, something went a bit wrong! (Or you tried to hack our site...) Streaming displays aren't meant to turn on without GameProxy Pro.");
