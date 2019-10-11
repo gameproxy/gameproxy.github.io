@@ -144,10 +144,11 @@
                 <label>
                     <input type="checkbox" role="switch" onchange="toggleStreamingDisplay();" class="streamingSwitch"><span class="streamingSwitchStatus">Streaming display is off</span>
                 </label>
+                <p>Select some display elements to show for the streaming display.</p>
                 <h2>Top-left</h2>
                 <label class="property">
                     <span>Display element</span>
-                    <select class="streamingElementTL">
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementTL">
                         <option val="none">None</option>
                         <option val="text">Text</option>
                         <option val="image">Image</option>
@@ -167,7 +168,7 @@
                 <h2>Top-right</h2>
                 <label class="property">
                     <span>Display element</span>
-                    <select class="streamingElementTR">
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementTR">
                         <option val="none">None</option>
                         <option val="text">Text</option>
                         <option val="image">Image</option>
@@ -187,7 +188,7 @@
                 <h2>Bottom-left</h2>
                 <label class="property">
                     <span>Display element</span>
-                    <select class="streamingElementBL">
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementBL">
                         <option val="none">None</option>
                         <option val="text">Text</option>
                         <option val="image">Image</option>
@@ -207,7 +208,7 @@
                 <h2>Bottom-right</h2>
                 <label class="property">
                     <span>Display element</span>
-                    <select class="streamingElementBL">
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementBR">
                         <option val="none">None</option>
                         <option val="text">Text</option>
                         <option val="image">Image</option>
@@ -223,10 +224,11 @@
                         <option val="js">JavaScript</option>
                     </select>
                 </label>
-                <div class="streamingElementOptionsBL"></div>
+                <div class="streamingElementOptionsBR"></div>
             </div>
         </div>
         <div data-streaming-display-effect="false" class="streamingDisplayPanel streamingDisplayT"></div>
+        <div data-streaming-display-effect="false" class="streamingDisplayPanel streamingDisplayB"></div>
         <img class="fullscreenWatermark" src="media/Large.png" alt="GameProxy logo watermark" />
         <div class="dialogBackground"></div>
         <div class="dialog">
