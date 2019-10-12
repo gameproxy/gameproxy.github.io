@@ -350,6 +350,41 @@ function updateStreamingDisplayElements() {
                     ]));
                 }
             })(elementDisplay);
+        } else if ($(elementSelector + " option:selected").attr("val") == "https") {
+            if (streamingElementOptions[elementSideLowercase]["https"] == null) {
+                streamingElementOptions[elementSideLowercase]["https"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["https"]["url"] = $(elementOptions + " .streamingOptionHttpsUrl").val();
+            streamingElementOptions[elementSideLowercase]["https"]["path"] = $(elementOptions + " .streamingOptionHttpsPath").val();
+
+            (function(elementDisplay, elementSideLowercase) {
+                if (streamingElementOptions[elementSideLowercase]["https"]["url"] != "" && streamingElementOptions[elementSideLowercase]["https"]["url"] != null) {
+                    $.ajax({
+                        url: streamingElementOptions[elementSideLowercase]["https"]["url"]
+                    }).then(function(data) {
+                        var path = (streamingElementOptions[elementSideLowercase]["https"]["path"] || "").split("/");
+
+                        for (var i = 0; i < path.length; i++) {
+                            if (path[i][0] == "#") {
+                                data = data[Number(path[i].substring(1))];
+                            } else {
+                                data = data[path[i]];
+                            }
+                        }
+
+                        $(elementDisplay).html("");
+    
+                        if (data.length > (window.innerWidth / 2) / 50) {
+                            $(elementDisplay).append($("<div class='streamingElementText smallText'>").text(data));
+                        } else {
+                            $(elementDisplay).append($("<div class='streamingElementText'>").text(data));
+                        }
+                    });
+                } else {
+                    $(elementDisplay).html("");
+                }
+            })(elementDisplay, elementSideLowercase);
         }
     }
 }
@@ -578,6 +613,39 @@ function setStreamingDisplayPanels() {
                     )
                 )
             ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "https") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["https"] == null) {
+                streamingElementOptions[elementSideLowercase]["https"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("GET Request URL"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionHttpsUrl'>").val(
+                            streamingElementOptions[elementSideLowercase]["https"]["url"] || ""
+                        )
+                    )
+                )
+            ;
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Data path (optional)"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionHttpsPath'>").val(
+                            streamingElementOptions[elementSideLowercase]["https"]["path"] || ""
+                        )
+                    )
+                )
+            ;
+
+            $(elementOptions).append([
+                $("<p>").text("Use the data path option to specify a path in the JSON return data. Use slashes as path delimiters. Index numbers start at 0, and must be prefixed with a hashtag."),
+                $("<p>").text("We strongly suggest that you use a HTTPS path. It's more secure and reliable!")
+            ]);
         }
     }
 }
