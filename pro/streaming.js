@@ -8,6 +8,8 @@ var streamingElementOptions = {
     br: {}
 };
 
+var ytApiKey = "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo";
+
 function streamingOptions(showStreamingOptions = true) {
     if (showStreamingOptions) {
         if (hasGameProxyPro) {
@@ -139,6 +141,115 @@ function updateStreamingDisplayElements() {
                     
                 $(".streamingElementChat").scrollTop($(".streamingElementChat")[0].scrollHeight);
             });
+        } else if ($(elementSelector + " option:selected").attr("val") == "ytSubs") {
+            if (streamingElementOptions[elementSideLowercase]["ytSubs"] == null) {
+                streamingElementOptions[elementSideLowercase]["ytSubs"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["ytSubs"]["id"] = $(elementOptions + " .streamingOptionYtSubsId").val();
+            streamingElementOptions[elementSideLowercase]["ytSubs"]["username"] = $(elementOptions + " .streamingOptionYtSubsUsername").val();
+
+            (function(elementDisplay) {
+                if (streamingElementOptions[elementSideLowercase]["ytSubs"]["id"] != "" && streamingElementOptions[elementSideLowercase]["ytSubs"]["id"] != null) {
+                    $.ajax({
+                        url: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + streamingElementOptions[elementSideLowercase]["ytSubs"]["id"] + "&key=" + ytApiKey
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+    
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["items"][0]["statistics"]["subscriberCount"]),
+                            $("<div class='streamingElementStatDescription'>").text("SUBSCRIBERS ON YOUTUBE")
+                        ]));
+                    });
+                } else if (streamingElementOptions[elementSideLowercase]["ytSubs"]["username"] != "" && streamingElementOptions[elementSideLowercase]["ytSubs"]["username"] != null) {
+                    $.ajax({
+                        url: "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=" + streamingElementOptions[elementSideLowercase]["ytSubs"]["username"] + "&key=" + ytApiKey
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+    
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["items"][0]["statistics"]["subscriberCount"]),
+                            $("<div class='streamingElementStatDescription'>").text("SUBSCRIBERS ON YOUTUBE")
+                        ]));
+                    });
+                } else {
+                    $(elementDisplay).html("");
+
+                    $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                        $("<div class='streamingElementStatNumber'>").text(0),
+                        $("<div class='streamingElementStatDescription'>").text("SUBSCRIBERS ON YOUTUBE")
+                    ]));
+                }
+            })(elementDisplay);
+        } else if ($(elementSelector + " option:selected").attr("val") == "ytViews") {
+            if (streamingElementOptions[elementSideLowercase]["ytViews"] == null) {
+                streamingElementOptions[elementSideLowercase]["ytViews"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["ytViews"]["id"] = $(elementOptions + " .streamingOptionYtViewsId").val();
+            streamingElementOptions[elementSideLowercase]["ytViews"]["username"] = $(elementOptions + " .streamingOptionYtViewsUsername").val();
+
+            (function(elementDisplay) {
+                if (streamingElementOptions[elementSideLowercase]["ytViews"]["id"] != "" && streamingElementOptions[elementSideLowercase]["ytViews"]["id"] != null) {
+                    $.ajax({
+                        url: "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + streamingElementOptions[elementSideLowercase]["ytViews"]["id"] + "&key=" + ytApiKey
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+    
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["items"][0]["statistics"]["viewCount"]),
+                            $("<div class='streamingElementStatDescription'>").text("VIEWS ON YOUTUBE")
+                        ]));
+                    });
+                } else if (streamingElementOptions[elementSideLowercase]["ytViews"]["username"] != "" && streamingElementOptions[elementSideLowercase]["ytViews"]["username"] != null) {
+                    $.ajax({
+                        url: "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=" + streamingElementOptions[elementSideLowercase]["ytViews"]["username"] + "&key=" + ytApiKey
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+    
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["items"][0]["statistics"]["viewCount"]),
+                            $("<div class='streamingElementStatDescription'>").text("VIEWS ON YOUTUBE")
+                        ]));
+                    });
+                } else {
+                    $(elementDisplay).html("");
+
+                    $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                        $("<div class='streamingElementStatNumber'>").text(0),
+                        $("<div class='streamingElementStatDescription'>").text("VIEWS ON YOUTUBE")
+                    ]));
+                }
+            })(elementDisplay);
+        } else if ($(elementSelector + " option:selected").attr("val") == "ytWatching") {
+            if (streamingElementOptions[elementSideLowercase]["ytWatching"] == null) {
+                streamingElementOptions[elementSideLowercase]["ytWatching"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] = $(elementOptions + " .streamingOptionYtWatchingId").val();
+            streamingElementOptions[elementSideLowercase]["ytWatching"]["username"] = $(elementOptions + " .streamingOptionYtWatchingUsername").val();
+
+            (function(elementDisplay) {
+                if (streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] != "" && streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] != null) {
+                    $.ajax({
+                        url: "https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=" + streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] + "&key=" + ytApiKey
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+    
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["items"][0]["liveStreamingDetails"]["concurrentViewers"]),
+                            $("<div class='streamingElementStatDescription'>").text("WATCHING LIVE ON YOUTUBE")
+                        ]));
+                    });
+                } else {
+                    $(elementDisplay).html("");
+
+                    $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                        $("<div class='streamingElementStatNumber'>").text(0),
+                        $("<div class='streamingElementStatDescription'>").text("WATCHING LIVE ON YOUTUBE")
+                    ]));
+                }
+            })(elementDisplay);
         }
     }
 }
@@ -243,6 +354,79 @@ function setStreamingDisplayPanels() {
             $(elementOptions).html("");
         } else if ($(elementSelector + " option:selected").attr("val") == "gpComments") {
             $(elementOptions).html("");
+        } else if ($(elementSelector + " option:selected").attr("val") == "ytSubs") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["ytSubs"] == null) {
+                streamingElementOptions[elementSideLowercase]["ytSubs"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Channel ID (optional)"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionYtSubsId'>").val(
+                            streamingElementOptions[elementSideLowercase]["ytSubs"]["id"] || ""
+                        )
+                    )
+                )
+            ;
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Username (optional)"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionYtSubsUsername'>").val(
+                            streamingElementOptions[elementSideLowercase]["ytSubs"]["username"] || ""
+                        )
+                    )
+                )
+            ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "ytViews") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["ytViews"] == null) {
+                streamingElementOptions[elementSideLowercase]["ytViews"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Channel ID (optional)"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionYtViewsId'>").val(
+                            streamingElementOptions[elementSideLowercase]["ytViews"]["id"] || ""
+                        )
+                    )
+                )
+            ;
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Username (optional)"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionYtViewsUsername'>").val(
+                            streamingElementOptions[elementSideLowercase]["ytViews"]["username"] || ""
+                        )
+                    )
+                )
+            ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "ytWatching") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["ytWatching"] == null) {
+                streamingElementOptions[elementSideLowercase]["ytWatching"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Video ID"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionYtWatchingId'>").val(
+                            streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] || ""
+                        )
+                    )
+                )
+            ;
         }
     }
 }
