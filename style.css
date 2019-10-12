@@ -934,6 +934,11 @@ select.gameUploadField {
     font-size: 25px;
 }
 
+.streamingOptionJsScript {
+    white-space: nowrap;
+    overflow: auto;
+}
+
 .streamingDisplayPanel {
     position: fixed;
     left: 0;

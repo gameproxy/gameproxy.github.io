@@ -385,6 +385,67 @@ function updateStreamingDisplayElements() {
                     $(elementDisplay).html("");
                 }
             })(elementDisplay, elementSideLowercase);
+        } else if ($(elementSelector + " option:selected").attr("val") == "js") {
+            if (streamingElementOptions[elementSideLowercase]["js"] == null) {
+                streamingElementOptions[elementSideLowercase]["js"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["js"]["script"] = $(elementOptions + " .streamingOptionJsScript").val();
+
+            (function(elementDisplay, elementSideLowercase) {
+                if (streamingElementOptions[elementSideLowercase]["js"]["script"] != "" && streamingElementOptions[elementSideLowercase]["js"]["script"] != null) {
+                    var api = `
+                        var gp = {
+                            streaming: {
+                                setDisplay: function(data, type = "text") {
+                                    postMessage({
+                                        command: "setDisplay",
+                                        type: type,
+                                        data: data
+                                    });
+                                }
+                            }
+                        };
+                    `;
+                    var script = streamingElementOptions[elementSideLowercase]["js"]["script"];
+                    
+                    var jsWorker = new Worker("data:script/javascript," + encodeURI(api) + encodeURI(script));
+
+                    jsWorker.onmessage = function(event) {
+                        var data = event.data;
+
+                        if (data.command == "setDisplay") {
+                            if (data.type == "text") {
+                                $(elementDisplay).html("");
+
+                                if (data.data.length > (window.innerWidth / 2) / 50) {
+                                    $(elementDisplay).append($("<div class='streamingElementText smallText'>").text(data.data));
+                                } else {
+                                    $(elementDisplay).append($("<div class='streamingElementText'>").text(data.data));
+                                }
+                            } else if (data.type == "image") {
+                                $(elementDisplay).html("");
+
+
+                                $(elementDisplay).append($("<img class='streamingElementImage'>").attr("src", data.data));
+                            } else if (data.type == "stat") {
+                                $(elementDisplay).html("");
+
+                                $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                                    $("<div class='streamingElementStatNumber'>").text(data.data.number),
+                                    $("<div class='streamingElementStatDescription'>").text(data.data.description)
+                                ]));
+                            }
+                        }
+                    }
+
+                    setTimeout(function() {
+                        jsWorker.terminate();
+                    }, 5000);
+                } else {
+                    $(elementDisplay).html("");
+                }
+            })(elementDisplay, elementSideLowercase);
         }
     }
 }
@@ -646,6 +707,21 @@ function setStreamingDisplayPanels() {
                 $("<p>").text("Use the data path option to specify a path in the JSON return data. Use slashes as path delimiters. Index numbers start at 0, and must be prefixed with a hashtag."),
                 $("<p>").text("We strongly suggest that you use a HTTPS path. It's more secure and reliable!")
             ]);
+        } else if ($(elementSelector + " option:selected").attr("val") == "js") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["js"] == null) {
+                streamingElementOptions[elementSideLowercase]["js"] = {};
+            }
+
+            $(elementOptions)
+                .append([
+                    $("<p>").text("JavaScript contents:"),
+                    $("<textarea rows='10' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' onchange='updateStreamingDisplayOptions();' class='streamingOptionJsScript monospace'>").val(
+                        streamingElementOptions[elementSideLowercase]["js"]["script"] || ""
+                    )
+                ])
+            ;
         }
     }
 }
