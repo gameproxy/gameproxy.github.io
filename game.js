@@ -749,34 +749,27 @@ $(function() {
                 if (childSnapshot.val().byStaff) {
                     $("#commentsList").html(`
                         <div class="comment">
-                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
+                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #27ef70;" class="floatLeft">` + profanity.clean(childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")) + `</strong></a>&nbsp;<span class="commentDate">` + profanity.clean(childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;")) + `</span>
                             <p class="commentContent"></p>
                         </div>
                     ` + $("#commentsList").html());
                 } else if (isGameProxyPro(childSnapshot.val().uid)) {
                     $("#commentsList").html(`
                         <div class="comment">
-                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #b3c20f;" class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
+                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong style="color: #b3c20f;" class="floatLeft">` + profanity.clean(childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")) + `</strong></a>&nbsp;<span class="commentDate">` + profanity.clean(childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;")) + `</span>
                             <p class="commentContent"></p>
                         </div>
                     ` + $("#commentsList").html());
                 } else {
                     $("#commentsList").html(`
                         <div class="comment">
-                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + `</strong></a>&nbsp;<span class="commentDate">` + childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;") + `</span>
+                            <a href="profile.html?user=` + childSnapshot.val().uid + `" class="hidden"><strong class="floatLeft">` + profanity.clean(childSnapshot.val().by.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")) + `</strong></a>&nbsp;<span class="commentDate">` + profanity.clean(childSnapshot.val().dateAdded.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;")) + `</span>
                             <p class="commentContent"></p>
                         </div>
                     ` + $("#commentsList").html());
                 }
 
-                // Consensus to make sure that no rude words are used in comments
-                if (childSnapshot.val().uid == currentUid) {
-                    if (profanity.isRude(childSnapshot.val().content)) {
-                            firebase.database().ref("games/" + getURLParameter("play") + "/comments/" + childSnapshot.key + "/content").set(profanity.clean(childSnapshot.val().content));
-                    }
-                }
-
-                $(".commentContent").first().text(childSnapshot.val().content.length < 500 ? childSnapshot.val().content : childSnapshot.val().content.substring(0, 500) + "...");
+                $(".commentContent").first().text(profanity.clean(childSnapshot.val().content).length < 200 ? profanity.clean(childSnapshot.val().content) : profanity.clean(childSnapshot.val().content).substring(0, 200) + "...");
             } catch (e) {}
         });
     });

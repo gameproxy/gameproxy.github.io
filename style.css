@@ -1016,6 +1016,31 @@ select.gameUploadField {
     height: 80%;
 }
 
+.streamingElementStat {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.streamingElementStatNumber {
+    font-size: 60px;
+}
+
+.streamingElementStatDescription {
+    font-size: 20px;
+}
+
+.streamingElementChat {
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.streamingElementChatName {
+    margin-right: 10px;
+}
+
 @media (max-width: 800px) {
     main {
         width: calc(100vw - 54px)!important;

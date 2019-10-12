@@ -103,6 +103,42 @@ function updateStreamingDisplayElements() {
                 "src",
                 streamingElementOptions[elementSideLowercase]["image"]["url"]
             ));
+        } else if ($(elementSelector + " option:selected").attr("val") == "gpLikes") {
+            $(elementDisplay).html("");
+
+            $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                $("<div class='streamingElementStatNumber'>").text($(".gameLikes").text()),
+                $("<div class='streamingElementStatDescription'>").text("LIKES ON GAMEPROXY")
+            ]));
+        } else if ($(elementSelector + " option:selected").attr("val") == "gpComments") {
+            firebase.database().ref("games/" + getURLParameter("play") + "/comments").on("value", function(snapshot) {
+                $(elementDisplay).html("");
+
+                $(elementDisplay).append($("<div class='streamingElementChat'>"));
+                
+                snapshot.forEach(function(childSnapshot) {
+                    try {
+                        if (childSnapshot.val().byStaff) {
+                            $(".streamingElementChat").append($("<div class='streamingElementChatComment'>").append([
+                                $("<strong class='streamingElementChatName'>").text(profanity.clean(childSnapshot.val().by)).css("color", "#27ef70"),
+                                $("<span class='streamingElementChatMessage'>").text(profanity.clean(childSnapshot.val().content).length < 500 ? profanity.clean(childSnapshot.val().content) : profanity.clean(childSnapshot.val().content).substring(0, 500) + "..."),
+                            ]));
+                        } else if (isGameProxyPro(childSnapshot.val().uid)) {
+                            $(".streamingElementChat").append($("<div class='streamingElementChatComment'>").append([
+                                $("<strong class='streamingElementChatName'>").text(profanity.clean(childSnapshot.val().by)).css("color", "#b3c20f"),
+                                $("<span class='streamingElementChatMessage'>").text(profanity.clean(childSnapshot.val().content).length < 500 ? profanity.clean(childSnapshot.val().content) : profanity.clean(childSnapshot.val().content).substring(0, 500) + "..."),
+                            ]));
+                        } else {
+                            $(".streamingElementChat").append($("<div class='streamingElementChatComment'>").append([
+                                $("<strong class='streamingElementChatName'>").text(profanity.clean(childSnapshot.val().by)),
+                                $("<span class='streamingElementChatMessage'>").text(profanity.clean(childSnapshot.val().content).length < 500 ? profanity.clean(childSnapshot.val().content) : profanity.clean(childSnapshot.val().content).substring(0, 500) + "..."),
+                            ]));
+                        }
+                    } catch (e) {}
+                });
+                    
+                $(".streamingElementChat").scrollTop($(".streamingElementChat")[0].scrollHeight);
+            });
         }
     }
 }
@@ -159,13 +195,6 @@ function setStreamingDisplayPanels() {
         resizeGameFrame();
     }
 
-    // //////////////////////////////////////////////////////////////////////////////////////
-    // $(".streamingDisplayElementTL").text($(".streamingElementTL").val());
-    // $(".streamingDisplayElementTR").text($(".streamingElementTR").val());
-    // $(".streamingDisplayElementBL").text($(".streamingElementBL").val());
-    // $(".streamingDisplayElementBR").text($(".streamingElementBR").val());
-    // //////////////////////////////////////////////////////////////////////////////////////
-
     var elements = ["TL", "TR", "BL", "BR"];
 
     for (var i = 0; i < elements.length; i++) {
@@ -210,6 +239,10 @@ function setStreamingDisplayPanels() {
                     )
                 )
             ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "gpLikes") {
+            $(elementOptions).html("");
+        } else if ($(elementSelector + " option:selected").attr("val") == "gpComments") {
+            $(elementOptions).html("");
         }
     }
 }
