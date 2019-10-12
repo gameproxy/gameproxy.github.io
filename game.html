@@ -13,9 +13,12 @@
         <title>GameProxy</title>
         <link rel="shortcut icon" href="media/Small.png">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
+        <link rel="stylesheet" href="lib/jquery-ui.css">        
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
         <script src="lib/jquery.min.js"></script>
+        <script src="lib/jquery-ui.js"></script>
+        <script src="lib/jquery-ui-touch-punch.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
         <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
@@ -128,7 +131,110 @@
             </div>
             <div id="commentsList"></div>
         </main>
-        <button onclick="fullscreen(false);" class="corner" id="gameExitFullscreen"><i class="material-icons button">fullscreen_exit</i> Exit fullscreen</button>
+        <div class="corner" id="gameFullscreenOptions">
+            <button onclick="toggleFullscreenControls();" id="gameFullscreenOptionsHandle"><i class="material-icons button">chevron_right</i></button>
+            <span id="gameFullscreenOptionsButtons">
+                <span class="desktop"><button onclick="toggleStreamingOptions();" class="proOnly" id="gameStreamingOptionsButton"><i class="material-icons button">center_focus_strong</i> Streaming Options</button></span>
+                <button onclick="fullscreen(false);"><i class="material-icons button">fullscreen_exit</i> Exit Fullscreen</button>
+            </span>
+        </div>
+        <div class="streaming" id="streamingWindow">
+            <div id="streamingWindowTitle">Streaming Options</div>
+            <div id="streamingWindowContent">
+                <label>
+                    <input type="checkbox" role="switch" onchange="toggleStreamingDisplay();" class="streamingSwitch"><span class="streamingSwitchStatus">Streaming display is off</span>
+                </label>
+                <p>Select some display elements to show for the streaming display.</p>
+                <h2>Top-left</h2>
+                <label class="property">
+                    <span>Display element</span>
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementTL">
+                        <option val="none">None</option>
+                        <option val="text">Text</option>
+                        <option val="image">Image</option>
+                        <option val="gpLikes">GameProxy Likes</option>
+                        <option val="gpComments">GameProxy Comments Feed</option>
+                        <option val="ytSubs">YouTube Subscribers</option>
+                        <option val="ytViews">YouTube Views</option>
+                        <option val="ytWatching">YouTube Watching</option>
+                        <option val="twitchSubs">Twitch Followers</option>
+                        <option val="twitchViews">Twitch Views</option>
+                        <option val="twitchWatching">Twitch Watching</option>
+                        <option val="https">HTTPS Request</option>
+                        <option val="js">JavaScript</option>
+                    </select>
+                </label>
+                <div class="streamingElementOptionsTL"></div>
+                <h2>Top-right</h2>
+                <label class="property">
+                    <span>Display element</span>
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementTR">
+                        <option val="none">None</option>
+                        <option val="text">Text</option>
+                        <option val="image">Image</option>
+                        <option val="gpLikes">GameProxy Likes</option>
+                        <option val="gpComments">GameProxy Comments Feed</option>
+                        <option val="ytSubs">YouTube Subscribers</option>
+                        <option val="ytViews">YouTube Views</option>
+                        <option val="ytWatching">YouTube Watching</option>
+                        <option val="twitchSubs">Twitch Followers</option>
+                        <option val="twitchViews">Twitch Views</option>
+                        <option val="twitchWatching">Twitch Watching</option>
+                        <option val="https">HTTPS Request</option>
+                        <option val="js">JavaScript</option>
+                    </select>
+                </label>
+                <div class="streamingElementOptionsTR"></div>
+                <h2>Bottom-left</h2>
+                <label class="property">
+                    <span>Display element</span>
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementBL">
+                        <option val="none">None</option>
+                        <option val="text">Text</option>
+                        <option val="image">Image</option>
+                        <option val="gpLikes">GameProxy Likes</option>
+                        <option val="gpComments">GameProxy Comments Feed</option>
+                        <option val="ytSubs">YouTube Subscribers</option>
+                        <option val="ytViews">YouTube Views</option>
+                        <option val="ytWatching">YouTube Watching</option>
+                        <option val="twitchSubs">Twitch Followers</option>
+                        <option val="twitchViews">Twitch Views</option>
+                        <option val="twitchWatching">Twitch Watching</option>
+                        <option val="https">HTTPS Request</option>
+                        <option val="js">JavaScript</option>
+                    </select>
+                </label>
+                <div class="streamingElementOptionsBL"></div>
+                <h2>Bottom-right</h2>
+                <label class="property">
+                    <span>Display element</span>
+                    <select onchange="setStreamingDisplayPanels();" class="streamingElementBR">
+                        <option val="none">None</option>
+                        <option val="text">Text</option>
+                        <option val="image">Image</option>
+                        <option val="gpLikes">GameProxy Likes</option>
+                        <option val="gpComments">GameProxy Comments Feed</option>
+                        <option val="ytSubs">YouTube Subscribers</option>
+                        <option val="ytViews">YouTube Views</option>
+                        <option val="ytWatching">YouTube Watching</option>
+                        <option val="twitchSubs">Twitch Followers</option>
+                        <option val="twitchViews">Twitch Views</option>
+                        <option val="twitchWatching">Twitch Watching</option>
+                        <option val="https">HTTPS Request</option>
+                        <option val="js">JavaScript</option>
+                    </select>
+                </label>
+                <div class="streamingElementOptionsBR"></div>
+            </div>
+        </div>
+        <div data-streaming-display-effect="false" class="streamingDisplayPanel streamingDisplayT">
+            <div class="streamingDisplayElement streamingDisplayElementL streamingDisplayElementTL">TL</div>
+            <div class="streamingDisplayElement streamingDisplayElementR streamingDisplayElementTR">TR</div>
+        </div>
+        <div data-streaming-display-effect="false" class="streamingDisplayPanel streamingDisplayB">
+            <div class="streamingDisplayElement streamingDisplayElementL streamingDisplayElementBL">BL</div>
+            <div class="streamingDisplayElement streamingDisplayElementR streamingDisplayElementBR">BR</div>
+        </div>
         <img class="fullscreenWatermark" src="media/Large.png" alt="GameProxy logo watermark" />
         <div class="dialogBackground"></div>
         <div class="dialog">
@@ -141,5 +247,6 @@
         <script src="account.js"></script>
         <script src="game.js"></script>
         <script src="pro/pro.js"></script>
+        <script src="pro/streaming.js"></script>
     </body>
 </html>

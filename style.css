@@ -130,6 +130,10 @@ label.property span {
     width: 150px;
 }
 
+label.property select {
+    margin-left: 1px;
+}
+
 button {
     margin: 5px;
     padding: 10px;
@@ -168,11 +172,11 @@ button.search {
     width: 100px;
 }
 
-button.corner {
+.corner {
     position: fixed;
     bottom: 5px;
     right: 5px;
-    z-index: 1;
+    z-index: 3;
 }
 
 button.motd {
@@ -218,6 +222,79 @@ input[type="file"] {
     width: calc(100% - 40px);
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    position: relative;
+    display: inline-block;
+    top: 8px;
+    width: unset;
+    -webkit-appearance: none;
+    padding: 10px;
+    background-color: var(--badColour);
+    border-radius: 5px;
+    outline: none;
+    cursor: default;
+    transition: 0.5s;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked, input[type="checkbox"]:not([role="switch"]):not([role="pill"]):indeterminate {
+    background-color: var(--primaryColour);
+}
+
+input[type="checkbox"]:checked::after {
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    color: var(--lightAccentText);
+    font-size: 16px;
+    content: "\1F5F8";
+}
+
+input[type="checkbox"]:not([role="switch"]):not([role="pill"]):indeterminate::after {
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    color: var(--lightAccentText);
+    font-size: 16px;
+    content: "-";
+}
+
+input[type="radio"] {
+    border-radius: 10px;
+}
+
+input[type="radio"]:checked::after {
+    position: absolute;
+    top: -18px;
+    left: 2px;
+    color: var(--lightAccentText);
+    font-size: 50px;
+    content: "\2022";
+}
+
+input[type="checkbox"][role="switch"] {
+    top: 12px;
+    padding: 15px;
+    padding-right: 50px;
+    border-radius: 15px;
+}
+
+input[type="checkbox"][role="switch"]::after {
+    position: absolute;
+    top: -5px;
+    left: 1px;
+    font-size: 16px;
+    content: "\2022";
+    color: var(--secondaryBackgroundColour);
+    -moz-transform: scale(4);
+    zoom: 4;
+    transition: 0.5s;
+}
+
+input[type="checkbox"][role="switch"]:checked::after {
+    left: 10px;
+    color: var(--secondaryColour);
 }
 
 textarea {
@@ -334,7 +411,7 @@ embed {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 2;
+    z-index: 3;
     background-color: rgba(107, 41, 239, 0.5);
 }
 
@@ -345,10 +422,10 @@ embed {
     left: 30vw;
     width: calc(40vw - 20px);
     height: calc(40vh - 20px);
-    z-index: 3;
+    z-index: 4;
     padding: 10px;
     background-color: var(--primaryBackgroundColour);
-    color: white;
+    color: var(--lightMainText);
     border-radius: 5px;
 }
 
@@ -587,7 +664,7 @@ embed {
     background-color: var(--primaryColour);
     color: var(--lightAccentText);
     border-radius: 5px;
-    z-index: 2;
+    z-index: 4;
     outline: none;
     transition: 0.2s;
 }
@@ -799,8 +876,174 @@ select.gameUploadField {
     border: none;
 }
 
-#gameExitFullscreen {
+#gameFullscreenOptions {
     display: none;
+    z-index: 3;
+    margin-right: -5px;
+    padding: 0;
+    background-color: var(--primaryBackgroundColour);
+    border-radius: 10px 0 0 10px;
+}
+
+#gameFullscreenOptionsHandle {
+    height: 50px;
+    margin: 0;
+    background-color: var(--secondaryBackgroundColour);
+    color: var(--lightMainText);
+    border-radius: 10px;
+}
+
+.streaming {
+    display: none;
+}
+
+#streamingWindow {
+    position: fixed;
+    top: 30vh;
+    left: 50px;
+    width: 500px;
+    height: 400px;
+    z-index: 3;
+    padding: 10px;
+    background-color: var(--primaryBackgroundColour);
+    color: var(--lightMainText);
+    border-radius: 5px;
+}
+
+#streamingWindowTitle {
+    margin: -10px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: var(--primaryColour);
+    color: var(--lightAccentText);
+    border-radius: 5px 5px 0 0;
+    cursor: move;
+}
+
+#streamingWindowContent {
+    margin: -10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    height: calc(100% - 45px);
+    overflow-y: auto;
+}
+
+.streamingSwitchStatus {
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+.streamingOptionJsScript {
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.streamingDisplayPanel {
+    position: fixed;
+    left: 0;
+    width: calc(100vw - 16px);
+    height: 100px;
+    padding: 8px;
+    background-color: var(--primaryColour);
+    color: var(--lightAccentText);
+    z-index: 2;
+}
+
+.streamingDisplayPanel.streamingDisplayT {
+    top: -100vh;
+    transition: 1s top;
+}
+
+.streamingDisplayPanel.streamingDisplayT[data-streaming-display-effect="true"] {
+    top: 0;
+}
+
+.streamingDisplayPanel.streamingDisplayB {
+    bottom: -100vh;
+    transition: 1s bottom;
+}
+
+.streamingDisplayPanel.streamingDisplayB[data-streaming-display-effect="true"] {
+    bottom: 0;
+}
+
+.streamingDisplayPanel .ui-resizable-n, .streamingDisplayPanel .ui-resizable-s {
+    height: 15px;
+}
+
+.streamingDisplayElement {
+    display: inline-block;
+    position: relative;
+    width: calc(50vw - 10px);
+    height: 100%;
+    overflow: hidden;
+}
+
+.streamingDisplayElement > * {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.streamingDisplayElementTL, .streamingDisplayElementBL {
+    text-align: left;
+}
+
+.streamingDisplayElementTL > *, .streamingDisplayElementBL > * {
+    left: 0;
+}
+
+.streamingDisplayElementTR, .streamingDisplayElementBR {
+    text-align: right;
+}
+
+.streamingDisplayElementTR > *, .streamingDisplayElementBR > * {
+    right: 0;
+}
+
+.streamingElementText {
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 80px;
+}
+
+.streamingElementText.smallText {
+    font-size: 40px;
+}
+
+.streamingElementImage {
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    width: unset;
+    height: 80%;
+}
+
+.streamingElementStat {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.streamingElementStatNumber {
+    font-size: 60px;
+}
+
+.streamingElementStatDescription {
+    font-size: 20px;
+}
+
+.streamingElementChat {
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.streamingElementChatName {
+    margin-right: 10px;
 }
 
 @media (max-width: 800px) {
@@ -884,6 +1127,18 @@ select.gameUploadField {
         left: 30vw;
         width: calc(40vw - 20px);
         height: calc(60vh - 20px);
+    }
+}
+
+@-moz-document url-prefix() {
+    input[type="checkbox"][role="switch"]::after {
+        top: 1px;
+        left: 10px;
+    }
+
+    input[type="checkbox"][role="switch"]:checked::after {
+        top: 1px;
+        left: 45px;
     }
 }
 
