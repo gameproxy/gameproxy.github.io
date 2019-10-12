@@ -130,6 +130,10 @@ label.property span {
     width: 150px;
 }
 
+label.property select {
+    margin-left: 1px;
+}
+
 button {
     margin: 5px;
     padding: 10px;
@@ -896,7 +900,7 @@ select.gameUploadField {
 #streamingWindow {
     position: fixed;
     top: 30vh;
-    left: 30vw;
+    left: 50px;
     width: 500px;
     height: 400px;
     z-index: 3;
@@ -961,6 +965,33 @@ select.gameUploadField {
 
 .streamingDisplayPanel .ui-resizable-n, .streamingDisplayPanel .ui-resizable-s {
     height: 15px;
+}
+
+.streamingDisplayElement {
+    display: inline-block;
+    width: calc(50vw - 10px);
+    height: 100%;
+    overflow: hidden;
+}
+
+.streamingDisplayElementTL, .streamingDisplayElementBL {
+    text-align: left;
+}
+
+.streamingDisplayElementTR, .streamingDisplayElementBR {
+    text-align: right;
+}
+
+.streamingElementText {
+    font-size: 80px;
+}
+
+.streamingElementText.smallText {
+    font-size: 40px;
+}
+
+.streamingElementImage {
+    height: 100%;
 }
 
 @media (max-width: 800px) {

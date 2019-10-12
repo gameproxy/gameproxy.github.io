@@ -1,5 +1,12 @@
 var showingStreamingOptions = false;
 var showingStreamingDisplay = false;
+var streamingElementOptionsUnsaved = false;
+var streamingElementOptions = {
+    tl: {},
+    tr: {},
+    bl: {},
+    br: {}
+};
 
 function streamingOptions(showStreamingOptions = true) {
     if (showStreamingOptions) {
@@ -21,18 +28,18 @@ function toggleStreamingOptions() {
     streamingOptions(!showingStreamingOptions);
 }
 
-function resizeGameFrame() {
+function resizeGameFrame(useT = true, useB = true) {
     if (isFullscreen) {
         if (showingStreamingDisplay) {
             var difference = 0;
             var topDifference = 0;
 
-            if ($(".streamingDisplayPanel.streamingDisplayT").attr("data-streaming-display-effect") == "true") {
+            if ($(".streamingDisplayPanel.streamingDisplayT").attr("data-streaming-display-effect") == "true" && useT) {
                 difference += $(".streamingDisplayPanel.streamingDisplayT").height();
                 topDifference += $(".streamingDisplayPanel.streamingDisplayT").height();
             }
 
-            if ($(".streamingDisplayPanel.streamingDisplayB").attr("data-streaming-display-effect") == "true") {
+            if ($(".streamingDisplayPanel.streamingDisplayB").attr("data-streaming-display-effect") == "true" && useB) {
                 difference += $(".streamingDisplayPanel.streamingDisplayB").height();
             }
 
@@ -53,21 +60,157 @@ function resizeGameFrame() {
     }
 }
 
+function updateStreamingDisplayElements() {
+    var elements = ["TL", "TR", "BL", "BR"];
+
+    for (var i = 0; i < elements.length; i++) {
+        var elementSide = elements[i];
+        var elementSideLowercase = elementSide.toLowerCase();
+        var elementSelector = ".streamingElement" + elementSide;
+        var elementOptions = ".streamingElementOptions" + elementSide;
+        var elementDisplay = ".streamingDisplayElement" + elementSide;
+
+        if ($(elementSelector + " option:selected").attr("val") == "none") {
+            $(elementDisplay).html("");
+        } else if ($(elementSelector + " option:selected").attr("val") == "text") {
+            $(elementDisplay).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["text"] == null) {
+                streamingElementOptions[elementSideLowercase]["text"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["text"]["text"] = $(elementOptions + " .streamingOptionTextText").val();
+
+            if (streamingElementOptions[elementSideLowercase]["text"]["text"].length > (window.innerWidth / 2) / 50) {
+                $(elementDisplay).append($("<div class='streamingElementText smallText'>").text(
+                    streamingElementOptions[elementSideLowercase]["text"]["text"]
+                ));
+            } else {
+                $(elementDisplay).append($("<div class='streamingElementText'>").text(
+                    streamingElementOptions[elementSideLowercase]["text"]["text"]
+                ));
+            }
+        } else if ($(elementSelector + " option:selected").attr("val") == "image") {
+            $(elementDisplay).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["image"] == null) {
+                streamingElementOptions[elementSideLowercase]["image"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["image"]["url"] = $(elementOptions + " .streamingOptionImageUrl").val();
+            
+            $(elementDisplay).append($("<img class='streamingElementImage'>").attr(
+                "src",
+                streamingElementOptions[elementSideLowercase]["image"]["url"]
+            ));
+        }
+    }
+}
+
+function updateStreamingDisplayOptions() {
+    updateStreamingDisplayElements();
+
+    streamingElementOptionsUnsaved = true;
+}
+
 function setStreamingDisplayPanels() {
     if (showingStreamingDisplay) {
+        var useDelayOnResizeT = false;
+        var useDelayOnResizeB = false;
+
         if ($(".streamingElementTL option:selected").attr("val") == "none" && $(".streamingElementTR option:selected").attr("val") == "none") {
             $(".streamingDisplayPanel.streamingDisplayT").attr("data-streaming-display-effect", "false");
+
+            useDelayOnResizeT = false;
         } else {
             $(".streamingDisplayPanel.streamingDisplayT").attr("data-streaming-display-effect", "true");
+
+            useDelayOnResizeT = true;
         }
 
         if ($(".streamingElementBL option:selected").attr("val") == "none" && $(".streamingElementBR option:selected").attr("val") == "none") {
             $(".streamingDisplayPanel.streamingDisplayB").attr("data-streaming-display-effect", "false");
+
+            useDelayOnResizeB = false;
         } else {
             $(".streamingDisplayPanel.streamingDisplayB").attr("data-streaming-display-effect", "true");
+
+            useDelayOnResizeB = true;
+        }
+
+        if (useDelayOnResizeT) {
+            setTimeout(function() {
+                resizeGameFrame();
+            }, 1000);
+        } else {
+            resizeGameFrame(true, false);
+        }
+
+        if (useDelayOnResizeB) {
+            setTimeout(function() {
+                resizeGameFrame();
+            }, 1000);
+        } else {
+            resizeGameFrame(false, true);
         }
     } else {
         $(".streamingDisplayPanel").attr("data-streaming-display-effect", "false");
+
+        resizeGameFrame();
+    }
+
+    // //////////////////////////////////////////////////////////////////////////////////////
+    // $(".streamingDisplayElementTL").text($(".streamingElementTL").val());
+    // $(".streamingDisplayElementTR").text($(".streamingElementTR").val());
+    // $(".streamingDisplayElementBL").text($(".streamingElementBL").val());
+    // $(".streamingDisplayElementBR").text($(".streamingElementBR").val());
+    // //////////////////////////////////////////////////////////////////////////////////////
+
+    var elements = ["TL", "TR", "BL", "BR"];
+
+    for (var i = 0; i < elements.length; i++) {
+        var elementSide = elements[i];
+        var elementSideLowercase = elementSide.toLowerCase();
+        var elementSelector = ".streamingElement" + elementSide;
+        var elementOptions = ".streamingElementOptions" + elementSide;
+
+        if ($(elementSelector + " option:selected").attr("val") == "none") {
+            $(elementOptions).html("");
+        } else if ($(elementSelector + " option:selected").attr("val") == "text") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["text"] == null) {
+                streamingElementOptions[elementSideLowercase]["text"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Text inside"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionTextText'>").val(
+                            streamingElementOptions[elementSideLowercase]["text"]["text"] || ""
+                        )
+                    )
+                )
+            ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "image") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["image"] == null) {
+                streamingElementOptions[elementSideLowercase]["image"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Image URL"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionImageUrl'>").val(
+                            streamingElementOptions[elementSideLowercase]["image"]["url"] || ""
+                        )
+                    )
+                )
+            ;
+        }
     }
 }
 
@@ -103,6 +246,48 @@ function streamingDisplay(showStreamingDisplay = true) {
 function toggleStreamingDisplay() {
     streamingDisplay(!showingStreamingDisplay);
 }
+
+firebase.auth().onAuthStateChanged(function() {
+    if (hasGameProxyPro) {
+        firebase.database().ref("users/" + currentUid + "/_settings/gpPro/data/streamingElementOptions").once("value", function(snapshot) {
+            function startStreamingElementOptionsSaveLoop() {
+                updateStreamingDisplayElements();
+    
+                if (streamingElementOptionsUnsaved == true) {
+                    firebase.database().ref("users/" + currentUid + "/_settings/gpPro/data/streamingElementOptions").set(streamingElementOptions);
+    
+                    streamingElementOptionsUnsaved = false;
+                }
+            }
+            
+            if (snapshot.val() == null) {
+                streamingElementOptionsUnsaved = true;
+    
+                setInterval(startStreamingElementOptionsSaveLoop, 5000);
+            } else {
+                streamingElementOptions = snapshot.val();
+
+                if (streamingElementOptions["tl"] == null) {
+                    streamingElementOptions["tl"] = {};
+                }
+
+                if (streamingElementOptions["tr"] == null) {
+                    streamingElementOptions["tr"] = {};
+                }
+
+                if (streamingElementOptions["bl"] == null) {
+                    streamingElementOptions["bl"] = {};
+                }
+                
+                if (streamingElementOptions["br"] == null) {
+                    streamingElementOptions["br"] = {};
+                }
+    
+                setInterval(startStreamingElementOptionsSaveLoop, 5000);
+            }
+        });
+    }
+})
 
 $(function() {
     $("#streamingWindow").draggable({
