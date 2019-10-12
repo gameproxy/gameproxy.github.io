@@ -9,6 +9,7 @@ var streamingElementOptions = {
 };
 
 var ytApiKey = "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo";
+var twitchApiKey = "go4hal4iuw0pwn69cdbpx5i0902wen";
 
 function streamingOptions(showStreamingOptions = true) {
     if (showStreamingOptions) {
@@ -227,7 +228,6 @@ function updateStreamingDisplayElements() {
             }
 
             streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] = $(elementOptions + " .streamingOptionYtWatchingId").val();
-            streamingElementOptions[elementSideLowercase]["ytWatching"]["username"] = $(elementOptions + " .streamingOptionYtWatchingUsername").val();
 
             (function(elementDisplay) {
                 if (streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] != "" && streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] != null) {
@@ -247,6 +247,106 @@ function updateStreamingDisplayElements() {
                     $(elementDisplay).append($("<div class='streamingElementStat'>").append([
                         $("<div class='streamingElementStatNumber'>").text(0),
                         $("<div class='streamingElementStatDescription'>").text("WATCHING LIVE ON YOUTUBE")
+                    ]));
+                }
+            })(elementDisplay);
+        } else if ($(elementSelector + " option:selected").attr("val") == "twitchSubs") {
+            if (streamingElementOptions[elementSideLowercase]["twitchSubs"] == null) {
+                streamingElementOptions[elementSideLowercase]["twitchSubs"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["twitchSubs"]["username"] = $(elementOptions + " .streamingOptionTwitchSubsUsername").val();
+
+            (function(elementDisplay) {
+                if (streamingElementOptions[elementSideLowercase]["twitchSubs"]["username"] != "" && streamingElementOptions[elementSideLowercase]["twitchSubs"]["username"] != null) {
+                    $.ajax({
+                        url: "https://api.twitch.tv/helix/users?login=" + streamingElementOptions[elementSideLowercase]["twitchSubs"]["username"],
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader("Client-ID", twitchApiKey)
+                        }
+                    }).then(function(data) {
+                        $.ajax({
+                            url: "https://api.twitch.tv/helix/users/follows?to_id=" + data["data"][0]["id"],
+                            beforeSend: function(xhr) {
+                                xhr.setRequestHeader("Client-ID", twitchApiKey)
+                            }
+                        }).then(function(data) {
+                            $(elementDisplay).html("");
+        
+                            $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                                $("<div class='streamingElementStatNumber'>").text(data["total"]),
+                                $("<div class='streamingElementStatDescription'>").text("FOLLOWERS ON TWITCH")
+                            ]));
+                        });
+                    });
+                } else {
+                    $(elementDisplay).html("");
+
+                    $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                        $("<div class='streamingElementStatNumber'>").text(0),
+                        $("<div class='streamingElementStatDescription'>").text("FOLLOWERS ON TWITCH")
+                    ]));
+                }
+            })(elementDisplay);
+        } else if ($(elementSelector + " option:selected").attr("val") == "twitchViews") {
+            if (streamingElementOptions[elementSideLowercase]["twitchViews"] == null) {
+                streamingElementOptions[elementSideLowercase]["twitchViews"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["twitchViews"]["username"] = $(elementOptions + " .streamingOptionTwitchViewsUsername").val();
+
+            (function(elementDisplay) {
+                if (streamingElementOptions[elementSideLowercase]["twitchViews"]["username"] != "" && streamingElementOptions[elementSideLowercase]["twitchViews"]["username"] != null) {
+                    $.ajax({
+                        url: "https://api.twitch.tv/helix/users?login=" + streamingElementOptions[elementSideLowercase]["twitchViews"]["username"],
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader("Client-ID", twitchApiKey)
+                        }
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["data"][0]["view_count"]),
+                            $("<div class='streamingElementStatDescription'>").text("VIEWS ON TWITCH")
+                        ]));
+                    });
+                } else {
+                    $(elementDisplay).html("");
+
+                    $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                        $("<div class='streamingElementStatNumber'>").text(0),
+                        $("<div class='streamingElementStatDescription'>").text("VIEWS ON TWITCH")
+                    ]));
+                }
+            })(elementDisplay);
+        } else if ($(elementSelector + " option:selected").attr("val") == "twitchWatching") {
+            if (streamingElementOptions[elementSideLowercase]["twitchWatching"] == null) {
+                streamingElementOptions[elementSideLowercase]["twitchWatching"] = {};
+            }
+
+            streamingElementOptions[elementSideLowercase]["twitchWatching"]["username"] = $(elementOptions + " .streamingOptionTwitchWatchingUsername").val();
+
+            (function(elementDisplay) {
+                if (streamingElementOptions[elementSideLowercase]["twitchWatching"]["username"] != "" && streamingElementOptions[elementSideLowercase]["twitchWatching"]["username"] != null) {
+                    $.ajax({
+                        url: "https://api.twitch.tv/helix/streams?user_login=" + streamingElementOptions[elementSideLowercase]["twitchWatching"]["username"],
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader("Client-ID", twitchApiKey)
+                        }
+                    }).then(function(data) {
+                        $(elementDisplay).html("");
+    
+                        $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                            $("<div class='streamingElementStatNumber'>").text(data["data"][0]["viewer_count"]),
+                            $("<div class='streamingElementStatDescription'>").text("WATCHING LIVE ON TWITCH")
+                        ]));
+                    });
+                } else {
+                    $(elementDisplay).html("");
+
+                    $(elementDisplay).append($("<div class='streamingElementStat'>").append([
+                        $("<div class='streamingElementStatNumber'>").text(0),
+                        $("<div class='streamingElementStatDescription'>").text("WATCHING LIVE ON TWITCH")
                     ]));
                 }
             })(elementDisplay);
@@ -423,6 +523,57 @@ function setStreamingDisplayPanels() {
                     .append(
                         $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionYtWatchingId'>").val(
                             streamingElementOptions[elementSideLowercase]["ytWatching"]["id"] || ""
+                        )
+                    )
+                )
+            ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "twitchSubs") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["twitchSubs"] == null) {
+                streamingElementOptions[elementSideLowercase]["twitchSubs"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Username"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionTwitchSubsUsername'>").val(
+                            streamingElementOptions[elementSideLowercase]["twitchSubs"]["username"] || ""
+                        )
+                    )
+                )
+            ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "twitchViews") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["twitchViews"] == null) {
+                streamingElementOptions[elementSideLowercase]["twitchViews"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Username"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionTwitchViewsUsername'>").val(
+                            streamingElementOptions[elementSideLowercase]["twitchViews"]["username"] || ""
+                        )
+                    )
+                )
+            ;
+        } else if ($(elementSelector + " option:selected").attr("val") == "twitchWatching") {
+            $(elementOptions).html("");
+
+            if (streamingElementOptions[elementSideLowercase]["twitchWatching"] == null) {
+                streamingElementOptions[elementSideLowercase]["twitchWatching"] = {};
+            }
+
+            $(elementOptions)
+                .append($("<label class='property'>")
+                    .append($("<span>").text("Username"))
+                    .append(
+                        $("<input onchange='updateStreamingDisplayOptions();' class='streamingOptionTwitchWatchingUsername'>").val(
+                            streamingElementOptions[elementSideLowercase]["twitchWatching"]["username"] || ""
                         )
                     )
                 )
