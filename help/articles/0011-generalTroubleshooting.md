@@ -2,10 +2,11 @@
 #### Sebastian Doe
 
 * First Published: 9th November 2018
+* Last Update: 13th October 2019
 
 Use this article and search using Ctrl + F with a referral troubleshooting article code (e.g. 001) or with a general query to find a fix.
 
-### 001 - Game not loading
+### Game not loading
 
 This is probably the most common error with GameProxy, and it has an easy fix.
 

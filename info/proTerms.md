@@ -1,4 +1,4 @@
-The following Terms have been updated on 28 March 2019 and are in immediate effect.
+The following Terms have been updated on 13 October 2019 and are in immediate effect.
 
 ## 1. User Agreement
 **1.1.** These Terms And Conditions constitute an agreement between You (the 'user') and the GameProxy admins ('GameProxy') that governs the payment and use of GameProxy's GameProxy Pro products and services. By using the services You agree that You have read, understood, and accepted the terms and conditions in the Terms. If You do not agree with any of these Terms, please do not purchase or use GameProxy's GameProxy Pro products and services.
@@ -20,6 +20,6 @@ The following Terms have been updated on 28 March 2019 and are in immediate effe
 
 **2.6.** Your GameProxy Pro membership is subject to expiry, depending on the price You paid and the time period You selected at purchase time. In the event that Your GameProxy Pro membership expires, You will not be allowed to use GameProxy Pro until You purchase it again. You will also no longer be subject to these Terms until You purchase GameProxy Pro again.
 
-**2.7.** GameProxy Pro is only refundable through contacting the GameProxy admins through email at [james@liveg.tech](mailto:james@liveg.tech). It may take as much time as is needed for GameProxy to respond to refund Your GameProxy Pro membership. By refunding Your account You are no longer subject to these Terms until You purchase GameProxy Pro again.
+**2.7.** GameProxy Pro is only refundable through contacting the GameProxy admins through email at [support@gameproxy.host](mailto:support@gameproxy.host). It may take as much time as is needed for GameProxy to respond to refund Your GameProxy Pro membership. By refunding Your account You are no longer subject to these Terms until You purchase GameProxy Pro again. Due to the nature of the GameProxy Pro product, refunds may only be made within 3 days of purchase. By using GameProxy Pro, you agree to this refund policy.
 
-**2.8.** You may not hack or otherwise bypass GameProxy's securiy system to receive a GameProxy Pro membership. If You do this, You will be in violation of the GameProxy Terms.
+**2.8.** You may not hack or otherwise bypass GameProxy's security system to receive a GameProxy Pro membership. If You do this, You will be in violation of the GameProxy Terms.

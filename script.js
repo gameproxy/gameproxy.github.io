@@ -52,6 +52,10 @@ function closeDialog() {
     $(".dialog").fadeOut();
 }
 
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 window.alert = function(text, title = "Information") {
     dialog(title, text, [{text: "OK", onclick: "closeDialog();", type: "primary"}]);
 };

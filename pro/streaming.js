@@ -395,13 +395,17 @@ function updateStreamingDisplayElements() {
             (function(elementDisplay, elementSideLowercase) {
                 if (streamingElementOptions[elementSideLowercase]["js"]["script"] != "" && streamingElementOptions[elementSideLowercase]["js"]["script"] != null) {
                     var api = `
+                        console = null;
+
                         var gp = {
                             streaming: {
                                 setDisplay: function(data, type = "text") {
-                                    postMessage({
-                                        command: "setDisplay",
-                                        type: type,
-                                        data: data
+                                    setTimeout(function() {
+                                        postMessage({
+                                            command: "setDisplay",
+                                            type: type,
+                                            data: data
+                                        });
                                     });
                                 }
                             }

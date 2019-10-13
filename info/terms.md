@@ -1,4 +1,4 @@
-The following Terms have been updated on 20 May 2019 and are in immediate effect.
+The following Terms have been updated on 13 October 2019 and are in immediate effect.
 
 ## 1. User Agreement
 **1.1.** These Terms And Conditions constitute an agreement between You (the 'user') and the GameProxy admins ('GameProxy') that governs the use of GameProxy's products and services. By using the services You agree that You have read, understood, and accepted the terms and conditions in the Terms. If You do not agree with any of these Terms, please do not use GameProxy's products and services.
@@ -12,11 +12,11 @@ The following Terms have been updated on 20 May 2019 and are in immediate effect
 
 **2.2.** GameProxy has full control over Your account and has the permissions to modify any data bound to it. GameProxy is also allowed to delete Your account.
 
-**2.3.** If You believe that Your account has been hacked, compromised or is otherwise no longer secure, please contact GameProxy by email at [james@liveg.tech](mailto:james@liveg.tech).
+**2.3.** If You believe that Your account has been hacked, compromised or is otherwise no longer secure, please contact GameProxy by email at [support@gameproxy.host](mailto:support@gameproxy.host).
 
 **2.4.** By creating Your account You agree to defend, indemnify and hold harmless GameProxy and its admins against all losses, claims, liabilities and damages whatsoever. You may not falsely represent GameProxy in any circumstances.
 
-**2.5.** You may terminate Your account by emailing [james@liveg.tech](mailto:james@liveg.tech). It may take as much time as is needed for GameProxy to respond to terminate Your account. By terminating Your account You are no longer subject to section 2 of these Terms.
+**2.5.** You may terminate Your account by emailing [support@gameproxy.host](mailto:support@gameproxy.host). It may take as much time as is needed for GameProxy to respond to terminate Your account. By terminating Your account You are no longer subject to section 2 of these Terms.
 
 ## 3. Content
 **3.1.** GameProxy supports freedom of speech, however, GameProxy's products and services are intended for a wide audience, and so some content could be inappropriate for other GameProxy users. You may not use the services in a way that:
