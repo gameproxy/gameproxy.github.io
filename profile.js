@@ -20,12 +20,14 @@ $(function() {
 
         $(".profileName").text(snapshot.val());
 
-        if (isStaff(getURLParameter("user"))) {
-            $(".profileName").css("color", "#27ef70");
-            $(".adminBanner").show();
-        } else if (isGameProxyPro(getURLParameter("user"))) {
-            $(".profileName").css("color", "#b3c20f");
-        }
+        setInterval(function() {
+            if (isStaff(getURLParameter("user"))) {
+                $(".profileName").css("color", "#27ef70");
+                $(".adminBanner").show();
+            } else if (isGameProxyPro(getURLParameter("user"))) {
+                $(".profileName").css("color", "#b3c20f");
+            }
+        });
     });
 
     firebase.storage().ref("users/" + getURLParameter("user") + "/_settings/ppic.png").getDownloadURL().then(function(data) {
