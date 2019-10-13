@@ -42,6 +42,10 @@ a.footer {
     color: black!important;
 }
 
+footer * {
+    color: black!important;
+}
+
 .getNow {
     background-color: var(--primaryColour);
     color: black;
