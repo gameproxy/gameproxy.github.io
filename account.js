@@ -54,6 +54,15 @@ function change(user) {
                         $(".adminBanner").hide();
                     }
                 }
+
+                setInterval(function() {
+                    if (isStaff(currentUid)) {
+                        $(".accountName").css("color", "#27ef70");
+                        $(".adminBanner").show();
+                    } else if (isGameProxyPro(currentUid)) {
+                        $(".accountName").css("color", "#b3c20f");
+                    }
+                });
             });
 
             refreshPpic();
@@ -93,6 +102,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 function refreshPpic() {
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
         $(".accountPicture").attr("src", data);
+    }).error(function() {
+        $(".accountPicture").attr("src", "https://gameproxy.host/media/AnonUser.png");        
     });
 }
 
@@ -226,5 +237,5 @@ $(function() {
         if (currentUid != null) {
         firebase.database().ref("users/" + currentUid + "/_settings/lastSeen").set(firebase.database.ServerValue.TIMESTAMP);
         }
-    }, 5000); 
+    }, 5000);
 });
