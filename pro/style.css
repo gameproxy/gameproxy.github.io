@@ -39,7 +39,7 @@ footer {
 }
 
 a.footer {
-    color: black;
+    color: black!important;
 }
 
 .getNow {
