@@ -11,7 +11,7 @@ function loadAd() {
 }
 
 firebase.auth().onAuthStateChanged(function() {
-    if (!hasGameProxyPro) {
+    if (hasGameProxyPro == null || !hasGameProxyPro) {
         loadAd();
     }
 });
