@@ -1,21 +1,6 @@
 var selectedTime = "";
 var enteredCode = "";
 
-function usePayPalAction() {
-    var link = {
-        "1mo": "javascript:alert('Coming soon!');",
-        "6mo": "javascript:alert('Coming soon!');",
-        "1yr": "javascript:alert('Coming soon!');",
-        "2yr": "javascript:alert('Coming soon!');",
-    }[selectedTime];
-
-    if (link == undefined) {
-        alert("Oops! An arror occured when processing your payment.");
-    } else {
-        window.open(link);
-    }
-}
-
 function usePayPal() {
     dialog("Pay via PayPal", `
         <div class="center">
@@ -24,11 +9,12 @@ function usePayPal() {
             <div>
                 <select id="PayPalAmount">
                     <option value="1mo">1 month - &pound;1.50</option>
-                    <option value="6mo">6 months - &pound;9.00</option>
-                    <option value="1yr">1 year - &pound;18.00</option>
-                    <option value="2yr">2 years - &pound;36.00</option>
+                    <option value="6mo">6 months - &pound;7.00</option>
+                    <option value="1yr">1 year - &pound;12.00</option>
+                    <option value="2yr">2 years - &pound;18.00</option>
                 </select>
             </div>
+            <p>We apply bulk discounts depending on the period that you buy.</p>
         </div>
     `, [
         {text: "Cancel", onclick: "closeDialog();", type: "bad"},
@@ -41,9 +27,16 @@ function usePayPalNext() {
 
     var amount = {
         "1mo": 1.50,
-        "6mo": 9.00,
-        "1yr": 18.00,
-        "2yr": 36.00
+        "6mo": 7.00,
+        "1yr": 12.00,
+        "2yr": 18.00
+    }[selectedTime];
+
+    var buttonID = {
+        "1mo": "ME5X4PRGFZJJS",
+        "6mo": "HYDLYJSAQYGLL",
+        "1yr": "KKAN649WLHTF4",
+        "2yr": "T75QKHUEC5LF8"
     }[selectedTime];
 
     dialog("Pay via PayPal", `
@@ -52,6 +45,14 @@ function usePayPalNext() {
             <p>
                 By purchasing GameProxy Pro, you agree to the <a href="proTerms.html" target="_blank">GameProxy Pro Terms</a>.
             </p>
+            <div class="center">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input type="hidden" name="hosted_button_id" value="` + buttonID + `" />
+                    <input type="image" src="https://gameproxy.host/media/paymentIcons/pay.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Pay securely via PayPal" class="payViaPaypalButton" />
+                    <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+            </div>
             <p>
                 <strong>You're nearly there!</strong> We'll take you to a secure PayPal page
                 to complete your payment.
@@ -65,8 +66,7 @@ function usePayPalNext() {
         </div>
     `, [
         {text: "Cancel", onclick: "closeDialog();", type: "bad"},
-        {text: "Back", onclick: "usePayPal();", type: "bad"},
-        {text: "Pay", onclick: "usePayPalAction();", type: "primary"}
+        {text: "Back", onclick: "usePayPal();", type: "bad"}
     ]);
 }
 

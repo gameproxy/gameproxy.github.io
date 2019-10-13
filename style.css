@@ -848,6 +848,11 @@ select.gameUploadField {
     display: none;
 }
 
+.payViaPaypalButton {
+    height: 50px;
+    background-color: transparent;
+}
+
 #signIn {
     display: none;
 }
