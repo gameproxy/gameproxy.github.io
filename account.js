@@ -58,7 +58,10 @@ function change(user) {
                 setInterval(function() {
                     if (isStaff(currentUid)) {
                         $(".accountName").css("color", "#27ef70");
-                        $(".adminBanner").show();
+                        
+                        if (window.location.pathname.split("/").pop() == "account.html") {
+                            $(".adminBanner").show();
+                        }
                     } else if (isGameProxyPro(currentUid)) {
                         $(".accountName").css("color", "#b3c20f");
                     }
@@ -103,7 +106,7 @@ function refreshPpic() {
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").getDownloadURL().then(function(data) {
         $(".accountPicture").attr("src", data);
     }).error(function() {
-        $(".accountPicture").attr("src", "https://gameproxy.host/media/AnonUser.png");        
+        $(".accountPicture").attr("src", "https://gameproxy.host/media/AnonUser.png");
     });
 }
 
