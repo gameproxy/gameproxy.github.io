@@ -8,8 +8,6 @@ function loadAd() {
     $(".ad").attr("onclick", adsList[currentAd]["onclick"]);
 }
 
-firebase.auth().onAuthStateChanged(function() {
-    if (hasGameProxyPro == null || !hasGameProxyPro) {
-        loadAd();
-    }
+$(function() {
+    loadAd();
 });
