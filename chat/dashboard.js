@@ -58,7 +58,7 @@ $(function() {
     cloudMessaging.usePublicVapidKey("BMRVci7h85dOJh1zXNbI8-OIzruX5cOrtGH0PRsslx__D4W9Ccda_ocNESNDKDQBPcMg4WecdP19uJEsuLLx1vo");
 
     cloudMessaging.onTokenRefresh(function(token) {
-        firebase.database().ref("users/" + currentUid + "/chat/tokens/" + token).set(true);        
+        firebase.database().ref("users/" + currentUid + "/chat/tokens/" + token).set(true);
     });
 
     addEventListener("beforeinstallprompt", function(event) {
