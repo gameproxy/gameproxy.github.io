@@ -95,6 +95,14 @@ $(function() {
         }
     });
 
+    $("body").on("mousedown", "*", function(event) {
+        if (($(this).is(":focus") || $(this).is(event.target)) && $(this).css("outline-style") == "none") {
+            $(this).css("outline", "none").on("blur", function() {
+                $(this).off("blur").css("outline", "");
+            });
+        }
+    });
+
     setInterval(function() {
         $("*[markdownrf]").each(function() {
             if (!window.location.href.startsWith("file:///")) {
