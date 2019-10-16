@@ -15,13 +15,17 @@ function dismissGetStarted() {
 }
 
 function addToHomeScreen() {
-    addToHomeScreenPrompt.prompt();
+    if (addToHomeScreenPrompt != null) {
+        addToHomeScreenPrompt.prompt();
 
-    addToHomeScreenPrompt.userChoice.then(function(result) {
-        if (result.outcome == "accepted") {
-            finishGetStarted("pwa");
-        }
-    });
+        addToHomeScreenPrompt.userChoice.then(function(result) {
+            if (result.outcome == "accepted") {
+                finishGetStarted("pwa");
+            }
+        });
+    } else {
+        alert("You'll need to manually add this app to your home screen to enjoy our web app!", "Add To Home Screen")
+    }
 }
 
 function enableNotifications() {
@@ -60,8 +64,6 @@ $(function() {
     cloudMessaging.onTokenRefresh(function(token) {
         firebase.database().ref("users/" + currentUid + "/chat/tokens/" + token).set(true);
     });
-
-    navigator.serviceWorker.register("sw.js");
 
     addEventListener("beforeinstallprompt", function(event) {
         addToHomeScreenPrompt = event;
