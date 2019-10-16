@@ -159,6 +159,7 @@ $(function() {
         var isOpera = typeof window.opr !== "undefined";
         var isIEedge = winNav.userAgent.indexOf("Edge") > -1;
         var isIOSChrome = winNav.userAgent.match("CriOS");
+        var isSafari = winNav.userAgent.indexOf("safari") > -1;
         var isFirefox = navigator.userAgent.search("Firefox") > -1;
         var isSamsungBrowser = navigator.userAgent.match(/samsungBrowser/i);
 
@@ -171,7 +172,8 @@ $(function() {
         ) && (
             !isFirefox &&
             !isIOSChrome &&
-            !isSamsungBrowser
+            !isSamsungBrowser &&
+            !isSafari
         )) {
             window.location.href = "/notSupported.html";
         }
