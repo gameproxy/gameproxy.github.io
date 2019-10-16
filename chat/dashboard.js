@@ -15,7 +15,7 @@ function dismissGetStarted() {
 }
 
 function addToHomeScreen() {
-    if (addToHomeScreenPrompt != null) {
+    if (addToHomeScreenPrompt != null && addToHomeScreenPrompt != undefined) {
         addToHomeScreenPrompt.prompt();
 
         addToHomeScreenPrompt.userChoice.then(function(result) {
@@ -24,7 +24,9 @@ function addToHomeScreen() {
             }
         });
     } else {
-        alert("You'll need to manually add this app to your home screen to enjoy our web app!", "Add To Home Screen")
+        alert("You'll need to manually add this app to your home screen to enjoy our web app!", "Add To Home Screen");
+
+        finishGetStarted("pwa");
     }
 }
 
