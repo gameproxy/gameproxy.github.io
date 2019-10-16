@@ -61,6 +61,8 @@ $(function() {
         firebase.database().ref("users/" + currentUid + "/chat/tokens/" + token).set(true);
     });
 
+    navigator.serviceWorker.register("sw.js");
+
     addEventListener("beforeinstallprompt", function(event) {
         addToHomeScreenPrompt = event;
     });
