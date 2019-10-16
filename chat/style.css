@@ -59,6 +59,64 @@ input.search {
     width: 50vw;
 }
 
+.chatGetStarted {
+    position: relative;
+    margin-top: 30px;
+}
+
+.chatGetStarted p {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.chatGetStarted h3 {
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    width: calc(100% - 50px);
+    margin-top: 0;
+}
+
+.chatGetStartedDismiss {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-color: transparent;
+    color: var(--lightMainText);
+}
+
+.chatGetStartedDismiss i {
+    font-size: 24px!important;
+}
+
+.chatGetStartedStep {
+    display: inline-block;
+    width: calc(33.3% - 3.33px);
+    text-align: center;
+    vertical-align: top;
+}
+
+.chatGetStartedStep i {
+    display: block;
+    width: 70px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    border-radius: 35px;
+    background-color: var(--secondaryColour);
+    color: var(--lightAccentText);
+    font-size: 30px;
+}
+
+.chatGetStartedStep span {
+    display: block;
+    margin-top: 10px;
+}
+
 .item.serverItem {
     position: relative;
     height: 120px;
