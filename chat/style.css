@@ -98,7 +98,7 @@ input.search {
     position: fixed;
     top: 10px;
     right: 10px;
-    background-color: var(--primaryBackgroundColour);
+    background-color: transparent;
     color: var(--lightMainText);
 }
 
