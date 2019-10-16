@@ -74,6 +74,7 @@ input.search {
     height: 100%;
     filter: brightness(0.6);
     object-fit: cover;
+    transition: 0.5s filter;
 }
 
 .item.serverItem div {
@@ -87,6 +88,10 @@ input.search {
     font-size: 25px;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.item.serverItem:hover img {
+    filter: brightness(0.8);
 }
 
 #chatExit {
