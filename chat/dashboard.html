@@ -28,7 +28,8 @@
                 databaseURL: "https://gameproxy-web.firebaseio.com",
                 projectId: "gameproxy-web",
                 storageBucket: "gameproxy-web.appspot.com",
-                messagingSenderId: "1085599545540"
+                messagingSenderId: "1085599545540",
+                appId: "1:1085599545540:web:5af7bc2297717b6449f191"
             };
             
             firebase.initializeApp(config);
@@ -48,21 +49,21 @@
                     Follow these steps to get started with GameProxy Chat.
                     You'll be chatting to friends in no time!
                 </p>
-                <button title="Dismiss" class="chatGetStartedDismiss"><i aria-label="Dismiss" class="material-icons">close</i></button>
-                <a href="#" class="hidden">
-                    <div class="chatGetStartedStep">
+                <button title="Dismiss" onclick="dismissGetStarted();" class="chatGetStartedDismiss"><i aria-label="Dismiss" class="material-icons">close</i></button>
+                <a href="javascript:addToHomeScreen();" class="hidden">
+                    <div data-get-started-step="pwa" class="chatGetStartedStep">
                         <i aria-hidden="true" class="material-icons">add</i>
                         <span>1. Get the web app</span>
                     </div>
                 </a>
-                <a href="#" class="hidden">
-                    <div class="chatGetStartedStep">
+                <a href="javascript:enableNotifications();" class="hidden">
+                    <div data-get-started-step="notifications" class="chatGetStartedStep">
                         <i aria-hidden="true" class="material-icons">notifications</i>
                         <span>2. Enable notifications</span>
                     </div>
                 </a>
                 <a href="#" class="hidden">
-                    <div class="chatGetStartedStep">
+                    <div data-get-started-step="joincreate" class="chatGetStartedStep">
                         <i aria-hidden="true" class="material-icons">message</i>
                         <span>3. Join or create a server</span>
                     </div>
@@ -83,5 +84,7 @@
         <script src="../gpProList.js"></script>
         <script src="../account.js"></script>
         <script src="../pro/pro.js"></script>
+        <script src="script.js"></script>
+        <script src="dashboard.js"></script>
     </body>
 </html>

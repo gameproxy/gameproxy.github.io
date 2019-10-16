@@ -61,6 +61,7 @@ input.search {
 
 .chatGetStarted {
     position: relative;
+    display: none;
     margin-top: 30px;
 }
 
@@ -115,6 +116,15 @@ input.search {
 .chatGetStartedStep span {
     display: block;
     margin-top: 10px;
+}
+
+.chatGetStartedStep.done i {
+    background-color: var(--highlightColour);
+    color: black;
+}
+
+.chatGetStartedStep.done span {
+    text-decoration: line-through;
 }
 
 .item.serverItem {
