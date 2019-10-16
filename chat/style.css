@@ -147,3 +147,9 @@ input.search {
         width: calc(100% - 10px);
     }
 }
+
+@media (display-mode: standalone) {
+    #chatExit {
+        display: none;
+    }
+}
