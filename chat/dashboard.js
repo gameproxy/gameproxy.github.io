@@ -24,7 +24,11 @@ function addToHomeScreen() {
             }
         });
     } else {
-        alert("You'll need to manually add this app to your home screen to enjoy our web app!", "Add To Home Screen");
+        if (window.matchMedia("(display-mode: standalone)").matches) {
+            alert("You're already in the web app, what are you doing?!", "Already In App");
+        } else {
+            alert("You'll need to manually add this app to your home screen to enjoy our web app!", "Add To Home Screen");            
+        }
 
         finishGetStarted("pwa");
     }
