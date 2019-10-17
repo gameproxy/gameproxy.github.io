@@ -1,4 +1,4 @@
-var var gameList = [];
+var gameList = [];
 
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){
@@ -63,7 +63,7 @@ function filter(type) {
         $("#gameList").html("");
 
         firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(12).on("value", function(snapshot) {
-            var gameList = [];
+            gameList = [];
 
             snapshot.forEach(function(childSnapshot) {
                 gameList.unshift(childSnapshot.val());
@@ -80,7 +80,7 @@ function filter(type) {
         });
 
         firebase.database().ref("games").limitToLast(12).on("value", function(snapshot) {
-            var gameList = [];
+            gameList = [];
 
             snapshot.forEach(function(childSnapshot) {
                 gameList.unshift(childSnapshot.val());
@@ -97,7 +97,7 @@ function filter(type) {
         });
     } else if (type == "random") {
         firebase.database().ref("games").orderByChild("metrics/likes").equalTo(Math.floor(Math.random() * 5)).limitToLast(12).on("value", function(snapshot) {
-            var gameList = [];
+            gameList = [];
 
             snapshot.forEach(function(childSnapshot) {
                 gameList.unshift(childSnapshot.val());
@@ -134,7 +134,7 @@ function filter(type) {
         }
 
         lister.on("value", function(snapshot) {
-            var gameList = [];
+            gameList = [];
 
             snapshot.forEach(function(childSnapshot) {
                 gameList.unshift(childSnapshot.val());
@@ -167,7 +167,7 @@ function categorise(topic) {
         $("#gameLoader").show();
 
         firebase.database().ref("games").orderByChild("category").equalTo(topic).limitToLast(12).on("value", function(snapshot) {
-            var gameList = [];
+            gameList = [];
 
             snapshot.forEach(function(childSnapshot) {
                 gameList.unshift(childSnapshot.val());
@@ -201,7 +201,7 @@ function search(query) {
     $("#gameLoader").show();
 
     firebase.database().ref("games").orderByChild("title").startAt(query).endAt(query + "\uf8ff").limitToLast(24).on("value", function(snapshot) {
-        var gameList = [];
+        gameList = [];
 
         snapshot.forEach(function(childSnapshot) {
             gameList.unshift(childSnapshot.val());

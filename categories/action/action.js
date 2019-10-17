@@ -1,4 +1,4 @@
-var var gameList = [];
+var gameList = [];
 
 function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false, byGPPro = false) {
     $("#gameLoader").hide();
@@ -49,7 +49,7 @@ function showAll() {
     $("#gameLoader").show();
 
     firebase.database().ref("games").orderByChild("metrics/likes").limitToLast(24).on("value", function(snapshot) {
-        var gameList = [];
+        gameList = [];
 
         snapshot.forEach(function(childSnapshot) {
             gameList.unshift(childSnapshot.val());
@@ -74,7 +74,7 @@ function search(query) {
     $("#gameLoader").show();
 
     firebase.database().ref("games").orderByChild("title").startAt(query).endAt("b\uf8ff").limitToLast(24).on("value", function(snapshot) {
-        var gameList = [];
+        gameList = [];
 
         snapshot.forEach(function(childSnapshot) {
             gameList.unshift(childSnapshot.val());

@@ -1,4 +1,4 @@
-var var gameList = [];
+var gameList = [];
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null;
@@ -53,7 +53,7 @@ function showAll() {
     $("#gameLoader").show();
 
     firebase.database().ref("games").orderByChild("uid").equalTo(getURLParameter("user")).on("value", function(snapshot) {
-        var gameList = [];
+        gameList = [];
 
         snapshot.forEach(function(childSnapshot) {
             gameList.unshift(childSnapshot.val());

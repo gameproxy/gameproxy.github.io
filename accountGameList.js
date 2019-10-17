@@ -1,4 +1,4 @@
-var var gameList = [];
+var gameList = [];
 
 function addGame(name, by, byStaff = false, thumbnail = "media/NoThumbnail.png", link = "javascript:alert('Sorry! This game is unavailable.');", verified = false, byGPPro = false) {
     $("#gameLoader").hide();
@@ -49,7 +49,7 @@ function showAll() {
     $("#gameLoader").show();
 
     firebase.database().ref("games").orderByChild("uid").equalTo(currentUid).on("value", function(snapshot) {
-        var gameList = [];
+        gameList = [];
 
         snapshot.forEach(function(childSnapshot) {
             gameList.unshift(childSnapshot.val());
