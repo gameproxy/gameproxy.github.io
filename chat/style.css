@@ -62,6 +62,7 @@ input.search {
 .chatGetStarted {
     position: relative;
     display: none;
+    width: calc(100% - 60px);
     margin-top: 30px;
 }
 
@@ -127,6 +128,10 @@ input.search {
     text-decoration: line-through;
 }
 
+.itemHolder .loaderHolder {
+    width: calc(100% - 60px);
+}
+
 .item.serverItem {
     position: relative;
     height: 120px;
@@ -160,6 +165,45 @@ input.search {
 
 .item.serverItem:hover img {
     filter: brightness(0.8);
+}
+
+.item.serverItem.newServer {
+    width: calc(33.3% - 40px);
+    height: calc(120px - 10px);
+    background-color: transparent;
+    border: 5px solid var(--secondaryBackgroundColour);
+    border-style: dashed;
+}
+
+.item.serverItem.newServer a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: var(--secondaryBackgroundColour);
+    text-decoration: none;
+    transition: 0.5s color;
+}
+
+.item.serverItem.newServer a:hover {
+    color: var(--lightMainText);
+}
+
+.item.serverItem.newServer i {
+    display: block;
+    width: 100%;
+    height: 30%;
+    padding-top: 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.item.serverItem.newServer span {
+    display: block;
+    width: 100%;
+    height: 30%;
+    padding-top: 20px;
+    font-size: 20px;
+    text-align: center;
 }
 
 #chatExit {
@@ -211,8 +255,20 @@ input.search {
         width: calc(100% - 140px);
     }
 
+    .chatGetStarted {
+        width: 100%;
+    }
+
+    .itemHolder .loaderHolder {
+        width: 100%;
+    }
+
     .item.serverItem {
         width: calc(100% - 10px);
+    }
+
+    .item.serverItem.newServer {
+        width: calc(100% - 20px);
     }
 }
 

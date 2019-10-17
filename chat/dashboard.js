@@ -70,4 +70,26 @@ $(function() {
     addEventListener("beforeinstallprompt", function(event) {
         addToHomeScreenPrompt = event;
     });
+
+    firebase.database().ref("chat/directory").orderByKey().limitToLast(24).once("value", function(snapshot) {
+        var serverList = [];
+
+        snapshot.forEach(function(childSnapshot) {
+            serverList.unshift(childSnapshot.val());
+            serverList[0]["key"] = childSnapshot.key;
+        });
+        
+        $(".itemHolder.discoverServers").html("");
+
+        for (var i = 0; i < serverList.length; i++) {
+            $(".itemHolder.discoverServers").append(
+                $("<div class='item serverItem'>").append(
+                    $("<a>").attr("href", "server.html?server=" + serverList[i]["key"]).append([
+                        $("<img>").attr("src", serverList[i]["thumbnail"]),
+                        $("<div>").text(serverList[i]["title"] || "Untitled Server")
+                    ])
+                )
+            );
+        }
+    });
 });
