@@ -6,6 +6,12 @@ var motdList = [
     },
 
     {
+        "src": "motd/Pro.png",
+        "alt": "Get GameProxy Pro today! Gain amazing benefits and unlock superpowers on the site!",
+        "onclick": "window.location.href = 'https://gameproxy.host/pro';"
+    },
+
+    {
         "src": "motd/Merch.png",
         "alt": "GameProxy Merch",
         "onclick": "window.location.href = 'https://www.redbubble.com/people/sebastiandoe5/works/35716450-gameproxy-official-merchandise?asc=u&ref=recent-owner';"
