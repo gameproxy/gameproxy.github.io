@@ -59,11 +59,6 @@ input.search {
     width: 50vw;
 }
 
-.restrictWidth {
-    width: calc(100% - 60px);
-    margin-top: 30px;
-}
-
 label.property {
     display: block;
     margin-bottom: 10px;
@@ -76,6 +71,25 @@ label.property input {
 label.property select {
     width: calc(60vw - 160px + 20px);
     margin-left: 5px!important;
+}
+
+label.property textarea {
+    width: calc(60vw - 160px);
+    vertical-align: top;
+}
+
+label.property .propertyInfo {
+    width: calc(60vw - 140px);
+    margin-left: 160px;
+}
+
+.propertyWidth {
+    width: calc(60vw + 25px);
+}
+
+.restrictWidth {
+    width: calc(100% - 60px);
+    margin-top: 30px;
 }
 
 .chatGetStarted {
@@ -223,6 +237,35 @@ label.property select {
     text-align: center;
 }
 
+.sidebarArt {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    height: 100vh;
+}
+
+.sidebarArt.tiles {
+    background-image: url("../media/TilesArt.svg");
+    background-repeat: repeat-y;
+}
+
+.questionBlock {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transition: 0.25s opacity;
+    transition: 1s filter;
+}
+
+.questionBlock:hover {
+    opacity: 1;
+    filter: brightness(1.2);
+}
+
 #chatExit {
     position: fixed;
     top: 10px;
@@ -286,6 +329,21 @@ label.property select {
         margin: 0;
     }
 
+    label.property textarea {
+        width: calc(100% - 20px);
+        margin: 0;
+    }
+
+    label.property .propertyInfo {
+        width: 100%;
+        margin-top: 5px;
+        margin-left: unset;
+    }
+
+    .propertyWidth {
+        width: unset;
+    }
+
     .itemHolder .loaderHolder {
         width: 100%;
     }
@@ -296,6 +354,14 @@ label.property select {
 
     .item.serverItem.newServer {
         width: calc(100% - 20px);
+    }
+
+    .sidebarArt {
+        display: none;
+    }
+
+    .questionBlock {
+        display: none;
     }
 }
 

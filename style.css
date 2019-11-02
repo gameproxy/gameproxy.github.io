@@ -134,6 +134,11 @@ label.property select {
     margin-left: 1px;
 }
 
+label.property .propertyInfo {
+    margin-left: 160px;
+    font-size: smaller;
+}
+
 button {
     margin: 5px;
     padding: 10px;
@@ -1097,6 +1102,15 @@ select.gameUploadField {
 }
 
 @media (max-width: 600px) {
+    select.gameUploadField {
+        width: calc(100% - 10px);
+    }
+
+    label.property .propertyInfo {
+        margin-top: 5px;
+        margin-left: unset;
+    }
+
     .item {
         width: calc(100% - 31px);
         margin-bottom: 10px;
@@ -1117,10 +1131,6 @@ select.gameUploadField {
     
     .gameUploadField {
         width: calc(100% - 30px);
-    }
-    
-    select.gameUploadField {
-        width: calc(100% - 10px);
     }
 }
 

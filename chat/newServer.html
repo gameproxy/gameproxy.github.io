@@ -39,10 +39,32 @@
     </head>
     <body class="board">
         <h1>Create new server</h1>
+        <p class="propertyWidth">Create your own new server to start chatting! You can choose who else owns your server so they can moderate it and change advanced settings.</p>
         <label class="property">
             <span>Server name</span>
             <input placeholder="For example: My Ultimate Gamer Server">
         </label>
+        <label class="property">
+            <span>Server description</span>
+            <textarea rows="4" placeholder="Write a short description about your new server here..."></textarea>
+            <div class="propertyInfo">
+                You can use Markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!
+            </div>
+        </label>
+        <label class="property">
+            <span>Associated game</span>
+            <input placeholder="For example: Super Smash Flash 2">
+            <div class="propertyInfo">
+                Optional; if your server is particularly associated with a certain gaming community, mention the game's name here.
+            </div>
+        </label>
+        <div class="right propertyWidth">
+            <button onclick="window.location.href = 'dashboard.html';" class="bad">Cancel</button> <button>Create</button>
+        </div>
+        <div class="sidebarArt tiles"></div>
+        <a href="https://gameproxy.host/game.html?play=-LZzESSwOFuzHUmf0Q6J" target="_blank" class="questionBlock">
+            <img src="../media/QuestionBlockArt.svg" attr="A subtle question block just relaxing in the corner..." title="Don't mind me just chillin'..." />
+        </a>
         <div class="dialogBackground"></div>
         <div class="dialog">
             Hi!
