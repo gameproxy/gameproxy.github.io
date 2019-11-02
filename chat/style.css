@@ -59,11 +59,28 @@ input.search {
     width: 50vw;
 }
 
+.restrictWidth {
+    width: calc(100% - 60px);
+    margin-top: 30px;
+}
+
+label.property {
+    display: block;
+    margin-bottom: 10px;
+}
+
+label.property input {
+    width: calc(60vw - 160px);
+}
+
+label.property select {
+    width: calc(60vw - 160px + 20px);
+    margin-left: 5px!important;
+}
+
 .chatGetStarted {
     position: relative;
     display: none;
-    width: calc(100% - 60px);
-    margin-top: 30px;
 }
 
 .chatGetStarted p {
@@ -255,8 +272,18 @@ input.search {
         width: calc(100% - 140px);
     }
 
-    .chatGetStarted {
+    .restrictWidth {
         width: 100%;
+    }
+
+    label.property input {
+        width: calc(100% - 20px);
+        margin: 0;
+    }
+
+    label.property select {
+        width: calc(100% - 20px + 20px);
+        margin: 0;
     }
 
     .itemHolder .loaderHolder {
