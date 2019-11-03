@@ -190,3 +190,19 @@ function copyCurrentURL() {
     document.execCommand("copy");
     document.body.removeChild(dummy);
 }
+
+// Keyboard Shortcuts
+
+document.onkeyup = function(e) {
+    var key = e.which || e.keyCode;
+    if (e.altKey && e.which == 71) {
+        // Alt + G (redirects to index.html)
+        window.location.href = "/index.html";
+    } else if (e.altKey && e.which == 67) {
+        // Alt + C (redirects to chat.html)
+        window.location.href = "/chat.html";
+    } else if (e.altKey && e.which == 65) {
+        // Alt + A (redirects to account.html)
+        window.location.href = "/account.html";
+    }
+};

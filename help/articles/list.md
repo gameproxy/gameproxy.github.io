@@ -12,3 +12,4 @@
 * 0011: [General Troubleshooting for GameProxy](/help/index.html?article=0011-generalTroubleshooting) by Sebastian Doe
 * 0013: [FAQs](/help/index.html?article=0013-FAQs) by Sebastian Doe
 * 0014: [About GameProxy admins](/help/index.html?article=0014-aboutAdmins) by James Livesey
+* 0014: [What each button means](/help/index.html?article=0015-whatButtonsMeanWhat) by Sebastian Doe
