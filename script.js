@@ -193,16 +193,28 @@ function copyCurrentURL() {
 
 // Keyboard Shortcuts
 
-document.onkeyup = function(e) {
-    var key = e.which || e.keyCode;
-    if (e.altKey && e.which == 71) {
-        // Alt + G (redirects to index.html)
-        window.location.href = "/index.html";
-    } else if (e.altKey && e.which == 67) {
-        // Alt + C (redirects to chat.html)
-        window.location.href = "/chat.html";
-    } else if (e.altKey && e.which == 65) {
-        // Alt + A (redirects to account.html)
-        window.location.href = "/account.html";
-    }
-};
+$(document).ready(function () {
+    $('body').on('keydown',function(e){
+        if (e.altKey && e.which == 71) {
+            // Alt + G (redirects to index.html)
+            window.location.href = "/index.html";  
+        } else if (e.altKey && e.which == 67) {
+            // Alt + C (redirects to chat.html)
+            window.location.href = "/chat.html";
+        } else if (e.altKey && e.which == 65) {
+            // Alt + A (redirects to account.html)
+            window.location.href = "/account.html";
+        } else if (e.altKey && e.which == 82) {
+            // Alt + R (redirects to upload.html)
+            window.location.href = "/upload.html";
+        } else if (window.location.href.indexOf("/game.html") > -1) {
+            if (e.altKey && e.which == 76) {
+                // Alt + L (likes/unlikes game)
+                like();
+            } else if (e.altKey && e.which == 85) {
+                // Alt + U (goes to uploader's profile)
+                document.getElementById("uploaderProfile").click();
+            }
+        }
+    });
+});
