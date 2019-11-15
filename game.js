@@ -558,12 +558,14 @@ $(function() {
         } else {
             $(".gameCategory").text(gameCategories["none"]);
         }
-
-        if (typeof(gameData.category) == "string") {
-            $(".gameAttribution").text(gameData.attributionText);
-            $(".gameAttribution").attr("href", gameData.attributionLink)
+        
+        if (gameData.attributionText == undefined) {
+            $(".gameAttribution").text("No attribution provided");
+        } else if (gameData.attributionText == "") {
+            $(".gameAttribution").text("No attribution provided");
         } else {
-            $(".gameAttribution").text("No attribution provided / user uploaded game");
+            $(".gameAttribution").text(gameData.attributionText);
+            $(".gameAttribution").attr("href", gameData.attributionLink);
         }
 
         var converter = new showdown.Converter();
