@@ -560,9 +560,9 @@ $(function() {
         }
         
         if (gameData.attributionText == undefined) {
-            $(".gameAttribution").text("No attribution provided");
+            $(".gameAttribution").text("Not provided");
         } else if (gameData.attributionText == "") {
-            $(".gameAttribution").text("No attribution provided");
+            $(".gameAttribution").text("Not provided");
         } else {
             $(".gameAttribution").text(gameData.attributionText);
             $(".gameAttribution").attr("href", gameData.attributionLink);
