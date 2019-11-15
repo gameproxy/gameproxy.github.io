@@ -71,7 +71,7 @@
             <div class="card signedIn">
                 <input placeholder="Title" class="gameUploadField" id="gameTitle"></input>
                 <input placeholder="Game File Link" class="gameUploadField" id="gameLink"></input>
-                <input placeholder="Thumbnail" class="gameUploadField" id="gameThumbnail"></input>
+                <input placeholder="Thumbnail URL" class="gameUploadField" id="gameThumbnail"></input>
                 <select class="gameUploadField" id="gameTag">
                     <option value="none">Don't Categorise</option>
                     <option value="action">Action</option>
@@ -91,7 +91,9 @@
                     <option value="strategy">Strategy</option>
                     <option value="survival">Survival</option>
                 </select>
-                <textarea type="multiline" rows="5" placeholder="Description" id="gameDescription"></textarea><br>
+                <textarea type="multiline" rows="5" placeholder="Description" id="gameDescription"></textarea>
+                <input placeholder="Attribution Text" class="attributionGameUploadField" id="attributionText"></input>
+                <input placeholder="Attribution Link" class="attributionGameUploadField" id="attributionLink"></input><br>
                 <small>You can use Markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!</small><br>
                 <div class="right"><button onclick="gameUpload();" class="uploadGame">Upload Game</button></div>
             </div>

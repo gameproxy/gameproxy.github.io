@@ -413,6 +413,16 @@ function editGameDescriptionAction() {
     }
 }
 
+function editGameAttributionAction() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        firebase.database().ref("games/" + getURLParameter("play") + "/attributionText").set($("#attributionText").val());
+        firebase.database().ref("games/" + getURLParameter("play") + "/attributionLink").set($("#attributionLink").val());
+
+        window.location.reload();
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
 function editGameDescription() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
         dialog("Edit Game Description", `
@@ -423,6 +433,23 @@ function editGameDescription() {
         `, [
             {text: "Cancel", onclick: "closeDialog();", type: "bad"},
             {text: "Edit", onclick: "editGameDescriptionAction();", type: "normal"}
+        ]);
+    } else {
+        alert("Nice try, hacker! You'll never break our security.");
+    }
+}
+
+function editGameAttribution() {
+    if (isStaff(currentUid) || gameData.uid == currentUid) {
+        dialog("Edit Game Attribution", `
+            <div class="center">
+                <p>Your new attribution awaits...</p>
+                <input placeholder="Attribution Text" class="attributionGameUploadField" id="attributionText"></input>
+                <input placeholder="Attribution Link" class="attributionGameUploadField" id="attributionLink"></input>
+            </div>
+        `, [
+            {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+            {text: "Edit", onclick: "editGameAttributionAction();", type: "normal"}
         ]);
     } else {
         alert("Nice try, hacker! You'll never break our security.");
@@ -465,6 +492,13 @@ function showEditGameInfo() {
                     <p class="noMargin">Edit the category of the game. Make it easier to find!</p>
                     <div class="right">
                         <button onclick="editGameCategory();">Edit</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="noMargin">Edit attribution</h2>
+                    <p class="noMargin">Edit the attribution text and link to give credit to the creator.</p>
+                    <div class="right">
+                        <button onclick="editGameAttribution();">Edit</button>
                     </div>
                 </div>
                 <div>
@@ -523,6 +557,13 @@ $(function() {
             $(".gameCategory").text(gameCategories[gameData.category]);
         } else {
             $(".gameCategory").text(gameCategories["none"]);
+        }
+
+        if (typeof(gameData.category) == "string") {
+            $(".gameAttribution").text(gameData.attributionText);
+            $(".gameAttribution").attr("href", gameData.attributionLink)
+        } else {
+            $(".gameAttribution").text("No attribution provided / user uploaded game");
         }
 
         var converter = new showdown.Converter();

@@ -760,6 +760,14 @@ select.gameUploadField {
     width: calc(25% - 13px);
 }
 
+.attributionGameUploadField {
+    width: calc(50% - 33px);
+}
+
+select.attributionGameUploadField {
+    width: calc(50% - 13px);
+}
+
 .comment {
     padding-left: 16px;
     padding-right: 16px;

@@ -47,6 +47,8 @@ function gameUpload() {
 
             firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
                 var name = snapshot.val();
+                var attributionText = document.getElementById("attributionText").value;
+                var attributionLink = document.getElementById("attributionLink").value;
 
                 toDataUrl(
                     $("#gameLink").val().startsWith("https://scratch.mit.edu/projects/")?
@@ -71,7 +73,9 @@ function gameUpload() {
                             uid: currentUid,
                             by: name,
                             byStaff: isStaff(currentUid),
-                            verified: isStaff(currentUid)
+                            verified: isStaff(currentUid),
+                            attributionText: attributionText,
+                            attributionLink: attributionLink
                         }).then(function() {
                             console.log(newGame);
                             window.location.href = "game.html?play=" + newGame.key;
