@@ -1,4 +1,4 @@
-The following Terms have been updated on 13 October 2019 and are in immediate effect.
+The following Terms have been updated on 16 November 2019 and are in immediate effect.
 
 ## 1. User Agreement
 **1.1.** These Terms And Conditions constitute an agreement between You (the 'user') and the GameProxy admins ('GameProxy') that governs the use of GameProxy's products and services. By using the services You agree that You have read, understood, and accepted the terms and conditions in the Terms. If You do not agree with any of these Terms, please do not use GameProxy's products and services.
@@ -17,6 +17,8 @@ The following Terms have been updated on 13 October 2019 and are in immediate ef
 **2.4.** By creating Your account You agree to defend, indemnify and hold harmless GameProxy and its admins against all losses, claims, liabilities and damages whatsoever. You may not falsely represent GameProxy in any circumstances.
 
 **2.5.** You may terminate Your account by emailing [support@gameproxy.host](mailto:support@gameproxy.host). It may take as much time as is needed for GameProxy to respond to terminate Your account. By terminating Your account You are no longer subject to section 2 of these Terms.
+
+**2.6.** If GameProxy finds a game that isn't attributed correctly when the original source is obvious, we are allowed to modify your game to add the attribution.
 
 ## 3. Content
 **3.1.** GameProxy supports freedom of speech, however, GameProxy's products and services are intended for a wide audience, and so some content could be inappropriate for other GameProxy users. You may not use the services in a way that:
