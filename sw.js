@@ -12,7 +12,22 @@ self.addEventListener('install', e => {
         `/lib/jquery.min.js`,
         `/footer.html`,
         `/game.html`,
-        `/game.js`
+        `/media/Small.png`,
+        `/media/Large.png`,
+        `https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons`,
+        `/media/browserconfig.xml`,
+        `https://www.gstatic.com/firebasejs/5.5.4/firebase.js`,
+        `https://www.gstatic.com/firebasejs/5.5.4/firebase.js`,
+        `/game.js`,
+        `/motd/GameProxyChoice/TheHouse.png`,
+        `/motd/Welcome.png`,
+        `/motd/Verified.png`,
+        `/motd/Pro.png`,
+        `/motd/Staff1.png`,
+        `/motd/Staff2.png`,
+        `/motd/Merch.png`,
+        `/motd/InDevelopment.png`,
+        `/motd/motdList.js`
       ])
           .then(() => self.skipWaiting());
     })
