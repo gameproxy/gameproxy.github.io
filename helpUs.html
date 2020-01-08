@@ -7,7 +7,7 @@
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          
+
           gtag('config', 'UA-128441061-1');
         </script>
         <title>GameProxy</title>
@@ -16,7 +16,12 @@
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
-        <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+        <link rel="manifest" href="/media/site.webmanifest">
+        <link rel="mask-icon" href="/media/safari-pinned-tab.svg" color="#6b28ef">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="msapplication-TileImage" content="/media/mstile-144x144.png">
+        <meta name="msapplication-config" content="/media/browserconfig.xml">
         <script src="lib/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
@@ -29,7 +34,7 @@
                 messagingSenderId: "1085599545540",
                 appId: "1:1085599545540:web:5af7bc2297717b6449f191"
             };
-            
+
             firebase.initializeApp(config);
         </script>
         <script src="script.js"></script>
@@ -59,19 +64,19 @@
             <h1 class="center">Help Us</h1>
             <div class="card">
                 <p>
-                    At GameProxy, we allow anyone from anywhere to play any of our games for free with minimal, non-obtrusive advertising. As you can imagine, we do not earn much from 
-                    this. It also doesn't help that 11% of all users on the internet have adblockers (sourced in November 2018 from pagefair.com). We need money to help us grow and make 
+                    At GameProxy, we allow anyone from anywhere to play any of our games for free with minimal, non-obtrusive advertising. As you can imagine, we do not earn much from
+                    this. It also doesn't help that 11% of all users on the internet have adblockers (sourced in November 2018 from pagefair.com). We need money to help us grow and make
                     everyone's experience better. You can help us grow with your money, or even if you don't have any!
                 </p>
                 <h2>Donate</h2>
                 <p>The first thing you can do is to donate to GameProxy directly. It links through PayPal, though you don't need an account to donate. Just click the button
                    below to donate.
                 </p>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="max-width {85%;} min-width {85%;}" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick" />
                     <input type="hidden" name="hosted_button_id" value="K8P2LR4G2PZT8" />
                     <input type="image" src="https://gameproxy.host/media/DonateButton.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                    <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+                    <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="90%"/>
                     </form>
                 <br>
                 <br>
@@ -79,31 +84,9 @@
                 <p>Now you can buy merch on Redbubble, and we get 15% of the sales! Just click <a href="https://www.redbubble.com/people/sebastiandoe5/works/35716450-gameproxy-official-merchandise?asc=u&ref=recent-owner" target="_blank">here</a> to buy some!</p>
                 <br>
                 <br>
-                <h2>Donate your power</h2>
-                <br>
-                <p>
-                    Without using any physical money, you can still helping us by mining Bitcoin using your computer. If you would like to learn more about this, read this official
-                    Aurora Enterprise article <a href="https://sites.google.com/view/aurorae/ufaq">here</a>. If the mining object doesn't appear below, make sure your adblockers are turned off.
-
-                    <p class="warningwhitebkgd">DISCLAIMER: We are not responsible for the lag/heating/crashing of your device. Mine with caution!</p>
-
-                </p>
-            </div>  
-            <script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
-            <div
-                class="coinhive-miner" 
-                style="width: 256px; height: 310px"
-                data-key="4jX9QH2N4RVwKhKaz4gfFTGSXTBVimVc"
-                data-autostart="true"
-                data-whitelabel="false"
-                data-background="#000000"
-                data-text="#eeeeee"
-                data-action="#00ff00"
-                data-graph="#555555"
-                data-threads="4"
-                data-throttle="0.1">
-                    <em>Loading...</em>
-            </div>             
+                <h2>Buy GameProxy Pro!</h2>
+                <p>It's now possible to buy <a href="pro/index.html">GameProxy Pro</a> which has loads of cool features!</p>
+            </div>
         </main>
         <div class="dialogBackground"></div>
         <div class="dialog">

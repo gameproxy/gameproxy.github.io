@@ -760,6 +760,14 @@ select.gameUploadField {
     width: calc(25% - 13px);
 }
 
+.attributionGameUploadField {
+    width: calc(50% - 33px);
+}
+
+select.attributionGameUploadField {
+    width: calc(50% - 13px);
+}
+
 .comment {
     padding-left: 16px;
     padding-right: 16px;
@@ -1078,7 +1086,7 @@ select.gameUploadField {
     button.motd {
         display: none;
     }
-    
+
     .desktop {
         display: none;
     }
@@ -1132,7 +1140,7 @@ select.gameUploadField {
     .gameItem {
         height: calc(50vw + 80px);
     }
-    
+
     .gameUploadField {
         width: calc(100% - 30px);
     }
@@ -1234,4 +1242,8 @@ select.gameUploadField {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
+}
+
+.donateImage {
+    width: 85%;
 }

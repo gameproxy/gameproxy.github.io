@@ -16,7 +16,12 @@
         <link rel="stylesheet" href="style.css">
         <script src="lib/showdown.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
-        <link rel="apple-touch-icon" href="media/Apple Touch Icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+        <link rel="manifest" href="/media/site.webmanifest">
+        <link rel="mask-icon" href="/media/safari-pinned-tab.svg" color="#6b28ef">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="msapplication-TileImage" content="/media/mstile-144x144.png">
+        <meta name="msapplication-config" content="/media/browserconfig.xml">
         <script src="lib/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
@@ -71,7 +76,7 @@
             <div class="card signedIn">
                 <input placeholder="Title" class="gameUploadField" id="gameTitle"></input>
                 <input placeholder="Game File Link" class="gameUploadField" id="gameLink"></input>
-                <input placeholder="Thumbnail" class="gameUploadField" id="gameThumbnail"></input>
+                <input placeholder="Thumbnail URL" class="gameUploadField" id="gameThumbnail"></input>
                 <select class="gameUploadField" id="gameTag">
                     <option value="none">Don't Categorise</option>
                     <option value="action">Action</option>
@@ -91,7 +96,9 @@
                     <option value="strategy">Strategy</option>
                     <option value="survival">Survival</option>
                 </select>
-                <textarea type="multiline" rows="5" placeholder="Description" id="gameDescription"></textarea><br>
+                <textarea type="multiline" rows="5" placeholder="Description" id="gameDescription"></textarea>
+                <input placeholder="Attribution Text" class="attributionGameUploadField" id="attributionText"></input>
+                <input placeholder="Attribution Link" class="attributionGameUploadField" id="attributionLink"></input><br>
                 <small>You can use Markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!</small><br>
                 <div class="right"><button onclick="gameUpload();" class="uploadGame">Upload Game</button></div>
             </div>

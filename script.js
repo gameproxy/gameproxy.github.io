@@ -190,3 +190,52 @@ function copyCurrentURL() {
     document.execCommand("copy");
     document.body.removeChild(dummy);
 }
+
+// Keyboard Shortcuts
+
+$(document).ready(function () {
+    $('body').on('keydown',function(e){
+        if (e.altKey && e.which == 71) {
+            // Alt + G (redirects to index.html)
+            window.location.href = "/index.html";  
+        } else if (e.altKey && e.which == 67) {
+            // Alt + C (redirects to chat.html)
+            window.location.href = "/chat.html";
+        } else if (e.altKey && e.which == 65) {
+            // Alt + A (redirects to account.html)
+            window.location.href = "/account.html";
+        } else if (e.altKey && e.which == 82) {
+            // Alt + R (redirects to upload.html)
+            window.location.href = "/upload.html";
+        } else if (window.location.href.indexOf("/game.html") > -1) {
+            if (e.altKey && e.which == 76) {
+                // Alt + L (likes/unlikes game)
+                like();
+            } else if (e.altKey && e.which == 85) {
+                // Alt + U (goes to uploader's profile)
+                document.getElementById("uploaderProfile").click();
+            }
+        }
+    });
+});
+
+function capitalizeText(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+});
+
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then(function(registration) {
+            console.log('Service Worker Registered');
+      });
+    navigator.serviceWorker.ready.then(function(registration) {
+       console.log('Service Worker Ready');
+    });
+  }

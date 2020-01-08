@@ -47,6 +47,9 @@ function gameUpload() {
 
             firebase.database().ref("users/" + currentUid + "/_settings/name").once("value", function(snapshot) {
                 var name = snapshot.val();
+                var attributionText = document.getElementById("attributionText").value;
+                var attributionLink = document.getElementById("attributionLink").value;
+                var title = profanity.clean($("#gameTitle").val());
 
                 toDataUrl(
                     $("#gameLink").val().startsWith("https://scratch.mit.edu/projects/")?
@@ -61,7 +64,7 @@ function gameUpload() {
                         var newGame = firebase.database().ref("games").push()
                         
                         newGame.set({
-                            title: profanity.clean($("#gameTitle").val()),
+                            title: capitalizeText(title),
                             thumbnail: base64Img,
                             src: $("#gameLink").val().replace(/http:\/\//g, "https://"),
                             description: profanity.clean($("#gameDescription").val()),
@@ -71,7 +74,9 @@ function gameUpload() {
                             uid: currentUid,
                             by: name,
                             byStaff: isStaff(currentUid),
-                            verified: isStaff(currentUid)
+                            verified: isStaff(currentUid),
+                            attributionText: attributionText,
+                            attributionLink: attributionLink
                         }).then(function() {
                             console.log(newGame);
                             window.location.href = "game.html?play=" + newGame.key;
