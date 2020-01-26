@@ -219,10 +219,12 @@ function toggleFullscreenControls() {
     showingFullscreenControls = !showingFullscreenControls;
 }
 
-function hideCrossRunBalloon() {
+function hideCrossRunBalloon(doSet = true) {
     $(".balloon.xrun").fadeOut();
 
-    localStorage.setItem("hideXrunBalloon", "true");
+    if (doSet) {
+        localStorage.setItem("hideXrunBalloon", "true");
+    }
 }
 
 function switchToCrossRun(xrun = true) {
@@ -879,6 +881,10 @@ $(function() {
             hideCrossRunBalloon();            
         });
     }    
+
+    setTimeout(function() {
+        hideCrossRunBalloon(false);
+    }, 10000);
 });
 
 $("#commentBox").keypress(function(e) {

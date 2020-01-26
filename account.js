@@ -92,7 +92,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (!signingUp) {
         change(user);
     } else {
-        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20))).then(function() {
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20)).trim()).then(function() {
             window.location.href = "index.html";
         });
     }
@@ -121,8 +121,8 @@ function setPpic(data) {
 }
 
 function setName(data) {
-    if (profanity.clean(data) != "") {
-        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean(data));
+    if (profanity.clean(data).trim() != "") {
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean(data).trim());
     } else {
         firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set("Anonymous");
     }
