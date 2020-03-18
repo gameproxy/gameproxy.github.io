@@ -88,9 +88,9 @@ $(function() {
         for (var i = 0; i < serverList.length; i++) {
             $(".itemHolder.discoverServers").append(
                 $("<div class='item serverItem'>").append(
-                    $("<a>").attr("href", "server.html?server=" + serverList[i]["key"]).append([
+                    $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
                         $("<img>").attr("src", serverList[i]["thumbnail"]),
-                        $("<div>").text(serverList[i]["title"] || "Untitled Server")
+                        $("<div>").text(serverList[i]["name"] || "Untitled Server")
                     ])
                 )
             );

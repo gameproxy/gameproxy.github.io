@@ -719,6 +719,12 @@ embed {
     background-color: unset;
 }
 
+.headerButton i.material-icons {
+    position: relative;
+    top: 2px;
+    font-size: inherit;
+}
+
 .accountPicture, .profilePicture {
     width: 80px;
     height: 80px;

@@ -8,6 +8,12 @@ body.board {
     padding-right: 5vw;
 }
 
+body.viewServer {
+    margin-top: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 nav {
     position: absolute;
     display: inline-block;
@@ -55,6 +61,10 @@ iframe.mainView {
     z-index: -1;
 }
 
+header.transparent {
+    background-color: transparent;
+}
+
 input.search {
     width: 50vw;
 }
@@ -64,7 +74,7 @@ label.property {
     margin-bottom: 10px;
 }
 
-label.property input {
+label.property input:not([type="checkbox"]):not([type="radio"]) {
     width: calc(60vw - 160px);
 }
 
@@ -288,6 +298,19 @@ label.property .propertyInfo {
     display: none;
     color: var(--secondaryBackgroundColour);
     font-size: 20px;
+}
+
+#viewServerThumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(0.6);
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: -1;
 }
 
 @media (max-width: 600px) {

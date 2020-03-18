@@ -42,42 +42,13 @@
         <script src="../script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     </head>
-    <body class="board">
-        <h1>Create new server</h1>
-        <p class="propertyWidth">Create your own new server to start chatting! You can choose who else owns your server later so they can moderate it and change advanced settings.</p>
-        <label class="property">
-            <span>Server name</span>
-            <input placeholder="For example: My Ultimate Gamer Server" id="serverName">
-        </label>
-        <label class="property">
-            <span>Server description</span>
-            <textarea rows="4" placeholder="Write a short description about your new server here..." id="serverDescription"></textarea>
-            <div class="propertyInfo">
-                You can use Markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!
-            </div>
-        </label>
-        <label class="property">
-            <span>Associated game</span>
-            <input placeholder="For example: Super Smash Flash 2" id="serverGame">
-            <div class="propertyInfo">
-                Optional; if your server is particularly associated with a certain gaming community, mention the game's name here.
-            </div>
-        </label>
-        <label class="property">
-            <span>Server privacy</span>
-            <select id="serverPrivacy">
-                <option value="public">Public - allow anyone to discover and join your server</option>
-                <option value="private">Private - server is accessible by invite only</option>
-            </select>
-        </label>
-        <p id="serverError"></p>
-        <div class="right propertyWidth">
-            <button onclick="window.location.href = 'dashboard.html';" class="bad">Cancel</button> <button onclick="createNewServer();" id="serverCreateButton">Create</button>
-        </div>
-        <div class="sidebarArt tiles"></div>
-        <a href="https://gameproxy.host/game.html?play=-LZzESSwOFuzHUmf0Q6J" target="_blank" class="questionBlock">
-            <img src="../media/QuestionBlockArt.svg" attr="A subtle question block just relaxing in the corner..." title="Don't mind me just chillin'..." />
-        </a>
+    <body class="board viewServer">
+        <header class="transparent">
+            <a href="dashboard.html" class="headerButton"><i class="material-icons">arrow_back</i> Back</a>
+        </header>
+        <img id="viewServerThumbnail" />
+        <h1 class="propertyWidth"><span class="serverName"></span> <button onclick="" class="floatRight">Join</button></h1>
+        <div class="serverDescription propertyWidth"></div>
         <div class="dialogBackground"></div>
         <div class="dialog">
             Hi!
@@ -89,6 +60,6 @@
         <script src="../pro/pro.js"></script>
         <script src="script.js"></script>
         <script src="dashboard.js"></script>
-        <script src="newServer.js"></script>
+        <script src="viewServer.js"></script>
     </body>
 </html>
