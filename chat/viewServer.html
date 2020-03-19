@@ -47,7 +47,12 @@
             <a href="dashboard.html" class="headerButton"><i class="material-icons">arrow_back</i> Back</a>
         </header>
         <img id="viewServerThumbnail" />
-        <h1 class="propertyWidth"><span class="serverName"></span> <button onclick="" class="floatRight">Join</button></h1>
+        <h1 class="propertyWidth">
+            <span class="serverName"></span>
+            <span class="serverButtons floatRight">
+                <button onclick="joinServer();" id="joinButton">Join</button>
+            </span>
+        </h1>
         <div class="serverDescription propertyWidth"></div>
         <div class="dialogBackground"></div>
         <div class="dialog">

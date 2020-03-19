@@ -75,25 +75,58 @@ $(function() {
         addToHomeScreenPrompt = event;
     });
 
-    firebase.database().ref("chat/directory").orderByKey().limitToLast(24).once("value", function(snapshot) {
-        var serverList = [];
-
-        snapshot.forEach(function(childSnapshot) {
-            serverList.unshift(childSnapshot.val());
-            serverList[0]["key"] = childSnapshot.key;
-        });
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            firebase.database().ref("chat/directory").orderByKey().limitToLast(24).once("value", function(snapshot) {
+                var serverList = [];
         
-        $(".itemHolder.discoverServers").html("");
+                snapshot.forEach(function(childSnapshot) {
+                    serverList.unshift(childSnapshot.val());
+                    serverList[0]["key"] = childSnapshot.key;
+                });
+                
+                $(".itemHolder.discoverServers").html("");
+        
+                for (var i = 0; i < serverList.length; i++) {
+                    $(".itemHolder.discoverServers").append(
+                        $("<div class='item serverItem'>").append(
+                            $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
+                                $("<img>").attr("src", serverList[i]["thumbnail"]),
+                                $("<div>").text(serverList[i]["name"] || "Untitled Server")
+                            ])
+                        )
+                    );
+                }
+            });
 
-        for (var i = 0; i < serverList.length; i++) {
-            $(".itemHolder.discoverServers").append(
-                $("<div class='item serverItem'>").append(
-                    $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
-                        $("<img>").attr("src", serverList[i]["thumbnail"]),
-                        $("<div>").text(serverList[i]["name"] || "Untitled Server")
-                    ])
-                )
-            );
+            firebase.database().ref("users/" + currentUid + "/_settings/chat/servers").on("value", function(snapshot) {
+                $(".memberServerList").html("");
+
+                for (var key in snapshot.val()) {
+                    $(".memberServerList").append(
+                        $("<div class='item serverItem'>")
+                            .attr("data-key", key)
+                            .append(
+                                $("<a>")
+                                    .attr("href", "server.html?server=" + encodeURIComponent(key))
+                                    .append([
+                                        $("<img alt=''>"),
+                                        $("<div>")
+                                    ])
+                            )
+                    );
+
+                    (function(key) {
+                        firebase.database().ref("chat/servers/" + key + "/name").on("value", function(snapshot) {
+                            $(".memberServerList div[data-key='" + key + "'] a div").text(snapshot.val());
+                        });
+
+                        firebase.database().ref("chat/servers/" + key + "/thumbnail").on("value", function(snapshot) {
+                            $(".memberServerList div[data-key='" + key + "'] a img").attr("src", snapshot.val());
+                        });
+                    })(key);
+                }
+            });
         }
     });
 });

@@ -88,6 +88,6 @@ function gameUpload() {
         dialog("Please check your info", `
             In the Game File Link section, make sure that you add a <code>https://</code>
             at the start to validate the link!
-        `, [{text: "OK", onclick: "closeDialog();", type: "primary"}])
+        `, [{text: "OK", onclick: "closeDialog();", type: "primary"}]);
     }
 }

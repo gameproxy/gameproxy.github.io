@@ -47,9 +47,10 @@
         <button onclick="window.location.href = '../index.html';" title="Exit to GameProxy homepage" id="chatExit"><i aria-label="Exit to GameProxy homepage"
                 class="material-icons">close</i></button>
         <nav>
-            <a href="javascript:goToPage('dashboard.html');" title="Dashboard" class="selected">
-                <img src="../media/Small.png">
+            <a href="javascript:goToPage('dashboard.html');" title="Dashboard" class="selected" data-page="dashboard">
+                <img src="../media/Small.png" alt="" />
             </a>
+            <span class="serverList"></span>
         </nav>
         <iframe src="dashboard.html" class="mainView"></iframe>
         <div class="dialogBackground"></div>
