@@ -21,10 +21,8 @@ function showLeaveServerDialog() {
 }
 
 function joinServer() {
-    firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).once("value", function(snapshot) {
-        firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(true).then(function() {
-            window.location.href = "server.html?server=" + encodeURIComponent(getURLParameter("server"));
-        });
+    firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(true).then(function() {
+        window.location.href = "server.html?server=" + encodeURIComponent(getURLParameter("server"));
     });
 }
 
@@ -32,30 +30,31 @@ function visitServer() {
     window.location.href = "server.html?server=" + encodeURIComponent(getURLParameter("server"));
 }
 
-firebase.auth().onAuthStateChanged(function() {
-    if (getURLParameter("server") == null) {
-        window.location.replace("dashboard.html");
-    }
-
-    firebase.database().ref("chat/directory/" + getURLParameter("server")).on("value", function(snapshot) {
-        $(".serverName").text(snapshot.val().name);
-
-        var converter = new showdown.Converter();
-
-        $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
-
-        $("#viewServerThumbnail").attr("src", snapshot.val().thumbnail);
-    });
-
-    firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).on("value", function(snapshot) {
-        if (snapshot.val() == true) {
-            $(".serverButtons").html(`
-                <button onclick="showLeaveServerDialog();" class="bad">Leave</button><button onclick="visitServer();">Visit</button>
-            `);
-        } else {
-            $(".serverButtons").html(`
-                <button onclick="joinServer();">Join</button>
-            `);
+$(function() {
+    firebase.auth().onAuthStateChanged(function() {
+        if (getURLParameter("server") == null) {
+            window.location.replace("dashboard.html");
         }
+    
+        firebase.database().ref("chat/directory/" + getURLParameter("server")).on("value", function(snapshot) {
+            $(".serverName").text(snapshot.val().name);
+    
+            var converter = new showdown.Converter();
+    
+            $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
+            $(".serverThumbnail").attr("src", snapshot.val().thumbnail);
+        });
+    
+        firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).on("value", function(snapshot) {
+            if (snapshot.val() == true) {
+                $(".serverButtons").html(`
+                    <button onclick="showLeaveServerDialog();" class="bad">Leave</button><button onclick="visitServer();">Visit</button>
+                `);
+            } else {
+                $(".serverButtons").html(`
+                    <button onclick="joinServer();">Join</button>
+                `);
+            }
+        });
     });
 });

@@ -43,7 +43,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     </head>
     <body class="board">
-        <div class="dialogBackground"></div>
+        <header>
+            <img alt="" class="serverThumbnail" id="serverHeaderThumbnail" />
+            <span class="headerText serverName"></span>
+            <div class="headerRight">
+                <span class="mobile">
+                    <a href="javascript:toggleChannelList();" class="headerButton"><span class="channelName"></span> <i class="material-icons channelDropdownIcon" aria-hidden="true">arrow_drop_down</i></a>
+                </span>
+            </div>
+        </header>
+        <div class="chatContainer">
+            <div class="chatMessages"></div>
+        </div>
+        <div class="chatBoxContainer">
+            <textarea placeholder="Say something here..." id="chatBox"></textarea>
+            <button onclick="postChatMessage();" id="chatButton"><i class="material-icons" aria-hidden="true">send</i> Send</button>
+        </div>
+        <div class="channelList"></div>
         <div class="dialog">
             Hi!
         </div>
@@ -54,6 +70,6 @@
         <script src="../pro/pro.js"></script>
         <script src="script.js"></script>
         <script src="dashboard.js"></script>
-        <script src="newServer.js"></script>
+        <script src="server.js"></script>
     </body>
 </html>

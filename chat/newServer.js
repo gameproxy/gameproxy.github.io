@@ -2,7 +2,20 @@ function finishCreatingNewServer(serverKey) {
     firebase.database().ref("chat/servers/" + serverKey + "/perms").set({
         public: $("#serverPrivacy").val() == "public"
     }).then(function() {
-        window.location.replace("server.html?server=" + serverKey);
+        firebase.database().ref("chat/servers/" + serverKey + "/channelList").set({
+            general: "general"
+        }).then(function() {
+            firebase.database().ref("chat/servers/" + serverKey + "/channels").set({
+                general: {
+                    name: "general"
+                }
+            }).then(function() {
+                firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + serverKey).set(true).then(function() {
+                    window.location.replace("server.html?server=" + encodeURIComponent(serverKey));
+                });
+                window.location.replace("server.html?server=" + serverKey);
+            });
+        });
     });
 }
 
@@ -21,7 +34,8 @@ function createNewServer() {
             name: $("#serverName").val().trim(),
             description: $("#serverDescription").val().trim(),
             masterowner: currentUid,
-            game: $("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim()
+            game: $("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim(),
+            defaultChannel: "general"
         }).then(function() {
             // Once we are established as master owner, we can define other properties of the server
 

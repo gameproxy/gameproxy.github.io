@@ -55,8 +55,6 @@ $(function() {
                     $("nav a").removeClass("selected");
                 }
             });
-        } else {
-            window.location.replace("../index.html");
         }
     });
 });
