@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>Chat - GameProxy</title>
+        <link rel="shortcut icon" href="../media/Small.png">
+        <link rel="manifest" href="manifest.json">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="../lib/showdown.min.js"></script>
+        <meta name="theme-color" content="#6b29ef">
+        <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+        <link rel="manifest" href="/media/site.webmanifest">
+        <link rel="mask-icon" href="/media/safari-pinned-tab.svg" color="#6b28ef">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="msapplication-TileImage" content="/media/mstile-144x144.png">
+        <meta name="msapplication-config" content="/media/browserconfig.xml">
+        <script src="../lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540",
+                appId: "1:1085599545540:web:5af7bc2297717b6449f191"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="../script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body class="board">
+        <header>
+            <img alt="" class="serverThumbnail" id="serverHeaderThumbnail" />
+            <div class="desktop floatLeft">
+                <a onclick="javascript:window.history.back();" class="headerButton linkToServer"><i aria-hidden="true" class="material-icons">arrow_back</i> Back</a>
+            </div>
+            <div class="mobile floatLeft">
+                <a onclick="javascript:window.history.back();" class="headerButton linkToServer"><i aria-label="Back" class="material-icons">arrow_back</i></a>
+            </div>
+            <div class="floatLeft">
+                <span class="headerText"><span class="serverName">Server</span> <i class="material-icons" aria-hidden="true">arrow_right</i> Settings</span>
+            </div>
+        </header>
+        <main>
+            <div class="card center">
+                <h1>Welcome to <span class="serverName">this server</span>!</h1>
+                <button onclick="javascript:showLeaveServerDialog();" class="reallyBad">Leave</button>
+            </div>
+            <div class="card">
+                <h2>Server privacy</h2>
+                <h3>
+                    <input type="checkbox" role="switch">
+                    Allow everyone to discover and join this server
+                </h3>
+                <p>
+                    Enabling this option will display your server on the
+                    dashboard, allowing others (who you may not know in real
+                    life) to join. Keeping this option off allows you to choose
+                    which players to invite to the server.
+                </p>
+            </div>
+            <div class="card">
+                <h2>Mentions</h2>
+                <p class="center">You can be mentioned by others if they send a message with <strong class="mentionExample">{*}</strong> inside.</p>
+                <p>
+                    Mentions are a way of communicating to others who are
+                    offline or inactive. When you send a message with their name
+                    enclosed in curly brace brackets (for example, <strong>{Joe513}</strong>),
+                    they will be sent a notification so that they can respond
+                    to the message that you sent.
+                </p>
+                <p>
+                    You can use wildcards to specify groups of people ─ for
+                    example, sending <strong>{*}</strong> will alert everyone on the
+                    server. With this, you can send a message to everyone with a
+                    username starting with 'A' with <strong>{A*}</strong>.
+                </p>
+                <p>
+                    If you want to send a message to the server owners, type
+                    <strong>{owners:*}</strong>. You can also send a message to the
+                    members too: <strong>{members:*}</strong>.
+                </p>
+            </div>
+            <div class="card">
+                <h2>Server details</h2>
+                <label class="property fullWidth">
+                    <span>Server name</span>
+                    <input onchange="setServerDetails();" id="serverName">
+                </label>
+                <label class="property fullWidth">
+                    <span>Thumbnail URL</span>
+                    <input onchange="setServerDetails();" id="serverThumbnail">
+                </label>
+                <label class="property fullWidth">
+                    <span>Description</span>
+                    <textarea rows="6" onchange="setServerDetails();" id="serverDescription"></textarea>
+                </label>
+            </div>
+            <div class="card">
+                <h2>Channels</h2>
+                <p>Channels on this server:</p>
+                <div id="settingsChannelList"></div>
+            </div>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
+        <script src="../profanityFilter.js"></script>
+        <script src="../staffList.js"></script>
+        <script src="../gpProList.js"></script>
+        <script src="../account.js"></script>
+        <script src="../pro/pro.js"></script>
+        <script src="script.js"></script>
+        <script src="dashboard.js"></script>
+        <script src="server.js"></script>
+        <script src="serverSettings.js"></script>
+    </body>
+</html>

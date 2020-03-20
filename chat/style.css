@@ -77,6 +77,10 @@ header.transparent {
     background-color: transparent;
 }
 
+main {
+    min-height: unset;
+}
+
 input.search {
     width: 50vw;
 }
@@ -90,6 +94,10 @@ label.property input:not([type="checkbox"]):not([type="radio"]) {
     width: calc(60vw - 160px);
 }
 
+label.property.fullWidth input:not([type="checkbox"]):not([type="radio"]) {
+    width: calc(100% - 190px);
+}
+
 label.property select {
     width: calc(60vw - 160px + 20px);
     margin-left: 5px!important;
@@ -98,6 +106,10 @@ label.property select {
 label.property textarea {
     width: calc(60vw - 160px);
     vertical-align: top;
+}
+
+label.property.fullWidth textarea {
+    width: calc(100% - 190px);
 }
 
 label.property .propertyInfo {
@@ -317,6 +329,8 @@ label.property .propertyInfo {
     border-radius: 5px;
     text-decoration: none;
     transition: 1s background-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .channelList .channelButton:hover {
@@ -389,6 +403,16 @@ label.property .propertyInfo {
     padding: 10px;
 }
 
+.settingsChannel {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.settingsChannel .floatRight {
+    margin: -10px;
+    margin-top: -15px;
+}
+
 #chatExit {
     position: fixed;
     top: 10px;
@@ -447,6 +471,12 @@ label.property .propertyInfo {
     width: 75px;
 }
 
+@media (max-width: 800px) {
+    main {
+        width: unset!important;
+    }
+}
+
 @media (max-width: 600px) {
     nav {
         width: calc(100vw - 10px);
@@ -484,7 +514,7 @@ label.property .propertyInfo {
         width: 100%;
     }
 
-    label.property input {
+    label.property input:not([type="checkbox"]):not([type="radio"]), label.property.fullWidth input:not([type="checkbox"]):not([type="radio"]) {
         width: calc(100% - 20px);
         margin: 0;
     }
@@ -494,7 +524,7 @@ label.property .propertyInfo {
         margin: 0;
     }
 
-    label.property textarea {
+    label.property textarea, label.property.fullWidth textarea {
         width: calc(100% - 20px);
         margin: 0;
     }

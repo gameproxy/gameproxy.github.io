@@ -48,7 +48,7 @@ $(function() {
                 if (currentPage == "dashboard.html") {
                     $("nav a:not([data-page='dashboard'])").removeClass("selected");
                     $("nav a[data-page='dashboard']").addClass("selected");
-                } else if (currentPage.startsWith("server.html?") || currentPage.startsWith("viewServer.html?")) {
+                } else if (currentPage.startsWith("server.html?") || currentPage.startsWith("viewServer.html?") || currentPage.startsWith("serverSettings.html?")) {
                     $("nav a:not([data-key='" + getSpecificURLParameter(currentPage, "server") + "'])").removeClass("selected");
                     $("nav a[data-key='" + getSpecificURLParameter(currentPage, "server") + "']").addClass("selected");
                 } else {

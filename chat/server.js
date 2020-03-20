@@ -159,6 +159,12 @@ function switchChannel(channelKey) {
 
         $(".channelDropdownIcon").text("arrow_drop_down");
     }
+
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channels/" + channelKey + "/name").once("value", function(snapshot) {
+        currentChannel.name = snapshot.val();
+
+        $(".channelName").text("#" + currentChannel.name);
+    });
 }
 
 function postChatMessage() {
@@ -203,7 +209,9 @@ $(function() {
         if (getURLParameter("server") == null) {
             window.location.replace("dashboard.html");
         }
-    
+
+        $(".linkToSettings").attr("href", "serverSettings.html?server=" + encodeURIComponent(getURLParameter("server")));
+
         firebase.database().ref("chat/directory/" + getURLParameter("server")).on("value", function(snapshot) {
             $(".serverName").text(snapshot.val().name);
     

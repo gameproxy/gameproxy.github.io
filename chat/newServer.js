@@ -3,11 +3,15 @@ function finishCreatingNewServer(serverKey) {
         public: $("#serverPrivacy").val() == "public"
     }).then(function() {
         firebase.database().ref("chat/servers/" + serverKey + "/channelList").set({
-            general: "general"
+            general: "general",
+            random: "random"
         }).then(function() {
             firebase.database().ref("chat/servers/" + serverKey + "/channels").set({
                 general: {
                     name: "general"
+                },
+                random: {
+                    name: "random"
                 }
             }).then(function() {
                 firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + serverKey).set(true).then(function() {
