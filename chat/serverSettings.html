@@ -58,6 +58,7 @@
         <main>
             <div class="card center">
                 <h1>Welcome to <span class="serverName">this server</span>!</h1>
+                <button class="goToViewServer">View server details</button>
                 <button onclick="javascript:showLeaveServerDialog();" class="reallyBad">Leave</button>
             </div>
             <div class="card">
@@ -102,6 +103,10 @@
                     <input onchange="setServerDetails();" id="serverName">
                 </label>
                 <label class="property fullWidth">
+                    <span>Associated game</span>
+                    <input onchange="setServerDetails();" id="serverGame">
+                </label>
+                <label class="property fullWidth">
                     <span>Thumbnail URL</span>
                     <input onchange="setServerDetails();" id="serverThumbnail">
                 </label>
@@ -114,6 +119,22 @@
                 <h2>Channels</h2>
                 <p>Channels on this server:</p>
                 <div id="settingsChannelList"></div>
+                <div class="center">
+                    <button onclick="showCreateNewChannelDialog();"><i class="material-icons" aria-hidden="true">add</i> Create new channel</button>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Delete server</h2>
+                <p>
+                    If things aren't going good, you can delete the server.
+                    Beware that deleting the server is not undoable, and so all
+                    data will be lost. The data may be recoverable if the
+                    GameProxy admins have recently backed it up, but this is not
+                    guaranteed.
+                </p>
+                <div class="right">
+                    <button onclick="showDeleteServerDialog();" class="reallyBad"><i class="material-icons" aria-hidden="true">delete</i> Delete server</button>
+                </div>
             </div>
         </main>
         <div class="dialogBackground"></div>

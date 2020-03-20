@@ -39,6 +39,7 @@ nav a, nav a img {
     height: 50px;
     border-radius: 35px;
     object-fit: cover;
+    vertical-align: top;
 }
 
 nav a {

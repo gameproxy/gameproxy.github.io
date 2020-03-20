@@ -38,6 +38,12 @@ $(function() {
                         firebase.database().ref("chat/servers/" + key + "/thumbnail").on("value", function(snapshot) {
                             $(".serverList a[data-key='" + key + "'] img").attr("src", snapshot.val());
                         });
+
+                        firebase.database().ref("chat/servers/" + key).on("value", function(snapshot) {
+                            if (snapshot.val() == null) {
+                                firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + key).set(null);
+                            }
+                        });
                     })(key);
                 }
             });

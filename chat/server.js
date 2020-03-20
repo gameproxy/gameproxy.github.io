@@ -212,13 +212,18 @@ $(function() {
 
         $(".linkToSettings").attr("href", "serverSettings.html?server=" + encodeURIComponent(getURLParameter("server")));
 
-        firebase.database().ref("chat/directory/" + getURLParameter("server")).on("value", function(snapshot) {
-            $(".serverName").text(snapshot.val().name);
-    
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(snapshot) {
+            $(".serverName").text(snapshot.val());
+        });
+
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").once("value", function(snapshot) {
+            $(".serverThumbnail").attr("src", snapshot.val());
+        });
+
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").once("value", function(snapshot) {
             var converter = new showdown.Converter();
     
-            $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
-            $(".serverThumbnail").attr("src", snapshot.val().thumbnail);
+            $(".serverDescription").html(converter.makeHtml(snapshot.val().replace(/</g, "&lt;").replace(/>/g, "&gt;")));
         });
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channelList").on("value", function(snapshot) {

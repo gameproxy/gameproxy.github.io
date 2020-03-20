@@ -3,14 +3,14 @@ function finishCreatingNewServer(serverKey) {
         public: $("#serverPrivacy").val() == "public"
     }).then(function() {
         firebase.database().ref("chat/servers/" + serverKey + "/channelList").set({
-            general: "general",
-            random: "random"
+            "--general": "general",
+            "--random": "random"
         }).then(function() {
             firebase.database().ref("chat/servers/" + serverKey + "/channels").set({
-                general: {
+                "--general": {
                     name: "general"
                 },
-                random: {
+                "--random": {
                     name: "random"
                 }
             }).then(function() {
@@ -39,7 +39,7 @@ function createNewServer() {
             description: $("#serverDescription").val().trim(),
             masterowner: currentUid,
             game: $("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim(),
-            defaultChannel: "general"
+            defaultChannel: "--general"
         }).then(function() {
             // Once we are established as master owner, we can define other properties of the server
 

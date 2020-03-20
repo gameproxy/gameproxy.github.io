@@ -10,16 +10,26 @@ function getURLParameter(name) {
 function leaveServer() {
     firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + currentUid).set(null);
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + currentUid).set(null);
     });
 }
 
 function showLeaveServerDialog() {
-    dialog("Leave server?", `
-        Do you really want to leave this server?
-    `, [
-        {text: "Cancel", onclick: "closeDialog();", type: "bad"},
-        {text: "Leave", onclick: "leaveServer(); closeDialog();", type: "reallyBad"}
-    ]);
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(snapshot) {
+        if (snapshot.val() != currentUid) {
+            dialog("Leave server?", `
+                Do you really want to leave this server?
+            `, [
+                {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+                {text: "Leave", onclick: "leaveServer(); closeDialog();", type: "reallyBad"}
+            ]);
+        } else {
+            dialog("You can't do that!", `
+                Sorry, but master owners cannot leave the server they created.
+                You can always delete the server, though.
+            `);
+        }
+    });
 }
 
 function joinServer() {
