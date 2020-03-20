@@ -340,7 +340,7 @@ label.property .propertyInfo {
 }
 
 .chatMessage {
-    width: calc(100vw - 290px);
+    width: calc(100vw - 292px);
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
