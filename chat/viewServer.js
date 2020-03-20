@@ -8,7 +8,9 @@ function getURLParameter(name) {
 }
 
 function leaveServer() {
-    firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null);
+    firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + currentUid).set(null);
+    });
 }
 
 function showLeaveServerDialog() {
@@ -22,7 +24,9 @@ function showLeaveServerDialog() {
 
 function joinServer() {
     firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(true).then(function() {
-        window.location.href = "server.html?server=" + encodeURIComponent(getURLParameter("server"));
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + currentUid).set(true).then(function() {
+            window.location.href = "server.html?server=" + encodeURIComponent(getURLParameter("server"));
+        });
     });
 }
 

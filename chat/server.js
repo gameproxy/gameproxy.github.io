@@ -126,26 +126,14 @@ $(function() {
             $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
             $(".serverThumbnail").attr("src", snapshot.val().thumbnail);
         });
-    
-        firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).on("value", function(snapshot) {
-            if (snapshot.val() == true) {
-                $(".serverButtons").html(`
-                    <button onclick="showLeaveServerDialog();" class="bad">Leave</button><button onclick="visitServer();">Visit</button>
-                `);
-            } else {
-                $(".serverButtons").html(`
-                    <button onclick="joinServer();">Join</button>
-                `);
-            }
-        });
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channelList").on("value", function(snapshot) {
-            $(".channelList").html("");
+            $(".channels").html("");
             
             for (var key in snapshot.val()) {
                 (function(key) {
                     firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channels/" + key + "/name").once("value", function(nameSnapshot) {
-                        $(".channelList").append(
+                        $(".channels").append(
                             $("<a class='channelButton'>")
                                 .attr("data-key", key)
                                 .attr("href", "javascript:switchChannel('" + key + "');")

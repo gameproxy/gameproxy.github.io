@@ -299,6 +299,16 @@ label.property .propertyInfo {
     overflow: auto;
 }
 
+.channelList .channelHeader {
+    padding: 5px;
+    color: #aeaeae;
+    text-transform: uppercase;
+}
+
+.channelList .channelContainer {
+    margin-bottom: 10px;
+}
+
 .channelList .channelButton {
     display: block;
     margin-bottom: 5px;
@@ -325,7 +335,8 @@ label.property .propertyInfo {
     width: calc(100vw - 270px);
     height: calc(100vh - 160px);
     padding: 10px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .chatMessage {
@@ -347,6 +358,7 @@ label.property .propertyInfo {
     text-align: right;
     text-decoration: none;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
