@@ -834,7 +834,7 @@ $(function() {
     //                 //         </p>
     //                 //         <div>
     //                 //             So if you're a Norwich School pupil and wish to show us your interest, visit:<br>
-    //                 //             <a href="https://gameproxy.host/sfk/interest/" target="_blank">gameproxy.host/sfk/interest</a>
+    //                 //             <a href="/sfk/interest/" target="_blank">gameproxy.host/sfk/interest</a>
     //                 //         </div><br>
     //                 //         <div>
     //                 //             <small>
@@ -845,7 +845,7 @@ $(function() {
     //                 //     </div>
     //                 // `, [
     //                 //     {text: "Later", onclick: "closeDialog();", type: "bad"},
-    //                 //     {text: "Register Interest!", onclick: "window.open(&quot;https://gameproxy.host/sfk/interest/&quot;); closeDialog();", type: "primary"}
+    //                 //     {text: "Register Interest!", onclick: "window.open(&quot;/sfk/interest/&quot;); closeDialog();", type: "primary"}
     //                 // ]);
 
     //                 dialog("Smash Flash Knockout Tournament", `
@@ -869,7 +869,7 @@ $(function() {
     //                     </div>
     //                 `, [
     //                     {text: "Later", onclick: "closeDialog();", type: "bad"},
-    //                     {text: "Learn More", onclick: "window.open(&quot;https://gameproxy.host/sfk&quot;); closeDialog();", type: "primary"}
+    //                     {text: "Learn More", onclick: "window.open(&quot;/sfk&quot;); closeDialog();", type: "primary"}
     //                 ]);
     //             }
     //         }

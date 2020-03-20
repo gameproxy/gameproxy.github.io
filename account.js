@@ -108,7 +108,7 @@ function refreshPpic() {
             $(".accountPicture").attr("src", data);
         });
     } catch (e) {
-        $(".accountPicture").attr("src", "https://gameproxy.host/media/AnonUser.png");
+        $(".accountPicture").attr("src", "/media/AnonUser.png");
     }
 }
 
@@ -210,7 +210,7 @@ function shareProfile() {
         `
     );
 
-    $(".shareProfileLink").val("https://gameproxy.host/profile.html?user=" + currentUid);
+    $(".shareProfileLink").val("/profile.html?user=" + currentUid);
 }
 
 var input = document.getElementById("pass");

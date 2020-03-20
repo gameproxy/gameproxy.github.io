@@ -38,7 +38,7 @@ function addMessage(message) {
     var converter = new showdown.Converter();
 
     var usernameLink = $("<a target='_blank'>")
-        .attr("href", "https://gameproxy.host/profile.html?user=" + encodeURIComponent(message.uid))
+        .attr("href", "/profile.html?user=" + encodeURIComponent(message.uid))
         .append(
             $("<strong>")
                 .text(profanity.clean(message.by))
