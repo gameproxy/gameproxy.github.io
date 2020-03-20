@@ -19,11 +19,11 @@
         <script src="../lib/showdown.min.js"></script>
         <meta name="theme-color" content="#6b29ef">
         <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
-<link rel="manifest" href="/media/site.webmanifest">
-<link rel="mask-icon" href="/media/safari-pinned-tab.svg" color="#6b28ef">
-<meta name="msapplication-TileColor" content="#9f00a7">
-<meta name="msapplication-TileImage" content="/media/mstile-144x144.png">
-<meta name="msapplication-config" content="/media/browserconfig.xml">
+        <link rel="manifest" href="/media/site.webmanifest">
+        <link rel="mask-icon" href="/media/safari-pinned-tab.svg" color="#6b28ef">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="msapplication-TileImage" content="/media/mstile-144x144.png">
+        <meta name="msapplication-config" content="/media/browserconfig.xml">
         <script src="../lib/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
         <script>
@@ -47,27 +47,35 @@
         <p class="propertyWidth">Create your own new server to start chatting! You can choose who else owns your server later so they can moderate it and change advanced settings.</p>
         <label class="property">
             <span>Server name</span>
-            <input placeholder="For example: My Ultimate Gamer Server">
+            <input placeholder="For example: My Ultimate Gamer Server" id="serverName">
         </label>
         <label class="property">
             <span>Server description</span>
-            <textarea rows="4" placeholder="Write a short description about your new server here..."></textarea>
+            <textarea rows="4" placeholder="Write a short description about your new server here..." id="serverDescription"></textarea>
             <div class="propertyInfo">
                 You can use Markdown: <strong>**bold**</strong>, <em>*italic*</em>, <code>`code`</code>, <a href="javascript:alert('Replace \'url\' with your custom URL!');">[link](url)</a> and much more!
             </div>
         </label>
         <label class="property">
             <span>Associated game</span>
-            <input placeholder="For example: Super Smash Flash 2">
+            <input placeholder="For example: Super Smash Flash 2" id="serverGame">
             <div class="propertyInfo">
                 Optional; if your server is particularly associated with a certain gaming community, mention the game's name here.
             </div>
         </label>
+        <label class="property">
+            <span>Server privacy</span>
+            <select id="serverPrivacy">
+                <option value="public">Public - allow anyone to discover and join your server</option>
+                <option value="private">Private - server is accessible by invite only</option>
+            </select>
+        </label>
+        <p id="serverError"></p>
         <div class="right propertyWidth">
-            <button onclick="window.location.href = 'dashboard.html';" class="bad">Cancel</button> <button>Create</button>
+            <button onclick="window.location.href = 'dashboard.html';" class="bad">Cancel</button> <button onclick="createNewServer();" id="serverCreateButton">Create</button>
         </div>
         <div class="sidebarArt tiles"></div>
-        <a href="https://gameproxy.host/game.html?play=-LZzESSwOFuzHUmf0Q6J" target="_blank" class="questionBlock">
+        <a href="../game.html?play=-LZzESSwOFuzHUmf0Q6J" target="_blank" class="questionBlock">
             <img src="../media/QuestionBlockArt.svg" attr="A subtle question block just relaxing in the corner..." title="Don't mind me just chillin'..." />
         </a>
         <div class="dialogBackground"></div>
@@ -81,5 +89,6 @@
         <script src="../pro/pro.js"></script>
         <script src="script.js"></script>
         <script src="dashboard.js"></script>
+        <script src="newServer.js"></script>
     </body>
 </html>

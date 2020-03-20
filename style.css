@@ -719,6 +719,34 @@ embed {
     background-color: unset;
 }
 
+.headerButton i.material-icons {
+    position: relative;
+    top: 2px;
+    font-size: inherit;
+}
+
+.headerText {
+    display: inline-block;
+    max-width: 50vw;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--lightMainText);
+    font-size: 20px;
+    border-radius: 5px;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: 1s;
+}
+
+.headerText i.material-icons {
+    position: relative;
+    top: 2px;
+    font-size: inherit;
+}
+
 .accountPicture, .profilePicture {
     width: 80px;
     height: 80px;
@@ -1147,7 +1175,7 @@ select.attributionGameUploadField {
 }
 
 @media (max-width: 400px) {
-    .headerButton {
+    .headerButton, .headerText {
         font-size: 16px;
     }
 

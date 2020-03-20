@@ -10,8 +10,9 @@
           
           gtag('config', 'UA-128441061-1');
         </script>
-        <title>GameProxy Pro</title>
-        <link rel="shortcut icon" href="../media/ProSmall.png">
+        <title>Chat - GameProxy</title>
+        <link rel="shortcut icon" href="../media/Small.png">
+        <link rel="manifest" href="manifest.json">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
         <link rel="stylesheet" href="../style.css">
         <link rel="stylesheet" href="style.css">
@@ -41,46 +42,29 @@
         <script src="../script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     </head>
-    <body>
-        <a class="skipTo" href="#content">Skip to content</a>
-        <a class="skipTo" href="#footer">Skip to footer</a>
-        <header>
-            <span class="desktop">
-                <a href="index.html" title="Go to main page" class="headerButton logo">
-                    <img src="../media/ProLarge.png" alt="GameProxy logo" id="headerLogo" />
-                </a>
-            </span>
-            <span class="mobile">
-                <a href="index.html" title="Go to main page" class="headerButton logo">
-                    <img src="../media/ProSmall.png" alt="GameProxy logo" id="headerLogo" />
-                </a>
-            </span>
-            <div class="headerRight">
-                <a href="../index.html" class="headerButton desktop">GameProxy</a>
-                <a href="index.html" class="headerButton">Learn More</a>
-            </div>
+    <body class="board viewServer">
+        <header class="transparent">
+            <a href="dashboard.html" class="headerButton"><i class="material-icons" aria-hidden="true">arrow_back</i> Back</a>
         </header>
-        <main id="content">
-            <h1 class="center">Payment Complete!</h1>
-            <div class="card center">
-                <p>Nice work! Welcome to GameProxy Pro!</p>
-                <p>
-                    Now that you have GameProxy Pro, the site's your oyster!
-                    We hope you enjoy your GameProxy Pro subscription. If you
-                    run into any problems, just email us at
-                    <a href="mailto:support@gameproxy.host">support@gameproxy.host</a>
-                    with your account's email address.
-                </p>
-                <button onclick="window.location.href = '../index.html';" class="primary">Go to GameProxy homepage</button>
-            </div>
-        </main>
+        <img class="serverThumbnail" id="viewServerThumbnail" />
+        <h1 class="propertyWidth">
+            <span class="serverName"></span>
+            <span class="serverButtons floatRight">
+                <button onclick="joinServer();" id="joinButton">Join</button>
+            </span>
+        </h1>
+        <div class="serverDescription propertyWidth"></div>
         <div class="dialogBackground"></div>
         <div class="dialog">
             Hi!
         </div>
-        <footer import="/footer.html" id="footer"></footer>
         <script src="../profanityFilter.js"></script>
         <script src="../staffList.js"></script>
+        <script src="../gpProList.js"></script>
         <script src="../account.js"></script>
+        <script src="../pro/pro.js"></script>
+        <script src="script.js"></script>
+        <script src="dashboard.js"></script>
+        <script src="viewServer.js"></script>
     </body>
 </html>

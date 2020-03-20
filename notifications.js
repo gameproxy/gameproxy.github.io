@@ -59,7 +59,7 @@ function newNotification(key, value, unread = true) {
     $("<strong><a class='hidden'></strong>")
         .find("a")
         .text(value.username)
-        .attr("href", "https://gameproxy.host/profile.html?user=" + value.uid)
+        .attr("href", "/profile.html?user=" + value.uid)
         .css("color", isStaff(value.uid) ? "#27ef70" : (isGameProxyPro(value.uid) ? "#b3c20f" : "inherit"))
         .parent()
         .appendTo((unread ? ".notificationUnread " : ".notificationArchive ") + ".notification:first")
@@ -74,7 +74,7 @@ function newNotification(key, value, unread = true) {
         $("<strong><a class='hidden'></strong>")
             .find("a")
             .text(value.targetName)
-            .attr("href", "https://gameproxy.host/game.html?play=" + value.target)
+            .attr("href", "/game.html?play=" + value.target)
             .parent()
             .appendTo((unread ? ".notificationUnread " : ".notificationArchive ") + ".notification:first")
         ;
