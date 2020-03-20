@@ -8,7 +8,7 @@ var motdList = [
     {
         "src": "motd/Pro.png",
         "alt": "Get GameProxy Pro today! Gain amazing benefits and unlock superpowers on the site!",
-        "onclick": "window.location.href = 'https://gameproxy.host/pro';"
+        "onclick": "window.location.href = '/pro';"
     },
 
     {
@@ -20,7 +20,7 @@ var motdList = [
     {
         "src": "motd/GameProxyChoice/TheHouse.png",
         "alt": "GameProxy Choice: The House",
-        "onclick": "window.location.href = 'https://gameproxy.host/game.html?play=-LTh3lHod5qJ7qZwGXQV';"
+        "onclick": "window.location.href = '/game.html?play=-LTh3lHod5qJ7qZwGXQV';"
     },
 
     {

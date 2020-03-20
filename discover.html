@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128441061-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-128441061-1');
+        </script>
+        <title>Discover | GameProxy</title>
+        <link rel="shortcut icon" href="media/Small.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="discover.css">
+        <script src="lib/showdown.min.js"></script>
+        <script src="discover.js"></script>
+        <meta name="theme-color" content="#6b29ef">
+        <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+        <link rel="manifest" href="/media/site.webmanifest">
+        <link rel="mask-icon" href="/media/safari-pinned-tab.svg" color="#6b28ef">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="msapplication-TileImage" content="/media/mstile-144x144.png">
+        <meta name="msapplication-config" content="/media/browserconfig.xml">
+        <script src="lib/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyCgGrYsZ0R5Bg-Svoz4qh0CfcvGaG5xJNo",
+                authDomain: "gameproxy-web.firebaseapp.com",
+                databaseURL: "https://gameproxy-web.firebaseio.com",
+                projectId: "gameproxy-web",
+                storageBucket: "gameproxy-web.appspot.com",
+                messagingSenderId: "1085599545540",
+                appId: "1:1085599545540:web:5af7bc2297717b6449f191"
+            };
+            
+            firebase.initializeApp(config);
+        </script>
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <main>
+            <header>
+                <img src="/media/Small.png" alt="GP Logo" class="discoverHeaderImage">
+                <span class="discoverHeaderText">Discover</span>
+                <span class="creatorHolder"><span class="gameName">Super Smash Flash 2</span> | <span class="gameUploader">Seb</span></span>
+                <div class="topOptions">
+                    <button aria-label="View original game" title="View original game" class="originalGame" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">play_arrow</i> <span class="desktop">View Original Game</span></button>
+                    <button aria-label="Go fullscreen" title="Go fullscreen" class="fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
+                </div>
+            </header>
+            <div class="game">
+
+            </div>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog">
+            Hi!
+        </div>
+        <footer>
+            <button aria-label="Random game" title="Random game" class="randomChoice" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">explore</i> <span class="desktop">Random</span></button>
+        </footer>
+        <script src="profanityFilter.js"></script>
+        <script src="staffList.js"></script>
+        <script src="gpProList.js"></script>
+        <script src="account.js"></script>
+        <script src="pro/pro.js"></script>
+    </body>
+</html>
