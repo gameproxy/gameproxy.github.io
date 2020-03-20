@@ -58,13 +58,13 @@
         <main>
             <div class="card center">
                 <h1>Welcome to <span class="serverName">this server</span>!</h1>
-                <button class="goToViewServer">View server details</button>
+                <button class="goToViewServer serverPublic">View server details</button>
                 <button onclick="javascript:showLeaveServerDialog();" class="reallyBad">Leave</button>
             </div>
             <div class="card">
                 <h2>Server privacy</h2>
                 <h3>
-                    <input type="checkbox" role="switch">
+                    <input type="checkbox" role="switch" onchange="setServerPrivacy();" id="serverPublic">
                     Allow everyone to discover and join this server
                 </h3>
                 <p>

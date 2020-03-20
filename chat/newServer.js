@@ -46,7 +46,8 @@ function createNewServer() {
             if ($("#serverPrivacy").val() == "public") {
                 firebase.database().ref("chat/directory/" + serverRef.key).set({
                     name: $("#serverName").val().trim(),
-                    description: $("#serverDescription").val().trim()
+                    description: $("#serverDescription").val().trim(),
+                    game: $("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim()
                 }).then(function() {
                     finishCreatingNewServer(serverRef.key);
                 });

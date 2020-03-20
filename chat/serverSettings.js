@@ -133,6 +133,31 @@ function showDeleteServerDialog() {
     ]);
 }
 
+function setServerPrivacy() {
+    if ($("#serverPublic").is(":checked")) {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/perms/public").set(true);
+
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(nameSnapshot) {
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/game").once("value", function(gameSnapshot) {
+                firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").once("value", function(thumbnailSnapshot) {
+                    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").once("value", function(descriptionSnapshot) {
+                        firebase.database().ref("chat/directory/" + getURLParameter("server")).set({
+                            name: nameSnapshot.val(),
+                            game: gameSnapshot.val(),
+                            thumbnail: thumbnailSnapshot.val(),
+                            description: descriptionSnapshot.val()
+                        });
+                    });
+                });
+            });
+        });
+    } else {
+        firebase.database().ref("chat/directory/" + getURLParameter("server")).set(null);
+
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/perms/public").set(false);
+    }
+}
+
 $(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -157,6 +182,18 @@ $(function() {
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").once("value", function(snapshot) {
                 $("#serverDescription").val(snapshot.val());
+            });
+
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/perms/public").on("value", function(snapshot) {
+                $("#serverPublic").prop("checked", snapshot.val());
+
+                if (snapshot.val() == true) {
+                    $(".serverPublic").show();
+                    $(".serverPrivate").hide();
+                } else {
+                    $(".serverPublic").hide();
+                    $(".serverPrivate").show();
+                }
             });
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channelList").on("value", function(snapshot) {
