@@ -1,0 +1,65 @@
+.discoverHeaderImage {
+    height: 3vh;
+    float: left;
+    padding-right: 1vw;
+}
+
+.discoverHeaderText {
+    float: left;
+    padding-top: 0.4vh;
+    font-weight: bold;
+}
+
+header {
+    height: 3.1vh;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    width: calc(100% - 4px);
+    margin: none;
+    margin-bottom: 0px;
+    padding-bottom: 1vh;
+    background-color: var(--secondaryBackgroundColour);
+    height: 3.1vh;
+    left: 0;
+    bottom: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.creatorHolder {
+    display: table;
+    margin: 0 auto;
+    margin-top: 0.4vh;
+    font-weight: bold;
+}
+
+.fullscreen {
+    float: right;
+    top: 0vh;
+    right: 0.2vw;
+}
+
+.originalGame {
+    float: right;
+    top: 0vh;
+    right: 0.2vw;
+}
+
+.topOptions {
+    position: fixed;
+    top: 0;
+    right: 0;
+    float: right;
+}
+
+.randomChoice {
+    display: table;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -0.5vh;
+}
