@@ -42,54 +42,11 @@
         <script src="../script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     </head>
-    <body class="board">
-        <h1>Dashboard</h1>
-        <div class="card search">
-            <input placeholder="Search for a server, user or gaming community..." class="search"></input><button class="search">Search</button>
-        </div>
-        <div class="chatGetStarted restrictWidth">
-            <div class="card coloured">
-                <h3>Get started with GameProxy Chat</h3>
-                <p>
-                    Follow these steps to get started with GameProxy Chat.
-                    You'll be chatting to friends in no time!
-                </p>
-                <button title="Dismiss" onclick="dismissGetStarted();" class="chatGetStartedDismiss"><i aria-label="Dismiss" class="material-icons">close</i></button>
-                <a href="javascript:addToHomeScreen();" class="hidden">
-                    <div data-get-started-step="pwa" class="chatGetStartedStep">
-                        <i aria-hidden="true" class="material-icons">add</i>
-                        <span>1. Get the web app</span>
-                    </div>
-                </a>
-                <a href="javascript:enableNotifications();" class="hidden">
-                    <div data-get-started-step="notifications" class="chatGetStartedStep">
-                        <i aria-hidden="true" class="material-icons">notifications</i>
-                        <span>2. Enable notifications</span>
-                    </div>
-                </a>
-                <a href="#" class="hidden">
-                    <div data-get-started-step="joincreate" class="chatGetStartedStep">
-                        <i aria-hidden="true" class="material-icons">message</i>
-                        <span>3. Join or create a server</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="chatInvites restrictWidth"></div>
-        <h2>Your servers</h2>
-        <div class="itemHolder memberServers">
-            <span class="memberServerList"></span>
-            <div class="item serverItem newServer">
-                <a href="newServer.html">
-                    <i aria-hidden="true" class="material-icons">add</i>
-                    <span>Create new server</span>
-                </a>
-            </div>
-        </div>
-        <h2>Discover servers</h2>
-        <div class="itemHolder discoverServers">
-            <div class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
-        </div>
+    <body class="board message">
+        <div class="iconArt"><i class="material-icons" aria-hidden="true">report</i></div>
+        <h1>You've been kicked out of this server</h1>
+        <p>Your membership from this server has been removed by its owners.</p>
+        <button onclick="window.location.href = 'dashboard.html';">Go to dashboard</button>
         <div class="dialogBackground"></div>
         <div class="dialog">
             Hi!
@@ -100,6 +57,6 @@
         <script src="../account.js"></script>
         <script src="../pro/pro.js"></script>
         <script src="script.js"></script>
-        <script src="dashboard.js"></script>
+        <script src="serverKickOut.html"></script>
     </body>
 </html>

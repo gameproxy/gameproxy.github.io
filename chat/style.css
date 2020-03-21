@@ -8,6 +8,11 @@ body.board {
     padding-right: 5vw;
 }
 
+body.message {
+    margin-top: 20vh;
+    text-align: center;
+}
+
 body.viewServer {
     margin-top: 200px;
     background-size: cover;
@@ -404,12 +409,12 @@ label.property .propertyInfo {
     padding: 10px;
 }
 
-.settingsChannel, .settingsUser {
+.chatInvite, .settingsChannel, .settingsUser {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.settingsChannel .floatRight, .settingsUser .floatRight {
+.chatInvite .floatRight, .settingsChannel .floatRight, .settingsUser .floatRight {
     margin: -10px;
     margin-top: -15px;
 }
@@ -420,6 +425,18 @@ label.property .propertyInfo {
 
 .settingsUser select[disabled] {
     opacity: 0.5;
+}
+
+.inviteUserSearchList .floatRight {
+    margin: -15px;
+}
+
+.iconArt {
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.iconArt .material-icons {
+    font-size: 60px!important;
 }
 
 #chatExit {
@@ -597,14 +614,20 @@ label.property .propertyInfo {
         width: 100%;
     }
 
-    .settingsChannel, .settingsUser {
+    .chatInvite, .settingsChannel, .settingsUser {
         padding-top: 10px;
         padding-bottom: 10px;
     }
 
-    .settingsChannel .floatRight, .settingsUser .floatRight {
+    .chatInvite .floatRight, .settingsChannel .floatRight, .settingsUser .floatRight {
         float: none!important;
         margin-top: 0;
+        text-align: right;
+    }
+
+    .inviteUserSearchList .floatRight {
+        float: none!important;
+        margin: unset;
         text-align: right;
     }
 }

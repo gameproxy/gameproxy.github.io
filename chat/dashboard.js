@@ -64,6 +64,18 @@ firebase.auth().onAuthStateChanged(function() {
     });
 });
 
+function deleteInvite(key) {
+    firebase.database().ref("users/" + currentUid + "/chat/invites/" + key).set(null);
+}
+
+function acceptInvite(key, server) {
+    firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + server).set(true).then(function() {
+        firebase.database().ref("users/" + currentUid + "/chat/invites/" + key).set(null).then(function() {
+            window.location.href = "server.html?server=" + encodeURIComponent(server);
+        });
+    });
+}
+
 $(function() {
     cloudMessaging.usePublicVapidKey("BMRVci7h85dOJh1zXNbI8-OIzruX5cOrtGH0PRsslx__D4W9Ccda_ocNESNDKDQBPcMg4WecdP19uJEsuLLx1vo");
 
@@ -77,6 +89,31 @@ $(function() {
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            firebase.database().ref("users/" + currentUid + "/chat/invites").on("value", function(snapshot) {
+                $(".chatInvites").html("");
+
+                for (var key in snapshot.val()) {
+                    var invite = snapshot.val()[key];
+
+                    $(".chatInvites").append(
+                        $("<div class='card chatInvite'>").append([
+                            $("<span>").text("You've been invited to join "),
+                            $("<strong>").text(invite.name),
+                            $("<span>").text("!"),
+                            $("<div class='floatRight'>").append([
+                                $("<button class='bad'>")
+                                    .attr("onclick", "deleteInvite('" + key + "');")
+                                    .text("Decline")
+                                ,
+                                $("<button>")
+                                    .attr("onclick", "acceptInvite('" + key + "', '" + invite.server + "');")
+                                    .text("Accept")
+                            ])
+                        ])
+                    );
+                }
+            });
+
             firebase.database().ref("chat/directory").orderByKey().limitToLast(24).once("value", function(snapshot) {
                 var serverList = [];
         

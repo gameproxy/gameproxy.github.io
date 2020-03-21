@@ -212,6 +212,8 @@ $(function() {
 
         $(".linkToSettings").attr("href", "serverSettings.html?server=" + encodeURIComponent(getURLParameter("server")));
 
+        firebase.database().ref("users/" + currentUid + "/_settings/chat/data/getStarted/joincreate").set(true);
+
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(snapshot) {
             $(".serverName").text(snapshot.val());
         });
@@ -325,6 +327,37 @@ $(function() {
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/defaultChannel").once("value", function(snapshot) {
             switchChannel(snapshot.val());
+        });
+    });
+
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members").on("value", function() {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").on("value", function() {
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").on("value", function() {
+                firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members").once("value", function(membersSnapshot) {
+                    var members = [];
+
+                    if (membersSnapshot.val() != null) {
+                        members = Object.keys(membersSnapshot.val());
+                    }
+
+                    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").once("value", function(ownersSnapshot) {
+                        var owners = [];
+
+                        if (ownersSnapshot.val() != null) {
+                            owners = Object.keys(ownersSnapshot.val());
+                        }
+
+                        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {
+                            if (members.indexOf(currentUid) == -1 && owners.indexOf(currentUid) == -1 && masterownerSnapshot.val() != currentUid) {
+
+                                firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
+                                    window.location.replace("serverKickOut.html");
+                                });
+                            }
+                        });
+                    });
+                });
+            });
         });
     });
 

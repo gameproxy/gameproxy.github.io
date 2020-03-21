@@ -1,6 +1,18 @@
 function leaveServer() {
     firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + currentUid).set(null);
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").on("value", function(snapshot) {
+            var ownersList = snapshot.val() == null ? [] : Object.keys(snapshot.val());
+
+            if (ownersList.indexOf(currentUid) > -1) {
+                firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + currentUid).set(null).then(function() {
+                    window.location.replace("dashboard.html");
+                });
+            } else {
+                firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + currentUid).set(null).then(function() {
+                    window.location.replace("dashboard.html");
+                });
+            }
+        });
     });
 }
 
@@ -23,7 +35,7 @@ function showLeaveServerDialog() {
 }
 
 function setServerDetails() {
-    if ($("#serverName").val().trim() != "") {
+    if ($("#serverName").val().trim() != "" && $("#serverDescription").val().trim() != "") {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").set($("#serverName").val().trim());
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim());
@@ -160,6 +172,24 @@ function setServerPrivacy() {
     }
 }
 
+function kickOut(uid) {
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(null);
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(null).then(function() {
+        refreshSettingsUserList();
+
+        closeDialog();
+    });
+}
+
+function showKickOutDialog(uid) {
+    dialog("Kick out user?", `
+        Do you really want to kick out this user?
+    `, [
+        {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+        {text: "Kick out", onclick: "kickOut(\"" + uid + "\");", type: "reallyBad"}
+    ]);
+}
+
 function refreshSettingsUserList() {
     firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").once("value", function(ownersSnapshot) {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members").once("value", function(usersSnapshot) {
@@ -199,7 +229,9 @@ function refreshSettingsUserList() {
                                         $("<option value='member'>").text("Member")
                                     ])
                                 ,
-                                $("<button class='reallyBad'>").text("Kick out")
+                                $("<button class='reallyBad'>")
+                                    .attr("onclick", "showKickOutDialog('" + key + "')")
+                                    .text("Kick out")
                             ])
                         ])
                     );
@@ -229,7 +261,9 @@ function refreshSettingsUserList() {
                                         $("<option value='member' selected>").text("Member")
                                     ])
                                 ,
-                                $("<button class='reallyBad'>").text("Kick out")
+                                $("<button class='reallyBad'>")
+                                    .attr("onclick", "showKickOutDialog('" + key + "')")
+                                    .text("Kick out")
                             ])
                         ])
                     );
@@ -253,12 +287,101 @@ function refreshSettingsUserList() {
 
 function changeUserPrivileges(uid) {
     if ($(".settingsUser[data-user='" + uid + "'] select").val() == "owner") {
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(true);
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(null).then(refreshSettingsUserList);
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(true).then(function() {
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(null).then(refreshSettingsUserList);
+        });
     } else {
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(true);
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(null).then(refreshSettingsUserList);
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(true).then(function() {
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(null).then(refreshSettingsUserList);
+        });
     }
+}
+
+function inviteUser(uid) {
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(true).then(function() {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(nameSnapshot) {
+            firebase.database().ref("users/" + uid + "/chat/invites").push().set({
+                server: getURLParameter("server"),
+                name: nameSnapshot.val()
+            }).then(function() {
+                refreshSettingsUserList();
+    
+                closeDialog();
+            });
+        });
+    });
+}
+
+function showInviteUserDialogSearch() {
+    if ($("#inviteUserName").val().trim() != "") {
+        var inviteUserName = $("#inviteUserName").val().trim();
+
+        firebase.database().ref("users").orderByChild("_settings/name").startAt(inviteUserName).endAt(inviteUserName + "\uf8ff").limitToLast(50).once("value", function(snapshot) {
+            var userList = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                userList.unshift(childSnapshot.val());
+                userList[0]["key"] = childSnapshot.key;
+            });
+
+            dialog("Invite user", `
+                <p>Choose the user who you wish to invite:</p>
+                <div class="inviteUserSearchList"></div>
+            `, [
+                {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+                {text: "Back", onclick: "showInviteUserDialog();", type: "bad"}
+            ]);
+
+            if (userList.length > 0) {
+                for (var i = 0; i < userList.length; i++) {
+                    $(".inviteUserSearchList").append(
+                        $("<div class='card' data-user='" + userList[i].key + "'>").append([
+                            $("<strong>").text(userList[i]["_settings"]["name"]),
+                            $("<div class='floatRight'>").append([
+                                $("<button class='bad'>")
+                                    .attr("onclick", "window.open('/profile.html?user=" + userList[i].key + "');")
+                                    .text("View profile")
+                                ,
+                                $("<button>")
+                                    .attr("onclick", "inviteUser('" + userList[i].key + "');")
+                                    .text("Invite")
+                            ])
+                        ])
+                    );
+
+                    if (isStaff(userList[i].key)) {
+                        $(".inviteUserSearchList [data-user='" + userList[i].key + "'] strong").css("color", "#27ef70");
+                    } else if (isGameProxyPro(userList[i].key)) {
+                        $(".inviteUserSearchList [data-user='" + userList[i].key + "'] strong").css("color", "#b3c20f");
+                    }
+                }
+            } else {
+                dialog("Invite user", `
+                    Sorry, the user with that name could not be found. Try
+                    entering their name with the correct case to refine your
+                    search.
+                `, [
+                    {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+                    {text: "Retry", onclick: "showInviteUserDialog();"}
+                ]);
+            }
+        });
+    }
+}
+
+function showInviteUserDialog() {
+    dialog("Invite user", `
+        <div class="center">
+            <p>
+                Enter the name of the user you wish to invite. Enter their name
+                with case sensitivity to refine your search.
+            </p>
+            <input id="inviteUserName">
+        </div>
+    `, [
+        {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+        {text: "Next", onclick: "showInviteUserDialogSearch();"}
+    ]);
 }
 
 $(function() {
