@@ -14,6 +14,12 @@ function dismissGetStarted() {
     firebase.database().ref("users/" + currentUid + "/_settings/chat/data/getStarted/all").set(true);
 }
 
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+
 function addToHomeScreen() {
     if (addToHomeScreenPrompt != null && addToHomeScreenPrompt != undefined) {
         addToHomeScreenPrompt.prompt();
@@ -74,6 +80,84 @@ function acceptInvite(key, server) {
             window.location.href = "server.html?server=" + encodeURIComponent(server);
         });
     });
+}
+
+function searchForServers() {
+    var query = toTitleCase($("#searchQuery").val().trim());
+
+    if (query != "") {
+        $(".searchResultsServers, .searchResultsGamingCommunities").html(`
+            <div class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
+        `);
+
+        $(".searchResults").show();
+        $(".nonSearchResults").hide();
+
+        firebase.database().ref("chat/directory").orderByChild("name").startAt(query).endAt(query + "\uf8ff").limitToLast(24).once("value", function(snapshot) {
+            var serverList = [];
+    
+            snapshot.forEach(function(childSnapshot) {
+                serverList.unshift(childSnapshot.val());
+                serverList[0]["key"] = childSnapshot.key;
+            });
+            
+            $(".itemHolder.searchResultsServers").html("");
+    
+            if (serverList.length > 0) {
+                for (var i = 0; i < serverList.length; i++) {
+                    $(".itemHolder.searchResultsServers").append(
+                        $("<div class='item serverItem'>").append(
+                            $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
+                                $("<img>")
+                                    .attr("src", serverList[i]["thumbnail"])
+                                    .attr("onerror", "this.onerror = null; this.src = '/media/TilesArt.svg';")
+                                ,
+                                $("<div>").text(serverList[i]["name"] || "Untitled Server")
+                            ])
+                        )
+                    );
+                }
+            } else {
+                $(".itemHolder.searchResultsServers").html(`
+                    <h3 class="center">Couldn't find any servers with that name.</h3>
+                `);
+            }
+        });
+
+        firebase.database().ref("chat/directory").orderByChild("game").startAt(query).endAt(query + "\uf8ff").limitToLast(24).once("value", function(snapshot) {
+            var serverList = [];
+    
+            snapshot.forEach(function(childSnapshot) {
+                serverList.unshift(childSnapshot.val());
+                serverList[0]["key"] = childSnapshot.key;
+            });
+            
+            $(".itemHolder.searchResultsGamingCommunities").html("");
+    
+            if (serverList.length > 0) {
+                for (var i = 0; i < serverList.length; i++) {
+                    $(".itemHolder.searchResultsGamingCommunities").append(
+                        $("<div class='item serverItem'>").append(
+                            $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
+                                $("<img>")
+                                    .attr("src", serverList[i]["thumbnail"])
+                                    .attr("onerror", "this.onerror = null; this.src = '/media/TilesArt.svg';")
+                                ,
+                                $("<div>").text(serverList[i]["name"] || "Untitled Server")
+                            ])
+                        )
+                    );
+                }
+            } else {
+                $(".itemHolder.searchResultsGamingCommunities").html(`
+                    <h3 class="center">Couldn't find any servers with that name.</h3>
+                `);
+            }
+        });
+    } else {
+        $(".nonSearchResults").show();
+        $(".searchResults").hide();
+    }
 }
 
 $(function() {

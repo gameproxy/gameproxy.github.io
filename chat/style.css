@@ -203,6 +203,10 @@ label.property .propertyInfo {
     text-decoration: line-through;
 }
 
+.searchResults {
+    display: none;
+}
+
 .itemHolder .loaderHolder {
     width: calc(100% - 60px);
 }
