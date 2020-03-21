@@ -94,6 +94,36 @@ function getUsersByWildcardName(name) {
     return filtered;
 }
 
+function cleanMessage(message) {
+    message = profanity.clean(message.replace(/\n$/g, ""), true);
+
+    var newMessage = "";
+    var inCode = false;
+    var inMention = false;
+
+    for (var i = 0; i < message.length; i++) {
+        if (inCode) {
+            newMessage += message[i];
+        } else if (inMention) {
+            newMessage += message[i].replace(/</g, "&lt;").replace(/>/, "&gt;").replace(/\*/g, "\\*")
+        } else {
+            newMessage += message[i].replace(/</g, "&lt;").replace(/>/, "&gt;");
+
+            if (message[i - 1] != "\\") {
+                if (message[i] == "`") {
+                    inCode = !inCode;
+                } else if (message[i] == "{") {
+                    inMention = true;
+                } else if (message[i] == "}") {
+                    inMention = false;
+                }
+            }
+        }
+    }
+
+    return newMessage;
+}
+
 function addMessage(message) {
     var converter = new showdown.Converter();
 
@@ -122,7 +152,7 @@ function addMessage(message) {
                 .text(formatRelativeDate(message.date))
             ,
             $("<div>")
-                .html(converter.makeHtml(profanity.clean(message.content).replace(/</g, "&lt;").replace(/>/g, "&gt;")))
+                .html(converter.makeHtml(cleanMessage(message.content)))
         ])
     );
 
@@ -357,6 +387,9 @@ $(function() {
                         });
                     });
                 });
+
+                $(".serverLoading").hide();
+                $(".serverLoaded").show();
             });
         });
     });

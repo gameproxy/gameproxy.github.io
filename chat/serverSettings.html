@@ -56,102 +56,107 @@
             </div>
         </header>
         <main>
-            <div class="card center">
-                <h1>Welcome to <span class="serverName">this server</span>!</h1>
-                <button class="goToViewServer serverPublic">View server details</button>
-                <button onclick="javascript:showLeaveServerDialog();" class="reallyBad">Leave</button>
+            <div class="serverLoading lowDown">
+                <div class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
             </div>
-            <div class="card owner">
-                <h2>Server privacy</h2>
-                <h3>
-                    <input type="checkbox" role="switch" onchange="setServerPrivacy();" id="serverPublic">
-                    Allow everyone to discover and join this server
-                </h3>
-                <p>
-                    Enabling this option will display your server on the
-                    dashboard, allowing others (who you may not know in real
-                    life) to join. Keeping this option off allows you to choose
-                    which players to invite to the server.
-                </p>
-            </div>
-            <div class="card">
-                <h2>Mentions</h2>
-                <p class="center">You can be mentioned by others if they send a message with <strong class="mentionExample">{*}</strong> inside.</p>
-                <p>
-                    Mentions are a way of communicating to others who are
-                    offline or inactive. When you send a message with their name
-                    enclosed in curly brace brackets (for example, <strong>{Joe513}</strong>),
-                    they will be sent a notification so that they can respond
-                    to the message that you sent.
-                </p>
-                <p>
-                    You can use wildcards to specify groups of people ─ for
-                    example, sending <strong>{*}</strong> will alert everyone on the
-                    server. With this, you can send a message to everyone with a
-                    username starting with 'A' with <strong>{A*}</strong>.
-                </p>
-                <p>
-                    If you want to send a message to the server owners, type
-                    <strong>{owners:*}</strong>. You can also send a message to the
-                    members too: <strong>{members:*}</strong>.
-                </p>
-            </div>
-            <div class="card owner">
-                <h2>Server details</h2>
-                <label class="property fullWidth">
-                    <span>Server name</span>
-                    <input onchange="setServerDetails();" id="serverName">
-                </label>
-                <label class="property fullWidth">
-                    <span>Associated game</span>
-                    <input onchange="setServerDetails();" id="serverGame">
-                </label>
-                <label class="property fullWidth">
-                    <span>Thumbnail URL</span>
-                    <input onchange="setServerDetails();" id="serverThumbnail">
-                </label>
-                <label class="property fullWidth">
-                    <span>Description</span>
-                    <textarea rows="6" onchange="setServerDetails();" id="serverDescription"></textarea>
-                </label>
-            </div>
-            <div class="card owner">
-                <h2>Channels</h2>
-                <p>Channels on this server:</p>
-                <div id="settingsChannelList"></div>
-                <div class="center">
-                    <button onclick="showCreateNewChannelDialog();"><i class="material-icons" aria-hidden="true">add</i> Create new channel</button>
+            <div class="serverLoaded">
+                <div class="card center">
+                    <h1>Welcome to <span class="serverName">this server</span>!</h1>
+                    <button class="goToViewServer serverPublic">View server details</button>
+                    <button onclick="javascript:showLeaveServerDialog();" class="reallyBad">Leave</button>
                 </div>
-            </div>
-            <div class="card owner">
-                <h2>Members</h2>
-                <p>Members on this server:</p>
-                <div id="settingsUserList">
-                    <div class="card settingsUser">
-                        <span>User</span>
-                        <div class="floatRight">
-                            <select>
-                                <option value="owner">Owner</option>
-                                <option value="member">Member</option>
-                            </select><button class="reallyBad">Kick out</button>
-                        </div>
+                <div class="card owner">
+                    <h2>Server privacy</h2>
+                    <h3>
+                        <input type="checkbox" role="switch" onchange="setServerPrivacy();" id="serverPublic">
+                        Allow everyone to discover and join this server
+                    </h3>
+                    <p>
+                        Enabling this option will display your server on the
+                        dashboard, allowing others (who you may not know in real
+                        life) to join. Keeping this option off allows you to choose
+                        which players to invite to the server.
+                    </p>
+                </div>
+                <div class="card">
+                    <h2>Mentions</h2>
+                    <p class="center">You can be mentioned by others if they send a message with <strong class="mentionExample">{*}</strong> inside.</p>
+                    <p>
+                        Mentions are a way of communicating to others who are
+                        offline or inactive. When you send a message with their name
+                        enclosed in curly brace brackets (for example, <strong>{Joe513}</strong>),
+                        they will be sent a notification so that they can respond
+                        to the message that you sent.
+                    </p>
+                    <p>
+                        You can use wildcards to specify groups of people ─ for
+                        example, sending <strong>{*}</strong> will alert everyone on the
+                        server. With this, you can send a message to everyone with a
+                        username starting with 'A' with <strong>{A*}</strong>.
+                    </p>
+                    <p>
+                        If you want to send a message to the server owners, type
+                        <strong>{owners:*}</strong>. You can also send a message to the
+                        members too: <strong>{members:*}</strong>.
+                    </p>
+                </div>
+                <div class="card owner">
+                    <h2>Server details</h2>
+                    <label class="property fullWidth">
+                        <span>Server name</span>
+                        <input onchange="setServerDetails();" id="serverName">
+                    </label>
+                    <label class="property fullWidth">
+                        <span>Associated game</span>
+                        <input onchange="setServerDetails();" id="serverGame">
+                    </label>
+                    <label class="property fullWidth">
+                        <span>Thumbnail URL</span>
+                        <input onchange="setServerDetails();" id="serverThumbnail">
+                    </label>
+                    <label class="property fullWidth">
+                        <span>Description</span>
+                        <textarea rows="6" onchange="setServerDetails();" id="serverDescription"></textarea>
+                    </label>
+                </div>
+                <div class="card owner">
+                    <h2>Channels</h2>
+                    <p>Channels on this server:</p>
+                    <div id="settingsChannelList"></div>
+                    <div class="center">
+                        <button onclick="showCreateNewChannelDialog();"><i class="material-icons" aria-hidden="true">add</i> Create new channel</button>
                     </div>
                 </div>
-                <div class="center">
-                    <button onclick="showInviteUserDialog();"><i class="material-icons" aria-hidden="true">add</i> Invite a user</button>
+                <div class="card owner">
+                    <h2>Members</h2>
+                    <p>Members on this server:</p>
+                    <div id="settingsUserList">
+                        <div class="card settingsUser">
+                            <span>User</span>
+                            <div class="floatRight">
+                                <select>
+                                    <option value="owner">Owner</option>
+                                    <option value="member">Member</option>
+                                </select><button class="reallyBad">Kick out</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <button onclick="showInviteUserDialog();"><i class="material-icons" aria-hidden="true">add</i> Invite a user</button>
+                    </div>
                 </div>
-            </div>
-            <div class="card masterowner">
-                <h2>Delete server</h2>
-                <p>
-                    If things aren't going good, you can delete the server.
-                    Beware that deleting the server is not undoable, and so all
-                    data will be lost. The data may be recoverable if the
-                    GameProxy admins have recently backed it up, but this is not
-                    guaranteed.
-                </p>
-                <div class="right">
-                    <button onclick="showDeleteServerDialog();" class="reallyBad"><i class="material-icons" aria-hidden="true">delete</i> Delete server</button>
+                <div class="card masterowner">
+                    <h2>Delete server</h2>
+                    <p>
+                        If things aren't going good, you can delete the server.
+                        Beware that deleting the server is not undoable, and so all
+                        data will be lost. The data may be recoverable if the
+                        GameProxy admins have recently backed it up, but this is not
+                        guaranteed.
+                    </p>
+                    <div class="right">
+                        <button onclick="showDeleteServerDialog();" class="reallyBad"><i class="material-icons" aria-hidden="true">delete</i> Delete server</button>
+                    </div>
                 </div>
             </div>
         </main>

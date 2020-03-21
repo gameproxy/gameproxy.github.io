@@ -327,6 +327,20 @@ code {
     border-radius: 2px;
 }
 
+pre {
+    max-height: 200px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    overflow: auto;
+    white-space: pre;
+    cursor: text;
+}
+
+pre code {
+    background-color: transparent;
+}
+
 embed {
     height: 60vh;
 }

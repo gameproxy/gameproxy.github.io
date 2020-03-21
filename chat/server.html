@@ -49,24 +49,31 @@
             <div class="headerRight">
                 <a href="#" class="headerButton linkToSettings" aria-label="Settings"><i class="material-icons" aria-hidden="true">settings</i> <span class="desktop">Settings</span></a>
                 <span class="mobile">
-                    <a href="javascript:toggleChannelList();" class="headerButton"><span class="channelName"></span> <i class="material-icons channelDropdownIcon" aria-hidden="true">arrow_drop_down</i></a>
+                    <span class="serverLoaded">
+                        <a href="javascript:toggleChannelList();" class="headerButton"><span class="channelName"></span> <i class="material-icons channelDropdownIcon" aria-hidden="true">arrow_drop_down</i></a>
+                    </span>
                 </span>
             </div>
         </header>
         <div class="chatContainer">
-            <div class="chatMessages"></div>
+            <div class="serverLoading lowDown">
+                <div class="loaderHolder"><i aria-label="Loading content..." class="material-icons loader">videogame_asset</i></div>
+            </div>
+            <div class="chatMessages serverLoaded"></div>
         </div>
         <div class="chatBoxContainer">
             <textarea placeholder="Say something here..." id="chatBox"></textarea>
             <button onclick="postChatMessage();" id="chatButton"><i class="material-icons" aria-hidden="true">send</i> Send</button>
         </div>
         <div class="channelList">
-            <div class="channelHeader">Channels</div>
-            <div class="channels channelContainer"></div>
-            <div class="channelHeader">Owners</div>
-            <div class="owners channelContainer"></div>
-            <div class="channelHeader membersHeader">Members</div>
-            <div class="members channelContainer"></div>
+            <div class="serverLoaded">
+                <div class="channelHeader">Channels</div>
+                <div class="channels channelContainer"></div>
+                <div class="channelHeader">Owners</div>
+                <div class="owners channelContainer"></div>
+                <div class="channelHeader membersHeader">Members</div>
+                <div class="members channelContainer"></div>
+            </div>
         </div>
         <div class="dialogBackground"></div>
         <div class="dialog">

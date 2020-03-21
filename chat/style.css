@@ -389,8 +389,13 @@ label.property .propertyInfo {
     overflow-wrap: break-word;
 }
 
-.chatMessage > div > p {
+.chatMessage > div > p, .chatMessage > div > pre {
     margin: 0;
+}
+
+.chatMessage > div > pre {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .chatMessage > .messageDate {
@@ -429,6 +434,14 @@ label.property .propertyInfo {
 
 .inviteUserSearchList .floatRight {
     margin: -15px;
+}
+
+.serverLoading.lowDown {
+    margin-top: 20vh;
+}
+
+.serverLoaded {
+    display: none;
 }
 
 .iconArt {
