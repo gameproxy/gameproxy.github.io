@@ -28,6 +28,8 @@ function setServerDetails() {
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim());
 
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/game").set($("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim());
+
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").set($("#serverDescription").val().trim());
 
         firebase.database().ref("chat/directory/" + getURLParameter("server")).once("value", function(snapshot) {
@@ -36,7 +38,7 @@ function setServerDetails() {
 
                 firebase.database().ref("chat/directory/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim());
 
-                firebase.database().ref("chat/directory/" + getURLParameter("server") + "/game").set($("#serverGame").val().trim());
+                firebase.database().ref("chat/directory/" + getURLParameter("server") + "/game").set($("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim());
 
                 firebase.database().ref("chat/directory/" + getURLParameter("server") + "/description").set($("#serverDescription").val().trim());
             }
@@ -158,6 +160,107 @@ function setServerPrivacy() {
     }
 }
 
+function refreshSettingsUserList() {
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").once("value", function(ownersSnapshot) {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members").once("value", function(usersSnapshot) {
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {
+                $("#settingsUserList").html("");
+
+                $("#settingsUserList").append(
+                    $("<div class='card settingsUser' data-user='" + masterownerSnapshot.val() + "'>").append([
+                        $("<strong>"),
+                        $("<div class='floatRight'>").append(
+                            $("<select disabled>").append(
+                                $("<option value='masterowner'>").text("Master owner")
+                            )
+                        )
+                    ])
+                );
+
+                firebase.database().ref("users/" + masterownerSnapshot.val() + "/_settings/name").once("value", function(nameSnapshot) {
+                    $(".settingsUser[data-user='" + masterownerSnapshot.val() + "'] strong").text(nameSnapshot.val());
+
+                    if (isStaff(masterownerSnapshot.val())) {
+                        $(".settingsUser[data-user='" + masterownerSnapshot.val() + "'] strong").css("color", "#27ef70");
+                    } else {
+                        $(".settingsUser[data-user='" + masterownerSnapshot.val() + "'] strong").css("color", "#42aaf5");
+                    }
+                });
+
+                for (var key in ownersSnapshot.val()) {
+                    $("#settingsUserList").append(
+                        $("<div class='card settingsUser' data-user='" + key + "'>").append([
+                            $("<strong>"),
+                            $("<div class='floatRight'>").append([
+                                $("<select>")
+                                    .attr("onchange", "changeUserPrivileges('" + key + "');")
+                                    .append([
+                                        $("<option value='owner' selected>").text("Owner"),
+                                        $("<option value='member'>").text("Member")
+                                    ])
+                                ,
+                                $("<button class='reallyBad'>").text("Kick out")
+                            ])
+                        ])
+                    );
+
+                    (function(key) {
+                        firebase.database().ref("users/" + key + "/_settings/name").once("value", function(nameSnapshot) {
+                            $(".settingsUser[data-user='" + key + "'] strong").text(nameSnapshot.val());
+
+                            if (isStaff(key)) {
+                                $(".settingsUser[data-user='" + key + "'] strong").css("color", "#27ef70");
+                            } else {
+                                $(".settingsUser[data-user='" + key + "'] strong").css("color", "#42aaf5");
+                            }
+                        });
+                    })(key);
+                }
+
+                for (var key in usersSnapshot.val()) {
+                    $("#settingsUserList").append(
+                        $("<div class='card settingsUser' data-user='" + key + "'>").append([
+                            $("<strong>"),
+                            $("<div class='floatRight'>").append([
+                                $("<select>")
+                                    .attr("onchange", "changeUserPrivileges('" + key + "');")
+                                    .append([
+                                        $("<option value='owner'>").text("Owner"),
+                                        $("<option value='member' selected>").text("Member")
+                                    ])
+                                ,
+                                $("<button class='reallyBad'>").text("Kick out")
+                            ])
+                        ])
+                    );
+
+                    (function(key) {
+                        firebase.database().ref("users/" + key + "/_settings/name").once("value", function(nameSnapshot) {
+                            $(".settingsUser[data-user='" + key + "'] strong").text(nameSnapshot.val());
+
+                            if (isStaff(key)) {
+                                $(".settingsUser[data-user='" + key + "'] strong").css("color", "#27ef70");
+                            } else if (isGameProxyPro(key)) {
+                                $(".settingsUser[data-user='" + key + "'] strong").css("color", "#b3c20f");
+                            }
+                        });
+                    })(key);
+                }
+            });
+        });
+    });
+}
+
+function changeUserPrivileges(uid) {
+    if ($(".settingsUser[data-user='" + uid + "'] select").val() == "owner") {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(true);
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(null).then(refreshSettingsUserList);
+    } else {
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(true);
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners/" + uid).set(null).then(refreshSettingsUserList);
+    }
+}
+
 $(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -214,6 +317,27 @@ $(function() {
                         ])
                     );
                 }
+            });
+
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").on("value", function(snapshot) {
+                var ownersList = snapshot.val() == null ? [] : Object.keys(snapshot.val());
+
+                if (ownersList.indexOf(currentUid) > -1) {
+                    $(".owner").show();
+                    $(".masterowner").hide();
+                } else {
+                    $(".owner, .masterowner").hide();
+
+                    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").on("value", function(snapshot) {
+                        if (currentUid == snapshot.val()) {
+                            $(".owner, .masterowner").show();
+                        } else {
+                            $(".owner, .masterowner").hide();
+                        }
+                    });
+                }
+
+                refreshSettingsUserList();
             });
         }
     });

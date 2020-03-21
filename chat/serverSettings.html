@@ -61,7 +61,7 @@
                 <button class="goToViewServer serverPublic">View server details</button>
                 <button onclick="javascript:showLeaveServerDialog();" class="reallyBad">Leave</button>
             </div>
-            <div class="card">
+            <div class="card owner">
                 <h2>Server privacy</h2>
                 <h3>
                     <input type="checkbox" role="switch" onchange="setServerPrivacy();" id="serverPublic">
@@ -96,7 +96,7 @@
                     members too: <strong>{members:*}</strong>.
                 </p>
             </div>
-            <div class="card">
+            <div class="card owner">
                 <h2>Server details</h2>
                 <label class="property fullWidth">
                     <span>Server name</span>
@@ -115,7 +115,7 @@
                     <textarea rows="6" onchange="setServerDetails();" id="serverDescription"></textarea>
                 </label>
             </div>
-            <div class="card">
+            <div class="card owner">
                 <h2>Channels</h2>
                 <p>Channels on this server:</p>
                 <div id="settingsChannelList"></div>
@@ -123,7 +123,25 @@
                     <button onclick="showCreateNewChannelDialog();"><i class="material-icons" aria-hidden="true">add</i> Create new channel</button>
                 </div>
             </div>
-            <div class="card">
+            <div class="card owner">
+                <h2>Members</h2>
+                <p>Members on this server:</p>
+                <div id="settingsUserList">
+                    <div class="card settingsUser">
+                        <span>User</span>
+                        <div class="floatRight">
+                            <select>
+                                <option value="owner">Owner</option>
+                                <option value="member">Member</option>
+                            </select><button class="reallyBad">Kick out</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <button onclick="showInviteUserDialog();"><i class="material-icons" aria-hidden="true">add</i> Invite a user</button>
+                </div>
+            </div>
+            <div class="card masterowner">
                 <h2>Delete server</h2>
                 <p>
                     If things aren't going good, you can delete the server.

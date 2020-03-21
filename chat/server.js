@@ -279,7 +279,7 @@ $(function() {
                     firebase.database().ref("users/" + key + "/_settings/name").on("value", function(nameSnapshot) {
                         $(".channelButton[data-owner='" + key + "']").text(nameSnapshot.val());
 
-                        serverOwners[key] = nameSNapshot.val();
+                        serverOwners[key] = nameSnapshot.val();
                     });
 
                     if (isStaff(key)) {

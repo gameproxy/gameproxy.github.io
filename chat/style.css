@@ -404,14 +404,22 @@ label.property .propertyInfo {
     padding: 10px;
 }
 
-.settingsChannel {
+.settingsChannel, .settingsUser {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.settingsChannel .floatRight {
+.settingsChannel .floatRight, .settingsUser .floatRight {
     margin: -10px;
     margin-top: -15px;
+}
+
+.settingsChannel select, .settingsUser select {
+    width: 150px;
+}
+
+.settingsUser select[disabled] {
+    opacity: 0.5;
 }
 
 #chatExit {
@@ -587,6 +595,17 @@ label.property .propertyInfo {
     .chatMessage > div {
         display: block;
         width: 100%;
+    }
+
+    .settingsChannel, .settingsUser {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .settingsChannel .floatRight, .settingsUser .floatRight {
+        float: none!important;
+        margin-top: 0;
+        text-align: right;
     }
 }
 
