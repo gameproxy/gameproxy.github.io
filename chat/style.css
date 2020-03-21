@@ -127,6 +127,10 @@ label.property .propertyInfo {
     width: calc(60vw + 25px);
 }
 
+.propertyCardWidth {
+    width: calc(60vw);
+}
+
 .restrictWidth {
     width: calc(100% - 60px);
     margin-top: 30px;
@@ -306,6 +310,17 @@ label.property .propertyInfo {
     filter: brightness(1.2);
 }
 
+.serverViewName {
+    display: inline-block;
+    width: 50vw;
+}
+
+.serverButtons {
+    margin-top: -5px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .channelList {
     position: absolute;
     top: 70px;
@@ -444,6 +459,10 @@ label.property .propertyInfo {
     display: none;
 }
 
+.serverGameInformation {
+    display: none;
+}
+
 .iconArt {
     color: rgba(255, 255, 255, 0.1);
 }
@@ -574,7 +593,7 @@ label.property .propertyInfo {
         margin-left: unset;
     }
 
-    .propertyWidth {
+    .propertyWidth, .propertyCardWidth {
         width: unset;
     }
 

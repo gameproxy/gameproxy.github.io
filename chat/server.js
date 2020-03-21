@@ -245,7 +245,11 @@ $(function() {
         firebase.database().ref("users/" + currentUid + "/_settings/chat/data/getStarted/joincreate").set(true);
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(snapshot) {
-            $(".serverName").text(snapshot.val());
+            if (snapshot.val() != null) {
+                $(".serverName").text(snapshot.val());
+            } else {
+                window.location.replace("serverNotFound.html");
+            }
         });
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").once("value", function(snapshot) {
@@ -378,8 +382,7 @@ $(function() {
                         }
 
                         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {
-                            if (members.indexOf(currentUid) == -1 && owners.indexOf(currentUid) == -1 && masterownerSnapshot.val() != currentUid) {
-
+                            if (members.indexOf(currentUid) == -1 && owners.indexOf(currentUid) == -1 && masterownerSnapshot.val() != currentUid && !deletingServer) {
                                 firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
                                     window.location.replace("serverKickOut.html");
                                 });

@@ -128,7 +128,10 @@ $(function() {
                     $(".itemHolder.discoverServers").append(
                         $("<div class='item serverItem'>").append(
                             $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
-                                $("<img>").attr("src", serverList[i]["thumbnail"]),
+                                $("<img>")
+                                    .attr("src", serverList[i]["thumbnail"])
+                                    .attr("onerror", "this.onerror = null; this.src = '/media/TilesArt.svg';")
+                                ,
                                 $("<div>").text(serverList[i]["name"] || "Untitled Server")
                             ])
                         )
@@ -147,7 +150,7 @@ $(function() {
                                 $("<a>")
                                     .attr("href", "server.html?server=" + encodeURIComponent(key))
                                     .append([
-                                        $("<img alt=''>"),
+                                        $("<img onerror=\"this.onerror = null; this.src = '/media/TilesArt.svg';\" alt=''>"),
                                         $("<div>")
                                     ])
                             )

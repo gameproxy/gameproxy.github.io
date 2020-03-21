@@ -1,3 +1,5 @@
+var deletingServer = false;
+
 function leaveServer() {
     firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").on("value", function(snapshot) {
@@ -131,6 +133,8 @@ function showCreateNewChannelDialog() {
 }
 
 function deleteServer() {
+    deletingServer = true;
+
     firebase.database().ref("chat/servers/" + getURLParameter("server")).set(null).then(function() {
         firebase.database().ref("chat/directory/" + getURLParameter("server")).set(null).then(function() {
             window.location.replace("dashboard.html");
@@ -388,7 +392,7 @@ $(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             $(".linkToServer").attr("href", "server.html?server=" + encodeURIComponent(getURLParameter("server")));
-            $(".goToViewServer").attr("onclick", "javascript:window.location.href = 'viewServer.html?server=" + encodeURIComponent(getURLParameter("server")) + "';");
+            $(".goToViewServer").attr("onclick", "javascript:window.location.href = 'viewServer.html?server=" + encodeURIComponent(getURLParameter("server")) + "&fromSettings=true';");
 
             firebase.database().ref("users/" + currentUid + "/_settings/name").on("value", function(snapshot) {
                 $(".mentionExample").text("{" + snapshot.val() + "}");

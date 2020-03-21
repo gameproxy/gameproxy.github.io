@@ -27,7 +27,7 @@ $(function() {
                         $("<a>")
                             .attr("href", "javascript:goToPage('server.html?server=" + encodeURIComponent(key) + "');")
                             .attr("data-key", key)
-                            .append("<img alt=''>")
+                            .append("<img onerror=\"this.onerror = null; this.src = '/media/NoThumbnail.png';\" alt=''>")
                     );
 
                     (function(key) {

@@ -49,6 +49,10 @@ $(function() {
         if (getURLParameter("server") == null) {
             window.location.replace("dashboard.html");
         }
+
+        if (getURLParameter("fromSettings") == "true") {
+            $(".viewServerBackButton").attr("href", "serverSettings.html?server=" + encodeURIComponent(getURLParameter("server")));
+        }
     
         firebase.database().ref("chat/directory/" + getURLParameter("server")).on("value", function(snapshot) {
             $(".serverName").text(snapshot.val().name);
@@ -57,6 +61,14 @@ $(function() {
     
             $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
             $(".serverThumbnail").attr("src", snapshot.val().thumbnail);
+
+            if (snapshot.val().game != null) {
+                $(".serverGame").text(snapshot.val().game);
+
+                $(".serverGameInformation").show();
+            } else {
+                $(".serverGameInformation").hide();
+            }
         });
     
         firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).on("value", function(snapshot) {
