@@ -20,11 +20,11 @@ $(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             if (getURLParameter("mention") != null) {
-                firebase.database().ref("users/" + currentUid + "/chat/mentions/" + getURLParameter("mention").once("value", function(snapshot) {
+                firebase.database().ref("users/" + currentUid + "/chat/mentions/" + getURLParameter("mention")).once("value", function(snapshot) {
                     if (snapshot.val().server != null) {
                         window.location.replace("server.html?server=" + encodeURIComponent(snapshot.val().server));
                     }
-                }));
+                });
             }
 
             firebase.database().ref("users/" + currentUid + "/_settings/chat/servers").on("value", function(snapshot) {
