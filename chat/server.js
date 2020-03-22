@@ -225,7 +225,8 @@ function postChatMessage() {
                 firebase.database().ref("users/" + usersMentioned[i] + "/chat/mentions").push().set({
                     from: currentUid,
                     fromuser: name,
-                    message: profanity.clean($("#chatBox").val())
+                    message: profanity.clean($("#chatBox").val()),
+                    server: getURLParameter("server")
                 });
             }
 
