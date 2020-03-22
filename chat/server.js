@@ -12,6 +12,16 @@ function padDigits(digits) {
     return digits < 10 ? "0" + digits : String(digits);
 }
 
+function formatDate(date) {
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + " " + monthNames[monthIndex] + " " + year + " at " + date.toLocaleTimeString("en-GB", {hour: "2-digit", minute: "2-digit"});
+}
+
 function formatRelativeDate(date) {
     var currentDate = new Date();
     var previousDate = new Date(date);
@@ -149,6 +159,7 @@ function addMessage(message) {
         $("<div class='chatMessage'>").append([
             usernameLink,
             $("<span class='messageDate'>")
+                .attr("title", formatDate(new Date(message.date)))
                 .text(formatRelativeDate(message.date))
             ,
             $("<div class='messageContent'>")
