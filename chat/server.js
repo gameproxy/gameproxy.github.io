@@ -151,10 +151,12 @@ function addMessage(message) {
             $("<span class='messageDate'>")
                 .text(formatRelativeDate(message.date))
             ,
-            $("<div>")
+            $("<div class='messageContent'>")
                 .html(converter.makeHtml(cleanMessage(message.content)))
         ])
     );
+
+    $(".chatMessage .messageContent a").attr("target", "_blank");
 
     if (atEnd) {
         $(".chatContainer").scrollTop($(".chatContainer")[0].scrollHeight);

@@ -62,6 +62,8 @@ $(function() {
             $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
             $(".serverThumbnail").attr("src", snapshot.val().thumbnail || "/media/TilesArt.svg");
 
+            $(".serverDescription a").attr("target", "_blank");
+
             if (snapshot.val().game != null) {
                 $(".serverGame").text(snapshot.val().game);
 

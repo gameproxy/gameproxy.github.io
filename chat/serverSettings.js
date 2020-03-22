@@ -50,7 +50,7 @@ function setServerDetails() {
             if (snapshot.val() != null) {
                 firebase.database().ref("chat/directory/" + getURLParameter("server") + "/name").set($("#serverName").val().trim());
 
-                firebase.database().ref("chat/directory/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim() == "" ? null : $("serverThumbnail").val().trim());
+                firebase.database().ref("chat/directory/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim() == "" ? null : $("#serverThumbnail").val().trim());
 
                 firebase.database().ref("chat/directory/" + getURLParameter("server") + "/game").set($("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim());
 
