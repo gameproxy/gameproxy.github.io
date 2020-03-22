@@ -93,12 +93,12 @@ firebase.auth().onAuthStateChanged(function(user) {
         change(user);
     } else {
         firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20)).trim()).then(function() {
-            window.location.href = "index.html";
+            window.location.replace("index.html");
         });
     }
 
     if (getURLParameter("go") != null && window.location.pathname.split("/").pop() == "account.html" && user) {
-        window.location.href = getURLParameter("go");
+        window.location.replace(getURLParameter("go"));
     }
 });
 

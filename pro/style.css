@@ -76,15 +76,6 @@ footer * {
     color: white;
 }
 
-.featureItem {
-    min-height: 165px;
-}
-
-.featureLogo {
-    font-size: 50px;
-    color: #999999;
-}
-
 .dialogBackground {
     background-color: rgba(179, 194, 14, 0.5);
 }

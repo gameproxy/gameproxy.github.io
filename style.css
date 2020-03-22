@@ -191,6 +191,12 @@ button.motd {
     z-index: 0;
 }
 
+button.big {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 input, select {
     margin: 5px;
     padding: 10px;
@@ -534,6 +540,12 @@ embed {
     padding: 0;
 }
 
+.card img.cardHeader {
+    margin: -10px;
+    margin-bottom: 0;
+    border-radius: 5px 5px 0 0;
+}
+
 .balloonTarget {
     position: relative;
 }
@@ -611,6 +623,15 @@ embed {
 
 .itemTitle {
     margin: 5px;
+}
+
+.featureItem {
+    min-height: 165px;
+}
+
+.featureLogo {
+    font-size: 50px;
+    color: #999999;
 }
 
 .adContainer {
