@@ -254,7 +254,7 @@ $(function() {
         });
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").once("value", function(snapshot) {
-            $(".serverThumbnail").attr("src", snapshot.val());
+            $(".serverThumbnail").attr("src", snapshot.val() || "/media/TilesArt.svg");
         });
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").once("value", function(snapshot) {

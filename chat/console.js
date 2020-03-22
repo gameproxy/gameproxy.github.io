@@ -44,7 +44,7 @@ $(function() {
                         });
 
                         firebase.database().ref("chat/servers/" + key + "/thumbnail").on("value", function(snapshot) {
-                            $(".serverList a[data-key='" + key + "'] img").attr("src", snapshot.val());
+                            $(".serverList a[data-key='" + key + "'] img").attr("src", snapshot.val() || "/media/NoThumbnail.png");
                         });
 
                         firebase.database().ref("chat/servers/" + key).on("value", function(snapshot) {

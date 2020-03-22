@@ -40,7 +40,7 @@ function setServerDetails() {
     if ($("#serverName").val().trim() != "" && $("#serverDescription").val().trim() != "") {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").set($("#serverName").val().trim());
 
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim());
+        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim() == "" ? null : $("#serverThumbnail").val().trim());
 
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/game").set($("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim());
 
@@ -50,7 +50,7 @@ function setServerDetails() {
             if (snapshot.val() != null) {
                 firebase.database().ref("chat/directory/" + getURLParameter("server") + "/name").set($("#serverName").val().trim());
 
-                firebase.database().ref("chat/directory/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim());
+                firebase.database().ref("chat/directory/" + getURLParameter("server") + "/thumbnail").set($("#serverThumbnail").val().trim() == "" ? null : $("serverThumbnail").val().trim());
 
                 firebase.database().ref("chat/directory/" + getURLParameter("server") + "/game").set($("#serverGame").val().trim() == "" ? null : $("#serverGame").val().trim());
 
@@ -407,7 +407,7 @@ $(function() {
             });
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").once("value", function(snapshot) {
-                $("#serverThumbnail").val(snapshot.val());
+                $("#serverThumbnail").val(snapshot.val() || "/media/TilesArt.svg");
             });
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").once("value", function(snapshot) {

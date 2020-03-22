@@ -60,7 +60,7 @@ $(function() {
             var converter = new showdown.Converter();
     
             $(".serverDescription").html(converter.makeHtml(snapshot.val().description.replace(/</g, "&lt;").replace(/>/g, "&gt;")));
-            $(".serverThumbnail").attr("src", snapshot.val().thumbnail);
+            $(".serverThumbnail").attr("src", snapshot.val().thumbnail || "/media/TilesArt.svg");
 
             if (snapshot.val().game != null) {
                 $(".serverGame").text(snapshot.val().game);

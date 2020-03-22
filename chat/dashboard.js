@@ -109,7 +109,7 @@ function searchForServers() {
                         $("<div class='item serverItem'>").append(
                             $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
                                 $("<img>")
-                                    .attr("src", serverList[i]["thumbnail"])
+                                    .attr("src", serverList[i]["thumbnail"] || "/media/TilesArt.svg")
                                     .attr("onerror", "this.onerror = null; this.src = '/media/TilesArt.svg';")
                                 ,
                                 $("<div>").text(serverList[i]["name"] || "Untitled Server")
@@ -140,7 +140,7 @@ function searchForServers() {
                         $("<div class='item serverItem'>").append(
                             $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
                                 $("<img>")
-                                    .attr("src", serverList[i]["thumbnail"])
+                                    .attr("src", serverList[i]["thumbnail"] || "/media/TilesArt.svg")
                                     .attr("onerror", "this.onerror = null; this.src = '/media/TilesArt.svg';")
                                 ,
                                 $("<div>").text(serverList[i]["name"] || "Untitled Server")
@@ -213,7 +213,7 @@ $(function() {
                         $("<div class='item serverItem'>").append(
                             $("<a>").attr("href", "viewServer.html?server=" + encodeURIComponent(serverList[i]["key"])).append([
                                 $("<img>")
-                                    .attr("src", serverList[i]["thumbnail"])
+                                    .attr("src", serverList[i]["thumbnail"] || "/media/TilesArt.svg")
                                     .attr("onerror", "this.onerror = null; this.src = '/media/TilesArt.svg';")
                                 ,
                                 $("<div>").text(serverList[i]["name"] || "Untitled Server")
@@ -246,7 +246,7 @@ $(function() {
                         });
 
                         firebase.database().ref("chat/servers/" + key + "/thumbnail").on("value", function(snapshot) {
-                            $(".memberServerList div[data-key='" + key + "'] a img").attr("src", snapshot.val());
+                            $(".memberServerList div[data-key='" + key + "'] a img").attr("src", snapshot.val() || "/media/TilesArt.png");
                         });
                     })(key);
                 }
