@@ -403,11 +403,11 @@ $(function() {
             });
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/game").once("value", function(snapshot) {
-                $("#serverGame").val(snapshot.val());
+                $("#serverGame").val(snapshot.val() || "");
             });
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/thumbnail").once("value", function(snapshot) {
-                $("#serverThumbnail").val(snapshot.val() || "/media/TilesArt.svg");
+                $("#serverThumbnail").val(snapshot.val() || "");
             });
 
             firebase.database().ref("chat/servers/" + getURLParameter("server") + "/description").once("value", function(snapshot) {
