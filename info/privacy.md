@@ -30,11 +30,18 @@ GameProxy wishes to inform users of its products and services that these third p
 ## Security
 GameProxy values your trust in providing them with your personal information, thus GameProxy are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and GameProxy cannot guarantee its absolute security.
 
+GameProxy gives you full control over your data and account. You may change your email address or password to your account ─ or delete your account ─ at [GameProxy's account settings page](https://gameproxy.host/accountSettings.html). Users who wish to delete their account entirely and all data associated with it must be aware that their games and comments must be deleted for this to happen.
+
+GameProxy may keep a backup of your account for security purposes ─ even after account deletion, and allows authorities to see the data held in specific accounts on request, and providing that their identity can be fully trusted. Please contact GameProxy at [support@gameproxy.host](mailto:support@gameproxy.host) if you wish to make a request for account data.
+
 ## Links to Other Sites
 These products and services may contain links to other sites. If you open a third-party link, you will be directed to that site. Note that these external sites are not operated by GameProxy therefore GameProxy strongly advise you to review the Privacy Policy of these websites. GameProxy have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
 
 ## Children’s Privacy
 GameProxy's products and services do not address anyone under the age of 13. GameProxy do not knowingly collect personal identifiable information from children under 13. In the case that GameProxy discovers that a child under 13 has provided them with personal information, they will immediately delete the appropriate data from Google's servers. If you are a parent or guardian and you are aware that your child has provided GameProxy with personal information, please contact GameProxy at [support@gameproxy.host](mailto:support@gameproxy.host) so that they will be able to perform necessary actions.
+
+## Compliance
+GameProxy strives to comply with multiple data protection policies that are in effect in many countries. Particularly, GameProxy is careful to comply withb the General Data Protection Regulation (GDPR) in effect in the European Union and the European Economic Area. If you believe that GameProxy or a GameProxy user is violating any regulations, please contact GameProxy at [support@gameproxy.host](mailto:support@gameproxy.host) so that the issues can be resolved.
 
 ## Advertisements
 Subnodal Technologies (the company who owns and operates GameProxy) controls the ads shown on the site. Ads shown are chosen completely at random. Content of some of the ads and their linked websites are controlled by third parties for which GameProxy is not responsible for the content and privacy information of third-party sites.

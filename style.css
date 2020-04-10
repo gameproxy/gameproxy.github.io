@@ -229,8 +229,7 @@ input.search {
 }
 
 input[type="file"] {
-    background-color: transparent;
-    width: calc(100% - 40px);
+    width: 215px;
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
@@ -351,6 +350,42 @@ embed {
     height: 60vh;
 }
 
+aside {
+    width: 200px;
+    padding-right: 10px;
+    float: left;
+}
+
+aside a {
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: var(--lightMainText);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 1s background-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+aside a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+aside a.selected {
+    background-color: var(--primaryColour);
+    color: var(--lightAccentText);
+}
+
+aside + div {
+    width: calc(100% - 210px);
+    float: right;
+}
+
+.floatSpacer {
+    clear: both;
+}
+
 .desktop {
     display: unset;
 }
@@ -417,6 +452,11 @@ embed {
 
 .noMargin {
     margin: 0;
+}
+
+.marginBottomOnly {
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 .cutOff {
@@ -1239,6 +1279,21 @@ select.attributionGameUploadField {
 
     button.motd {
         display: none;
+    }
+
+    aside {
+        width: unset;
+        padding-right: 0;
+        float: none;
+    }
+    
+    aside a {
+        display: inline-block;
+    }
+    
+    aside + div {
+        width: unset;
+        float: none;
     }
 
     .desktop {

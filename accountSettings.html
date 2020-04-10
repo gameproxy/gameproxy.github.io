@@ -68,35 +68,52 @@
                 <button onclick="window.location.href = 'account.html'">Sign In</button>
             </div>
             <div class="card coloured signedIn">
-                Customise your account. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
+                Change your account's email or password. <button onclick="window.location.href = 'account.html';" class="secondary">Back</button>
             </div>
             <aside class="signedIn">
-                <a href="settings.html" class="selected">Profile</a>
-                <a href="accountSettings.html">Email and password</a>
+                <a href="settings.html">Profile</a>
+                <a href="accountSettings.html" class="selected">Email and password</a>
                 <a href="proSettings.html">GameProxy Pro</a>
             </aside>
             <div class="signedIn">
                 <div class="card">
-                    <h2 class="marginBottomOnly">Profile picture</h2>
-                    <div class="center">
-                        <img src="media/AnonUser.png" class="accountPicture" />
-                    </div>
+                    <h2 class="marginBottomOnly">Email address</h2>
                     <label class="property">
-                        <span>New profile picture</span>
-                        <input type="file" id="ppicFile" name="file" accept="image/png" class="chooseImage" />
+                        <span>New email address</span>
+                        <input type="email" placeholder="Enter your new email" id="accountNewEmail">
+                        <input type="email" placeholder="Type your email again" id="accountNewEmailAgain">
+                        <button onclick="changeEmailAddress();">Change</button>
                     </label><br>
-                    <small>Be patient! Account pictures can take time to update.</small>
+                    <p id="emailError"></p>
                 </div>
                 <div class="card">
-                    <h2 class="marginBottomOnly">Username</h2>
+                    <h2 class="marginBottomOnly">Password</h2>
                     <label class="property">
-                        <span>Current username</span>
-                        <strong class="accountName">Loading...</strong>
+                        <span>New password</span>
+                        <input type="password" placeholder="Enter your new password" id="accountNewPassword">
+                        <input type="password" placeholder="Type your password again" id="accountNewPasswordAgain">
+                        <button onclick="changePassword();">Change</button>
                     </label><br>
-                    <label class="property">
-                        <span>New username</span>
-                        <input placeholder="Choose a new name..." id="nameSet"></input><button onclick="setName(profanity.clean($('#nameSet').val()));">Set</button>
-                    </label>
+                    <p id="passwordError"></p>
+                </div>
+                <div class="card">
+                    <h2 class="marginBottomOnly">Delete account</h2>
+                    <p>
+                        If you delete your account, there is no way that we can
+                        restore your account. Plus, the GameProxy team will miss
+                        you! We hope you come again soon.
+                    </p>
+                    <p>
+                        <strong>Note:</strong> Your games and comments will not
+                        be deleted when deleting your account. Please make sure
+                        that they are all deleted first, or they will still
+                        remain on GameProxy. Need help? Contact our support
+                        team:
+                        <a href="mailto:support@gameproxy.host">support@gameproxy.host</a>
+                    </p>
+                    <div class="right">
+                        <button onclick="showDeleteAccountDialog();" class="reallyBad">Delete account</button>
+                    </div>
                 </div>
             </div>
             <div class="floatSpacer"></div>
@@ -110,6 +127,7 @@
         <script src="staffList.js"></script>
         <script src="gpProList.js"></script>
         <script src="account.js"></script>
+        <script src="authlock.js"></script>
         <script src="pro/pro.js"></script>
     </body>
 </html>

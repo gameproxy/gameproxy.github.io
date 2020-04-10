@@ -84,21 +84,41 @@ function change(user) {
 
 var currentUid = null;
 var signingUp = false;
+var ensureAuth = false;
+
+if (getURLParameter("ensureAuth") == "true") {
+    firebase.auth().signOut();
+
+    ensureAuth = true;
+
+    $(function() {
+        $("#accountSignInMessage").text("You're going into some potentially dangerous account settings! Please sign in again for security purposes.")
+    });
+}
+
+if (getURLParameter("after") == "delete") {
+    $(function() {
+        $("#accountSignInMessage").text("Your account has been successfully deleted. We're sad to have you gone! 😔")
+    });
+}
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {currentUid = user.uid;} else {currentUid = null;}
 
-    // Checks if user auth state has changed.
-    if (!signingUp) {
-        change(user);
-    } else {
-        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20)).trim()).then(function() {
-            window.location.replace("index.html");
-        });
+    if (ensureAuth) {
+        ensureAuth = false;
+
+        return;
     }
 
-    if (getURLParameter("go") != null && window.location.pathname.split("/").pop() == "account.html" && user) {
-        window.location.replace(getURLParameter("go"));
+    if (!signingUp) {
+        change(user);
+    }
+
+    if (user && !signingUp) {
+        if (getURLParameter("go") != null && window.location.pathname.split("/").pop() == "account.html" && user) {
+            window.location.replace(getURLParameter("go"));
+        }
     }
 });
 
@@ -166,8 +186,17 @@ function signOutBefore() {
 
 function signUp() {
     document.getElementById("error").innerHTML = "";
+
     if (checkUsername()) {
-        firebase.auth().createUserWithEmailAndPassword($("#user").val(), $("#pass").val()).then(function() {signingUp = true;}).catch(function(error) {
+        signingUp = true;
+
+        debugger;
+
+        firebase.auth().createUserWithEmailAndPassword($("#user").val(), $("#pass").val()).then(function() {
+            firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20)).trim()).then(function() {
+                window.location.replace("index.html");
+            });
+        }).catch(function(error) {
             document.getElementById("error").innerHTML = "Oops! " + error.message;
         });
     }
@@ -211,6 +240,70 @@ function shareProfile() {
     );
 
     $(".shareProfileLink").val("/profile.html?user=" + currentUid);
+}
+
+function changeEmailAddress() {
+    if ($("#accountNewEmail").val().trim() == $("#accountNewEmailAgain").val().trim()) {
+        firebase.auth().currentUser.updateEmail($("#accountNewEmail").val().trim()).then(function() {
+            alert("Your email address has been successfully changed! Use it to sign in from now on.", "Change successful");
+        }).catch(function(error) {
+            $("#emailError").text(error.message);
+        });
+    } else {
+        $("#emailError").text("Make sure that both email addresses match!");
+    }
+}
+
+function changePassword() {
+    if ($("#accountNewPassword").val().trim() == $("#accountNewPasswordAgain").val().trim()) {
+        firebase.auth().currentUser.updatePassword($("#accountNewPassword").val().trim()).then(function() {
+            alert("Your password has been successfully changed! Use it to sign in from now on.", "Change successful");
+        }).catch(function(error) {
+            $("#passwordError").text(error.message);
+        });
+    } else {
+        $("#passwordError").text("Make sure that both passwords match!");
+    }
+}
+
+function deleteAccountError(error) {
+    alert(`
+        Sorry! Your account couldn't be deleted. Please try signing out or
+        signing back in again. If that doesn't work, please contact our support
+        team who will be happy to do it manually:
+        <a href="mailto:support@gameproxy.host">support@gameproxy.host</a>
+    `, "Couldn't delete account");
+
+    console.log("{gpxy:debug} Account deletion error:", error);
+}
+
+function deleteAccount() {
+    firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").delete().then(function() {
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set("[Deleted Account]").then(function() {
+            firebase.auth().currentUser.delete().then(function() {
+                window.location.replace("account.html?after=delete");
+            }).catch(function(error) {
+                deleteAccountError(error);
+            });
+        }).catch(function(error) {
+            deleteAccountError(error);
+        });
+    }).catch(function() {
+        firebase.auth().currentUser.delete().then(function() {
+            window.location.replace("account.html?after=delete");
+        }).catch(function(error) {
+            deleteAccountError(error);
+        });
+    });
+}
+
+function showDeleteAccountDialog() {
+    dialog("Delete account?", `
+        Do you really want to delete your account? This is your final chance to cancel!
+    `, [
+        {text: "Cancel", onclick: "closeDialog();", type: "bad"},
+        {text: "Delete", onclick: "deleteAccount(); closeDialog();", type: "reallyBad"}
+    ]);
 }
 
 var input = document.getElementById("pass");
