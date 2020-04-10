@@ -159,7 +159,7 @@ function addMessage(message) {
 
     var extraContent = $("<div>");
     var gameRegex = /https:\/\/gameproxy\.host\/game\.html\?play=([a-zA-Z0-9_-]{1,64})/;
-    var youtubeRegex = /https:\/\/www.youtube\.com\/watch\?v=([a-zA-Z0-9_-]{1,64})/;
+    var youtubeRegex = /https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]{1,64})/;
     var selectedGame = gameRegex.exec(message.content) != null ? gameRegex.exec(message.content)[1] : null;
     var selectedVideo = youtubeRegex.exec(message.content) != null ? youtubeRegex.exec(message.content)[1] : null;
 
