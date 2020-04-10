@@ -116,6 +116,10 @@ function cleanMessage(message) {
             newMessage += message[i];
         } else if (inMention) {
             newMessage += message[i].replace(/</g, "&lt;").replace(/>/, "&gt;").replace(/\*/g, "\\*")
+
+            if (message[i] == "}") {
+                inMention = false;
+            }
         } else {
             newMessage += message[i].replace(/</g, "&lt;").replace(/>/, "&gt;");
 
@@ -124,8 +128,6 @@ function cleanMessage(message) {
                     inCode = !inCode;
                 } else if (message[i] == "{") {
                     inMention = true;
-                } else if (message[i] == "}") {
-                    inMention = false;
                 }
             }
         }
