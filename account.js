@@ -190,8 +190,6 @@ function signUp() {
     if (checkUsername()) {
         signingUp = true;
 
-        debugger;
-
         firebase.auth().createUserWithEmailAndPassword($("#user").val(), $("#pass").val()).then(function() {
             firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20)).trim()).then(function() {
                 window.location.replace("index.html");
