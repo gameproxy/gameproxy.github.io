@@ -645,7 +645,7 @@ $(function() {
         } else if (gameData.src != undefined && gameData.src.startsWith("https://scratch.mit.edu/projects/")) {
             if (getURLParameter("xrun") == "true") {
                 $("#gameFrame").html(`
-                    <iframe src="` + xrunProxy + `https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" sandbox="allow-pointer-lock allow-same-origin allow-scripts" id="gameIframe"></iframe>
+                    <iframe src="` + xrunProxy + `https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `&turbo=false&full-screen=true&aspect-x=4&aspect-y=3&resolution-x=&resolution-y=" id="gameIframe"></iframe>
                     <div class="right">
                         <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>                        
                         <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary floatRight"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
@@ -653,7 +653,7 @@ $(function() {
                 `);
             } else {
                 $("#gameFrame").html(`
-                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" sandbox="allow-pointer-lock allow-same-origin allow-scripts" id="gameIframe"></iframe>
+                    <iframe src="https://scratch.mit.edu/projects/embed/` + gameData.src.split("/")[4] + `" id="gameIframe"></iframe>
                     <div class="right">
                         <button onclick="switchToCrossRun(true);" class="secondary"><i class="material-icons button">flash_on</i> Activate CrossRun</button>
                         <span class="balloonTarget">
@@ -673,7 +673,7 @@ $(function() {
         } else {
             if (getURLParameter("xrun") == "true") {
                 $("#gameFrame").html(`
-                    <iframe src="` + xrunProxy + gameData.src.replace(/"/g, "") + `" sandbox="allow-pointer-lock allow-same-origin allow-scripts" id="gameIframe"></iframe>
+                    <iframe src="` + xrunProxy + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
                     <div class="right">
                         <button onclick="switchToCrossRun(false);" class="secondary"><i class="material-icons button">offline_bolt</i> Disable CrossRun</button>                        
                         <button aria-label="Go fullscreen" title="Go fullscreen" onclick="fullscreen(true);" class="secondary"><i class="material-icons button">fullscreen</i> <span class="desktop">Fullscreen</span></button>
@@ -681,7 +681,7 @@ $(function() {
                 `);
             } else {
                 $("#gameFrame").html(`
-                    <iframe src="` + gameData.src.replace(/"/g, "") + `" sandbox="allow-pointer-lock allow-same-origin allow-scripts" id="gameIframe"></iframe>
+                    <iframe src="` + gameData.src.replace(/"/g, "") + `" id="gameIframe"></iframe>
                     <div class="right">
                         <button onclick="switchToCrossRun(true);" class="secondary">
                             <i class="material-icons button">flash_on</i>
@@ -909,4 +909,8 @@ function joinGameSession() {
             </div>
         `
     );
+}
+
+window.onbeforeunload = function () {                       
+    return "Do you really want to leave this game? Your progress may be lost!";
 }

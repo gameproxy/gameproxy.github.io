@@ -155,6 +155,43 @@ function addMessage(message) {
         usernameLink.find("strong").css("color", "#b3c20f");
     }
 
+    var extraContent = $("<div>");
+    var gameRegex = /https:\/\/gameproxy\.host\/game\.html\?play=([a-zA-Z0-9_-]{1,64})/;
+    var youtubeRegex = /https:\/\/www.youtube\.com\/watch\?v=([a-zA-Z0-9_-]{1,64})/;
+    var selectedGame = gameRegex.exec(message.content) != null ? gameRegex.exec(message.content)[1] : null;
+    var selectedVideo = youtubeRegex.exec(message.content) != null ? youtubeRegex.exec(message.content)[1] : null;
+
+    if (gameRegex.exec(message.content) != null) {
+        extraContent.append(
+            $("<a target='_blank' class='chatCard'>")
+                .attr("href", "https://gameproxy.host/game.html?play=" + selectedGame)
+                .attr("data-game", selectedGame)
+                .append([
+                    $("<strong>").text("GameProxy game"),
+                    $("<span>").text("Play on GameProxy")
+                ])
+        );
+
+        firebase.database().ref("games/" + selectedGame + "/title").on("value", function(snapshot) {
+            $(".chatCard[data-game='" + selectedGame + "'] > strong").text(snapshot.val());
+        });
+
+        firebase.database().ref("games/" + selectedGame + "/by").on("value", function(snapshot) {
+            $(".chatCard[data-game='" + selectedGame + "'] > span").text("By " + snapshot.val() + " · Play on GameProxy");
+        });
+    }
+
+    if (youtubeRegex.exec(message.content) != null) {
+        extraContent.append(
+            $("<div class='embedCard'>")
+            .append(
+                $("<iframe>")
+                    .attr("src", "https://www.youtube.com/embed/" + selectedVideo + "?ecver=1&iv_load_policy=1&yt:stretch=16:9&autohide=1&color=red")
+                    .attr("allowfullscreen", "true")
+            )
+        );
+    }
+
     $(".chatMessages").append(
         $("<div class='chatMessage'>").append([
             usernameLink,
@@ -163,7 +200,7 @@ function addMessage(message) {
                 .text(formatRelativeDate(message.date))
             ,
             $("<div class='messageContent'>")
-                .html(converter.makeHtml(cleanMessage(message.content)))
+                .html(converter.makeHtml(cleanMessage(message.content)) + extraContent.html())
         ])
     );
 

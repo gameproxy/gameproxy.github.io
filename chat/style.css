@@ -431,6 +431,37 @@ label.property .propertyInfo {
     text-align: right;
 }
 
+.chatMessage .chatCard {
+    display: inline-block;
+    width: 280px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--secondaryBackgroundColour);
+    border-radius: 5px;
+    color: var(--secondaryTextColour);
+    text-decoration: none;
+}
+
+.chatMessage .chatCard > * {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.chatMessage .embedCard {
+    width: 300px;
+    height: 150px;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.chatMessage .embedCard > iframe {
+    border: none;
+}
+
 .chatBoxContainer {
     position: absolute;
     top: calc(100vh - 70px);
