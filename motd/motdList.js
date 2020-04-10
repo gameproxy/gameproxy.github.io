@@ -18,6 +18,12 @@ var motdList = [
     },
 
     {
+        "src": "motd/100Users.png",
+        "alt": "Proudly celebrating 100 users! Sign up today. Can you get us to 200, or even 1,000?",
+        "onclick": "window.location.href = '/account.html';"
+    },
+
+    {
         "src": "motd/Merch.png",
         "alt": "We have merch! We deliver to nearly every country in the world, and have stickers, clothing, cases and much more!",
         "onclick": "window.location.href = 'https://www.redbubble.com/people/sebastiandoe5/works/35716450-gameproxy-official-merchandise?asc=u&ref=recent-owner';"
