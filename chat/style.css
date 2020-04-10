@@ -417,6 +417,13 @@ label.property .propertyInfo {
     margin-bottom: 5px;
 }
 
+.chatMessage > div img {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
 .chatMessage > .messageDate {
     float: right;
     width: 130px;
