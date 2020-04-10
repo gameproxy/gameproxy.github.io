@@ -29,7 +29,7 @@ function formatRelativeDate(date) {
     if (currentDate.getTime() - 86400000 < previousDate.getTime()) { // Within past 24 hours
         return padDigits(previousDate.getHours()) + ":" + padDigits(previousDate.getMinutes()) + ":" + padDigits(previousDate.getSeconds());
     } else { // All other times
-        return padDigits(previousDate.getDate()) + "/" + padDigits(previousDate.getMonth()) + "/" + previousDate.getFullYear();
+        return padDigits(previousDate.getDate()) + "/" + padDigits(previousDate.getMonth() + 1) + "/" + previousDate.getFullYear();
     }
 }
 
