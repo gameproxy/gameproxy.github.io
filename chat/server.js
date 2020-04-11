@@ -174,12 +174,14 @@ function addMessage(message) {
                 ])
         );
 
-        firebase.database().ref("games/" + selectedGame + "/title").on("value", function(snapshot) {
-            $(".chatCard[data-game='" + selectedGame + "'] > strong").text(snapshot.val());
-        });
-
-        firebase.database().ref("games/" + selectedGame + "/by").on("value", function(snapshot) {
-            $(".chatCard[data-game='" + selectedGame + "'] > span").text("By " + snapshot.val() + " · Play on GameProxy");
+        $(function() {
+            firebase.database().ref("games/" + selectedGame + "/title").on("value", function(snapshot) {
+                $(".chatCard[data-game='" + selectedGame + "'] > strong").text(snapshot.val());
+            });
+    
+            firebase.database().ref("games/" + selectedGame + "/by").on("value", function(snapshot) {
+                $(".chatCard[data-game='" + selectedGame + "'] > span").text("By " + snapshot.val() + " · Play on GameProxy");
+            });
         });
     }
 
