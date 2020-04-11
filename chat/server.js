@@ -159,9 +159,9 @@ function addMessage(message) {
 
     var extraContent = $("<div>");
     var gameRegex = /https:\/\/gameproxy\.host\/game\.html\?play=([a-zA-Z0-9_-]{1,64})/;
-    var youtubeRegex = /https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]{1,64})/;
+    var youtubeRegex = /(https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([a-zA-Z0-9_-]{1,64})/;
     var selectedGame = gameRegex.exec(message.content) != null ? gameRegex.exec(message.content)[1] : null;
-    var selectedVideo = youtubeRegex.exec(message.content) != null ? youtubeRegex.exec(message.content)[1] : null;
+    var selectedVideo = youtubeRegex.exec(message.content) != null ? youtubeRegex.exec(message.content)[2] : null;
 
     if (gameRegex.exec(message.content) != null) {
         extraContent.append(
@@ -185,9 +185,6 @@ function addMessage(message) {
         });
     }
 
-    // Make channels linkable from messages
-    message.content = message.content.replace(/#([a-z0-9]{1,64})/g, "[\#$1](channel:$1)");
-
     if (youtubeRegex.exec(message.content) != null) {
         extraContent.append(
             $("<div class='embedCard'>")
@@ -198,6 +195,9 @@ function addMessage(message) {
             )
         );
     }
+
+    // Make channels linkable from messages
+    message.content = message.content.replace(/#([a-z0-9]{1,64})/g, "[\#$1](channel:$1)");
 
     $(".chatMessages").append(
         $("<div class='chatMessage'>").append([
