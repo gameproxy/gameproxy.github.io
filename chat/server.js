@@ -185,6 +185,9 @@ function addMessage(message) {
         });
     }
 
+    // Make channels linkable from messages
+    message.content = message.content.replace(/#([a-z0-9]{1,64})/g, "[\#$1](channel:$1)");
+
     if (youtubeRegex.exec(message.content) != null) {
         extraContent.append(
             $("<div class='embedCard'>")
@@ -209,6 +212,29 @@ function addMessage(message) {
     );
 
     $(".chatMessage .messageContent a").attr("target", "_blank");
+
+    $(".chatMessage .messageContent a[href^='channel:']")
+        .attr("target", null)
+        .on("click", function(event) {
+            var channelName = $(event.target).attr("href").split(":")[1];
+
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channelList").once("value", function(snapshot) {
+                for (var key in snapshot.val()) {
+                    (function(key) {
+                        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channels/" + key + "/name").once("value", function(nameSnapshot) {
+                            console.log(nameSnapshot.val(), channelName);
+                            
+                            if (nameSnapshot.val() == channelName) {
+                                switchChannel(key);
+                            }
+                        });
+                    })(key);
+                }
+            });
+
+            return false;
+        })
+    ;
 
     if (atEnd) {
         $(".chatContainer").scrollTop($(".chatContainer")[0].scrollHeight);
