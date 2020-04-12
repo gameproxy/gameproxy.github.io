@@ -197,7 +197,7 @@ function addMessage(message) {
     }
 
     // Make channels linkable from messages
-    message.content = message.content.replace(/#([a-z0-9]{1,64})/g, "[\#$1](channel:$1)");
+    message.content = message.content.replace(/#([a-z0-9]{1,64})/g, "[#$1](channel:$1)");
 
     $(".chatMessages").append(
         $("<div class='chatMessage'>").append([
