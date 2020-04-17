@@ -371,7 +371,7 @@ $(function() {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").on("value", function(snapshot) {
             $(".owners").html("");
 
-            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {                
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {
                 $(".owners").append(
                     $("<a class='channelButton'>")
                         .attr("data-owner", masterownerSnapshot.val())

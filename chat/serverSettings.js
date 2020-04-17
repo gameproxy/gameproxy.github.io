@@ -302,17 +302,23 @@ function changeUserPrivileges(uid) {
 }
 
 function inviteUser(uid) {
-    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(true).then(function() {
-        firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(nameSnapshot) {
-            firebase.database().ref("users/" + uid + "/chat/invites").push().set({
-                server: getURLParameter("server"),
-                name: nameSnapshot.val()
-            }).then(function() {
-                refreshSettingsUserList();
-    
-                closeDialog();
+    firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {
+        if (Object.keys(serverOwners).indexOf(uid) < 0 && Object.keys(serverMembers).indexOf(uid) < 0 && uid != masterownerSnapshot.val()) {
+            firebase.database().ref("chat/servers/" + getURLParameter("server") + "/members/" + uid).set(true).then(function() {
+                firebase.database().ref("chat/servers/" + getURLParameter("server") + "/name").once("value", function(nameSnapshot) {
+                    firebase.database().ref("users/" + uid + "/chat/invites").push().set({
+                        server: getURLParameter("server"),
+                        name: nameSnapshot.val()
+                    }).then(function() {
+                        refreshSettingsUserList();
+            
+                        closeDialog();
+                    });
+                });
             });
-        });
+        } else {
+            closeDialog();
+        }
     });
 }
 
