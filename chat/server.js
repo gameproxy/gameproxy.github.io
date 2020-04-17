@@ -484,6 +484,8 @@ $(function() {
         });
     });
 
+    var lastScreenWidth = $(window).width();
+
     setInterval(function() {
         if ($(window).width() > 600) {
             $(".channelList").fadeIn();
@@ -491,6 +493,15 @@ $(function() {
 
             $(".channelDropdownIcon").text("arrow_drop_down");
         }
+
+        if (lastScreenWidth > 600 && $(window).width() <= 600) {
+            $(".channelList").fadeOut();
+            $(".chatContainer, .chatBoxContainer").fadeIn();
+
+            $(".channelDropdownIcon").text("arrow_drop_down");
+        }
+
+        lastScreenWidth = $(window).width();
     });
 
     $("#chatBox").keyup(function(event) {

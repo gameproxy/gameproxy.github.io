@@ -394,6 +394,10 @@ aside + div {
     display: none;
 }
 
+.under600 {
+    display: none;
+}
+
 .notSignedIn {
     display: none;
 }
@@ -1330,6 +1334,10 @@ select.attributionGameUploadField {
     label.property .propertyInfo {
         margin-top: 5px;
         margin-left: unset;
+    }
+
+    .under600 {
+        display: unset;
     }
 
     .item {
