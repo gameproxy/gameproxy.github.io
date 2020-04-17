@@ -176,11 +176,19 @@ function addMessage(message) {
 
         $(function() {
             firebase.database().ref("games/" + selectedGame + "/title").on("value", function(snapshot) {
-                $(".chatCard[data-game='" + selectedGame + "'] > strong").text(snapshot.val());
+                if (snapshot.val() != null) {
+                    $(".chatCard[data-game='" + selectedGame + "'] > strong").text(snapshot.val());
+                } else {
+                    $(".chatCard[data-game='" + selectedGame + "']").remove();
+                }
             });
     
             firebase.database().ref("games/" + selectedGame + "/by").on("value", function(snapshot) {
-                $(".chatCard[data-game='" + selectedGame + "'] > span").text("By " + snapshot.val() + " · Play on GameProxy");
+                if (snapshot.val() != null) {
+                    $(".chatCard[data-game='" + selectedGame + "'] > span").text("By " + snapshot.val() + " · Play on GameProxy");
+                } else {
+                    $(".chatCard[data-game='" + selectedGame + "']").remove();
+                }
             });
         });
     }
@@ -222,8 +230,6 @@ function addMessage(message) {
                 for (var key in snapshot.val()) {
                     (function(key) {
                         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/channels/" + key + "/name").once("value", function(nameSnapshot) {
-                            console.log(nameSnapshot.val(), channelName);
-                            
                             if (nameSnapshot.val() == channelName) {
                                 switchChannel(key);
                             }
