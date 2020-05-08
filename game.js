@@ -249,7 +249,7 @@ function deleteGameAction() {
     if (isStaff(currentUid) || gameData.uid == currentUid) {
         firebase.database().ref("games/" + getURLParameter("play")).set(null);
 
-        window.location.href = isStaff(currentUid) ? "admin.html" : "account";
+        window.location.href = isStaff(currentUid) ? "admin" : "account";
     } else {
         alert("Nice try, hacker! You'll never break our security.");
     }

@@ -161,7 +161,7 @@ self.addEventListener('install', e => {
         `/account`,
         `/account.js`,
         `/accountGameList.js`,
-        `/admin.html`,
+        `/admin`,
         `/adminGameList.js`,
         `/ads.js`,
         `/assignedLetters.md`,
