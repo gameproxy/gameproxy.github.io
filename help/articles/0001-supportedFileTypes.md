@@ -30,4 +30,4 @@ Ones we are working on:
 * Super Nintendo ROM (*.sfc)
 * Super Game Boy ROM File (*.sgb)
 
-[Want another type? Click here to request one.](https://gameproxy.github.io/report.html)
+[Want another type? Click here to request one.](https://gameproxy.github.io/report)

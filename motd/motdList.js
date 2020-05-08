@@ -2,7 +2,7 @@ var motdList = [
     {
         "src": "motd/Welcome.png",
         "alt": "Welcome to GameProxy.",
-        "onclick": "window.location.href = 'about.html';"
+        "onclick": "window.location.href = 'about';"
     },
 
     {
@@ -38,18 +38,18 @@ var motdList = [
     {
         "src": "motd/Verified.png",
         "alt": "If a game doesn't have a verified symbol, it may contain extreme violence, offensive material or inappropriate material.",
-        "onclick": "window.location.href = '/report.html';"
+        "onclick": "window.location.href = '/report';"
     },
 
     {
         "src": "motd/Staff1.png",
         "alt": "If the creator has a coloured name, it means it was officially uploaded by a staff member of GameProxy.",
-        "onclick": "window.location.href = '/about.html';"
+        "onclick": "window.location.href = '/about';"
     },
 
     {
         "src": "motd/Staff2.png",
         "alt": "If the creator has a coloured name, it means it was officially uploaded by a staff member of GameProxy.",
-        "onclick": "window.location.href = '/about.html';"
+        "onclick": "window.location.href = '/about';"
     }
 ];

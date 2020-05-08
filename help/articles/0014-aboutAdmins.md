@@ -4,7 +4,7 @@
 * Last updated: 13th October 2019
 
 GameProxy admins are special people on the site who make sure that all is
-working and that people are behaving in accordance to the [Terms](/terms.html).
+working and that people are behaving in accordance to the [Terms](/terms).
 GameProxy admins have duties to look after the site and maintain its
 repuatation. The GameProxy admins also answer support questions sent to
 [support@gameproxy.host](mailto:support@gameproxy.host).
