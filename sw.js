@@ -11,7 +11,7 @@ self.addEventListener('install', e => {
         `/lib/showdown.min.js`,
         `/lib/jquery.min.js`,
         `/footer.html`,
-        `/game.html`,
+        `/game`,
         `/media/Small.png`,
         `/media/Large.png`,
         `https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons`,

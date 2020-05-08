@@ -166,7 +166,7 @@ function addMessage(message) {
     if (gameRegex.exec(message.content) != null) {
         extraContent.append(
             $("<a target='_blank' class='chatCard'>")
-                .attr("href", "https://gameproxy.host/game.html?play=" + selectedGame)
+                .attr("href", "https://gameproxy.host/game?play=" + selectedGame)
                 .attr("data-game", selectedGame)
                 .append([
                     $("<strong>").text("GameProxy game"),

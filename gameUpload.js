@@ -78,7 +78,7 @@ function gameUpload() {
                             attributionText: attributionText,
                             attributionLink: attributionLink
                         }).then(function() {
-                            window.location.href = "game.html?play=" + newGame.key;
+                            window.location.href = "game?play=" + newGame.key;
                         });
                     }
                 );

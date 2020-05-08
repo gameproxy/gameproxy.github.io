@@ -207,7 +207,7 @@ $(document).ready(function () {
         } else if (e.altKey && e.which == 82) {
             // Alt + R (redirects to upload.html)
             window.location.href = "/upload.html";
-        } else if (window.location.href.indexOf("/game.html") > -1) {
+        } else if (window.location.href.indexOf("/game") > -1) {
             if (e.altKey && e.which == 76) {
                 // Alt + L (likes/unlikes game)
                 like();

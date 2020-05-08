@@ -74,7 +74,7 @@ function newNotification(key, value, unread = true) {
         $("<strong><a class='hidden'></strong>")
             .find("a")
             .text(value.targetName)
-            .attr("href", "/game.html?play=" + value.target)
+            .attr("href", "/game?play=" + value.target)
             .parent()
             .appendTo((unread ? ".notificationUnread " : ".notificationArchive ") + ".notification:first")
         ;

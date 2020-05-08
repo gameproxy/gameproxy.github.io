@@ -32,7 +32,7 @@ var motdList = [
     {
         "src": "motd/GameProxyChoice/TheHouse.png",
         "alt": "GameProxy Choice: The House",
-        "onclick": "window.location.href = '/game.html?play=-LTh3lHod5qJ7qZwGXQV';"
+        "onclick": "window.location.href = '/game?play=-LTh3lHod5qJ7qZwGXQV';"
     },
 
     {
