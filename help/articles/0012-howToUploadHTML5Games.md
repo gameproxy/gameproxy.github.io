@@ -19,7 +19,7 @@ Add the URL of the HTML5 game you are uploading. This could be something like Ja
 
 ### Thumbnail
 
-You can upload a thumbnail of the game. You can just copy the image URL from Google Images or follow Part 2 of [this](/help/index.html?article=0004-howToUploadAGameToGameProxy) GameProxy article.
+You can upload a thumbnail of the game. You can just copy the image URL from Google Images or follow Part 2 of [this](/help/?article=0004-howToUploadAGameToGameProxy) GameProxy article.
 
 ### Description
 

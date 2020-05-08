@@ -35,7 +35,7 @@ $(function() {
                         if (distance <= 0) {
                             $(".proSeconds").text("00, maybe");
                             
-                            window.location.href = "index.html";
+                            window.location.href = "/";
                         } else {
                             $(".proDays").text(pad(Math.floor(distance / (1000 * 60 * 60 * 24)), 2));
                             $(".proHours").text(pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2));

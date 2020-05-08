@@ -12,7 +12,7 @@ setInterval(function() {
     var distance = countdownDate - now;
 
     if (distance <= 0) {
-        window.location.href = "index.html";
+        window.location.href = "/";
     } else {
         $(".days").text(pad(Math.floor(distance / (1000 * 60 * 60 * 24)), 2));
         $(".hours").text(pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2));

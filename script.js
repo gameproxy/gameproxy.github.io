@@ -197,7 +197,7 @@ $(document).ready(function () {
     $('body').on('keydown',function(e){
         if (e.altKey && e.which == 71) {
             // Alt + G (redirects to index.html)
-            window.location.href = "/index.html";  
+            window.location.href = "/";  
         } else if (e.altKey && e.which == 67) {
             // Alt + C (redirects to chat.html)
             window.location.href = "/chat.html";

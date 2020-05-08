@@ -192,7 +192,7 @@ function signUp() {
 
         firebase.auth().createUserWithEmailAndPassword($("#user").val(), $("#pass").val()).then(function() {
             firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set(profanity.clean($("#name").val().substring(0, 20)).trim()).then(function() {
-                window.location.replace("index.html");
+                window.location.replace("/");
             });
         }).catch(function(error) {
             document.getElementById("error").innerHTML = "Oops! " + error.message;

@@ -3,7 +3,7 @@
 * First Published: 2nd November 2018
 * Last Updated: 3rd November 2018
 
-Hello, and welcome back to another GameProxy help article. Today, I'm going to explain how to upload games to GameProxy, right from when you have the file. If you would like to know what files you can upload to GameProxy, you can read this helpful article [here](https://gameproxy.github.io/help/index.html?article=0001-supportedFileTypes).
+Hello, and welcome back to another GameProxy help article. Today, I'm going to explain how to upload games to GameProxy, right from when you have the file. If you would like to know what files you can upload to GameProxy, you can read this helpful article [here](https://gameproxy.github.io/help/?article=0001-supportedFileTypes).
 
 If you go to the homepage of GameProxy and click on Account [here](https://gameproxy.github.io/account.html) or at the top of this page, you should be able to see an upload game box. If you add the name of your game, you can continue to the next step.
 
