@@ -42,7 +42,7 @@ function change(user) {
                 if (isStaff(currentUid)) {
                     $(".accountName").css("color", "#27ef70");
 
-                    if (window.location.pathname.split("/").pop() == "account.html") {
+                    if (window.location.pathname.split("/").pop() == "account") {
                         $(".adminBanner").show();
                     }
                 } else if (isGameProxyPro(currentUid)) {
@@ -50,7 +50,7 @@ function change(user) {
                 } else {
                     $(".accountName").css("color", "white");
                     
-                    if (window.location.pathname.split("/").pop() == "account.html") {
+                    if (window.location.pathname.split("/").pop() == "account") {
                         $(".adminBanner").hide();
                     }
                 }
@@ -59,7 +59,7 @@ function change(user) {
                     if (isStaff(currentUid)) {
                         $(".accountName").css("color", "#27ef70");
 
-                        if (window.location.pathname.split("/").pop() == "account.html") {
+                        if (window.location.pathname.split("/").pop() == "account") {
                             $(".adminBanner").show();
                         }
                     } else if (isGameProxyPro(currentUid)) {
@@ -116,7 +116,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 
     if (user && !signingUp) {
-        if (getURLParameter("go") != null && window.location.pathname.split("/").pop() == "account.html" && user) {
+        if (getURLParameter("go") != null && window.location.pathname.split("/").pop() == "account" && user) {
             window.location.replace(getURLParameter("go"));
         }
     }
@@ -237,7 +237,7 @@ function shareProfile() {
         `
     );
 
-    $(".shareProfileLink").val("/profile.html?user=" + currentUid);
+    $(".shareProfileLink").val("https://gameproxy.host/profile?user=" + currentUid);
 }
 
 function changeEmailAddress() {
@@ -279,7 +279,7 @@ function deleteAccount() {
     firebase.storage().ref("users/" + currentUid + "/_settings/ppic.png").delete().then(function() {
         firebase.database().ref("users/" + firebase.auth().currentUser.uid + "/_settings/name").set("[Deleted Account]").then(function() {
             firebase.auth().currentUser.delete().then(function() {
-                window.location.replace("account.html?after=delete");
+                window.location.replace("account?after=delete");
             }).catch(function(error) {
                 deleteAccountError(error);
             });
@@ -288,7 +288,7 @@ function deleteAccount() {
         });
     }).catch(function() {
         firebase.auth().currentUser.delete().then(function() {
-            window.location.replace("account.html?after=delete");
+            window.location.replace("account?after=delete");
         }).catch(function(error) {
             deleteAccountError(error);
         });

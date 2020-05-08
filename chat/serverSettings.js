@@ -349,7 +349,7 @@ function showInviteUserDialogSearch() {
                             $("<strong>").text(userList[i]["_settings"]["name"]),
                             $("<div class='floatRight'>").append([
                                 $("<button class='bad'>")
-                                    .attr("onclick", "window.open('/profile.html?user=" + userList[i].key + "');")
+                                    .attr("onclick", "window.open('/profile?user=" + userList[i].key + "');")
                                     .text("View profile")
                                 ,
                                 $("<button>")

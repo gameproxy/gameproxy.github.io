@@ -16,7 +16,7 @@ The following Terms have been updated on 10 April 2020 and are in immediate effe
 
 **2.4.** By creating Your account You agree to defend, indemnify and hold harmless GameProxy and its admins against all losses, claims, liabilities and damages whatsoever. You may not falsely represent GameProxy in any circumstances.
 
-**2.5.** You may terminate Your account by visiting the [GameProxy account settings page](https://gameproxy.host/accountSettings.html). By terminating Your account You are no longer subject to section 2 of these Terms.
+**2.5.** You may terminate Your account by visiting the [GameProxy account settings page](https://gameproxy.host/accountSettings). By terminating Your account You are no longer subject to section 2 of these Terms.
 
 **2.6.** If GameProxy finds a game that isn't attributed correctly when the original source is obvious, GameProxy is allowed to modify Your game to add the attribution.
 

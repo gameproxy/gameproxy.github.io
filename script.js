@@ -202,8 +202,8 @@ $(document).ready(function () {
             // Alt + C (redirects to chat.html)
             window.location.href = "/chat.html";
         } else if (e.altKey && e.which == 65) {
-            // Alt + A (redirects to account.html)
-            window.location.href = "/account.html";
+            // Alt + A (redirects to account)
+            window.location.href = "/account";
         } else if (e.altKey && e.which == 82) {
             // Alt + R (redirects to upload.html)
             window.location.href = "/upload.html";

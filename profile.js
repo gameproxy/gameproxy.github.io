@@ -14,7 +14,7 @@ function updateLastSeenInfo() {
 
 firebase.auth().onAuthStateChanged(function() {
     if (getURLParameter("user") == currentUid) {
-        window.location.href = "account.html";
+        window.location.href = "account";
     }
 });
 

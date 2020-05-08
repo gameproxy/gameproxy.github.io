@@ -20,7 +20,7 @@ var motdList = [
     {
         "src": "motd/100Users.png",
         "alt": "Proudly celebrating 100 users! Sign up today. Can you get us to 200, or even 1,000?",
-        "onclick": "window.location.href = '/account.html';"
+        "onclick": "window.location.href = '/account';"
     },
 
     {

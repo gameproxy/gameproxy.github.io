@@ -30,7 +30,7 @@ GameProxy wishes to inform users of its products and services that these third p
 ## Security
 GameProxy values your trust in providing them with your personal information, thus GameProxy are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and GameProxy cannot guarantee its absolute security.
 
-GameProxy gives you full control over your data and account. You may change your email address or password to your account ─ or delete your account ─ at [GameProxy's account settings page](https://gameproxy.host/accountSettings.html). Users who wish to delete their account entirely and all data associated with it must be aware that their games and comments must be deleted for this to happen.
+GameProxy gives you full control over your data and account. You may change your email address or password to your account ─ or delete your account ─ at [GameProxy's account settings page](https://gameproxy.host/accountSettings). Users who wish to delete their account entirely and all data associated with it must be aware that their games and comments must be deleted for this to happen.
 
 GameProxy may keep a backup of your account for security purposes ─ even after account deletion, and allows authorities to see the data held in specific accounts on request, and providing that their identity can be fully trusted. Please contact GameProxy at [support@gameproxy.host](mailto:support@gameproxy.host) if you wish to make a request for account data.
 

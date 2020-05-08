@@ -4,6 +4,6 @@ function getURLParameter(name) {
 
 $(function() {
     if (getURLParameter("authed") != "true") {
-        window.location.href = "account.html?ensureAuth=true&go=accountSettings.html?authed=true";
+        window.location.href = "account?ensureAuth=true&go=accountSettings?authed=true";
     }
 });
