@@ -7,6 +7,8 @@ var currentChannel = {
 
 var serverOwners = {};
 var serverMembers = {};
+var leavingServer = false;
+var deletingServer = false;
 
 function padDigits(digits) {
     return digits < 10 ? "0" + digits : String(digits);
@@ -469,7 +471,7 @@ $(function() {
                         }
 
                         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/masterowner").once("value", function(masterownerSnapshot) {
-                            if (members.indexOf(currentUid) == -1 && owners.indexOf(currentUid) == -1 && masterownerSnapshot.val() != currentUid && !deletingServer) {
+                            if (members.indexOf(currentUid) == -1 && owners.indexOf(currentUid) == -1 && masterownerSnapshot.val() != currentUid && !leavingServer && !deletingServer) {
                                 firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
                                     window.location.replace("serverKickOut.html");
                                 });

@@ -1,6 +1,6 @@
-var deletingServer = false;
-
 function leaveServer() {
+    leavingServer = true;
+
     firebase.database().ref("users/" + currentUid + "/_settings/chat/servers/" + getURLParameter("server")).set(null).then(function() {
         firebase.database().ref("chat/servers/" + getURLParameter("server") + "/owners").on("value", function(snapshot) {
             var ownersList = snapshot.val() == null ? [] : Object.keys(snapshot.val());
