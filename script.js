@@ -178,12 +178,6 @@ $(function() {
             window.location.href = "/notSupported.html";
         }
     })();
-
-    if (window.self != window.top) {
-        top.location.href = "https://gameproxy.host";
-    
-        $("body").html("");
-    }
 });
 
 function copyCurrentURL() {
