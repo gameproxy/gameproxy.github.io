@@ -41,10 +41,11 @@ main {
 }
 
 footer {
-    width: calc(100% - 4px);
+    width: calc(100% - 49px);
     margin: -8px;
     margin-bottom: -16px;
     padding: 10px;
+    padding-left: 55px;
     background-color: var(--primaryColour);
     color: var(--lightMainText);
 }
