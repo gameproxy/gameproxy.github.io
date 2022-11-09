@@ -20,7 +20,7 @@ var gameCategories = {
     "survival": "Survival"
 };
 
-var xrunProxy = "https://crossrun.herokuapp.com/";
+var xrunProxy = "https://crossrun.onrender.com/";
 var showingFullscreenControls = true;
 var isFullscreen = false;
 
